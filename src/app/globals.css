@@ -1,26 +1,281 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-primary: #D97706;
+  --color-primary-light: #F59E0B;
+  --color-primary-dark: #92400E;
+  --color-accent: #F59E0B;
+  --color-accent-light: #FBBF24;
+  --color-accent-dark: #B45309;
+  --color-cta: #FBBF24;
+  --color-surface: #FFFBEB;
+  --color-surface-alt: #FEF3C7;
+  --color-heading: #1a1a2e;
+  --color-heading-accent: #D97706;
+  --color-gold: #F59E0B;
+  --color-background: #ffffff;
+  --color-foreground: #292524;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ===== NIGHT MODE ===== */
+/* Transition for smooth theme switching */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Override theme CSS variables in night mode (for body + inline var() usage) */
+html.night {
+  --color-primary: #7C3AED;
+  --color-primary-light: #8B5CF6;
+  --color-primary-dark: #4C1D95;
+  --color-accent: #8B5CF6;
+  --color-accent-light: #A78BFA;
+  --color-accent-dark: #6D28D9;
+  --color-cta: #7C3AED;
+  --color-surface: #0F0F1A;
+  --color-surface-alt: #16162A;
+  --color-heading: #E2E8F0;
+  --color-heading-accent: #8B5CF6;
+  --color-gold: #8B5CF6;
+  --color-background: #0A0A14;
+  --color-foreground: #CBD5E1;
+}
+
+/* ---- @theme inline class overrides (critical: these are inlined, not CSS var based) ---- */
+.night .bg-surface { background-color: #0F0F1A !important; }
+.night .bg-surface-alt { background-color: #16162A !important; }
+.night .bg-cta { background-color: #7C3AED !important; }
+.night .bg-background { background-color: #0A0A14 !important; }
+.night .bg-primary { background-color: #7C3AED !important; }
+.night .bg-primary-dark { background-color: #4C1D95 !important; }
+.night .bg-primary-light { background-color: #8B5CF6 !important; }
+.night .bg-accent { background-color: #8B5CF6 !important; }
+.night .bg-accent-light { background-color: #A78BFA !important; }
+.night .bg-accent-dark { background-color: #6D28D9 !important; }
+.night .text-heading { color: #E2E8F0 !important; }
+.night .text-heading-accent { color: #8B5CF6 !important; }
+.night .text-primary { color: #A78BFA !important; }
+.night .text-primary-dark { color: #E2E8F0 !important; }
+.night .text-primary-light { color: #C4B5FD !important; }
+.night .text-accent { color: #A78BFA !important; }
+.night .text-accent-light { color: #C4B5FD !important; }
+.night .text-accent-dark { color: #8B5CF6 !important; }
+.night .text-gold { color: #A78BFA !important; }
+.night .text-foreground { color: #CBD5E1 !important; }
+.night .border-accent { border-color: #8B5CF6 !important; }
+.night .border-primary { border-color: #7C3AED !important; }
+.night .border-primary-dark { border-color: #4C1D95 !important; }
+.night .hover\:bg-cta:hover { background-color: #6D28D9 !important; }
+.night .hover\:bg-accent:hover { background-color: #7C3AED !important; }
+.night .hover\:bg-accent-light:hover { background-color: #A78BFA !important; }
+.night .hover\:text-accent:hover { color: #A78BFA !important; }
+.night .focus\:border-accent:focus { border-color: #8B5CF6 !important; }
+.night .focus\:ring-accent:focus { --tw-ring-color: #7C3AED !important; }
+.night .focus\:ring-accent\/20:focus { --tw-ring-color: rgba(139, 92, 246, 0.2) !important; }
+.night .group-hover\:text-accent { color: #A78BFA !important; }
+
+/* ---- @theme inline opacity variant overrides ---- */
+.night .bg-accent\/5 { background-color: rgba(139, 92, 246, 0.05) !important; }
+.night .bg-accent\/10 { background-color: rgba(139, 92, 246, 0.1) !important; }
+.night .bg-accent\/30 { background-color: rgba(139, 92, 246, 0.3) !important; }
+.night .text-accent\/30 { color: rgba(167, 139, 250, 0.3) !important; }
+.night .border-accent\/20 { border-color: rgba(139, 92, 246, 0.2) !important; }
+.night .hover\:border-accent\/50:hover { border-color: rgba(139, 92, 246, 0.5) !important; }
+.night .from-primary\/5 { --tw-gradient-from: rgba(124, 58, 237, 0.05) !important; }
+.night .to-accent\/10 { --tw-gradient-to: rgba(139, 92, 246, 0.1) !important; }
+
+/* ---- Base backgrounds ---- */
+.night .bg-white { background-color: #0A0A14 !important; }
+.night .bg-gray-50 { background-color: #16162A !important; }
+.night .bg-gray-100 { background-color: #1A1A2E !important; }
+.night .bg-gray-200 { background-color: #242442 !important; }
+.night .bg-gray-300 { background-color: #475569 !important; }
+.night .bg-gray-900 { background-color: #16162A !important; }
+.night .bg-green-100 { background-color: #052e16 !important; }
+
+/* ---- Amber → Purple backgrounds ---- */
+.night .bg-amber-50 { background-color: #1A1A2E !important; }
+.night .bg-amber-100 { background-color: #2E1065 !important; }
+.night .bg-amber-200 { background-color: #4C1D95 !important; }
+.night .bg-amber-300 { background-color: #6D28D9 !important; }
+.night .bg-amber-400 { background-color: #8B5CF6 !important; }
+.night .bg-amber-500 { background-color: #7C3AED !important; }
+.night .bg-amber-600 { background-color: #6D28D9 !important; }
+.night .bg-amber-800 { background-color: #3B0764 !important; }
+.night .bg-amber-900 { background-color: #1A1A2E !important; }
+
+/* ---- Amber → Purple text ---- */
+.night .text-amber-100 { color: #C4B5FD !important; }
+.night .text-amber-200 { color: #C4B5FD !important; }
+.night .text-amber-400 { color: #A78BFA !important; }
+.night .text-amber-500 { color: #8B5CF6 !important; }
+.night .text-amber-600 { color: #A78BFA !important; }
+.night .text-amber-700 { color: #C4B5FD !important; }
+.night .text-amber-800 { color: #DDD6FE !important; }
+.night .text-amber-900 { color: #F5F3FF !important; }
+
+/* ---- Gray text adjustments for readability ---- */
+.night .text-gray-300 { color: #94A3B8 !important; }
+.night .text-gray-400 { color: #64748B !important; }
+.night .text-gray-500 { color: #94A3B8 !important; }
+.night .text-gray-600 { color: #CBD5E1 !important; }
+.night .text-gray-700 { color: #E2E8F0 !important; }
+.night .text-gray-800 { color: #F1F5F9 !important; }
+
+/* ---- Border overrides ---- */
+.night .border-gray-100 { border-color: #1E293B !important; }
+.night .border-gray-200 { border-color: #334155 !important; }
+.night .border-gray-300 { border-color: #475569 !important; }
+.night .border-white { border-color: #6D28D9 !important; }
+.night .border-amber-200 { border-color: #4C1D95 !important; }
+.night .border-amber-300 { border-color: #6D28D9 !important; }
+.night .border-amber-400 { border-color: #7C3AED !important; }
+.night .border-amber-500 { border-color: #7C3AED !important; }
+
+/* ---- Gradient overrides (standard Tailwind amber) ---- */
+.night .from-amber-100 { --tw-gradient-from: #2E1065 !important; }
+.night .to-amber-50 { --tw-gradient-to: #1A1A2E !important; }
+.night .from-amber-900 { --tw-gradient-from: #0A0A14 !important; }
+.night .via-amber-800 { --tw-gradient-via: #1A1A2E !important; }
+.night .to-amber-900 { --tw-gradient-to: #0A0A14 !important; }
+.night .from-gray-50 { --tw-gradient-from: #16162A !important; }
+.night .to-white { --tw-gradient-to: #0A0A14 !important; }
+
+/* ---- Gradient overrides (@theme inline custom colors) ---- */
+.night .from-primary-dark { --tw-gradient-from: #4C1D95 !important; }
+.night .from-primary { --tw-gradient-from: #7C3AED !important; }
+.night .via-primary { --tw-gradient-via: #7C3AED !important; }
+.night .to-primary { --tw-gradient-to: #7C3AED !important; }
+.night .to-primary-light { --tw-gradient-to: #8B5CF6 !important; }
+
+/* ---- Opacity & alpha backgrounds ---- */
+.night .bg-amber-100\/60 { background-color: rgba(46, 16, 101, 0.4) !important; }
+.night .bg-white\/20 { background-color: rgba(255, 255, 255, 0.08) !important; }
+.night .bg-white\/15 { background-color: rgba(255, 255, 255, 0.06) !important; }
+.night .bg-white\/10 { background-color: rgba(255, 255, 255, 0.05) !important; }
+.night .border-white\/20 { border-color: rgba(255, 255, 255, 0.12) !important; }
+.night .border-white\/30 { border-color: rgba(255, 255, 255, 0.15) !important; }
+
+/* ---- Fill overrides (star ratings) ---- */
+.night .fill-amber-400 { fill: #A78BFA !important; }
+
+/* ---- Hover overrides ---- */
+.night .hover\:text-amber-600:hover { color: #A78BFA !important; }
+.night .hover\:text-amber-700:hover { color: #C4B5FD !important; }
+.night .hover\:bg-amber-50:hover { background-color: #16162A !important; }
+.night .hover\:bg-amber-300:hover { background-color: #6D28D9 !important; }
+.night .hover\:bg-amber-200:hover { background-color: #4C1D95 !important; }
+.night .hover\:bg-amber-400:hover { background-color: #8B5CF6 !important; }
+.night .hover\:bg-gray-50:hover { background-color: #16162A !important; }
+.night .hover\:bg-gray-100:hover { background-color: #1A1A2E !important; }
+.night .hover\:bg-gray-200:hover { background-color: #242442 !important; }
+.night .hover\:bg-black:hover { background-color: #0A0A14 !important; }
+
+/* ---- Focus overrides ---- */
+.night .focus\:border-amber-400:focus { border-color: #7C3AED !important; }
+.night .focus\:ring-amber-300:focus { --tw-ring-color: #6D28D9 !important; }
+
+/* ---- Shadow adjustments ---- */
+.night .shadow-sm { box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important; }
+.night .shadow-md { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5) !important; }
+.night .shadow-lg { box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5) !important; }
+.night .shadow-xl { box-shadow: 0 20px 25px rgba(0, 0, 0, 0.5) !important; }
+.night .hover\:shadow-md:hover { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6) !important; }
+.night .hover\:shadow-lg:hover { box-shadow: 0 10px 15px rgba(0, 0, 0, 0.6) !important; }
+.night .hover\:shadow-xl:hover { box-shadow: 0 20px 25px rgba(0, 0, 0, 0.6) !important; }
+
+/* ---- Header in night mode ---- */
+.night header.sticky { background-color: #0F0F1A !important; }
+.night header .border-b-\[3px\] { border-color: #7C3AED !important; }
+.night header .border-t { border-color: #1E293B !important; }
+
+/* ---- Footer in night mode ---- */
+.night footer { background-color: #4C1D95 !important; }
+.night footer .border-t { border-color: #6D28D9 !important; }
+.night footer .bg-white { background-color: #0F0F1A !important; }
+.night footer .text-amber-500 { color: #8B5CF6 !important; }
+
+/* ---- Mobile nav in night mode ---- */
+.night .md\:hidden.bg-white { background-color: #0F0F1A !important; }
+
+/* ---- All form elements in night mode ---- */
+.night select,
+.night input[type="email"],
+.night input[type="text"],
+.night input[type="tel"],
+.night input[type="date"],
+.night textarea {
+  background-color: #16162A !important;
+  color: #CBD5E1 !important;
+  border-color: #334155 !important;
+}
+.night select option { background-color: #16162A; color: #CBD5E1; }
+.night input::placeholder,
+.night textarea::placeholder { color: #64748B !important; }
+.night .placeholder-gray-400::placeholder { color: #64748B !important; }
+.night input[type="checkbox"] {
+  accent-color: #8B5CF6;
+}
+
+/* ---- Hero SVG curved bottom: match next section bg ---- */
+.night .hero-curve-fill { fill: #0A0A14; }
+
+/* ---- Decorative blurs in night mode ---- */
+.night .bg-amber-400.rounded-full.blur-3xl { background-color: rgba(124, 58, 237, 0.3) !important; }
+.night .bg-amber-300.rounded-full.blur-3xl { background-color: rgba(139, 92, 246, 0.2) !important; }
+
+/* ---- Prose text in night mode (legal pages) ---- */
+.night .prose h2 { color: #E2E8F0 !important; }
+.night .prose p { color: #CBD5E1 !important; }
+.night .prose a { color: #A78BFA !important; }
