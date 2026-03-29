@@ -1,5 +1,12 @@
+import { Metadata } from "next";
 import Link from "next/link";
 import { BookOpen, FileText, MapPin, ArrowRight } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Resources | Window Tint Exemption Guides & Tips",
+  description: "Helpful guides, state-specific requirements, and medical condition resources for window tint exemptions. Learn everything you need to know.",
+  alternates: { canonical: "https://myeyerx.net/resources" },
+};
 
 const categories = [
   {

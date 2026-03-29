@@ -1,3 +1,11 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description: "MyEyeRx privacy policy. Learn how we collect, use, and protect your personal and medical information.",
+  alternates: { canonical: "https://myeyerx.net/privacy-policy" },
+};
+
 export default function PrivacyPolicyPage() {
   return (
     <div className="min-h-screen bg-surface">

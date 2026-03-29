@@ -1,4 +1,11 @@
+import { Metadata } from "next";
 import { Shield, Lock, Eye, Server, UserCheck, FileCheck } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "HIPAA Compliance",
+  description: "Learn how MyEyeRx protects your medical information. Our platform is fully HIPAA compliant with end-to-end encryption and secure data storage.",
+  alternates: { canonical: "https://myeyerx.net/hipaa-compliance" },
+};
 
 const features = [
   {

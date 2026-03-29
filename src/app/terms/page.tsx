@@ -1,3 +1,11 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms & Conditions",
+  description: "MyEyeRx terms and conditions for using our medical window tint exemption evaluation services.",
+  alternates: { canonical: "https://myeyerx.net/terms" },
+};
+
 export default function TermsPage() {
   return (
     <div className="min-h-screen bg-surface">
