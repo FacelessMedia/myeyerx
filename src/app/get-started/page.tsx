@@ -14,19 +14,9 @@ import {
   Shield,
   Clock,
 } from "lucide-react";
+import { STATES } from "@/data/states";
 
-const states = [
-  "Alabama","Alaska","Arizona","Arkansas","California","Colorado",
-  "Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho",
-  "Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana",
-  "Maine","Maryland","Massachusetts","Michigan","Minnesota",
-  "Mississippi","Missouri","Montana","Nebraska","Nevada",
-  "New Hampshire","New Jersey","New Mexico","New York",
-  "North Carolina","North Dakota","Ohio","Oklahoma","Oregon",
-  "Pennsylvania","Rhode Island","South Carolina","South Dakota",
-  "Tennessee","Texas","Utah","Vermont","Virginia","Washington",
-  "West Virginia","Wisconsin","Wyoming",
-];
+const servedStates = STATES.filter((s) => s.served);
 
 const conditions = [
   "Photosensitivity / Chronic Light Sensitivity",
@@ -53,14 +43,17 @@ function GetStartedContent() {
     phone: "",
     dateOfBirth: "",
     state: preselectedState
-      ? states.find(
-          (s) => s.toLowerCase() === preselectedState.toLowerCase()
-        ) || ""
+      ? servedStates.find(
+          (s) => s.name.toLowerCase() === preselectedState.toLowerCase()
+        )?.name || ""
       : "",
     condition: "",
     conditionDetails: "",
     agreeTerms: false,
   });
+
+  const selectedStateData = servedStates.find((s) => s.name === formData.state);
+  const price = selectedStateData?.price ?? 225;
 
   const updateField = (field: string, value: string | boolean) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -148,18 +141,18 @@ function GetStartedContent() {
               Choose the state where your vehicle is registered.
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 max-h-96 overflow-y-auto pr-2">
-              {states.map((state) => (
+              {servedStates.map((state) => (
                 <button
-                  key={state}
-                  onClick={() => updateField("state", state)}
+                  key={state.name}
+                  onClick={() => updateField("state", state.name)}
                   className={`flex items-center gap-2 px-4 py-3 rounded-xl border text-sm font-medium transition-all ${
-                    formData.state === state
+                    formData.state === state.name
                       ? "border-accent bg-accent/10 text-accent"
                       : "border-gray-200 text-gray-700 hover:border-accent/50 hover:bg-gray-50"
                   }`}
                 >
                   <MapPin className="w-4 h-4 flex-shrink-0" />
-                  {state}
+                  {state.name}
                 </button>
               ))}
             </div>
@@ -367,7 +360,7 @@ function GetStartedContent() {
                     </p>
                   </div>
                   <span className="text-2xl font-extrabold text-accent">
-                    $79
+                    ${price}
                   </span>
                 </div>
                 <div className="flex items-center gap-4 mt-3 text-xs text-gray-500">
@@ -463,7 +456,7 @@ function GetStartedContent() {
                 disabled={!canProceed()}
                 className="inline-flex items-center gap-2 px-8 py-3 text-sm font-bold text-white bg-green-500 hover:bg-green-600 rounded-full transition-all shadow-md hover:shadow-lg disabled:opacity-40 disabled:cursor-not-allowed"
               >
-                Submit &amp; Pay $79
+                Submit &amp; Pay ${price}
                 <ArrowRight className="w-4 h-4" />
               </button>
             )}

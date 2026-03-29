@@ -54,6 +54,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: {
       canonical: `https://myeyerx.net/${state.slug}-window-tint-medical-exemption`,
     },
+    ...(state.served ? {} : { robots: { index: false, follow: true } }),
   };
 }
 
@@ -71,6 +72,19 @@ export default async function DynamicPage({ params }: PageProps) {
     name: `${state.name} Window Tint Medical Exemption`,
     description: state.metaDescription,
     url: `https://myeyerx.net/${state.slug}-window-tint-medical-exemption`,
+    dateModified: state.lastUpdated,
+    author: {
+      "@type": "Person",
+      name: "Toriano Dewberry",
+      jobTitle: "CEO & Licensed Optician",
+      url: "https://myeyerx.net/about",
+    },
+    reviewedBy: {
+      "@type": "Person",
+      name: "Dr. Elizabeth Rose Borowiec, OD",
+      jobTitle: "Licensed Optometrist",
+      url: "https://www.linkedin.com/in/elizabeth-borowiec-02a5b9293/",
+    },
     provider: { "@type": "MedicalBusiness", name: "MyEyeRx", url: "https://myeyerx.net", telephone: "(734) 644-1804" },
     about: { "@type": "MedicalCondition", name: "Photosensitivity" },
     breadcrumb: {
@@ -151,14 +165,36 @@ export default async function DynamicPage({ params }: PageProps) {
                 {state.name}{" "}
                 <span className="text-amber-500">Window Tint Medical Exemption</span>
               </h1>
-              <p className="text-gray-600 text-lg leading-relaxed mb-8">{state.processSummary}</p>
+              <p className="text-gray-600 text-lg leading-relaxed mb-6">{state.processSummary}</p>
+
+              {!state.served && (
+                <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-6">
+                  <div className="flex items-start gap-3">
+                    <AlertTriangle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="text-amber-800 font-semibold text-sm">Service Not Yet Available in {state.name}</p>
+                      <p className="text-amber-700 text-sm mt-1">We do not currently have licensed physicians available to serve {state.name}. We are actively working to expand our provider network to this state. Check back soon!</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href={`/get-started?state=${state.slug}`}
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-heading bg-cta hover:bg-amber-300 rounded-full transition-all shadow-md hover:shadow-lg"
-                >
-                  Get Your {state.abbreviation} Exemption <ArrowRight className="w-5 h-5" />
-                </Link>
+                {state.served ? (
+                  <Link
+                    href={`/get-started?state=${state.slug}`}
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-heading bg-cta hover:bg-amber-300 rounded-full transition-all shadow-md hover:shadow-lg"
+                  >
+                    Get Your {state.abbreviation} Exemption <ArrowRight className="w-5 h-5" />
+                  </Link>
+                ) : (
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-heading bg-gray-200 hover:bg-gray-300 rounded-full transition-all"
+                  >
+                    Contact Us for Updates <ArrowRight className="w-5 h-5" />
+                  </Link>
+                )}
                 <a
                   href={state.dmvUrl}
                   target="_blank"
@@ -167,6 +203,21 @@ export default async function DynamicPage({ params }: PageProps) {
                 >
                   Visit {state.dmvName} <ExternalLink className="w-4 h-4" />
                 </a>
+              </div>
+
+              {/* Author / Reviewer Byline */}
+              <div className="flex items-center gap-4 mt-8 pt-6 border-t border-gray-200">
+                <div className="flex -space-x-3">
+                  <div className="w-10 h-10 rounded-full bg-amber-100 border-2 border-white flex items-center justify-center text-xs font-bold text-amber-700">TD</div>
+                  <div className="w-10 h-10 rounded-full bg-blue-100 border-2 border-white flex items-center justify-center text-xs font-bold text-blue-700">EB</div>
+                </div>
+                <div className="text-xs text-gray-500 leading-relaxed">
+                  <span>Written by <Link href="/about" className="text-amber-600 font-semibold hover:underline">Toriano Dewberry</Link></span>
+                  <span className="mx-1">&middot;</span>
+                  <span>Reviewed by <a href="https://www.linkedin.com/in/elizabeth-borowiec-02a5b9293/" target="_blank" rel="noopener noreferrer" className="text-amber-600 font-semibold hover:underline">Dr. Elizabeth Borowiec, OD</a></span>
+                  <span className="mx-1">&middot;</span>
+                  <time dateTime={state.lastUpdated}>Updated {new Date(state.lastUpdated + "T00:00:00").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}</time>
+                </div>
               </div>
             </div>
 
@@ -229,14 +280,16 @@ export default async function DynamicPage({ params }: PageProps) {
               </div>
             ))}
           </div>
-          <div className="text-center mt-12">
-            <Link
-              href={`/get-started?state=${state.slug}`}
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-heading bg-cta hover:bg-amber-300 rounded-full transition-all shadow-md hover:shadow-lg"
-            >
-              Start Your {state.abbreviation} Application Now <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
+          {state.served && (
+            <div className="text-center mt-12">
+              <Link
+                href={`/get-started?state=${state.slug}`}
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-heading bg-cta hover:bg-amber-300 rounded-full transition-all shadow-md hover:shadow-lg"
+              >
+                Start Your {state.abbreviation} Application Now <ArrowRight className="w-5 h-5" />
+              </Link>
+            </div>
+          )}
         </div>
       </section>
 
@@ -363,24 +416,43 @@ export default async function DynamicPage({ params }: PageProps) {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-16 lg:py-20 bg-amber-500">
+      <section className={`py-16 lg:py-20 ${state.served ? "bg-amber-500" : "bg-gray-700"}`}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-4">
-            Ready to Get Your {state.name} Exemption?
-          </h2>
-          <p className="text-white/90 text-lg mb-8 max-w-xl mx-auto">
-            Connect with a licensed physician online and receive your signed {state.formName} within 24-48 hours.
-          </p>
-          <Link
-            href={`/get-started?state=${state.slug}`}
-            className="inline-flex items-center justify-center gap-2 px-10 py-4 text-base font-bold text-amber-900 bg-white hover:bg-amber-50 rounded-full transition-all shadow-lg hover:shadow-xl"
-          >
-            Start Your Application — ${state.price} <ArrowRight className="w-5 h-5" />
-          </Link>
-          <p className="text-white/70 text-xs mt-4 flex items-center justify-center gap-4">
-            <span className="flex items-center gap-1"><Shield className="w-3.5 h-3.5" /> HIPAA Compliant</span>
-            <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> 24-48hr Turnaround</span>
-          </p>
+          {state.served ? (
+            <>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-4">
+                Ready to Get Your {state.name} Exemption?
+              </h2>
+              <p className="text-white/90 text-lg mb-8 max-w-xl mx-auto">
+                Connect with a licensed physician online and receive your signed {state.formName} within 24-48 hours.
+              </p>
+              <Link
+                href={`/get-started?state=${state.slug}`}
+                className="inline-flex items-center justify-center gap-2 px-10 py-4 text-base font-bold text-amber-900 bg-white hover:bg-amber-50 rounded-full transition-all shadow-lg hover:shadow-xl"
+              >
+                Start Your Application — ${state.price} <ArrowRight className="w-5 h-5" />
+              </Link>
+              <p className="text-white/70 text-xs mt-4 flex items-center justify-center gap-4">
+                <span className="flex items-center gap-1"><Shield className="w-3.5 h-3.5" /> HIPAA Compliant</span>
+                <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> 24-48hr Turnaround</span>
+              </p>
+            </>
+          ) : (
+            <>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-4">
+                {state.name} Coming Soon
+              </h2>
+              <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto">
+                We are actively working to bring licensed physicians to {state.name}. Contact us to be notified when service becomes available.
+              </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 px-10 py-4 text-base font-bold text-gray-900 bg-white hover:bg-gray-50 rounded-full transition-all shadow-lg hover:shadow-xl"
+              >
+                Get Notified <ArrowRight className="w-5 h-5" />
+              </Link>
+            </>
+          )}
         </div>
       </section>
 

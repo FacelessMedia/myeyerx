@@ -10,16 +10,20 @@ import {
   CheckCircle,
   Heart,
   Stethoscope,
+  Linkedin,
+  ExternalLink,
+  MapPin,
+  GraduationCap,
 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About Us | Licensed Physician Window Tint Exemptions",
   description:
-    "MyEyeRx connects patients with licensed physicians for medical window tint exemption evaluations. HIPAA compliant, fast turnaround, trusted by thousands.",
+    "Meet the MyEyeRx team — founded by Toriano Dewberry, with medical evaluations by Dr. Elizabeth Rose Borowiec, OD. HIPAA compliant medical window tint exemptions.",
   openGraph: {
     title: "About Us | Licensed Physician Window Tint Exemptions",
     description:
-      "MyEyeRx connects patients with licensed physicians for medical window tint exemption evaluations.",
+      "Meet the MyEyeRx team — founded by Toriano Dewberry, with medical evaluations by Dr. Elizabeth Rose Borowiec, OD.",
     url: "https://myeyerx.net/about",
     siteName: "MyEyeRx",
     type: "website",
@@ -29,9 +33,48 @@ export const metadata: Metadata = {
   },
 };
 
+const aboutJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  name: "About MyEyeRx",
+  url: "https://myeyerx.net/about",
+  mainEntity: {
+    "@type": "MedicalBusiness",
+    name: "MyEyeRx",
+    url: "https://myeyerx.net",
+    telephone: "(734) 644-1804",
+    email: "Tory@myeyerx.net",
+    founder: {
+      "@type": "Person",
+      name: "Toriano Dewberry",
+      jobTitle: "CEO & Licensed Optician",
+      url: "https://myeyerx.net/about",
+      sameAs: ["https://www.linkedin.com/in/toriano-dewberry-33882939/"],
+    },
+    employee: {
+      "@type": "Person",
+      name: "Dr. Elizabeth Rose Borowiec",
+      jobTitle: "Medical Director & Licensed Optometrist",
+      sameAs: [
+        "https://www.linkedin.com/in/elizabeth-borowiec-02a5b9293/",
+        "https://doctor.webmd.com/doctor/elizabeth-borowiec-acb041d9-6953-41e9-a9b3-378dda9a95b5-overview",
+        "https://www.vitals.com/optometrists/1pqjgg/elizabeth-borowiec",
+      ],
+    },
+    sameAs: [
+      "https://www.youtube.com/@myeyerx",
+      "https://www.facebook.com/MyEyeRx",
+      "https://www.instagram.com/myeyerx/",
+      "https://www.tiktok.com/@myeyerx",
+    ],
+  },
+};
+
 export default function AboutPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutJsonLd) }} />
+
       {/* Breadcrumb */}
       <nav className="bg-surface border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
@@ -63,10 +106,10 @@ export default function AboutPage() {
             <div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-heading mb-6">Our Mission</h2>
               <p className="text-gray-600 leading-relaxed mb-4">
-                Millions of Americans suffer from medical conditions that make them highly sensitive to sunlight and UV radiation. For these individuals, darker vehicle window tint isn&apos;t a luxury — it&apos;s a medical necessity.
+                In the eyewear industry, there&apos;s a strong focus on promoting products like anti-glare lenses, tinted lenses, and polarized sunglasses for light sensitivity. However, the significant advantages of tinted car windows for drivers have often been overlooked.
               </p>
               <p className="text-gray-600 leading-relaxed mb-4">
-                MyEyeRx was founded to bridge the gap between patients and the medical documentation they need. We connect you with licensed physicians who can evaluate your condition through a simple online process and provide the official exemption certificate required by your state.
+                At MyEyeRx, we recognize the dual benefits of tinted windows in enhancing both safety and comfort for individuals sensitive to light. We connect you with licensed physicians who evaluate your condition through a simple online process and provide the official exemption certificate required by your state.
               </p>
               <p className="text-gray-600 leading-relaxed">
                 No office visits. No long waits. Just a straightforward path to the protection you need.
@@ -77,7 +120,7 @@ export default function AboutPage() {
                 { icon: Shield, label: "HIPAA Compliant", desc: "Your medical data is protected" },
                 { icon: Stethoscope, label: "Licensed Physicians", desc: "Board-certified evaluations" },
                 { icon: Clock, label: "24-48hr Turnaround", desc: "Fast certificate delivery" },
-                { icon: Users, label: "50 States Covered", desc: "Nationwide service" },
+                { icon: Users, label: "42+ States Served", desc: "Expanding nationwide" },
               ].map((item) => (
                 <div key={item.label} className="bg-surface rounded-2xl p-5 border border-gray-100 text-center">
                   <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center mx-auto mb-3">
@@ -92,8 +135,118 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* How We're Different */}
-      <section className="py-16 lg:py-20 bg-surface">
+      {/* Our Team */}
+      <section className="py-16 lg:py-20 bg-surface" id="team">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-heading text-center mb-4">
+            Meet Our Team
+          </h2>
+          <p className="text-gray-600 text-center max-w-2xl mx-auto mb-12">
+            MyEyeRx is led by experienced professionals dedicated to making medical window tint exemptions accessible to everyone who needs them.
+          </p>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Toriano Dewberry */}
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+              <div className="bg-amber-500 h-2" />
+              <div className="p-8">
+                <div className="flex items-start gap-5 mb-6">
+                  <div className="w-20 h-20 rounded-full bg-amber-100 border-4 border-amber-200 flex items-center justify-center flex-shrink-0">
+                    <span className="text-2xl font-extrabold text-amber-700">TD</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-extrabold text-heading">Toriano Dewberry</h3>
+                    <p className="text-amber-600 font-semibold text-sm">CEO & Founder</p>
+                    <p className="text-gray-500 text-sm">Licensed Optician</p>
+                  </div>
+                </div>
+                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                  Toriano (Tory) Dewberry is an optician, entrepreneur, and inventor who founded MyEyeRx to address an unmet need in the eyecare industry. With a background in optics from Wayne County Community College District and years of hands-on experience in the field, Tory recognized that many patients with light-sensitive conditions were being underserved.
+                </p>
+                <p className="text-gray-600 text-sm leading-relaxed mb-6">
+                  Based in Dearborn, Michigan, Tory has built MyEyeRx into a trusted resource helping patients across 42+ states obtain legitimate medical window tint exemptions through convenient online physician evaluations.
+                </p>
+                <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500">
+                  <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5" /> Dearborn, MI</span>
+                  <span className="flex items-center gap-1"><GraduationCap className="w-3.5 h-3.5" /> Wayne County Community College</span>
+                </div>
+                <div className="mt-4 pt-4 border-t border-gray-100 flex items-center gap-3">
+                  <a
+                    href="https://www.linkedin.com/in/toriano-dewberry-33882939/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-blue-700 bg-blue-50 rounded-full hover:bg-blue-100 transition-colors"
+                  >
+                    <Linkedin className="w-3.5 h-3.5" /> LinkedIn
+                  </a>
+                  <a
+                    href="mailto:Tory@myeyerx.net"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-gray-600 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors"
+                  >
+                    Tory@myeyerx.net
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Dr. Elizabeth Borowiec */}
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+              <div className="bg-blue-500 h-2" />
+              <div className="p-8">
+                <div className="flex items-start gap-5 mb-6">
+                  <div className="w-20 h-20 rounded-full bg-blue-100 border-4 border-blue-200 flex items-center justify-center flex-shrink-0">
+                    <span className="text-2xl font-extrabold text-blue-700">EB</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-extrabold text-heading">Dr. Elizabeth Rose Borowiec, OD</h3>
+                    <p className="text-blue-600 font-semibold text-sm">Medical Director</p>
+                    <p className="text-gray-500 text-sm">Licensed Optometrist</p>
+                  </div>
+                </div>
+                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                  Dr. Elizabeth Rose Borowiec is a licensed optometrist practicing in the Detroit, Michigan area. She provides the medical oversight and physician evaluations that form the foundation of MyEyeRx&apos;s services, ensuring every exemption certificate is backed by a thorough and legitimate medical evaluation.
+                </p>
+                <p className="text-gray-600 text-sm leading-relaxed mb-6">
+                  With expertise in optometry and a focus on light-sensitive conditions, Dr. Borowiec reviews patient medical histories, conducts evaluations, and provides the signed medical documentation required for window tint exemptions across multiple states.
+                </p>
+                <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500">
+                  <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5" /> Detroit, MI</span>
+                  <span className="flex items-center gap-1"><Stethoscope className="w-3.5 h-3.5" /> Optometry (OD)</span>
+                </div>
+                <div className="mt-4 pt-4 border-t border-gray-100 flex flex-wrap items-center gap-3">
+                  <a
+                    href="https://www.linkedin.com/in/elizabeth-borowiec-02a5b9293/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-blue-700 bg-blue-50 rounded-full hover:bg-blue-100 transition-colors"
+                  >
+                    <Linkedin className="w-3.5 h-3.5" /> LinkedIn
+                  </a>
+                  <a
+                    href="https://doctor.webmd.com/doctor/elizabeth-borowiec-acb041d9-6953-41e9-a9b3-378dda9a95b5-overview"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-gray-600 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5" /> WebMD
+                  </a>
+                  <a
+                    href="https://www.vitals.com/optometrists/1pqjgg/elizabeth-borowiec"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-gray-600 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5" /> Vitals
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Patients Trust Us */}
+      <section className="py-16 lg:py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-heading text-center mb-12">
             Why Patients Trust MyEyeRx
@@ -121,7 +274,7 @@ export default function AboutPage() {
                 description: "Your personal and medical information is protected with industry-standard encryption and strict HIPAA compliance. We never share your data with third parties.",
               },
             ].map((item) => (
-              <div key={item.title} className="flex gap-5 bg-white rounded-2xl p-6 border border-gray-100">
+              <div key={item.title} className="flex gap-5 bg-surface rounded-2xl p-6 border border-gray-100">
                 <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center flex-shrink-0">
                   <item.icon className="w-6 h-6 text-amber-600" />
                 </div>
@@ -136,7 +289,7 @@ export default function AboutPage() {
       </section>
 
       {/* Contact Info */}
-      <section className="py-16 lg:py-20 bg-white">
+      <section className="py-16 lg:py-20 bg-surface">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-heading mb-6">Get In Touch</h2>
           <p className="text-gray-600 text-lg mb-8">

@@ -62,9 +62,30 @@ const organizationJsonLd = {
     "@type": "PostalAddress",
     addressCountry: "US",
   },
-  sameAs: [],
-  medicalSpecialty: "Ophthalmology",
-  priceRange: "$79",
+  sameAs: [
+    "https://www.youtube.com/@myeyerx",
+    "https://www.facebook.com/MyEyeRx",
+    "https://www.instagram.com/myeyerx/",
+    "https://www.tiktok.com/@myeyerx",
+  ],
+  founder: {
+    "@type": "Person",
+    name: "Toriano Dewberry",
+    jobTitle: "CEO & Licensed Optician",
+    url: "https://myeyerx.net/about",
+    sameAs: ["https://www.linkedin.com/in/toriano-dewberry-33882939/"],
+  },
+  employee: {
+    "@type": "Person",
+    name: "Dr. Elizabeth Rose Borowiec, OD",
+    jobTitle: "Medical Director & Licensed Optometrist",
+    sameAs: [
+      "https://www.linkedin.com/in/elizabeth-borowiec-02a5b9293/",
+      "https://doctor.webmd.com/doctor/elizabeth-borowiec-acb041d9-6953-41e9-a9b3-378dda9a95b5-overview",
+    ],
+  },
+  medicalSpecialty: "Optometry",
+  priceRange: "$225-$350",
 };
 
 export default function RootLayout({
