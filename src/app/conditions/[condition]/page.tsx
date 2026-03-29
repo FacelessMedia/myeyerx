@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { CONDITIONS, STATES, getConditionBySlug } from "@/data/states";
+import { getArticlesForCondition } from "@/data/articles";
 import {
   ArrowRight,
   CheckCircle,
@@ -51,6 +52,7 @@ export default async function ConditionPage({ params }: PageProps) {
   if (!condition) notFound();
 
   const servedStates = STATES.filter((s) => s.served);
+  const relatedArticles = getArticlesForCondition(condition.slug);
   const pageUrl = `https://myeyerx.net/conditions/${condition.slug}`;
 
   const faqItems = [
@@ -358,6 +360,37 @@ export default async function ConditionPage({ params }: PageProps) {
           </p>
         </div>
       </section>
+
+      {/* H2: Related Resources */}
+      {relatedArticles.length > 0 && (
+        <section className="py-16 lg:py-20 bg-white">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-heading mb-4">
+              Helpful Resources for {condition.name}
+            </h2>
+            <p className="text-gray-600 text-sm mb-8">
+              Learn more about managing light sensitivity and protecting yourself with these in-depth guides.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {relatedArticles.map((article) => (
+                <Link
+                  key={article.slug}
+                  href={`/resources/${article.slug}`}
+                  className="bg-surface rounded-2xl border border-gray-100 p-5 hover:border-amber-300 hover:shadow-md transition-all group flex flex-col"
+                >
+                  <span className="text-xs font-bold text-amber-600 uppercase tracking-wider">{article.category}</span>
+                  <h3 className="font-bold text-heading text-sm mt-2 mb-2 group-hover:text-amber-600 transition-colors leading-snug flex-1">
+                    {article.title}
+                  </h3>
+                  <span className="text-amber-600 text-xs font-semibold flex items-center gap-1 mt-auto">
+                    Read article <ArrowRight className="w-3 h-3" />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* H2: Other Qualifying Conditions */}
       <section className="py-16 lg:py-20 bg-surface">

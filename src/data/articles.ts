@@ -472,3 +472,171 @@ export function getArticleBySlug(slug: string): Article | undefined {
 export function getArticlesByCategory(categorySlug: string): Article[] {
   return ARTICLES.filter((a) => a.categorySlug === categorySlug);
 }
+
+/** Maps condition slugs → relevant article slugs for cross-linking */
+const CONDITION_ARTICLES: Record<string, string[]> = {
+  "migraines": [
+    "migraines-and-light",
+    "track-migraine-triggers",
+    "migraine-trigger-stacking",
+    "green-light-therapy",
+    "migraine-emergency-kit",
+    "fl-41-glasses-light-sensitivity",
+  ],
+  "photosensitivity": [
+    "living-with-light-sensitivity",
+    "understanding-photophobia",
+    "medications-that-cause-light-sensitivity",
+    "light-proof-your-home",
+    "fl-41-glasses-light-sensitivity",
+  ],
+  "lupus": [
+    "living-with-light-sensitivity",
+    "medications-that-cause-light-sensitivity",
+    "complete-guide-to-window-tint-medical-exemptions",
+    "light-proof-your-home",
+    "best-sunglasses-for-driving",
+  ],
+  "melanoma": [
+    "complete-guide-to-window-tint-medical-exemptions",
+    "ceramic-window-tint-medical-use",
+    "darker-tint-not-more-uv-protection",
+    "understanding-vlt-percentages",
+    "best-sunglasses-for-driving",
+  ],
+  "lasik-post-surgical": [
+    "understanding-photophobia",
+    "fl-41-glasses-light-sensitivity",
+    "best-sunglasses-for-driving",
+    "living-with-light-sensitivity",
+    "night-driving-tips-light-sensitivity",
+  ],
+  "astigmatism": [
+    "best-sunglasses-for-driving",
+    "night-driving-tips-light-sensitivity",
+    "computer-settings-light-sensitivity",
+    "20-20-20-rule-light-sensitivity",
+    "vehicle-accessories-light-sensitivity",
+  ],
+  "dry-eye-syndrome": [
+    "living-with-light-sensitivity",
+    "understanding-photophobia",
+    "best-light-bulbs-light-sensitivity",
+    "fl-41-glasses-light-sensitivity",
+    "computer-settings-light-sensitivity",
+  ],
+  "cataracts": [
+    "best-sunglasses-for-driving",
+    "night-driving-tips-light-sensitivity",
+    "understanding-photophobia",
+    "understanding-vlt-percentages",
+    "vehicle-accessories-light-sensitivity",
+  ],
+  "rosacea": [
+    "living-with-light-sensitivity",
+    "ceramic-window-tint-medical-use",
+    "best-sunglasses-for-driving",
+    "light-proof-your-home",
+    "complete-guide-to-window-tint-medical-exemptions",
+  ],
+  "xeroderma-pigmentosum": [
+    "complete-guide-to-window-tint-medical-exemptions",
+    "ceramic-window-tint-medical-use",
+    "darker-tint-not-more-uv-protection",
+    "understanding-vlt-percentages",
+    "light-proof-your-home",
+  ],
+  "porphyria": [
+    "complete-guide-to-window-tint-medical-exemptions",
+    "living-with-light-sensitivity",
+    "light-proof-your-home",
+    "best-sunglasses-for-driving",
+    "ceramic-window-tint-medical-use",
+  ],
+  "albinism": [
+    "living-with-light-sensitivity",
+    "best-sunglasses-for-driving",
+    "ceramic-window-tint-medical-use",
+    "light-proof-your-home",
+    "understanding-vlt-percentages",
+  ],
+  "uveitis": [
+    "understanding-photophobia",
+    "fl-41-glasses-light-sensitivity",
+    "living-with-light-sensitivity",
+    "best-sunglasses-for-driving",
+    "medications-that-cause-light-sensitivity",
+  ],
+  "keratitis": [
+    "understanding-photophobia",
+    "living-with-light-sensitivity",
+    "fl-41-glasses-light-sensitivity",
+    "best-sunglasses-for-driving",
+    "computer-settings-light-sensitivity",
+  ],
+  "corneal-conditions": [
+    "understanding-photophobia",
+    "fl-41-glasses-light-sensitivity",
+    "living-with-light-sensitivity",
+    "night-driving-tips-light-sensitivity",
+    "best-sunglasses-for-driving",
+  ],
+  "retinitis-pigmentosa": [
+    "night-driving-tips-light-sensitivity",
+    "best-sunglasses-for-driving",
+    "vehicle-accessories-light-sensitivity",
+    "living-with-light-sensitivity",
+    "understanding-photophobia",
+  ],
+  "traumatic-brain-injury": [
+    "migraines-and-light",
+    "fl-41-glasses-light-sensitivity",
+    "understanding-photophobia",
+    "living-with-light-sensitivity",
+    "computer-settings-light-sensitivity",
+  ],
+  "blepharospasm": [
+    "understanding-photophobia",
+    "fl-41-glasses-light-sensitivity",
+    "best-sunglasses-for-driving",
+    "living-with-light-sensitivity",
+    "fluorescent-light-sensitivity",
+  ],
+  "dermatomyositis": [
+    "living-with-light-sensitivity",
+    "ceramic-window-tint-medical-use",
+    "light-proof-your-home",
+    "medications-that-cause-light-sensitivity",
+    "complete-guide-to-window-tint-medical-exemptions",
+  ],
+  "solar-urticaria": [
+    "living-with-light-sensitivity",
+    "ceramic-window-tint-medical-use",
+    "light-proof-your-home",
+    "best-sunglasses-for-driving",
+    "complete-guide-to-window-tint-medical-exemptions",
+  ],
+  "polymorphous-light-eruption": [
+    "living-with-light-sensitivity",
+    "ceramic-window-tint-medical-use",
+    "best-sunglasses-for-driving",
+    "light-proof-your-home",
+    "complete-guide-to-window-tint-medical-exemptions",
+  ],
+  "medication-induced-photosensitivity": [
+    "medications-that-cause-light-sensitivity",
+    "living-with-light-sensitivity",
+    "best-sunglasses-for-driving",
+    "fl-41-glasses-light-sensitivity",
+    "complete-guide-to-window-tint-medical-exemptions",
+  ],
+};
+
+/** Get related articles for a condition (returns up to 4 Article objects) */
+export function getArticlesForCondition(conditionSlug: string): Article[] {
+  const slugs = CONDITION_ARTICLES[conditionSlug] ?? [];
+  return slugs
+    .map((s) => ARTICLES.find((a) => a.slug === s))
+    .filter((a): a is Article => !!a)
+    .slice(0, 4);
+}
