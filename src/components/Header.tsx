@@ -45,12 +45,6 @@ export default function Header() {
                 </Link>
               ))}
               <ThemeToggle />
-              <Link
-                href="/get-started"
-                className="inline-flex items-center justify-center px-6 py-2.5 text-sm font-bold text-heading bg-cta hover:bg-amber-300 rounded-full transition-all shadow-md hover:shadow-lg"
-              >
-                Qualify Now
-              </Link>
             </nav>
 
             {/* Mobile Menu Button */}
@@ -83,13 +77,6 @@ export default function Header() {
               <span className="text-sm text-gray-500">Night Mode</span>
               <ThemeToggle />
             </div>
-            <Link
-              href="/get-started"
-              className="inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-heading bg-cta hover:bg-amber-300 rounded-full transition-all mt-1"
-              onClick={() => setMobileOpen(false)}
-            >
-              Qualify Now
-            </Link>
           </nav>
         </div>
       )}

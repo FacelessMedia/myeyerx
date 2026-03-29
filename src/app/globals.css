@@ -143,6 +143,10 @@ html.night {
 .night .bg-gray-300 { background-color: #475569 !important; }
 .night .bg-gray-900 { background-color: #16162A !important; }
 .night .bg-green-100 { background-color: #052e16 !important; }
+.night .bg-red-50 { background-color: #1A1A2E !important; }
+.night .border-red-200 { border-color: #7f1d1d !important; }
+.night .text-red-800 { color: #fca5a5 !important; }
+.night .text-red-700 { color: #fca5a5 !important; }
 
 /* ---- Amber → Purple backgrounds ---- */
 .night .bg-amber-50 { background-color: #1A1A2E !important; }
@@ -184,8 +188,10 @@ html.night {
 .night .border-amber-500 { border-color: #7C3AED !important; }
 
 /* ---- Gradient overrides (standard Tailwind amber) ---- */
+.night .from-amber-50 { --tw-gradient-from: #1A1A2E !important; }
 .night .from-amber-100 { --tw-gradient-from: #2E1065 !important; }
 .night .to-amber-50 { --tw-gradient-to: #1A1A2E !important; }
+.night .to-amber-100 { --tw-gradient-to: #2E1065 !important; }
 .night .from-amber-900 { --tw-gradient-from: #0A0A14 !important; }
 .night .via-amber-800 { --tw-gradient-via: #1A1A2E !important; }
 .night .to-amber-900 { --tw-gradient-to: #0A0A14 !important; }

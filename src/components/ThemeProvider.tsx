@@ -8,7 +8,7 @@ const ThemeContext = createContext<{
   theme: Theme;
   toggleTheme: () => void;
 }>({
-  theme: "light",
+  theme: "night",
   toggleTheme: () => {},
 });
 
@@ -17,13 +17,15 @@ export function useTheme() {
 }
 
 export default function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setTheme] = useState<Theme>("night");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const stored = localStorage.getItem("myeyerx-theme") as Theme | null;
-    if (stored === "night") {
-      setTheme("night");
+    if (stored === "light") {
+      setTheme("light");
+      document.documentElement.classList.remove("night");
+    } else {
       document.documentElement.classList.add("night");
     }
     setMounted(true);
