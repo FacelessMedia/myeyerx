@@ -6,10 +6,12 @@ import { Menu, X, Eye } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
-  { href: "#how-it-works", label: "Benefits" },
+  { href: "/conditions", label: "Conditions" },
+  { href: "/window-tint-laws-by-state", label: "Tint Laws" },
   { href: "/about", label: "About" },
   { href: "/faqs", label: "FAQs" },
   { href: "/resources", label: "Resources" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Header() {

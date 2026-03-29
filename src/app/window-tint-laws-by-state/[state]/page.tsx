@@ -49,18 +49,54 @@ export default async function StateLawPage({ params }: PageProps) {
   const state = getStateBySlug(slug);
   if (!state) notFound();
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: `${state.name} Window Tint Laws`,
-    description: `Complete guide to ${state.name} window tint laws including VLT limits, penalties, and medical exemption information.`,
-    url: `https://myeyerx.net/window-tint-laws-by-state/${state.slug}`,
-    publisher: {
-      "@type": "Organization",
-      name: "MyEyeRx",
-      url: "https://myeyerx.net",
+  const faqs = [
+    {
+      q: `What is the legal tint limit in ${state.name}?`,
+      a: `${state.name} allows ${state.tintLaws.frontSide} VLT on front side windows, ${state.tintLaws.backSide} VLT on back side windows, and ${state.tintLaws.rearWindow} VLT on the rear window. The windshield limit is ${state.tintLaws.windshield}.`,
     },
-    breadcrumb: {
+    {
+      q: `Can I get a medical exemption for darker tint in ${state.name}?`,
+      a: state.hasExemption
+        ? `Yes, ${state.name} allows medical exemptions for window tint. If you have a qualifying condition like photosensitivity, lupus, migraines, or melanoma, a licensed physician can certify your need for darker tint. MyEyeRx offers online evaluations starting at $${state.price}.`
+        : `${state.name} does not currently have a formal medical exemption program for window tint. However, regulations can change — check with the ${state.dmvName} for the most current information.`,
+    },
+    {
+      q: `What happens if I get pulled over with illegal tint in ${state.name}?`,
+      a: `${state.penalty} You may also be required to remove the illegal tint and provide proof of removal. A valid medical exemption certificate protects you from these penalties.`,
+    },
+    {
+      q: `How is window tint darkness measured in ${state.name}?`,
+      a: `Window tint darkness is measured by VLT (Visible Light Transmission) — the percentage of light that passes through the film. A lower VLT means darker tint. ${state.name} law enforcement uses a tint meter to check VLT during traffic stops.`,
+    },
+  ];
+
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: `${state.name} Window Tint Laws`,
+      description: `Complete guide to ${state.name} window tint laws including VLT limits, penalties, and medical exemption information.`,
+      url: `https://myeyerx.net/window-tint-laws-by-state/${state.slug}`,
+      author: { "@type": "Person", name: "Toriano Dewberry", jobTitle: "Licensed Optician" },
+      publisher: {
+        "@type": "Organization",
+        name: "MyEyeRx",
+        url: "https://myeyerx.net",
+        logo: { "@type": "ImageObject", url: "https://myeyerx.net/logo.png" },
+      },
+      dateModified: state.lastUpdated,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+    {
+      "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: "https://myeyerx.net" },
@@ -68,7 +104,7 @@ export default async function StateLawPage({ params }: PageProps) {
         { "@type": "ListItem", position: 3, name: `${state.name}`, item: `https://myeyerx.net/window-tint-laws-by-state/${state.slug}` },
       ],
     },
-  };
+  ];
 
   return (
     <>
@@ -231,12 +267,63 @@ export default async function StateLawPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Other State Laws */}
+      {/* FAQ Section */}
       <section className="py-16 lg:py-20 bg-surface">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-heading mb-8">
+            Frequently Asked Questions About {state.name} Tint Laws
+          </h2>
+          <div className="space-y-4">
+            {faqs.map((faq, i) => (
+              <details
+                key={i}
+                className="bg-white rounded-2xl border border-gray-100 group"
+                {...(i === 0 ? { open: true } : {})}
+              >
+                <summary className="flex items-center justify-between px-6 py-5 cursor-pointer list-none">
+                  <span className="font-semibold text-heading pr-4">{faq.q}</span>
+                  <ArrowRight className="w-4 h-4 text-gray-400 flex-shrink-0 transition-transform group-open:rotate-90" />
+                </summary>
+                <div className="px-6 pb-6">
+                  <p className="text-gray-600 leading-relaxed text-sm">{faq.a}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+
+          {/* Link to windowtintlaws.us for deeper info */}
+          <div className="mt-8 bg-white rounded-xl border border-gray-200 p-6 flex items-start gap-4">
+            <ExternalLink className="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" />
+            <div>
+              <p className="text-heading font-semibold text-sm mb-1">Want a deeper dive into {state.name} tint regulations?</p>
+              <p className="text-gray-600 text-sm">
+                Visit{" "}
+                <a
+                  href={`https://windowtintlaws.us`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-amber-600 font-semibold hover:underline"
+                >
+                  WindowTintLaws.us
+                </a>{" "}
+                for detailed enforcement guidance, vehicle-specific rules, and the latest {state.name} tint law updates.
+              </p>
+            </div>
+          </div>
+
+          {/* Author byline */}
+          <p className="text-gray-400 text-xs mt-6">
+            Written by Toriano Dewberry, Licensed Optician &amp; Founder of MyEyeRx. Last updated {state.lastUpdated}.
+          </p>
+        </div>
+      </section>
+
+      {/* Other State Laws — all 49 */}
+      <section className="py-16 lg:py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-xl font-bold text-heading mb-6">Window Tint Laws in Other States</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
-            {STATES.filter((s) => s.slug !== state.slug).slice(0, 12).map((s) => (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
+            {STATES.filter((s) => s.slug !== state.slug).map((s) => (
               <Link
                 key={s.slug}
                 href={`/window-tint-laws-by-state/${s.slug}`}
@@ -245,11 +332,6 @@ export default async function StateLawPage({ params }: PageProps) {
                 {s.name}
               </Link>
             ))}
-          </div>
-          <div className="mt-4">
-            <Link href="/window-tint-laws-by-state" className="text-sm text-amber-600 font-semibold hover:text-amber-700 transition-colors">
-              View all 50 states →
-            </Link>
           </div>
         </div>
       </section>

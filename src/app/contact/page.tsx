@@ -82,7 +82,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <h2 className="font-bold text-heading text-lg mb-1">Service Area</h2>
-                <p className="text-gray-700 font-semibold">All 50 U.S. States</p>
+                <p className="text-gray-700 font-semibold">42+ U.S. States</p>
                 <p className="text-gray-500 text-sm mt-1">100% online — no office visit needed</p>
               </div>
             </div>
@@ -97,7 +97,7 @@ export default function ContactPage() {
             {[
               { q: "How do I check the status of my application?", a: "You'll receive email updates at each step of the process. If you haven't heard back within 48 hours, please email Tory@myeyerx.net or call (734) 644-1804 with your name and application date." },
               { q: "Can I get a refund if I don't qualify?", a: "Please review our refund policy for details. If a physician determines you do not qualify for a medical exemption, contact us to discuss your options." },
-              { q: "Do you accept insurance?", a: "Window tint medical exemption evaluations are typically not covered by insurance. The $79 fee covers the complete physician evaluation and exemption certificate." },
+              { q: "Do you accept insurance?", a: "Window tint medical exemption evaluations are typically not covered by insurance. The evaluation fee (starting at $225) covers the complete physician evaluation and exemption certificate." },
             ].map((faq, i) => (
               <details key={i} className="bg-white rounded-xl border border-gray-200 group">
                 <summary className="flex items-center justify-between px-6 py-4 cursor-pointer list-none">

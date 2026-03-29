@@ -1,7 +1,5 @@
-"use client";
-
 import Link from "next/link";
-import { Eye } from "lucide-react";
+import Image from "next/image";
 
 const socialLinks = [
   { href: "https://www.youtube.com/@myeyerx", label: "YouTube", icon: (
@@ -18,31 +16,52 @@ const socialLinks = [
   )},
 ];
 
+const topStates = [
+  { slug: "florida-window-tint-medical-exemption", label: "Florida" },
+  { slug: "new-york-window-tint-medical-exemption", label: "New York" },
+  { slug: "texas-window-tint-medical-exemption", label: "Texas" },
+  { slug: "california-window-tint-medical-exemption", label: "California" },
+  { slug: "michigan-window-tint-medical-exemption", label: "Michigan" },
+  { slug: "georgia-window-tint-medical-exemption", label: "Georgia" },
+];
+
+const conditionLinks = [
+  { slug: "migraines", label: "Migraines" },
+  { slug: "lupus", label: "Lupus (SLE)" },
+  { slug: "photosensitivity", label: "Photosensitivity" },
+  { slug: "melanoma", label: "Melanoma" },
+  { slug: "lasik-post-surgical", label: "LASIK / Post-Surgical" },
+];
+
 export default function Footer() {
   return (
     <footer className="bg-amber-500">
-      {/* Top row */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
-          {/* Logo + contact + social */}
-          <div className="flex flex-col gap-3">
-            <Link href="/" className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-lg bg-white flex items-center justify-center">
-                <Eye className="w-5 h-5 text-amber-500" />
-              </div>
-              <span className="text-2xl font-extrabold text-white tracking-tight">
-                MyEyeRx
-              </span>
+      {/* Link columns */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
+          {/* Column 1: Brand + Contact */}
+          <div className="col-span-2 md:col-span-1">
+            <Link href="/" className="flex items-center gap-2.5 mb-4">
+              <Image
+                src="/logo.png"
+                alt="MyEyeRx"
+                width={140}
+                height={50}
+                className="h-10 w-auto"
+              />
             </Link>
-            <div className="flex items-center gap-4 mt-1">
-              <a href="tel:7346441804" className="text-white font-medium text-sm hover:underline">
+            <p className="text-white/90 text-sm mb-3 leading-relaxed">
+              Online medical window tint exemption evaluations with licensed physicians. Serving 42+ states.
+            </p>
+            <div className="space-y-1">
+              <a href="tel:7346441804" className="block text-white font-medium text-sm hover:underline">
                 (734) 644-1804
               </a>
-              <a href="mailto:Tory@myeyerx.net" className="text-white text-sm underline hover:no-underline">
+              <a href="mailto:Tory@myeyerx.net" className="block text-white text-sm hover:underline">
                 Tory@myeyerx.net
               </a>
             </div>
-            <div className="flex items-center gap-3 mt-2">
+            <div className="flex items-center gap-3 mt-4">
               {socialLinks.map((s) => (
                 <a
                   key={s.label}
@@ -58,38 +77,61 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* HIPAA Badge */}
-          <div className="flex items-center gap-3 bg-white/20 backdrop-blur-sm rounded-xl px-5 py-3 border border-white/30">
-            <div className="w-12 h-12 flex items-center justify-center">
-              <svg className="w-10 h-10 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
-              </svg>
-            </div>
-            <div>
-              <p className="text-white font-bold text-xs uppercase tracking-wider">HIPAA</p>
-              <p className="text-white font-bold text-xs uppercase tracking-wider">Compliant</p>
-            </div>
+          {/* Column 2: Top States */}
+          <div>
+            <h3 className="font-bold text-white text-sm uppercase tracking-wider mb-4">Top States</h3>
+            <ul className="space-y-2">
+              {topStates.map((s) => (
+                <li key={s.slug}>
+                  <Link href={`/${s.slug}`} className="text-white/90 text-sm hover:text-white transition-colors">
+                    {s.label}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link href="/window-tint-laws-by-state" className="text-white font-semibold text-sm hover:underline">
+                  All 50 States →
+                </Link>
+              </li>
+            </ul>
           </div>
 
-          {/* Subscribe */}
-          <div className="w-full lg:w-auto">
-            <h3 className="font-bold text-white text-base mb-1">Subscribe to MyEyeRx</h3>
-            <p className="text-white/80 text-xs mb-3">
-              Get reliable updates on window tint laws, renewals, and exemption guidelines.
-            </p>
-            <form className="flex gap-2" onSubmit={(e) => e.preventDefault()}>
-              <input
-                type="email"
-                placeholder="Email Address *"
-                className="flex-1 min-w-0 px-4 py-3 rounded-full text-sm bg-white text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-300"
-              />
-              <button
-                type="submit"
-                className="px-6 py-3 bg-amber-300 hover:bg-amber-200 text-amber-900 font-bold text-sm rounded-full transition-all whitespace-nowrap"
-              >
-                Subscribe
-              </button>
-            </form>
+          {/* Column 3: Conditions */}
+          <div>
+            <h3 className="font-bold text-white text-sm uppercase tracking-wider mb-4">Conditions</h3>
+            <ul className="space-y-2">
+              {conditionLinks.map((c) => (
+                <li key={c.slug}>
+                  <Link href={`/conditions/${c.slug}`} className="text-white/90 text-sm hover:text-white transition-colors">
+                    {c.label}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link href="/conditions" className="text-white font-semibold text-sm hover:underline">
+                  All Conditions →
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 4: Company */}
+          <div>
+            <h3 className="font-bold text-white text-sm uppercase tracking-wider mb-4">Company</h3>
+            <ul className="space-y-2">
+              <li><Link href="/about" className="text-white/90 text-sm hover:text-white transition-colors">About Us</Link></li>
+              <li><Link href="/faqs" className="text-white/90 text-sm hover:text-white transition-colors">FAQs</Link></li>
+              <li><Link href="/resources" className="text-white/90 text-sm hover:text-white transition-colors">Resources</Link></li>
+              <li><Link href="/contact" className="text-white/90 text-sm hover:text-white transition-colors">Contact</Link></li>
+              <li><Link href="/get-started" className="text-white/90 text-sm hover:text-white transition-colors">Get Started</Link></li>
+            </ul>
+            {/* HIPAA Badge */}
+            <div className="flex items-center gap-2 mt-6 bg-white/20 backdrop-blur-sm rounded-lg px-3 py-2 border border-white/30">
+              <svg className="w-6 h-6 text-white flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+              </svg>
+              <span className="text-white font-bold text-xs uppercase tracking-wider">HIPAA Compliant</span>
+            </div>
           </div>
         </div>
       </div>
@@ -103,14 +145,14 @@ export default function Footer() {
                 Privacy Policy
               </Link>
               <Link href="/terms" className="text-white/90 hover:text-white transition-colors">
-                Terms &amp; Condition
+                Terms &amp; Conditions
               </Link>
               <Link href="/hipaa-compliance" className="text-white/90 hover:text-white transition-colors">
                 HIPAA Compliance
               </Link>
             </div>
             <p className="text-white/80 text-sm">
-              &copy; 2026 MyEyeRx
+              &copy; {new Date().getFullYear()} MyEyeRx. All rights reserved.
             </p>
           </div>
         </div>

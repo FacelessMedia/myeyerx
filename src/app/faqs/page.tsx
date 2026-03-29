@@ -1,8 +1,13 @@
-"use client";
-
-import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { Metadata } from "next";
 import Link from "next/link";
+import { ChevronDown, ArrowRight } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "FAQs | Window Tint Medical Exemption Questions Answered",
+  description:
+    "Frequently asked questions about medical window tint exemptions. Learn about qualifying conditions, the evaluation process, pricing, and how MyEyeRx works.",
+  alternates: { canonical: "https://myeyerx.net/faqs" },
+};
 
 const faqCategories = [
   {
@@ -76,7 +81,7 @@ const faqCategories = [
       {
         question: "How much does it cost?",
         answer:
-          "The physician evaluation fee is $79. This is a one-time fee that covers your telemedicine consultation and, if approved, your signed medical exemption certificate.",
+          "The physician evaluation fee starts at $225 depending on your state (up to $350 for New York). This is a one-time fee that covers your telemedicine consultation and, if approved, your signed medical exemption certificate.",
       },
       {
         question: "What if I'm not approved?",
@@ -86,99 +91,113 @@ const faqCategories = [
       {
         question: "Do you accept insurance?",
         answer:
-          "At this time, we do not accept insurance. The $79 evaluation fee is an out-of-pocket expense. However, you may be able to use your HSA or FSA card to cover the cost.",
+          "At this time, we do not accept insurance. The evaluation fee (starting at $225) is an out-of-pocket expense. However, you may be able to use your HSA or FSA card to cover the cost.",
       },
     ],
   },
 ];
 
+// Build FAQPage schema from all questions
+const allFaqs = faqCategories.flatMap((cat) => cat.faqs);
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: allFaqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
+
 export default function FAQsPage() {
-  const [openItems, setOpenItems] = useState<Record<string, boolean>>({
-    "0-0": true,
-  });
-
-  const toggle = (key: string) => {
-    setOpenItems((prev) => ({ ...prev, [key]: !prev[key] }));
-  };
-
   return (
-    <div className="min-h-screen bg-surface">
-      <div className="bg-gradient-to-br from-primary-dark via-primary to-primary-light text-white py-16">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
+      <nav className="bg-surface border-b border-gray-100">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+          <ol className="flex items-center gap-2 text-sm text-gray-500">
+            <li><Link href="/" className="hover:text-amber-600 transition-colors">Home</Link></li>
+            <li>/</li>
+            <li className="text-heading font-medium">FAQs</li>
+          </ol>
+        </div>
+      </nav>
+
+      <section className="bg-surface py-12 lg:py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl sm:text-4xl font-extrabold mb-4">
-            Frequently Asked Questions
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-heading leading-tight mb-6">
+            Frequently Asked{" "}
+            <span className="text-amber-500">Questions</span>
           </h1>
-          <p className="text-amber-100 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             Everything you need to know about getting your medical window tint
             exemption through MyEyeRx.
           </p>
         </div>
-      </div>
+      </section>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {faqCategories.map((cat, ci) => (
-          <div key={ci} className="mb-12">
-            <h2 className="text-xl font-bold text-primary-dark mb-6 pb-2 border-b border-gray-200">
-              {cat.title}
-            </h2>
-            <div className="space-y-4">
-              {cat.faqs.map((faq, fi) => {
-                const key = `${ci}-${fi}`;
-                return (
-                  <div
-                    key={key}
-                    className="bg-white rounded-2xl border border-gray-100 overflow-hidden"
+      <section className="py-16 lg:py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {faqCategories.map((cat, ci) => (
+            <div key={ci} className="mb-12">
+              <h2 className="text-xl font-bold text-heading mb-6 pb-2 border-b border-gray-200">
+                {cat.title}
+              </h2>
+              <div className="space-y-4">
+                {cat.faqs.map((faq, fi) => (
+                  <details
+                    key={`${ci}-${fi}`}
+                    className="bg-surface rounded-2xl border border-gray-100 group"
+                    {...(ci === 0 && fi === 0 ? { open: true } : {})}
                   >
-                    <button
-                      onClick={() => toggle(key)}
-                      className="w-full flex items-center justify-between px-6 py-5 text-left"
-                    >
-                      <span className="font-semibold text-primary-dark pr-4">
+                    <summary className="flex items-center justify-between px-6 py-5 cursor-pointer list-none">
+                      <span className="font-semibold text-heading pr-4">
                         {faq.question}
                       </span>
-                      <ChevronDown
-                        className={`w-5 h-5 text-gray-400 flex-shrink-0 transition-transform ${
-                          openItems[key] ? "rotate-180" : ""
-                        }`}
-                      />
-                    </button>
-                    {openItems[key] && (
-                      <div className="px-6 pb-6">
-                        <p className="text-gray-600 leading-relaxed text-sm">
-                          {faq.answer}
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
+                      <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform group-open:rotate-180" />
+                    </summary>
+                    <div className="px-6 pb-6">
+                      <p className="text-gray-600 leading-relaxed text-sm">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </div>
+          ))}
+
+          <div className="bg-amber-50 rounded-2xl p-8 border border-amber-200 text-center">
+            <h3 className="text-xl font-bold text-heading mb-3">
+              Still have questions?
+            </h3>
+            <p className="text-gray-600 mb-6">
+              Our team is here to help. Contact us or start your application.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href="mailto:Tory@myeyerx.net"
+                className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-heading border-2 border-heading rounded-full hover:bg-gray-50 transition-all"
+              >
+                Email Us
+              </a>
+              <Link
+                href="/get-started"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-bold text-heading bg-cta hover:bg-amber-300 rounded-full transition-all shadow-md"
+              >
+                Get Started <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </div>
-        ))}
-
-        <div className="bg-accent/5 rounded-2xl p-8 border border-accent/20 text-center">
-          <h3 className="text-xl font-bold text-primary-dark mb-3">
-            Still have questions?
-          </h3>
-          <p className="text-gray-600 mb-6">
-            Our team is here to help. Contact us or start your application.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="mailto:support@myeyerx.net"
-              className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-accent border-2 border-accent rounded-full hover:bg-accent hover:text-white transition-all"
-            >
-              Contact Support
-            </a>
-            <Link
-              href="/get-started"
-              className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white bg-accent hover:bg-accent-light rounded-full transition-all"
-            >
-              Get Started
-            </Link>
-          </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </>
   );
 }

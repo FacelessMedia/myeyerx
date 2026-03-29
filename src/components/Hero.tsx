@@ -53,7 +53,7 @@ export default function Hero() {
             <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-extrabold leading-[1.15] tracking-tight text-heading mb-6">
               Get Your{" "}
               <span className="text-amber-500 italic">
-                Window Tint Exemption
+                Medical Window Tint Exemption
               </span>{" "}
               Online
             </h1>
