@@ -53,7 +53,22 @@ export default async function ArticlePage({ params }: PageProps) {
       headline: article.title,
       description: article.metaDescription,
       url: `https://myeyerx.net/resources/${article.slug}`,
-      author: { "@type": "Person", name: article.author, jobTitle: article.authorTitle },
+      author: {
+        "@type": "Person",
+        name: article.author,
+        jobTitle: article.authorTitle,
+        url: "https://myeyerx.net/about",
+        sameAs: ["https://www.linkedin.com/in/toriano-dewberry-33882939/"],
+      },
+      reviewedBy: {
+        "@type": "Person",
+        name: article.reviewer,
+        jobTitle: article.reviewerTitle,
+        sameAs: [
+          "https://www.linkedin.com/in/elizabeth-borowiec-02a5b9293/",
+          "https://doctor.webmd.com/doctor/elizabeth-borowiec-acb041d9-6953-41e9-a9b3-378dda9a95b5-overview",
+        ],
+      },
       publisher: {
         "@type": "Organization",
         name: "MyEyeRx",

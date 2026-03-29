@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import { STATES, CONDITIONS } from "@/data/states";
+import { ARTICLES } from "@/data/articles";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://myeyerx.net";
@@ -41,5 +42,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticPages, ...stateExemptionPages, ...stateLawPages, ...conditionPages];
+  const articlePages: MetadataRoute.Sitemap = ARTICLES.map((article) => ({
+    url: `${baseUrl}/resources/${article.slug}`,
+    lastModified: article.updatedDate,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...stateExemptionPages, ...stateLawPages, ...conditionPages, ...articlePages];
 }
