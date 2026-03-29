@@ -1,7 +1,8 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Clock, BookOpen } from "lucide-react";
+import { ArrowRight, Clock } from "lucide-react";
 import { ARTICLES } from "@/data/articles";
+import { ResourcesFilter } from "@/components/ResourcesFilter";
 
 export const metadata: Metadata = {
   title: "Resources | Window Tint Exemption Guides & Articles",
@@ -35,8 +36,8 @@ export default function ResourcesPage() {
             <span className="text-amber-500">Insights</span>
           </h1>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Expert guides, state-specific requirements, and everything you need
-            to know about medical window tint exemptions.
+            Expert guides on light sensitivity, migraines, driving, window tint,
+            and everything you need to know about medical exemptions.
           </p>
         </div>
       </section>
@@ -66,36 +67,11 @@ export default function ResourcesPage() {
         </div>
       </section>
 
-      {/* All Articles */}
+      {/* All Articles with Category Filtering */}
       <section className="py-12 lg:py-16 bg-surface">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-extrabold text-heading mb-8">All Articles</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {rest.map((article) => (
-              <Link
-                key={article.slug}
-                href={`/resources/${article.slug}`}
-                className="bg-white rounded-2xl border border-gray-100 p-6 hover:shadow-lg transition-shadow group flex flex-col"
-              >
-                <div className="w-full h-36 bg-gradient-to-br from-amber-50 to-amber-100 rounded-xl mb-5 flex items-center justify-center">
-                  <BookOpen className="w-10 h-10 text-amber-300" />
-                </div>
-                <span className="text-xs font-bold text-amber-600 uppercase tracking-wider">{article.category}</span>
-                <h3 className="font-bold text-heading mt-2 mb-2 group-hover:text-amber-600 transition-colors leading-snug">
-                  {article.title}
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed mb-4 flex-1">
-                  {article.excerpt}
-                </p>
-                <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-400 flex items-center gap-1"><Clock className="w-3 h-3" /> {article.readTime}</span>
-                  <span className="text-amber-600 font-semibold flex items-center gap-1">
-                    Read <ArrowRight className="w-3 h-3" />
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
+          <h2 className="text-2xl font-extrabold text-heading mb-8">Browse by Category</h2>
+          <ResourcesFilter articles={rest} />
         </div>
       </section>
 
