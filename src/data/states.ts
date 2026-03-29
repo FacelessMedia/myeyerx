@@ -1045,3 +1045,65 @@ export function getConditionBySlug(slug: string) {
 export function stateNameToSlug(name: string): string {
   return name.toLowerCase().replace(/\s+/g, "-");
 }
+
+/** Geographic nearby-states map for internal linking (slug → slugs) */
+const NEARBY_STATES_MAP: Record<string, string[]> = {
+  "alabama": ["florida", "georgia", "mississippi", "tennessee", "louisiana"],
+  "alaska": ["washington", "hawaii", "california", "oregon"],
+  "arizona": ["california", "nevada", "new-mexico", "utah", "colorado"],
+  "arkansas": ["mississippi", "missouri", "tennessee", "louisiana", "texas", "oklahoma"],
+  "california": ["arizona", "nevada", "oregon", "washington"],
+  "colorado": ["arizona", "new-mexico", "utah", "wyoming", "kansas", "nebraska"],
+  "connecticut": ["new-york", "massachusetts", "rhode-island", "new-jersey"],
+  "delaware": ["maryland", "new-jersey", "pennsylvania", "virginia"],
+  "florida": ["georgia", "alabama", "south-carolina", "tennessee"],
+  "georgia": ["florida", "alabama", "south-carolina", "tennessee", "north-carolina"],
+  "hawaii": ["california", "alaska", "washington", "oregon"],
+  "idaho": ["montana", "oregon", "washington", "wyoming", "utah", "nevada"],
+  "illinois": ["indiana", "iowa", "michigan", "missouri", "wisconsin", "kentucky"],
+  "indiana": ["illinois", "michigan", "ohio", "kentucky"],
+  "iowa": ["illinois", "minnesota", "missouri", "nebraska", "wisconsin", "south-dakota"],
+  "kansas": ["missouri", "oklahoma", "nebraska", "colorado"],
+  "kentucky": ["tennessee", "virginia", "west-virginia", "ohio", "indiana", "illinois"],
+  "louisiana": ["mississippi", "texas", "arkansas", "alabama"],
+  "maine": ["new-hampshire", "massachusetts", "vermont", "connecticut"],
+  "maryland": ["virginia", "delaware", "pennsylvania", "west-virginia"],
+  "massachusetts": ["connecticut", "new-york", "rhode-island", "new-hampshire", "vermont"],
+  "michigan": ["ohio", "indiana", "illinois", "wisconsin", "minnesota"],
+  "minnesota": ["wisconsin", "iowa", "michigan", "north-dakota", "south-dakota"],
+  "mississippi": ["alabama", "louisiana", "tennessee", "arkansas"],
+  "missouri": ["illinois", "kansas", "arkansas", "iowa", "oklahoma", "tennessee"],
+  "montana": ["idaho", "wyoming", "north-dakota", "south-dakota"],
+  "nebraska": ["iowa", "kansas", "colorado", "south-dakota", "wyoming"],
+  "nevada": ["california", "arizona", "utah", "oregon", "idaho"],
+  "new-hampshire": ["maine", "massachusetts", "vermont", "connecticut"],
+  "new-jersey": ["new-york", "pennsylvania", "delaware", "connecticut", "maryland"],
+  "new-mexico": ["arizona", "texas", "colorado", "oklahoma"],
+  "new-york": ["new-jersey", "connecticut", "massachusetts", "pennsylvania", "vermont"],
+  "north-carolina": ["south-carolina", "virginia", "tennessee", "georgia"],
+  "north-dakota": ["south-dakota", "minnesota", "montana", "nebraska"],
+  "ohio": ["michigan", "indiana", "pennsylvania", "west-virginia", "kentucky"],
+  "oklahoma": ["texas", "kansas", "arkansas", "missouri", "new-mexico", "colorado"],
+  "oregon": ["washington", "california", "idaho", "nevada"],
+  "pennsylvania": ["new-york", "new-jersey", "ohio", "maryland", "delaware", "west-virginia"],
+  "rhode-island": ["massachusetts", "connecticut", "new-york", "new-jersey"],
+  "south-carolina": ["north-carolina", "georgia", "virginia", "florida"],
+  "south-dakota": ["north-dakota", "minnesota", "iowa", "nebraska", "wyoming", "montana"],
+  "tennessee": ["north-carolina", "virginia", "georgia", "alabama", "mississippi", "arkansas", "kentucky"],
+  "texas": ["louisiana", "oklahoma", "new-mexico", "arkansas"],
+  "utah": ["colorado", "arizona", "nevada", "idaho", "wyoming"],
+  "vermont": ["new-hampshire", "massachusetts", "new-york", "maine"],
+  "virginia": ["maryland", "north-carolina", "west-virginia", "tennessee", "kentucky"],
+  "washington": ["oregon", "california", "idaho", "montana"],
+  "west-virginia": ["virginia", "ohio", "pennsylvania", "maryland", "kentucky"],
+  "wisconsin": ["michigan", "minnesota", "illinois", "iowa"],
+  "wyoming": ["montana", "colorado", "idaho", "utah", "south-dakota", "nebraska"],
+};
+
+/** Get nearby states for internal linking. Returns StateData[] for states in the nearby map. */
+export function getNearbyStates(slug: string): StateData[] {
+  const nearby = NEARBY_STATES_MAP[slug] || [];
+  return nearby
+    .map((s) => STATES.find((st) => st.slug === s))
+    .filter((s): s is StateData => !!s);
+}

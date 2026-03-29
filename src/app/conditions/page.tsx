@@ -91,7 +91,7 @@ export default function ConditionsHub() {
             href="/get-started"
             className="inline-flex items-center justify-center gap-2 px-10 py-4 text-base font-bold text-amber-900 bg-white hover:bg-amber-50 rounded-full transition-all shadow-lg hover:shadow-xl"
           >
-            Start Your Evaluation — $79 <ArrowRight className="w-5 h-5" />
+            Start Your Evaluation — Starting at $225 <ArrowRight className="w-5 h-5" />
           </Link>
           <p className="text-white/70 text-xs mt-4 flex items-center justify-center gap-4">
             <span className="flex items-center gap-1"><Shield className="w-3.5 h-3.5" /> HIPAA Compliant</span>
