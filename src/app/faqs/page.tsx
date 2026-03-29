@@ -86,7 +86,7 @@ const faqCategories = [
       {
         question: "What if I'm not approved?",
         answer:
-          "If the physician determines that your condition does not qualify for a medical window tint exemption, you will receive a full refund of the evaluation fee. We want to ensure you only pay for results.",
+          "Before purchasing, you are informed that legitimate medical documentation is required. Our physician reviews your existing medical paperwork to determine if your state will accept it for an exemption. If you proceed without valid medical documentation supporting a qualifying condition, your evaluation will be declined and the fee is non-refundable. Please ensure you have appropriate medical records before purchasing.",
       },
       {
         question: "Do you accept insurance?",

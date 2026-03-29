@@ -25,7 +25,7 @@ export default function StateSelector() {
     const state = e.target.value;
     setSelectedState(state);
     if (state) {
-      router.push(`/get-started?state=${state.toLowerCase().replace(/\s+/g, "-")}`);
+      router.push(`/${state.toLowerCase().replace(/\s+/g, "-")}-window-tint-medical-exemption`);
     }
   };
 

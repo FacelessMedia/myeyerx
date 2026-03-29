@@ -487,7 +487,7 @@ function HowToGetContent() {
 
       <h2>What If I&apos;m Not Approved?</h2>
       <p>
-        If the physician determines that your condition does not meet the medical criteria for a tint exemption, you will receive a full refund of your evaluation fee. MyEyeRx does not charge you unless you receive a valid exemption certificate.
+        You are informed before purchasing that legitimate medical documentation is required. Our physician reviews your existing medical paperwork to determine if your state will accept it for an exemption. If you proceed without valid medical documentation supporting a qualifying condition, your evaluation will be declined and the fee is non-refundable. Please ensure you have appropriate medical records ready before starting your application.
       </p>
 
       <h2>How Long Does the Process Take?</h2>
@@ -645,7 +645,7 @@ function CostGuideContent() {
         <li><strong>State-specific documentation</strong> — We handle your state&apos;s required forms and paperwork</li>
         <li><strong>Signed exemption certificate</strong> — A physician-signed document recognized by your state&apos;s DMV and law enforcement</li>
         <li><strong>Digital delivery</strong> — Certificate delivered by email within 24-48 hours</li>
-        <li><strong>Refund guarantee</strong> — Full refund if you don&apos;t qualify</li>
+        <li><strong>Documentation review</strong> — Our physician reviews your existing medical records to determine state acceptance</li>
       </ul>
 
       <h2>What&apos;s NOT Included</h2>

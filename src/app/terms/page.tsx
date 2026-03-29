@@ -37,7 +37,7 @@ export default function TermsPage() {
 
           <h2 className="text-xl font-bold text-primary-dark mb-4">4. Payment &amp; Refund Policy</h2>
           <p className="text-gray-600 mb-6 leading-relaxed">
-            The evaluation fee is $79, payable at the time of submission. If your evaluation determines that you do not qualify for a medical window tint exemption, you will receive a full refund. Refunds are processed within 5-7 business days.
+            The evaluation fee starts at $225 (varies by state, up to $350 for New York), payable at the time of submission. You are required to provide legitimate medical documentation supporting a qualifying condition prior to your evaluation. Our physician reviews your existing medical paperwork to determine if your state will accept it for an exemption. If you proceed without valid medical documentation, your evaluation will be declined and the fee is non-refundable. Refunds are only available for duplicate charges, service not rendered due to our error, or cancellations made before a physician begins review. See our Refund Policy for full details.
           </p>
 
           <h2 className="text-xl font-bold text-primary-dark mb-4">5. User Responsibilities</h2>

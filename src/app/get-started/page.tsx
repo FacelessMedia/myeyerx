@@ -374,6 +374,13 @@ function GetStartedContent() {
               </div>
             </div>
 
+            <div className="bg-red-50 border border-red-200 rounded-xl p-4 mb-6">
+              <p className="text-red-800 font-semibold text-sm mb-2">Important: Medical Documentation Required</p>
+              <p className="text-red-700 text-xs leading-relaxed">
+                You must provide legitimate medical documentation (doctor&apos;s notes, diagnosis records, prescriptions, or other medical paperwork) supporting a qualifying condition. Our physician reviews your existing medical paperwork to determine if your state will accept it for an exemption. <strong>If you proceed without valid medical documentation, your evaluation will be declined and the fee is non-refundable.</strong> You may still pay without paperwork ready, but there is a very high chance your application will be denied without refund.
+              </p>
+            </div>
+
             <label className="flex items-start gap-3 mb-6 cursor-pointer">
               <input
                 type="checkbox"
@@ -390,8 +397,10 @@ function GetStartedContent() {
                 <a href="/privacy-policy" className="text-accent underline">
                   Privacy Policy
                 </a>
-                . I understand this is a telemedicine evaluation and I consent
-                to being evaluated by a licensed physician.
+                . I understand this is a telemedicine evaluation, I consent
+                to being evaluated by a licensed physician, and I acknowledge
+                that medical documentation is required and fees are non-refundable
+                if I do not provide valid paperwork.
               </span>
             </label>
           </div>

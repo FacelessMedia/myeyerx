@@ -67,13 +67,14 @@ export default function GoogleReviews() {
             </div>
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-0.5">
-                {[1, 2, 3, 4, 5].map((i) => (
+                {[1, 2, 3, 4].map((i) => (
                   <Star key={i} className="w-5 h-5 text-amber-400 fill-amber-400" />
                 ))}
+                <Star className="w-5 h-5 text-amber-400 fill-amber-400" style={{ clipPath: "inset(0 40% 0 0)" }} />
               </div>
-              <span className="text-gray-600 font-medium text-sm">5.0 rating</span>
+              <span className="text-gray-600 font-medium text-sm">4.6 rating</span>
               <span className="text-gray-400 text-sm">·</span>
-              <span className="text-gray-500 text-sm">{reviews.length} reviews</span>
+              <span className="text-gray-500 text-sm">28 reviews</span>
             </div>
           </div>
 

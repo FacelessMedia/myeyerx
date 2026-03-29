@@ -44,7 +44,7 @@ export default function RefundPolicyPage() {
               <div>
                 <h2 className="text-xl font-bold text-heading mb-3">Evaluation Fee</h2>
                 <p className="text-gray-600 leading-relaxed">
-                  The $79 evaluation fee covers the cost of having a licensed physician review your medical information and determine whether you qualify for a medical window tint exemption. This fee is charged at the time of application submission.
+                  The evaluation fee (starting at $225, varying by state up to $350 for New York) covers the cost of having a licensed physician review your medical documentation and determine whether your state will accept your paperwork for a medical window tint exemption. This fee is charged at the time of application submission.
                 </p>
               </div>
 
@@ -73,7 +73,7 @@ export default function RefundPolicyPage() {
                 <ul className="space-y-2 text-gray-600 text-sm">
                   <li className="flex items-start gap-2">
                     <span className="text-amber-500 font-bold mt-0.5">-</span>
-                    <span><strong>Physician determination of non-qualification:</strong> If a physician evaluates your condition and determines you do not meet the medical criteria for an exemption, the evaluation fee is non-refundable as the physician&apos;s time and expertise were utilized.</span>
+                    <span><strong>Insufficient or missing medical documentation:</strong> You are informed before purchase that legitimate medical documentation is required. If you proceed without valid paperwork supporting a qualifying condition, your evaluation will be declined and the fee is non-refundable. Our physician reviews your existing medical records — arriving without legitimate documentation will result in denial without refund.</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-amber-500 font-bold mt-0.5">-</span>

@@ -87,21 +87,21 @@ export default function AboutUs() {
                 <GraduationCap className="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="font-semibold text-heading text-sm">Education</p>
-                  <p className="text-gray-500 text-xs">J.D., 1991–1994, William Mitchell College of Law (Top 5 of School)</p>
+                  <p className="text-gray-500 text-xs">Wayne County Community College District</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <Award className="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="font-semibold text-heading text-sm">Certifications</p>
-                  <p className="text-gray-500 text-xs">Environmental and Natural Resources Law Certificate</p>
+                  <p className="font-semibold text-heading text-sm">Credentials</p>
+                  <p className="text-gray-500 text-xs">Licensed Optician · Telehealth Tint Exemption Specialist</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <Briefcase className="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="font-semibold text-heading text-sm">Admitted To Practice</p>
-                  <p className="text-gray-500 text-xs">New York · The State Bar of California · US Court of Florida Claims</p>
+                  <p className="font-semibold text-heading text-sm">Role</p>
+                  <p className="text-gray-500 text-xs">CEO &amp; Founder, MyEyeRx · Serving 42+ States</p>
                 </div>
               </div>
             </div>
