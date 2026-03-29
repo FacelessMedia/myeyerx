@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { STATES, getStateBySlug } from "@/data/states";
+import { STATE_UNIQUE_CONTENT } from "@/data/state-unique-content";
 import {
   Scale,
   ArrowRight,
@@ -48,6 +49,8 @@ export default async function StateLawPage({ params }: PageProps) {
   const { state: slug } = await params;
   const state = getStateBySlug(slug);
   if (!state) notFound();
+
+  const unique = STATE_UNIQUE_CONTENT[state.slug];
 
   const faqs = [
     {
@@ -135,7 +138,7 @@ export default async function StateLawPage({ params }: PageProps) {
             <span className="text-amber-500">Window Tint Laws</span>
           </h1>
           <p className="text-gray-600 text-lg leading-relaxed">
-            Understanding {state.name}&apos;s window tint regulations is important to avoid fines and ensure your vehicle is compliant. Below is a complete breakdown of the legal tint limits, penalties for violations, and how to obtain a medical exemption if you need darker tint.
+            {unique ? unique.lawIntro : `Understanding ${state.name}'s window tint regulations is important to avoid fines and ensure your vehicle is compliant. Below is a complete breakdown of the legal tint limits, penalties for violations, and how to obtain a medical exemption if you need darker tint.`}
           </p>
         </div>
       </section>
@@ -158,6 +161,12 @@ export default async function StateLawPage({ params }: PageProps) {
               <p className="text-gray-600 leading-relaxed">
                 These limits apply to passenger vehicles. Commercial vehicles, SUVs, and vans may have different regulations for rear windows. Always check your specific vehicle type with local law enforcement or the {state.dmvName}.
               </p>
+              {unique && (
+                <div className="mt-6 bg-amber-50 rounded-xl p-4 border border-amber-200">
+                  <p className="text-amber-800 text-sm font-semibold mb-1">Enforcement in {state.name}</p>
+                  <p className="text-amber-700 text-sm leading-relaxed">{unique.enforcement}</p>
+                </div>
+              )}
             </div>
 
             <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
@@ -209,6 +218,11 @@ export default async function StateLawPage({ params }: PageProps) {
                 <p className="text-gray-600 text-sm mt-4 leading-relaxed">
                   In addition to fines, you may be required to remove the illegal tint and present proof of removal. Repeat offenses may carry higher penalties. A valid medical exemption protects you from these penalties.
                 </p>
+                {unique && (
+                  <p className="text-gray-500 text-sm mt-3 leading-relaxed italic">
+                    {unique.tip}
+                  </p>
+                )}
               </div>
             </div>
           </div>

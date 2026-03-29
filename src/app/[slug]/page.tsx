@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { STATES, getStateBySlug, CONDITIONS, getNearbyStates } from "@/data/states";
+import { STATE_UNIQUE_CONTENT } from "@/data/state-unique-content";
 import {
   Shield,
   Clock,
@@ -74,6 +75,7 @@ export default async function DynamicPage({ params }: PageProps) {
 
   const nearbyStates = getNearbyStates(state.slug);
   const pageUrl = `https://myeyerx.net/${state.slug}-window-tint-medical-exemption`;
+  const unique = STATE_UNIQUE_CONTENT[state.slug];
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -209,6 +211,9 @@ export default async function DynamicPage({ params }: PageProps) {
                 <span className="text-amber-500">Window Tint Medical Exemption</span>
               </h1>
               <p className="text-gray-600 text-lg leading-relaxed mb-4">{state.processSummary}</p>
+              {unique && (
+                <p className="text-gray-600 leading-relaxed mb-4">{unique.climate}</p>
+              )}
               <p className="text-gray-600 leading-relaxed mb-6">
                 If you suffer from a medical condition that makes you sensitive to light or UV radiation — such as photosensitivity, lupus, chronic migraines, or a history of skin cancer — you may legally qualify for darker window tint in {state.name}. MyEyeRx provides a fast, fully online physician evaluation so you can get your {state.formName} without leaving home.
               </p>
@@ -364,9 +369,19 @@ export default async function DynamicPage({ params }: PageProps) {
             <p className="text-gray-600 leading-relaxed mb-4">
               {state.name} allows individuals with qualifying medical conditions to apply for a medical exemption that permits window tint darker than the standard legal limits. The {state.dmvName} oversees this process, which requires certification from a licensed physician confirming that the patient&apos;s medical condition necessitates increased protection from sunlight and UV radiation.
             </p>
+            {unique && (
+              <p className="text-gray-600 leading-relaxed mb-4">
+                <strong>Local Enforcement Context:</strong> {unique.enforcement}
+              </p>
+            )}
             <p className="text-gray-600 leading-relaxed mb-4">
               The key document in this process is the <strong>{state.formName}</strong>. This form must be completed by a licensed physician who has evaluated your medical condition. It certifies that you have a legitimate medical need for darker window tint and authorizes your vehicle to have tint below the standard VLT limits set by {state.name} law. Without this documentation, your vehicle could be considered non-compliant during traffic stops or vehicle inspections.
             </p>
+            {unique && (
+              <p className="text-gray-600 leading-relaxed mb-4">
+                <strong>What You Should Know:</strong> {unique.localInsight}
+              </p>
+            )}
             <p className="text-gray-600 leading-relaxed mb-4">
               Through MyEyeRx, this evaluation is conducted entirely online via telehealth. You do not need to visit a doctor&apos;s office, wait for an appointment, or take time off work. Our licensed physicians are experienced in evaluating light-sensitive conditions and understand the specific requirements of {state.name}&apos;s exemption program. Once your {state.formName} is issued, it is valid for {state.exemptionDuration.toLowerCase()}.
             </p>
@@ -548,6 +563,11 @@ export default async function DynamicPage({ params }: PageProps) {
               <p className="text-gray-600 text-sm leading-relaxed">
                 With your exemption in hand, visit any window tint shop in {state.name} and request the tint level your physician has authorized. Most tint professionals are familiar with medical exemptions and will be happy to accommodate your request. Be sure to show them your {state.formName} so they know the tint level is legally authorized.
               </p>
+              {unique && (
+                <p className="text-amber-700 bg-amber-50 rounded-lg p-3 text-sm mt-3 leading-relaxed">
+                  <strong>Pro Tip:</strong> {unique.tip}
+                </p>
+              )}
             </div>
             <div className="bg-white rounded-2xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-heading mb-2">Renewal &amp; Expiration</h3>
