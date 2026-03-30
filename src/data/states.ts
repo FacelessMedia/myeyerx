@@ -8,6 +8,8 @@ export interface StateData {
   dmvName: string;
   /** Link to the state DMV / exemption form if available */
   dmvUrl: string;
+  /** Direct URL to the official exemption form or PDF (if available) */
+  formUrl?: string;
   /** Official form name/number for the exemption application */
   formName: string;
   /** Brief summary of the exemption process in this state */
@@ -355,6 +357,7 @@ export const STATES: StateData[] = [
     hasExemption: true,
     dmvName: "Connecticut Department of Motor Vehicles",
     dmvUrl: "https://portal.ct.gov/dmv",
+    formUrl: "https://portal.ct.gov/-/media/DMV/20/29/R317.pdf",
     formName: "Medical Exemption Application (Form E-350)",
     processSummary: "Connecticut requires a physician-signed medical exemption form that must be submitted to the DMV. Once approved, an exemption sticker is issued for the vehicle.",
     tintLaws: { windshield: "Non-reflective tint above AS-1 line", frontSide: "35% VLT", backSide: "35% VLT", rearWindow: "35% VLT" },
@@ -391,7 +394,8 @@ export const STATES: StateData[] = [
     hasExemption: true,
     dmvName: "Florida Department of Highway Safety and Motor Vehicles",
     dmvUrl: "https://www.flhsmv.gov/",
-    formName: "Medical Exemption Certificate",
+    formUrl: "https://www.flhsmv.gov/pdf/forms/83390.pdf",
+    formName: "Medical Exemption Certificate (Form HSMV 83390)",
     processSummary: "Florida allows medical exemptions for window tint when certified by a licensed Florida physician. The exemption certificate must specify the medical condition and be kept in the vehicle.",
     tintLaws: { windshield: "Non-reflective tint above AS-1 line", frontSide: "28% VLT", backSide: "15% VLT", rearWindow: "15% VLT" },
     penalty: "Fine up to $500, noncriminal traffic infraction",
@@ -589,6 +593,7 @@ export const STATES: StateData[] = [
     hasExemption: true,
     dmvName: "Maryland Motor Vehicle Administration (MVA)",
     dmvUrl: "https://mva.maryland.gov/",
+    formUrl: "https://mdsp.maryland.gov/ASED/Documents/Physician's%20Written%20Certification%20of%20Necessity%20for%20Medical%20Exemption.pdf",
     formName: "Medical Waiver Form (DR-057)",
     processSummary: "Maryland allows medical waivers for window tint through the MVA. A physician must complete the waiver form, which is then submitted to the MVA for approval.",
     tintLaws: { windshield: "Non-reflective tint above AS-1 line", frontSide: "35% VLT", backSide: "35% VLT", rearWindow: "35% VLT" },
@@ -625,6 +630,7 @@ export const STATES: StateData[] = [
     hasExemption: true,
     dmvName: "Michigan Secretary of State",
     dmvUrl: "https://www.michigan.gov/sos",
+    formUrl: "https://www.michigan.gov/sos/resources/forms",
     formName: "Medical Exemption Certificate (Form TR-67a)",
     processSummary: "Michigan allows medical exemptions for window tint using Form TR-67a. A physician must complete and sign the form, and it must be carried in the vehicle at all times.",
     tintLaws: { windshield: "Non-reflective tint above AS-1 line (4 inches)", frontSide: "No tint allowed", backSide: "Any darkness", rearWindow: "Any darkness" },
@@ -751,7 +757,8 @@ export const STATES: StateData[] = [
     hasExemption: true,
     dmvName: "New Hampshire Division of Motor Vehicles",
     dmvUrl: "https://www.dmv.nh.gov/",
-    formName: "Tint Waiver Form (TDMV 195)",
+    formUrl: "https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/dsmv603.pdf",
+    formName: "Tint Waiver Form (DSMV 603)",
     processSummary: "New Hampshire provides medical tint waivers through the DMV. A physician must complete the waiver form, which is submitted to the DMV for approval and a waiver sticker.",
     tintLaws: { windshield: "Non-reflective tint above AS-1 line", frontSide: "No tint allowed (with exemption: any)", backSide: "35% VLT", rearWindow: "35% VLT" },
     penalty: "Fine up to $250",
@@ -805,6 +812,7 @@ export const STATES: StateData[] = [
     hasExemption: true,
     dmvName: "New York State Department of Motor Vehicles",
     dmvUrl: "https://dmv.ny.gov/",
+    formUrl: "https://dmv.ny.gov/forms/mv80w.pdf",
     formName: "Medical Exemption Form (MV-80W)",
     processSummary: "New York requires the MV-80W form completed by a licensed physician. The approved exemption results in an exemption sticker that must be displayed on the vehicle windshield.",
     tintLaws: { windshield: "Non-reflective tint above AS-1 line (6 inches)", frontSide: "70% VLT", backSide: "70% VLT", rearWindow: "70% VLT" },
@@ -1003,6 +1011,7 @@ export const STATES: StateData[] = [
     hasExemption: true,
     dmvName: "Texas Department of Public Safety (DPS)",
     dmvUrl: "https://www.dps.texas.gov/",
+    formUrl: "https://www.dps.texas.gov/rsd/vi/windowTintMedExmpt.pdf",
     formName: "Medical Exemption Certificate (Form VTR-215)",
     processSummary: "Texas requires Form VTR-215 completed by a licensed physician or optometrist. The exemption certificate must be carried in the vehicle at all times and is valid for the period specified by the physician.",
     tintLaws: { windshield: "Non-reflective tint above AS-1 line", frontSide: "25% VLT", backSide: "25% VLT", rearWindow: "Any darkness" },

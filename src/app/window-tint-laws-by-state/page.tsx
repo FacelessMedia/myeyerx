@@ -82,17 +82,43 @@ export default function TintLawsHub() {
                     <td className="py-3 px-4 text-gray-600">{state.tintLaws.backSide}</td>
                     <td className="py-3 px-4 text-gray-600">{state.tintLaws.rearWindow}</td>
                     <td className="py-3 px-4">
-                      <span className="inline-flex items-center gap-1 text-green-600 font-medium text-xs">
-                        ✓ Yes
-                      </span>
+                      {state.hasExemption ? (
+                        <span className="inline-flex items-center gap-1 text-green-600 font-medium text-xs">
+                          ✓ Yes
+                        </span>
+                      ) : (
+                        <span className="inline-flex items-center gap-1 text-red-600 font-bold text-xs">
+                          ✗ Does NOT Allow
+                        </span>
+                      )}
                     </td>
                     <td className="py-3 px-4 text-right">
-                      <Link
-                        href={`/${state.slug}-window-tint-medical-exemption`}
-                        className="text-amber-600 font-semibold text-xs hover:text-amber-700 transition-colors"
-                      >
-                        Get Exemption →
-                      </Link>
+                      {!state.hasExemption ? (
+                        <a
+                          href={state.dmvUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-red-500 font-semibold text-xs hover:text-red-600 transition-colors"
+                        >
+                          View DMV Info →
+                        </a>
+                      ) : state.served ? (
+                        <Link
+                          href={`/${state.slug}-window-tint-medical-exemption`}
+                          className="text-amber-600 font-semibold text-xs hover:text-amber-700 transition-colors"
+                        >
+                          Get Exemption →
+                        </Link>
+                      ) : (
+                        <a
+                          href={state.dmvUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-orange-500 font-semibold text-xs hover:text-orange-600 transition-colors"
+                        >
+                          Contact DMV →
+                        </a>
+                      )}
                     </td>
                   </tr>
                 ))}
@@ -102,22 +128,51 @@ export default function TintLawsHub() {
 
           {/* Mobile Cards */}
           <div className="md:hidden grid grid-cols-1 gap-3">
-            {STATES.map((state) => (
-              <Link
-                key={state.slug}
-                href={`/window-tint-laws-by-state/${state.slug}`}
-                className="flex items-center justify-between p-4 rounded-xl border border-gray-200 hover:border-amber-400 hover:bg-amber-50 transition-all"
-              >
-                <div className="flex items-center gap-3">
-                  <MapPin className="w-4 h-4 text-amber-500" />
-                  <div>
-                    <span className="font-semibold text-heading text-sm">{state.name}</span>
-                    <span className="text-gray-500 text-xs block">Front: {state.tintLaws.frontSide}</span>
+            {STATES.map((state) => {
+              const cardContent = (
+                <div className="flex items-center justify-between w-full">
+                  <div className="flex items-center gap-3">
+                    <MapPin className={`w-4 h-4 ${!state.hasExemption ? "text-red-400" : state.served ? "text-amber-500" : "text-orange-400"}`} />
+                    <div>
+                      <span className="font-semibold text-heading text-sm">{state.name}</span>
+                      <span className="text-gray-500 text-xs block">Front: {state.tintLaws.frontSide}</span>
+                    </div>
+                  </div>
+                  <div className="text-right flex-shrink-0">
+                    {!state.hasExemption ? (
+                      <span className="text-red-600 font-bold text-xs">Does NOT Allow</span>
+                    ) : state.served ? (
+                      <span className="text-amber-600 font-semibold text-xs">Get Exemption</span>
+                    ) : (
+                      <span className="text-orange-500 font-semibold text-xs">Contact DMV</span>
+                    )}
                   </div>
                 </div>
-                <ArrowRight className="w-4 h-4 text-gray-400" />
-              </Link>
-            ))}
+              );
+
+              if (!state.hasExemption || !state.served) {
+                return (
+                  <div key={state.slug} className="flex flex-col gap-2">
+                    <Link
+                      href={`/window-tint-laws-by-state/${state.slug}`}
+                      className={`p-4 rounded-xl border transition-all ${!state.hasExemption ? "border-red-200 hover:border-red-300 hover:bg-red-50" : "border-orange-200 hover:border-orange-300 hover:bg-orange-50"}`}
+                    >
+                      {cardContent}
+                    </Link>
+                  </div>
+                );
+              }
+
+              return (
+                <Link
+                  key={state.slug}
+                  href={`/window-tint-laws-by-state/${state.slug}`}
+                  className="flex items-center justify-between p-4 rounded-xl border border-gray-200 hover:border-amber-400 hover:bg-amber-50 transition-all"
+                >
+                  {cardContent}
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>

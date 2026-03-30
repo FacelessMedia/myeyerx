@@ -500,13 +500,14 @@ export default async function DynamicPage({ params }: PageProps) {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-surface rounded-2xl p-6 border border-gray-200">
-              <h3 className="text-lg font-bold text-heading mb-3">What You Need</h3>
+              <h3 className="text-lg font-bold text-heading mb-3">What {state.name} Requires</h3>
+              <p className="text-xs text-gray-500 mb-4">You do NOT need to obtain these yourself — MyEyeRx handles the entire process for you.</p>
               <ul className="space-y-3">
                 {[
-                  `Completed ${state.formName} signed by a licensed physician`,
-                  "Documentation of your qualifying medical condition",
-                  "The exemption must be kept in your vehicle at all times",
-                  "Present to law enforcement upon request during traffic stops",
+                  `A completed ${state.formName} signed by a licensed physician`,
+                  "Physician certification of your qualifying medical condition",
+                  "The signed exemption kept in your vehicle at all times",
+                  "Ability to present documentation during traffic stops",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-gray-600">
                     <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
@@ -515,16 +516,17 @@ export default async function DynamicPage({ params }: PageProps) {
                 ))}
               </ul>
             </div>
-            <div className="bg-surface rounded-2xl p-6 border border-gray-200">
-              <h3 className="text-lg font-bold text-heading mb-3">MyEyeRx Handles It For You</h3>
+            <div className="bg-amber-50 rounded-2xl p-6 border border-amber-200">
+              <h3 className="text-lg font-bold text-heading mb-3">MyEyeRx Handles Everything</h3>
+              <p className="text-xs text-amber-700 mb-4">When you use MyEyeRx, we take care of every step — you just answer a few questions.</p>
               <ul className="space-y-3">
                 {[
-                  "Our physician completes and signs your form",
-                  "Delivered digitally within 24-48 hours",
-                  `Formatted to meet ${state.name}'s specific requirements`,
-                  "Includes all required medical certification language",
+                  `Our physician completes and signs your ${state.formName}`,
+                  "No forms for you to find, fill out, or submit",
+                  "Delivered digitally within 24-48 hours — just print & keep in your vehicle",
+                  `Formatted to meet ${state.name}'s specific legal requirements`,
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm text-gray-600">
+                  <li key={item} className="flex items-start gap-2 text-sm text-gray-700">
                     <BadgeCheck className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </li>
@@ -532,14 +534,24 @@ export default async function DynamicPage({ params }: PageProps) {
               </ul>
             </div>
           </div>
-          <div className="mt-6 flex items-center gap-4">
+          <div className="mt-6 flex flex-wrap items-center gap-4">
+            {state.formUrl && (
+              <a
+                href={state.formUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-amber-600 hover:text-amber-700 transition-colors"
+              >
+                <FileText className="w-4 h-4" /> Download Official {state.formName} (PDF)
+              </a>
+            )}
             <a
               href={state.dmvUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-amber-600 transition-colors"
             >
-              <ExternalLink className="w-4 h-4" /> Visit {state.dmvName} for official form information
+              <ExternalLink className="w-4 h-4" /> Visit {state.dmvName}
             </a>
           </div>
         </div>
