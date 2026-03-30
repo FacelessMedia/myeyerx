@@ -324,12 +324,12 @@ export default async function DynamicPage({ params }: PageProps) {
             How to Get Your {state.name} Window Tint Exemption
           </h2>
           <p className="text-gray-600 text-center max-w-2xl mx-auto mb-12">
-            Our simple 3-step process connects you with a licensed physician who can evaluate your medical condition and provide the documentation {state.name} requires. The entire process is completed online — no in-office visit necessary.
+            Our simple 3-step process connects you with a licensed physician who reviews your existing medical documentation and provides the exemption certificate {state.name} requires. The entire process is completed online — no in-office visit necessary.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { step: 1, icon: Eye, title: "Start Your Application", description: `Select ${state.name} as your state and fill out a brief medical questionnaire about your condition, symptoms, and how light sensitivity affects your daily life and driving safety. This typically takes 5-10 minutes to complete.` },
-              { step: 2, icon: Stethoscope, title: "Physician Evaluation", description: `A licensed physician reviews your medical information and determines if you meet ${state.name}'s requirements for a window tint medical exemption. Our medical director, Dr. Elizabeth Borowiec, OD, oversees all evaluations to ensure quality and compliance.` },
+              { step: 1, icon: Eye, title: "Submit Your Information", description: `Select ${state.name} as your state, fill out a brief questionnaire, and upload supporting medical documentation — such as a prior diagnosis, medication list, or doctor's notes from your family physician or eye doctor. This gives our physicians the medical history they need to evaluate your case.` },
+              { step: 2, icon: Stethoscope, title: "Physician Review", description: `A licensed physician reviews your existing medical documentation and determines if there is sufficient evidence of a qualifying condition to support a ${state.name} window tint medical exemption. Our medical director, Dr. Elizabeth Borowiec, OD, oversees all reviews. Note: our telehealth physicians do not diagnose or prescribe — they evaluate your documented medical history.` },
               { step: 3, icon: FileText, title: "Receive Your Certificate", description: `Once approved, your signed ${state.formName} is delivered digitally within 24-48 hours. Print it and keep it in your vehicle at all times. You can then have your windows tinted at any tint shop in ${state.name}.` },
             ].map((item) => (
               <div key={item.step} className="text-center">
@@ -383,7 +383,10 @@ export default async function DynamicPage({ params }: PageProps) {
               </p>
             )}
             <p className="text-gray-600 leading-relaxed mb-4">
-              Through MyEyeRx, this evaluation is conducted entirely online via telehealth. You do not need to visit a doctor&apos;s office, wait for an appointment, or take time off work. Our licensed physicians are experienced in evaluating light-sensitive conditions and understand the specific requirements of {state.name}&apos;s exemption program. Once your {state.formName} is issued, it is valid for {state.exemptionDuration.toLowerCase()}.
+              Through MyEyeRx, this review is conducted entirely online via telehealth. You will need to provide existing medical documentation — such as a prior diagnosis, medication list, or notes from your family doctor or eye doctor — that demonstrates your qualifying condition. Our licensed physicians then review this documentation to determine whether there is sufficient medical evidence to support an exemption recommendation. It is important to understand that our telehealth physicians do not diagnose conditions or prescribe treatments; they evaluate your documented medical history and, when justified, provide a signed exemption recommendation that meets {state.name}&apos;s legal requirements.
+            </p>
+            <p className="text-gray-600 leading-relaxed mb-4">
+              Many patients already have the documentation they need from their regular doctor or eye doctor. Some eye care professionals will provide tint exemption paperwork directly, but most do not specialize in this area — which is exactly where MyEyeRx fills the gap. Once your {state.formName} is issued, it is valid for {state.exemptionDuration.toLowerCase()}.
             </p>
             <p className="text-gray-600 leading-relaxed">
               It is important to note that the exemption must be kept in your vehicle at all times. If you are stopped by law enforcement, you will need to present your {state.formName} to demonstrate that your darker tint is legally authorized. Failure to produce valid documentation may result in a citation: {state.penalty.toLowerCase()}.
@@ -498,10 +501,28 @@ export default async function DynamicPage({ params }: PageProps) {
           <h2 className="text-2xl sm:text-3xl font-extrabold text-heading mb-6">
             Required Documentation &amp; Official Forms
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-surface rounded-2xl p-6 border border-gray-200">
+              <h3 className="text-lg font-bold text-heading mb-3">What You Provide</h3>
+              <p className="text-xs text-gray-500 mb-4">Existing documentation from your family doctor or eye doctor to support your medical need.</p>
+              <ul className="space-y-3">
+                {[
+                  "Prior diagnosis of a qualifying condition",
+                  "Medication list from your doctor",
+                  "Doctor's notes or medical records showing your condition",
+                  "Any existing documentation of light sensitivity or related symptoms",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-sm text-gray-600">
+                    <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-xs text-gray-400 mt-4">You can obtain these from your family physician or eye doctor. Some eye doctors may even provide tint exemption paperwork directly, but most do not — which is where MyEyeRx comes in.</p>
+            </div>
             <div className="bg-surface rounded-2xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-heading mb-3">What {state.name} Requires</h3>
-              <p className="text-xs text-gray-500 mb-4">You do NOT need to obtain these yourself — MyEyeRx handles the entire process for you.</p>
+              <p className="text-xs text-gray-500 mb-4">The state&apos;s requirements for a valid medical exemption — MyEyeRx handles this part.</p>
               <ul className="space-y-3">
                 {[
                   `A completed ${state.formName} signed by a licensed physician`,
@@ -517,13 +538,13 @@ export default async function DynamicPage({ params }: PageProps) {
               </ul>
             </div>
             <div className="bg-amber-50 rounded-2xl p-6 border border-amber-200">
-              <h3 className="text-lg font-bold text-heading mb-3">MyEyeRx Handles Everything</h3>
-              <p className="text-xs text-amber-700 mb-4">When you use MyEyeRx, we take care of every step — you just answer a few questions.</p>
+              <h3 className="text-lg font-bold text-heading mb-3">What MyEyeRx Does</h3>
+              <p className="text-xs text-amber-700 mb-4">Our physicians review your medical documentation and, if there is sufficient evidence, sign your exemption form.</p>
               <ul className="space-y-3">
                 {[
-                  `Our physician completes and signs your ${state.formName}`,
-                  "No forms for you to find, fill out, or submit",
-                  "Delivered digitally within 24-48 hours — just print & keep in your vehicle",
+                  "Reviews your existing medical documentation",
+                  `Completes and signs your ${state.formName} if you qualify`,
+                  "Delivered digitally within 24-48 hours",
                   `Formatted to meet ${state.name}'s specific legal requirements`,
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-gray-700">
@@ -532,6 +553,7 @@ export default async function DynamicPage({ params }: PageProps) {
                   </li>
                 ))}
               </ul>
+              <p className="text-xs text-amber-600 mt-4 font-medium">Our doctors do not diagnose or prescribe — they evaluate your documented medical history and provide exemption recommendations when medically justified.</p>
             </div>
           </div>
           <div className="mt-6 flex flex-wrap items-center gap-4">
