@@ -9,7 +9,7 @@ import { BlogToolPlaceholder } from "@/components/blog/BlogToolPlaceholder";
 export function LivingWithLightSensitivityContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         Light sensitivity is incredibly common — and incredibly misunderstood. Millions of Americans deal with it in some form, and a huge number of them have no idea that what they&apos;re experiencing has a name, a cause, and most importantly, solutions. This guide is everything you need to start living better when light is your enemy.
       </p>
 
@@ -53,9 +53,9 @@ export function LivingWithLightSensitivityContent() {
         The rest of this guide walks through real, actionable things you can do in every area of your life. Small changes that make a real difference.
       </p>
 
-      <div className="not-prose my-6 bg-gradient-to-br from-green-50 to-green-100/50 rounded-2xl p-6 border border-green-200">
+      <div className="not-prose my-6 bg-gradient-to-br from-green-50 to-green-100/50 rounded-2xl p-6 border border-gray-200">
         <h3 className="font-extrabold text-heading text-base mb-3 flex items-center gap-2">
-          <CheckCircle className="w-5 h-5 text-green-500" /> Quick Wins (Under 5 Minutes)
+          <CheckCircle className="w-5 h-5 text-green-400" /> Quick Wins (Under 5 Minutes)
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {[
@@ -63,7 +63,7 @@ export function LivingWithLightSensitivityContent() {
             { action: "Enable Night Shift / Eye Comfort", detail: "Reduces blue light from screens" },
             { action: "Lower screen brightness to 40-50%", detail: "Most people run way too bright" },
           ].map((item) => (
-            <div key={item.action} className="bg-white rounded-xl p-4 border border-green-100">
+            <div key={item.action} className="bg-gray-50 rounded-xl p-4 border border-green-100">
               <p className="font-bold text-heading text-sm">{item.action}</p>
               <p className="text-gray-500 text-xs mt-1">{item.detail}</p>
             </div>
@@ -76,7 +76,7 @@ export function LivingWithLightSensitivityContent() {
           {
             icon: Home,
             title: "Your Home",
-            color: "bg-amber-50 border-amber-200",
+            color: "bg-gray-100 border-gray-200",
             iconColor: "text-amber-500",
             content: "Your home should be the one place where your eyes can relax. Start with your bulbs — swap to warm white LEDs rated at 2700K or lower. Install dimmer switches so you can dial brightness to exactly where you need it. Get blackout curtains for the bedroom and consider residential window film that blocks up to 99% of UV rays.",
             link: "/resources/light-proof-your-home",
@@ -85,8 +85,8 @@ export function LivingWithLightSensitivityContent() {
           {
             icon: Smartphone,
             title: "Your Phone and Devices",
-            color: "bg-blue-50 border-blue-200",
-            iconColor: "text-blue-500",
+            color: "bg-gray-100 border-gray-200",
+            iconColor: "text-amber-500",
             content: "You probably spend seven-plus hours a day looking at screens. Your phone, tablet, and computer all have built-in settings that can make a massive difference — Dark Mode, Reduce White Point (iPhone) or Extra Dim (Android), Night Shift, and color filters can transform your screen from a flashlight in your face to something actually comfortable.",
             link: "/resources/iphone-settings-light-sensitivity",
             linkText: "iPhone settings →",
@@ -96,8 +96,8 @@ export function LivingWithLightSensitivityContent() {
           {
             icon: Briefcase,
             title: "Your Workspace",
-            color: "bg-purple-50 border-purple-200",
-            iconColor: "text-purple-500",
+            color: "bg-gray-100 border-gray-200",
+            iconColor: "text-amber-500",
             content: "For a lot of people, the workplace is the worst environment for light sensitivity. Fluorescent lights flicker at rates your brain picks up on. Your monitor is too bright. But there are solutions: FL-41 glasses filter the specific wavelengths that cause problems, fluorescent light covers reduce flicker and harsh output, and the ADA may entitle you to reasonable accommodations.",
             link: "/resources/workplace-accommodations-light-sensitivity",
             linkText: "Workplace accommodations guide →",
@@ -105,8 +105,8 @@ export function LivingWithLightSensitivityContent() {
           {
             icon: Brain,
             title: "Migraines and Light",
-            color: "bg-red-50 border-red-200",
-            iconColor: "text-red-500",
+            color: "bg-gray-100 border-gray-200",
+            iconColor: "text-red-400",
             content: "About 80-90% of people who get migraines experience photophobia during their attacks, and many are sensitive to light even between attacks. The specific wavelengths that cause the most trouble are in the blue-green range, between 480 and 520 nanometers. Tracking your triggers, managing the \"trigger stack,\" and using the right tools can reduce how often migraines come and how bad they get.",
             link: "/resources/migraines-and-light-sensitivity",
             linkText: "Migraines and light guide →",
@@ -114,8 +114,8 @@ export function LivingWithLightSensitivityContent() {
           {
             icon: Car,
             title: "Driving",
-            color: "bg-green-50 border-green-200",
-            iconColor: "text-green-600",
+            color: "bg-gray-100 border-gray-200",
+            iconColor: "text-amber-500",
             content: "Driving might be the single most challenging daily activity for someone with light sensitivity. Direct sunlight, reflected glare, oncoming headlights, and the constant shifting between light and shadow. Polarized sunglasses, visor extenders, keeping your windshield clean, and quality window tint all make a meaningful difference.",
             link: "/resources/best-sunglasses-driving-light-sensitivity",
             linkText: "Driving sunglasses guide →",
@@ -130,7 +130,7 @@ export function LivingWithLightSensitivityContent() {
               </div>
               <div className="flex-1">
                 <h3 className="font-extrabold text-heading text-base mb-2">{section.title}</h3>
-                <p className="text-gray-700 text-sm leading-relaxed mb-3">{section.content}</p>
+                <p className="text-gray-600 text-sm leading-relaxed mb-3">{section.content}</p>
                 <div className="flex flex-wrap gap-3">
                   <Link href={section.link} className="text-amber-600 font-semibold text-sm hover:underline">{section.linkText}</Link>
                   {section.link2 && (
@@ -161,7 +161,7 @@ export function LivingWithLightSensitivityContent() {
           { label: "Passive, Constant Protection", desc: "Works every time you drive without requiring you to do anything" },
         ].map((item) => (
           <div key={item.label} className="flex items-start gap-3 bg-surface rounded-xl p-4 border border-gray-100">
-            <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+            <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
             <div>
               <p className="font-bold text-heading text-sm">{item.label}</p>
               <p className="text-gray-500 text-xs mt-1">{item.desc}</p>

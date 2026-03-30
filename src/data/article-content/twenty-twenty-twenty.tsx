@@ -8,7 +8,7 @@ import { BlogCTA } from "@/components/blog/BlogCTA";
 export function TwentyTwentyTwentyContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         Every 20 minutes, look at something 20 feet away, for 20 seconds. That&apos;s it. It sounds almost too simple to work, but this rule is one of the most effective things you can do to reduce eye strain and manage light sensitivity during screen time.
       </p>
 
@@ -20,7 +20,7 @@ export function TwentyTwentyTwentyContent() {
         "Use apps like Stretchly or phone timers to build the habit",
       ]} />
 
-      <div className="not-prose my-8 bg-gradient-to-br from-amber-50 to-amber-100/50 rounded-2xl p-8 border-2 border-amber-200 text-center">
+      <div className="not-prose my-8 bg-gradient-to-br from-amber-50 to-amber-100/50 rounded-2xl p-8 border-2 border-gray-200 text-center">
         <p className="text-xs font-bold text-amber-600 uppercase tracking-wider mb-4">THE RULE</p>
         <div className="flex items-center justify-center gap-4 sm:gap-8">
           {[
@@ -66,12 +66,12 @@ export function TwentyTwentyTwentyContent() {
       </BlogCallout>
 
       <h2>Combine It with Blinking</h2>
-      <div className="not-prose my-6 bg-blue-50 rounded-xl p-5 border border-blue-200">
+      <div className="not-prose my-6 bg-gray-100 rounded-xl p-5 border border-gray-200">
         <div className="flex items-start gap-3">
-          <Droplets className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
+          <Droplets className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
           <div>
             <p className="font-bold text-heading text-sm mb-1">People blink 66% less when staring at screens</p>
-            <p className="text-gray-700 text-sm leading-relaxed">
+            <p className="text-gray-600 text-sm leading-relaxed">
               Reduced blinking dries out your eyes and worsens light sensitivity. During your 20-second break, consciously blink 5-10 times to refresh your tear film.
             </p>
           </div>
@@ -91,11 +91,11 @@ export function TwentyTwentyTwentyContent() {
           { label: "Artificial tears for dry eye" },
         ].map((item) => (
           <div key={item.label} className="flex items-center gap-2 bg-surface rounded-lg p-3 border border-gray-100">
-            <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+            <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
             {item.link ? (
               <Link href={item.link} className="text-amber-600 font-semibold text-sm hover:underline">{item.label}</Link>
             ) : (
-              <span className="text-gray-700 text-sm">{item.label}</span>
+              <span className="text-gray-600 text-sm">{item.label}</span>
             )}
           </div>
         ))}

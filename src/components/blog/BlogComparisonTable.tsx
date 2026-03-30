@@ -13,11 +13,11 @@ export function BlogComparisonTable({ columns, rows }: BlogComparisonTableProps)
     <div className="not-prose my-8 overflow-x-auto rounded-xl border border-gray-200">
       <table className="w-full text-sm border-collapse">
         <thead>
-          <tr className="bg-amber-50">
+          <tr className="bg-gray-100">
             {columns.map((col, i) => (
               <th
                 key={i}
-                className={`text-left px-4 py-3 font-bold text-heading border-b border-amber-200 ${i === 0 ? "min-w-[140px]" : ""}`}
+                className={`text-left px-4 py-3 font-bold text-heading border-b border-gray-200 ${i === 0 ? "min-w-[140px]" : ""}`}
               >
                 {col.header}
               </th>
@@ -30,7 +30,7 @@ export function BlogComparisonTable({ columns, rows }: BlogComparisonTableProps)
               {row.map((cell, ci) => (
                 <td
                   key={ci}
-                  className={`px-4 py-2.5 border-b border-gray-100 ${columns[ci]?.highlight ? "font-bold text-amber-600" : "text-gray-700"}`}
+                  className={`px-4 py-2.5 border-b border-gray-100 ${columns[ci]?.highlight ? "font-bold text-amber-600" : "text-gray-600"}`}
                 >
                   {cell}
                 </td>

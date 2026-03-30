@@ -91,7 +91,7 @@ const faqCategories = [
       {
         question: "Do you accept insurance?",
         answer:
-          "At this time, we do not accept insurance. The evaluation fee (starting at $225) is an out-of-pocket expense. Because medical window tint exemption evaluations are a newer category of telehealth service, standardized billing codes for insurance reimbursement do not yet exist for this type of consultation. However, since this is a legitimate medical service provided by a licensed physician, your HSA or FSA may still cover it. We recommend contacting your HSA/FSA plan administrator directly to confirm eligibility before purchasing.",
+          "At this time, we do not accept insurance, HSA, or FSA as payment methods. The evaluation fee (starting at $225) is an out-of-pocket expense. However, since this is a legitimate medical service provided by a licensed physician, you are welcome to submit your receipt to your HSA/FSA plan administrator after purchase to see if it qualifies for reimbursement. MyEyeRx does not handle any insurance or reimbursement processing on your behalf.",
       },
     ],
   },

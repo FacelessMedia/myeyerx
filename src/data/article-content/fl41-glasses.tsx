@@ -9,7 +9,7 @@ import { BlogComparisonTable } from "@/components/blog/BlogComparisonTable";
 export function Fl41GlassesContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         FL-41 tinted lenses are specifically designed for people with light sensitivity. Unlike regular sunglasses or blue light glasses, FL-41 filters the exact wavelength range — blue-green light between 480 and 520 nanometers — that research has identified as the most problematic for photophobia and migraines.
       </p>
 
@@ -33,7 +33,7 @@ export function Fl41GlassesContent() {
           <Glasses className="w-8 h-8 text-rose-500 flex-shrink-0" />
           <div>
             <h3 className="font-extrabold text-heading text-base mb-2">Not Just a Darker Lens</h3>
-            <p className="text-gray-700 text-sm leading-relaxed mb-3">
+            <p className="text-gray-600 text-sm leading-relaxed mb-3">
               FL-41 is a specific rose-tinted filter developed at the University of Birmingham in the 1990s for fluorescent light sensitivity (the &quot;FL&quot; stands for fluorescent). It selectively blocks 480-520nm wavelengths while letting other visible light through.
             </p>
             <div className="bg-white rounded-lg p-4 border border-gray-100">
@@ -48,8 +48,8 @@ export function Fl41GlassesContent() {
       <h2>Who Benefits Most</h2>
       <div className="not-prose my-8 grid grid-cols-1 sm:grid-cols-2 gap-3">
         {[
-          { icon: Brain, label: "Migraine Sufferers", desc: "Up to 74% reduction in frequency in some patients", color: "text-purple-500" },
-          { icon: Eye, label: "Blepharospasm Patients", desc: "Reduces involuntary eyelid spasms triggered by light", color: "text-blue-500" },
+          { icon: Brain, label: "Migraine Sufferers", desc: "Up to 74% reduction in frequency in some patients", color: "text-amber-500" },
+          { icon: Eye, label: "Blepharospasm Patients", desc: "Reduces involuntary eyelid spasms triggered by light", color: "text-amber-500" },
           { icon: Zap, label: "TBI / Concussion", desc: "Helps manage post-concussion light sensitivity", color: "text-orange-500" },
           { icon: Glasses, label: "Fluorescent Light Exposure", desc: "The original use case — still one of the best", color: "text-rose-500" },
         ].map((item) => (
@@ -68,7 +68,7 @@ export function Fl41GlassesContent() {
         <div className="rounded-2xl border-2 border-rose-200 bg-white p-6">
           <span className="text-xs font-bold text-rose-600 bg-rose-100 px-2 py-0.5 rounded-full uppercase">Indoor</span>
           <p className="font-extrabold text-heading text-base mt-2 mb-1">50-55% VLT</p>
-          <p className="text-gray-700 text-sm leading-relaxed">
+          <p className="text-gray-600 text-sm leading-relaxed">
             Lighter tint, comfortable for office work, retail environments, and any indoor fluorescent-lit space. Rose tint is subtle enough for professional settings.
           </p>
         </div>
@@ -89,14 +89,14 @@ export function Fl41GlassesContent() {
             desc: "The most well-known FL-41 brand. Indoor and outdoor versions, multiple frames, fit-over options for prescription glasses.",
             price: "Starting ~$99",
             badge: "Most Popular",
-            badgeColor: "bg-amber-500",
+            badgeColor: "bg-gray-1000",
           },
           {
             name: "Axon Optics",
             desc: "Wide frame selection with similar FL-41 technology. Popular alternative with comparable pricing.",
             price: "Starting ~$99",
             badge: "Great Alternative",
-            badgeColor: "bg-blue-500",
+            badgeColor: "bg-gray-1000",
           },
           {
             name: "Your Optometrist",

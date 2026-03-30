@@ -16,7 +16,7 @@ const topStates = STATES.filter((s) => s.served).slice(0, 12);
 export function CompleteGuideContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         If you suffer from a medical condition that makes you sensitive to sunlight or UV radiation, you may qualify for a <strong>medical window tint exemption</strong> that allows your vehicle windows to be tinted darker than your state normally permits. This comprehensive guide covers everything you need to know about the process, from qualifying conditions to state-by-state requirements to what happens after you receive your certificate.
       </p>
 
@@ -35,11 +35,11 @@ export function CompleteGuideContent() {
         <BlogStat icon={ShieldCheck} value="100%" label="HIPAA Compliant" />
       </BlogStatRow>
 
-      <div className="bg-amber-50 rounded-xl p-6 border border-amber-200 not-prose my-8">
+      <div className="bg-gray-100 rounded-xl p-6 border border-gray-200 not-prose my-8">
         <h3 className="font-bold text-heading text-lg mb-3 flex items-center gap-2"><BookOpen className="w-5 h-5 text-amber-500" /> What You&apos;ll Learn in This Guide</h3>
         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           {["What medical tint exemptions are and how they work", "Which medical conditions qualify", "State-by-state requirements and processes", "How to apply online through telehealth", "Costs and what's included", "How to use your exemption certificate", "Renewal requirements", "Frequently asked questions"].map((item) => (
-            <li key={item} className="flex items-start gap-2 text-sm text-gray-700">
+            <li key={item} className="flex items-start gap-2 text-sm text-gray-600">
               <CheckCircle className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" />
               <span>{item}</span>
             </li>
@@ -73,7 +73,7 @@ export function CompleteGuideContent() {
           { name: "Post-Surgical (LASIK, Cataracts)", desc: "Increased light sensitivity after eye surgeries that can last months or longer during healing.", slug: "lasik-post-surgical" },
           { name: "Dry Eye Syndrome", desc: "The #1 cause of photophobia, affecting 16M+ Americans. Light sensitivity is a primary symptom.", slug: "dry-eye-syndrome" },
         ].map((c) => (
-          <Link key={c.slug} href={`/conditions/${c.slug}`} className="block bg-surface rounded-xl p-5 border border-gray-200 hover:border-amber-400 hover:bg-amber-50 transition-all group">
+          <Link key={c.slug} href={`/conditions/${c.slug}`} className="block bg-surface rounded-xl p-5 border border-gray-200 hover:border-amber-400 hover:bg-gray-100 transition-all group">
             <div className="flex items-start gap-3">
               <Eye className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
               <div>
@@ -97,7 +97,7 @@ export function CompleteGuideContent() {
           { name: "Medication-Induced Sensitivity", desc: "Common drugs that increase sun sensitivity", slug: "medication-induced-photosensitivity" },
           { name: "Corneal Conditions", desc: "Corneal damage causing chronic light sensitivity", slug: "corneal-conditions" },
         ].map((c) => (
-          <Link key={c.slug} href={`/conditions/${c.slug}`} className="flex items-center gap-2 text-sm text-gray-700 hover:text-amber-600 transition-colors py-1.5 px-3 rounded-lg hover:bg-amber-50">
+          <Link key={c.slug} href={`/conditions/${c.slug}`} className="flex items-center gap-2 text-sm text-gray-600 hover:text-amber-600 transition-colors py-1.5 px-3 rounded-lg hover:bg-gray-100">
             <CheckCircle className="w-4 h-4 text-amber-500 flex-shrink-0" />
             <span className="font-medium">{c.name}</span>
           </Link>
@@ -170,7 +170,7 @@ export function CompleteGuideContent() {
           { price: "$250", states: "AL, AZ, CA, CT, DE, FL, GA, IN, IA, KS, LA, ME, MD, MA, MS, MO, MT, NV, NH, NJ, NC, OH, OK, PA, RI, TN, VT, VA, DC", label: "29 States + DC" },
           { price: "$350", states: "NY", label: "New York" },
         ].map((tier) => (
-          <div key={tier.price} className="bg-white rounded-2xl border-2 border-amber-200 p-5 text-center">
+          <div key={tier.price} className="bg-white rounded-2xl border-2 border-gray-200 p-5 text-center">
             <p className="text-3xl font-extrabold text-heading">{tier.price}</p>
             <p className="text-xs font-bold text-amber-600 uppercase tracking-wider mt-1 mb-3">{tier.label}</p>
             <p className="text-gray-500 text-xs leading-relaxed">{tier.states}</p>
@@ -179,7 +179,7 @@ export function CompleteGuideContent() {
       </div>
 
       <div className="not-prose my-6 bg-surface rounded-xl p-5 border border-gray-200">
-        <h4 className="font-bold text-heading text-sm mb-3 flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-500" /> What&apos;s Included</h4>
+        <h4 className="font-bold text-heading text-sm mb-3 flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-400" /> What&apos;s Included</h4>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           {[
             "Licensed physician evaluation",
@@ -189,8 +189,8 @@ export function CompleteGuideContent() {
             "HIPAA-compliant process",
             "No hidden fees or subscriptions",
           ].map((item) => (
-            <div key={item} className="flex items-center gap-2 text-sm text-gray-700">
-              <CheckCircle className="w-3.5 h-3.5 text-green-500 flex-shrink-0" />
+            <div key={item} className="flex items-center gap-2 text-sm text-gray-600">
+              <CheckCircle className="w-3.5 h-3.5 text-green-400 flex-shrink-0" />
               <span>{item}</span>
             </div>
           ))}
@@ -250,7 +250,7 @@ export function CompleteGuideContent() {
           { num: "3", title: "Present your exemption certificate", desc: "Hand it to the officer along with your license and registration." },
           { num: "4", title: "Be patient", desc: "The officer may check your tint with a meter and verify the certificate. This usually resolves the issue." },
         ].map((step) => (
-          <div key={step.num} className="flex items-start gap-4 bg-white rounded-xl p-4 border border-gray-200">
+          <div key={step.num} className="flex items-start gap-4 bg-gray-50 rounded-xl p-4 border border-gray-200">
             <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0">
               <span className="text-amber-600 font-extrabold text-sm">{step.num}</span>
             </div>
@@ -273,10 +273,10 @@ export function CompleteGuideContent() {
 
       <div className="not-prose my-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
         {[
-          { label: "Annual Renewal", desc: "Some states require yearly re-certification", color: "bg-blue-50 border-blue-200" },
-          { label: "Biennial (Every 2 Years)", desc: "Several states use this timeline", color: "bg-green-50 border-green-200" },
-          { label: "Permanent", desc: "Some states issue permanent exemptions for chronic conditions", color: "bg-amber-50 border-amber-200" },
-          { label: "Condition-Dependent", desc: "Permanent for permanent conditions; renewal for temporary ones", color: "bg-purple-50 border-purple-200" },
+          { label: "Annual Renewal", desc: "Some states require yearly re-certification", color: "bg-gray-100 border-gray-200" },
+          { label: "Biennial (Every 2 Years)", desc: "Several states use this timeline", color: "bg-gray-100 border-gray-200" },
+          { label: "Permanent", desc: "Some states issue permanent exemptions for chronic conditions", color: "bg-gray-100 border-gray-200" },
+          { label: "Condition-Dependent", desc: "Permanent for permanent conditions; renewal for temporary ones", color: "bg-gray-100 border-gray-200" },
         ].map((item) => (
           <div key={item.label} className={`rounded-xl p-4 border ${item.color}`}>
             <p className="font-bold text-heading text-sm">{item.label}</p>

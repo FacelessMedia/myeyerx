@@ -8,7 +8,7 @@ import { BlogCTA } from "@/components/blog/BlogCTA";
 export function DarkerTintMythContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         One of the most common misconceptions about window tint is that darker = better UV protection. It seems logical — if less light gets through, less UV gets through, right? Not exactly. Here&apos;s why VLT and UV rejection are two completely different things.
       </p>
 
@@ -22,28 +22,28 @@ export function DarkerTintMythContent() {
 
       <h2>VLT ≠ UV Protection</h2>
       <div className="not-prose my-8 grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div className="rounded-2xl border-2 border-red-200 bg-red-50 p-6">
-          <AlertTriangle className="w-6 h-6 text-red-500 mb-3" />
+        <div className="rounded-2xl border-2 border-gray-200 bg-gray-100 p-6">
+          <AlertTriangle className="w-6 h-6 text-red-400 mb-3" />
           <p className="font-extrabold text-heading text-sm mb-2">The Myth</p>
-          <p className="text-gray-700 text-sm leading-relaxed">A very dark dyed film (<strong>5% VLT</strong>) blocks visible light effectively — but may only block <strong>50-70% of UV</strong> radiation.</p>
+          <p className="text-gray-600 text-sm leading-relaxed">A very dark dyed film (<strong>5% VLT</strong>) blocks visible light effectively — but may only block <strong>50-70% of UV</strong> radiation.</p>
         </div>
-        <div className="rounded-2xl border-2 border-green-200 bg-green-50 p-6">
-          <Shield className="w-6 h-6 text-green-600 mb-3" />
+        <div className="rounded-2xl border-2 border-gray-200 bg-gray-100 p-6">
+          <Shield className="w-6 h-6 text-amber-500 mb-3" />
           <p className="font-extrabold text-heading text-sm mb-2">The Reality</p>
-          <p className="text-gray-700 text-sm leading-relaxed">A nearly clear ceramic film (<strong>70% VLT</strong>) with quality UV-blocking technology can block <strong>99% of UV</strong> rays.</p>
+          <p className="text-gray-600 text-sm leading-relaxed">A nearly clear ceramic film (<strong>70% VLT</strong>) with quality UV-blocking technology can block <strong>99% of UV</strong> rays.</p>
         </div>
       </div>
 
       <h2>Why This Matters Medically</h2>
       <div className="not-prose my-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="rounded-xl border border-purple-200 bg-purple-50 p-5">
-          <p className="text-xs font-bold text-purple-600 uppercase tracking-wider mb-2">UV-TRIGGERED CONDITIONS</p>
-          <p className="text-gray-700 text-xs leading-relaxed mb-2">Lupus, melanoma, dermatomyositis, PMLE, solar urticaria</p>
+        <div className="rounded-xl border border-gray-200 bg-gray-100 p-5">
+          <p className="text-xs font-bold text-amber-500 uppercase tracking-wider mb-2">UV-TRIGGERED CONDITIONS</p>
+          <p className="text-gray-600 text-xs leading-relaxed mb-2">Lupus, melanoma, dermatomyositis, PMLE, solar urticaria</p>
           <p className="text-gray-600 text-xs"><strong>UV rejection</strong> is what protects you. Cheap dark dyed film = less UV protection than lighter ceramic film.</p>
         </div>
-        <div className="rounded-xl border border-blue-200 bg-blue-50 p-5">
+        <div className="rounded-xl border border-gray-200 bg-gray-100 p-5">
           <p className="text-xs font-bold text-blue-600 uppercase tracking-wider mb-2">VISIBLE LIGHT CONDITIONS</p>
-          <p className="text-gray-700 text-xs leading-relaxed mb-2">Migraines, photophobia</p>
+          <p className="text-gray-600 text-xs leading-relaxed mb-2">Migraines, photophobia</p>
           <p className="text-gray-600 text-xs"><strong>VLT matters more</strong> since visible light is the trigger. But film type still affects which wavelengths are blocked.</p>
         </div>
       </div>
@@ -51,9 +51,9 @@ export function DarkerTintMythContent() {
       <h2>What Determines UV Protection?</h2>
       <div className="not-prose my-8 space-y-3">
         {[
-          { icon: Layers, label: "Film Material", desc: "Ceramic particles are the most effective UV blockers. Dye is the least effective.", color: "text-blue-500" },
-          { icon: FlaskConical, label: "UV-Absorbing Additives", desc: "Quality films include specific compounds that absorb UV regardless of visible tint level.", color: "text-purple-500" },
-          { icon: Shield, label: "Film Construction", desc: "Multi-layer films with dedicated UV-blocking layers outperform single-layer dyed films.", color: "text-green-500" },
+          { icon: Layers, label: "Film Material", desc: "Ceramic particles are the most effective UV blockers. Dye is the least effective.", color: "text-amber-500" },
+          { icon: FlaskConical, label: "UV-Absorbing Additives", desc: "Quality films include specific compounds that absorb UV regardless of visible tint level.", color: "text-amber-500" },
+          { icon: Shield, label: "Film Construction", desc: "Multi-layer films with dedicated UV-blocking layers outperform single-layer dyed films.", color: "text-green-400" },
         ].map((item) => (
           <div key={item.label} className="flex items-start gap-4 rounded-xl border border-gray-200 bg-white p-5">
             <item.icon className={`w-5 h-5 ${item.color} flex-shrink-0 mt-0.5`} />
@@ -80,9 +80,9 @@ export function DarkerTintMythContent() {
           "\"Can I see the manufacturer's spec sheet?\"",
           "\"What is the infrared/heat rejection percentage?\"",
         ].map((q) => (
-          <div key={q} className="flex items-start gap-3 bg-amber-50 rounded-lg p-3 border border-amber-200">
+          <div key={q} className="flex items-start gap-3 bg-gray-100 rounded-lg p-3 border border-gray-200">
             <HelpCircle className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
-            <p className="text-gray-700 text-xs font-semibold">{q}</p>
+            <p className="text-gray-600 text-xs font-semibold">{q}</p>
           </div>
         ))}
         <p className="text-sm mt-2">

@@ -8,7 +8,7 @@ import { BlogComparisonTable } from "@/components/blog/BlogComparisonTable";
 export function UnderstandingPhotophobiaContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         Photophobia isn&apos;t a fear of light — despite what the name suggests. It&apos;s an abnormal sensitivity to light that causes discomfort, pain, or other symptoms when you&apos;re exposed to brightness that most people handle just fine. Understanding what&apos;s happening inside your eyes and brain is the first step toward doing something about it.
       </p>
 
@@ -34,13 +34,13 @@ export function UnderstandingPhotophobiaContent() {
       </p>
 
       <div className="not-prose my-8 grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div className="rounded-2xl p-6 border-2 border-blue-200 bg-blue-50">
+        <div className="rounded-2xl p-6 border-2 border-gray-200 bg-gray-100">
           <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center mb-4 border border-blue-100">
-            <Eye className="w-6 h-6 text-blue-500" />
+            <Eye className="w-6 h-6 text-amber-500" />
           </div>
           <h3 className="font-extrabold text-heading text-base mb-2">Ocular Photophobia</h3>
           <p className="text-xs font-bold text-blue-600 uppercase tracking-wider mb-3">Eye-Based</p>
-          <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          <p className="text-gray-600 text-sm leading-relaxed mb-3">
             Originates in the eye itself. When the cornea, iris, lens, or retina is damaged, inflamed, or compromised, light entering the eye causes direct discomfort or pain.
           </p>
           <p className="text-gray-500 text-xs font-semibold">Common causes:</p>
@@ -52,20 +52,20 @@ export function UnderstandingPhotophobiaContent() {
               { name: "Keratitis", slug: "keratitis" },
               { name: "Post-LASIK", slug: "lasik-post-surgical" },
             ].map((c) => (
-              <Link key={c.slug} href={`/conditions/${c.slug}`} className="text-xs bg-white px-2.5 py-1 rounded-full border border-blue-200 text-blue-700 hover:bg-blue-100 transition-colors font-medium">
+              <Link key={c.slug} href={`/conditions/${c.slug}`} className="text-xs bg-white px-2.5 py-1 rounded-full border border-gray-200 text-blue-700 hover:bg-blue-100 transition-colors font-medium">
                 {c.name}
               </Link>
             ))}
           </div>
         </div>
 
-        <div className="rounded-2xl p-6 border-2 border-purple-200 bg-purple-50">
+        <div className="rounded-2xl p-6 border-2 border-gray-200 bg-gray-100">
           <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center mb-4 border border-purple-100">
-            <Brain className="w-6 h-6 text-purple-500" />
+            <Brain className="w-6 h-6 text-amber-500" />
           </div>
           <h3 className="font-extrabold text-heading text-base mb-2">Neurological Photophobia</h3>
-          <p className="text-xs font-bold text-purple-600 uppercase tracking-wider mb-3">Brain-Based</p>
-          <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          <p className="text-xs font-bold text-amber-500 uppercase tracking-wider mb-3">Brain-Based</p>
+          <p className="text-gray-600 text-sm leading-relaxed mb-3">
             Originates in how the brain processes light signals. Even when the eyes are perfectly healthy, the brain&apos;s visual processing centers overreact to normal light input.
           </p>
           <p className="text-gray-500 text-xs font-semibold">Common causes:</p>
@@ -75,7 +75,7 @@ export function UnderstandingPhotophobiaContent() {
               { name: "TBI / Concussion", slug: "traumatic-brain-injury" },
               { name: "Blepharospasm", slug: "blepharospasm" },
             ].map((c) => (
-              <Link key={c.slug} href={`/conditions/${c.slug}`} className="text-xs bg-white px-2.5 py-1 rounded-full border border-purple-200 text-purple-700 hover:bg-purple-100 transition-colors font-medium">
+              <Link key={c.slug} href={`/conditions/${c.slug}`} className="text-xs bg-white px-2.5 py-1 rounded-full border border-gray-200 text-purple-700 hover:bg-purple-100 transition-colors font-medium">
                 {c.name}
               </Link>
             ))}
@@ -150,12 +150,12 @@ export function UnderstandingPhotophobiaContent() {
       />
 
       <h3>Medication-Induced Photophobia</h3>
-      <div className="not-prose my-6 bg-amber-50 rounded-xl p-5 border border-amber-200">
+      <div className="not-prose my-6 bg-gray-100 rounded-xl p-5 border border-gray-200">
         <div className="flex items-start gap-3">
           <Pill className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
           <div>
             <p className="font-bold text-heading text-sm mb-1">Common photosensitizing medications</p>
-            <p className="text-gray-700 text-sm leading-relaxed">
+            <p className="text-gray-600 text-sm leading-relaxed">
               Doxycycline, ibuprofen, hydrochlorothiazide, birth control, and isotretinoin (Accutane) are among many drugs that dramatically increase light sensitivity.
             </p>
             <Link href="/resources/medications-that-cause-light-sensitivity" className="text-amber-600 font-semibold text-sm hover:underline mt-2 inline-block">See the full medication list →</Link>
@@ -171,10 +171,10 @@ export function UnderstandingPhotophobiaContent() {
       <div className="not-prose my-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {[
           { icon: Home, title: "Control Your Environment", desc: "Warm lighting at home, dimmers, blackout curtains", color: "text-amber-500" },
-          { icon: Zap, title: "Optimize Your Devices", desc: "Dark mode, reduced brightness, blue light filters", color: "text-blue-500" },
-          { icon: Glasses, title: "Protect Your Eyes", desc: "FL-41 glasses indoors, polarized sunglasses outdoors", color: "text-purple-500" },
-          { icon: Car, title: "Protect While Driving", desc: "Medical window tint, visor extenders, clean windshield", color: "text-green-600" },
-          { icon: Activity, title: "Track & Manage Triggers", desc: "Especially important if migraines are involved", color: "text-red-500" },
+          { icon: Zap, title: "Optimize Your Devices", desc: "Dark mode, reduced brightness, blue light filters", color: "text-amber-500" },
+          { icon: Glasses, title: "Protect Your Eyes", desc: "FL-41 glasses indoors, polarized sunglasses outdoors", color: "text-amber-500" },
+          { icon: Car, title: "Protect While Driving", desc: "Medical window tint, visor extenders, clean windshield", color: "text-amber-500" },
+          { icon: Activity, title: "Track & Manage Triggers", desc: "Especially important if migraines are involved", color: "text-red-400" },
           { icon: Stethoscope, title: "Talk to Your Doctor", desc: "About both the condition and the photophobia itself", color: "text-cyan-600" },
         ].map((item) => (
           <div key={item.title} className="bg-surface rounded-xl p-5 border border-gray-100">

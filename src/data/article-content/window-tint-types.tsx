@@ -8,7 +8,7 @@ import { BlogCTA } from "@/components/blog/BlogCTA";
 export function WindowTintTypesContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         Not all window tint is created equal. The type of tint you choose affects UV protection, heat rejection, visibility, durability, and how well it serves your medical needs. Here&apos;s a breakdown of every major type so you can make an informed choice.
       </p>
 
@@ -52,10 +52,10 @@ export function WindowTintTypesContent() {
           {
             icon: Zap,
             title: "Metalized Window Tint",
-            color: "bg-blue-50 border-blue-200",
-            iconColor: "text-blue-500",
+            color: "bg-gray-100 border-gray-200",
+            iconColor: "text-amber-500",
             badge: "Mid-Range",
-            badgeColor: "bg-blue-500",
+            badgeColor: "bg-gray-1000",
             specs: [
               { label: "UV", value: "Good" },
               { label: "Heat", value: "Good — reflects heat" },
@@ -67,10 +67,10 @@ export function WindowTintTypesContent() {
           {
             icon: Layers,
             title: "Carbon Window Tint",
-            color: "bg-purple-50 border-purple-200",
-            iconColor: "text-purple-500",
+            color: "bg-gray-100 border-gray-200",
+            iconColor: "text-amber-500",
             badge: "Good Value",
-            badgeColor: "bg-purple-500",
+            badgeColor: "bg-gray-1000",
             specs: [
               { label: "UV", value: "Very good" },
               { label: "Heat", value: "Good — blocks ~40% IR" },
@@ -82,10 +82,10 @@ export function WindowTintTypesContent() {
           {
             icon: Star,
             title: "Ceramic Window Tint",
-            color: "bg-amber-50 border-amber-200",
+            color: "bg-gray-100 border-gray-200",
             iconColor: "text-amber-500",
             badge: "Best for Medical",
-            badgeColor: "bg-amber-500",
+            badgeColor: "bg-gray-1000",
             specs: [
               { label: "UV", value: "Excellent — up to 99%" },
               { label: "Heat", value: "Best — blocks 50-80% IR" },
@@ -119,7 +119,7 @@ export function WindowTintTypesContent() {
               {type.specs.map((spec) => (
                 <div key={spec.label} className="bg-white rounded-lg p-2 border border-gray-100">
                   <p className="text-[10px] text-gray-400 font-bold uppercase">{spec.label}</p>
-                  <p className="text-xs text-gray-700 font-semibold">{spec.value}</p>
+                  <p className="text-xs text-gray-600 font-semibold">{spec.value}</p>
                 </div>
               ))}
             </div>
@@ -129,9 +129,9 @@ export function WindowTintTypesContent() {
       </div>
 
       <h2>Which Type for Medical Use?</h2>
-      <div className="not-prose my-8 rounded-2xl border-2 border-green-200 bg-green-50 p-6">
+      <div className="not-prose my-8 rounded-2xl border-2 border-gray-200 bg-gray-100 p-6">
         <div className="flex items-start gap-4">
-          <Star className="w-8 h-8 text-green-600 flex-shrink-0" />
+          <Star className="w-8 h-8 text-amber-500 flex-shrink-0" />
           <div>
             <h3 className="font-extrabold text-heading text-base mb-3">We recommend ceramic tint.</h3>
             <div className="space-y-1.5">
@@ -143,8 +143,8 @@ export function WindowTintTypesContent() {
                 "Available in any VLT to match your exemption allowance",
               ].map((item) => (
                 <div key={item} className="flex items-start gap-2">
-                  <CheckCircle className="w-3.5 h-3.5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <p className="text-xs text-gray-700">{item}</p>
+                  <CheckCircle className="w-3.5 h-3.5 text-green-400 flex-shrink-0 mt-0.5" />
+                  <p className="text-xs text-gray-600">{item}</p>
                 </div>
               ))}
             </div>

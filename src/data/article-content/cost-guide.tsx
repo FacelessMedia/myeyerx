@@ -9,7 +9,7 @@ import { CostCalculator } from "@/components/tools/CostCalculator";
 export function CostGuideContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         One of the most common questions we hear is &quot;how much does a window tint exemption cost?&quot; The short answer: it depends on your state and provider. Here&apos;s a transparent breakdown of what to expect.
       </p>
 
@@ -18,37 +18,37 @@ export function CostGuideContent() {
         "Fee covers everything: physician evaluation, signed certificate, digital delivery",
         "Compare: in-person visits cost $100-$300+ and doctors often don't know the right forms",
         "One-time investment vs. $25-$500+ per tint ticket (plus insurance increases)",
-        "May qualify for HSA/FSA reimbursement as a licensed physician medical service",
+        "We do not accept HSA/FSA directly — you may submit the receipt to your provider post-purchase to see if it qualifies for reimbursement",
       ]} />
 
       <h2>MyEyeRx Pricing</h2>
       <div className="not-prose my-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div className="rounded-2xl border-2 border-green-200 bg-green-50 p-6 text-center">
-          <DollarSign className="w-6 h-6 text-green-600 mx-auto mb-2" />
+        <div className="rounded-2xl border border-gray-200 bg-gray-100 p-6 text-center">
+          <DollarSign className="w-6 h-6 text-amber-500 mx-auto mb-2" />
           <p className="font-extrabold text-heading text-3xl">$225</p>
-          <p className="text-xs font-bold text-green-600 uppercase mt-1 mb-3">12 States</p>
+          <p className="text-xs font-bold text-amber-600 uppercase mt-1 mb-3">12 States</p>
           <p className="text-gray-600 text-[11px] leading-relaxed">AR, ID, IL, MI, MN, NM, OR, SC, TX, WA, WV, WI</p>
-          <p className="text-gray-400 text-[10px] mt-2">Streamlined exemption processes</p>
+          <p className="text-gray-500 text-[10px] mt-2">Streamlined exemption processes</p>
         </div>
-        <div className="rounded-2xl border-2 border-amber-200 bg-amber-50 p-6 text-center">
+        <div className="rounded-2xl border border-gray-200 bg-gray-100 p-6 text-center">
           <DollarSign className="w-6 h-6 text-amber-500 mx-auto mb-2" />
           <p className="font-extrabold text-heading text-3xl">$250</p>
           <p className="text-xs font-bold text-amber-600 uppercase mt-1 mb-3">29 States + DC</p>
           <p className="text-gray-600 text-[11px] leading-relaxed">AL, AZ, CA, CT, DE, FL, GA, IN, IA, KS, LA, ME, MD, MA, MS, MO, MT, NV, NH, NJ, NC, OH, OK, PA, RI, TN, VT, VA, DC</p>
-          <p className="text-gray-400 text-[10px] mt-2">Majority of states</p>
+          <p className="text-gray-500 text-[10px] mt-2">Majority of states</p>
         </div>
-        <div className="rounded-2xl border-2 border-purple-200 bg-purple-50 p-6 text-center">
-          <DollarSign className="w-6 h-6 text-purple-500 mx-auto mb-2" />
+        <div className="rounded-2xl border border-gray-200 bg-gray-100 p-6 text-center">
+          <DollarSign className="w-6 h-6 text-amber-500 mx-auto mb-2" />
           <p className="font-extrabold text-heading text-3xl">$350</p>
-          <p className="text-xs font-bold text-purple-600 uppercase mt-1 mb-3">New York</p>
+          <p className="text-xs font-bold text-amber-600 uppercase mt-1 mb-3">New York</p>
           <p className="text-gray-600 text-[11px] leading-relaxed">Most complex process — requires MV-80W form and additional documentation</p>
         </div>
       </div>
 
       <h2>What&apos;s Included vs. Not Included</h2>
       <div className="not-prose my-8 grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div className="rounded-2xl border border-green-200 bg-green-50 p-5">
-          <p className="text-xs font-bold text-green-600 uppercase tracking-wider mb-3">INCLUDED IN YOUR FEE</p>
+        <div className="rounded-2xl border border-gray-200 bg-gray-100 p-5">
+          <p className="text-xs font-bold text-green-400 uppercase tracking-wider mb-3">INCLUDED IN YOUR FEE</p>
           {[
             "Full physician evaluation by licensed optometrist",
             "State-specific forms and paperwork handled",
@@ -56,20 +56,20 @@ export function CostGuideContent() {
             "Digital delivery within 24-48 hours",
             "Medical records review for state acceptance",
           ].map((item) => (
-            <div key={item} className="flex items-start gap-2 text-sm text-gray-700 mb-1.5">
-              <CheckCircle className="w-3.5 h-3.5 text-green-500 flex-shrink-0 mt-0.5" />
+            <div key={item} className="flex items-start gap-2 text-sm text-gray-600 mb-1.5">
+              <CheckCircle className="w-3.5 h-3.5 text-green-400 flex-shrink-0 mt-0.5" />
               <span className="text-xs">{item}</span>
             </div>
           ))}
         </div>
-        <div className="rounded-2xl border border-red-200 bg-red-50 p-5">
-          <p className="text-xs font-bold text-red-500 uppercase tracking-wider mb-3">NOT INCLUDED</p>
+        <div className="rounded-2xl border border-gray-200 bg-gray-100 p-5">
+          <p className="text-xs font-bold text-red-400 uppercase tracking-wider mb-3">NOT INCLUDED</p>
           {[
             "Window tint installation (separate tint shop)",
             "DMV registration fees (typically $5-$25)",
             "Future renewals (separate evaluation)",
           ].map((item) => (
-            <div key={item} className="flex items-start gap-2 text-sm text-gray-700 mb-1.5">
+            <div key={item} className="flex items-start gap-2 text-sm text-gray-600 mb-1.5">
               <X className="w-3.5 h-3.5 text-red-400 flex-shrink-0 mt-0.5" />
               <span className="text-xs">{item}</span>
             </div>
@@ -97,9 +97,9 @@ export function CostGuideContent() {
       </BlogCallout>
 
       <h2>Is It Worth the Investment?</h2>
-      <div className="not-prose my-8 rounded-2xl border-2 border-amber-200 bg-amber-50 p-6">
+      <div className="not-prose my-8 rounded-2xl border border-gray-200 bg-gray-100 p-6">
         <div className="flex items-center gap-2 mb-3">
-          <Scale className="w-5 h-5 text-amber-600" />
+          <Scale className="w-5 h-5 text-amber-500" />
           <h3 className="font-extrabold text-heading text-base">Cost of NOT Having an Exemption</h3>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -110,7 +110,7 @@ export function CostGuideContent() {
             { cost: "$100-$400+", label: "Forced tint removal and re-application" },
             { cost: "Health impacts", label: "Driving without UV/light protection" },
           ].map((item) => (
-            <div key={item.label} className="flex items-start gap-2 bg-white rounded-lg p-3 border border-amber-100">
+            <div key={item.label} className="flex items-start gap-2 bg-gray-50 rounded-lg p-3 border border-gray-200">
               <AlertTriangle className="w-3.5 h-3.5 text-amber-500 flex-shrink-0 mt-0.5" />
               <div>
                 <p className="font-bold text-heading text-xs">{item.cost}</p>
@@ -119,15 +119,15 @@ export function CostGuideContent() {
             </div>
           ))}
         </div>
-        <p className="text-gray-700 text-sm mt-4 font-semibold">A one-time investment of $225-$350 protects you from all of these ongoing costs.</p>
+        <p className="text-gray-600 text-sm mt-4 font-semibold">A one-time investment of $225-$350 protects you from all of these ongoing costs.</p>
       </div>
 
       <h2>Can I Use HSA or FSA Funds?</h2>
-      <div className="not-prose my-8 flex items-start gap-4 bg-blue-50 rounded-2xl p-5 border border-blue-200">
-        <CreditCard className="w-6 h-6 text-blue-500 flex-shrink-0" />
+      <div className="not-prose my-8 flex items-start gap-4 bg-gray-100 rounded-2xl p-5 border border-gray-200 border-l-4 border-l-amber-400">
+        <CreditCard className="w-6 h-6 text-amber-500 flex-shrink-0" />
         <div>
-          <p className="font-bold text-heading text-sm mb-1">In many cases, yes.</p>
-          <p className="text-gray-700 text-xs leading-relaxed">Since the evaluation is a medical service provided by a licensed physician, it may qualify as a medical expense under your HSA or FSA. Check with your plan administrator to confirm.</p>
+          <p className="font-bold text-heading text-sm mb-1">We do not accept HSA or FSA as a payment method.</p>
+          <p className="text-gray-600 text-xs leading-relaxed">However, since this is a legitimate medical service provided by a licensed physician, you are welcome to submit your receipt to your HSA/FSA plan administrator after purchase to see if it qualifies for reimbursement. MyEyeRx does not handle any insurance or reimbursement processing.</p>
         </div>
       </div>
 

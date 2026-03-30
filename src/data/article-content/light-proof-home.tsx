@@ -8,7 +8,7 @@ import { BlogToolPlaceholder } from "@/components/blog/BlogToolPlaceholder";
 export function LightProofHomeContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         Your home should be the one place where your eyes can fully relax. But most homes are set up for people who don&apos;t think twice about light — bright overhead fixtures, cool-white bulbs, uncovered windows. Here&apos;s a room-by-room guide to making your home actually comfortable for light sensitivity.
       </p>
 
@@ -37,8 +37,8 @@ export function LightProofHomeContent() {
           ].map((item) => (
             <div key={item.k} className={`flex-1 ${item.color} rounded-lg p-3 text-center`}>
               <p className="font-black text-heading text-sm">{item.k}</p>
-              <p className="text-[10px] text-gray-700">{item.label}</p>
-              <span className={`text-[10px] font-bold mt-1 inline-block px-2 py-0.5 rounded-full ${item.rec === "Best" || item.rec === "Great" ? "bg-green-500 text-white" : item.rec === "OK" ? "bg-yellow-500 text-white" : "bg-red-500 text-white"}`}>{item.rec}</span>
+              <p className="text-[10px] text-gray-600">{item.label}</p>
+              <span className={`text-[10px] font-bold mt-1 inline-block px-2 py-0.5 rounded-full ${item.rec === "Best" || item.rec === "Great" ? "bg-gray-1000 text-white" : item.rec === "OK" ? "bg-gray-1000 text-white" : "bg-gray-1000 text-white"}`}>{item.rec}</span>
             </div>
           ))}
         </div>
@@ -56,7 +56,7 @@ export function LightProofHomeContent() {
           <p className="text-gray-500 text-xs mt-1">$15-25 each, 15 min to install. Instant brightness control for any room.</p>
         </div>
         <div className="bg-surface rounded-xl p-5 border border-gray-100">
-          <Smartphone className="w-6 h-6 text-blue-500 mb-2" />
+          <Smartphone className="w-6 h-6 text-amber-500 mb-2" />
           <p className="font-bold text-heading text-sm">Smart Dimmer Switch</p>
           <p className="text-gray-500 text-xs mt-1">$25-40 each. Control from phone or voice (Alexa/Google compatible).</p>
         </div>
@@ -79,7 +79,7 @@ export function LightProofHomeContent() {
           {
             icon: Sofa,
             title: "Living Room",
-            color: "bg-amber-50 border-amber-200",
+            color: "bg-gray-100 border-gray-200",
             iconColor: "text-amber-500",
             tips: [
               "Dimmer switches on all fixtures",
@@ -93,8 +93,8 @@ export function LightProofHomeContent() {
           {
             icon: CookingPot,
             title: "Kitchen",
-            color: "bg-green-50 border-green-200",
-            iconColor: "text-green-600",
+            color: "bg-gray-100 border-gray-200",
+            iconColor: "text-amber-500",
             tips: [
               "Under-cabinet warm LED strips for task light without overhead glare",
               "Dimmer on overhead fixture — full only when cooking",
@@ -115,8 +115,8 @@ export function LightProofHomeContent() {
           {
             icon: Monitor,
             title: "Home Office",
-            color: "bg-purple-50 border-purple-200",
-            iconColor: "text-purple-500",
+            color: "bg-gray-100 border-gray-200",
+            iconColor: "text-amber-500",
             tips: [
               "Position desk so windows are to the side, not behind monitor",
               "Bias lighting behind the monitor",
@@ -134,7 +134,7 @@ export function LightProofHomeContent() {
                 <h3 className="font-extrabold text-heading text-base mb-2">{room.title}</h3>
                 <div className="space-y-1.5">
                   {room.tips.map((tip) => (
-                    <p key={tip} className="text-gray-700 text-sm leading-relaxed">• {tip}</p>
+                    <p key={tip} className="text-gray-600 text-sm leading-relaxed">• {tip}</p>
                   ))}
                 </div>
                 {room.link && (
@@ -170,7 +170,7 @@ export function LightProofHomeContent() {
             title: "UV-Blocking Film",
             where: "Sun-facing windows, bathrooms",
             desc: "Blocks 99% of UV while letting visible light through",
-            color: "bg-amber-50 border border-amber-200",
+            color: "bg-gray-100 border border-gray-200",
           },
         ].map((item) => (
           <div key={item.title} className={`rounded-xl p-5 ${item.color}`}>

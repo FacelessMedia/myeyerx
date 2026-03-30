@@ -16,7 +16,7 @@ export function BlogStepCards({ steps }: BlogStepCardsProps) {
       {steps.map((step, i) => (
         <div
           key={i}
-          className="relative bg-gradient-to-b from-gray-50 to-white rounded-2xl border-2 border-amber-300 p-6 pt-8"
+          className="relative bg-gray-100 rounded-2xl border border-gray-200 p-6 pt-8"
         >
           <div className="absolute -top-3.5 left-5 w-7 h-7 rounded-full bg-amber-400 flex items-center justify-center text-white font-bold text-xs shadow-md">
             {i + 1}

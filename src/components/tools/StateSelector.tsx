@@ -25,7 +25,7 @@ export function StateSelector({ value, onChange, label }: StateSelectorProps) {
         <select
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className="w-full appearance-none rounded-xl border border-gray-200 bg-white py-3 pl-10 pr-10 text-sm font-semibold text-heading focus:border-amber-400 focus:ring-2 focus:ring-amber-100 outline-none transition-colors cursor-pointer"
+          className="w-full appearance-none rounded-xl border border-gray-200 bg-gray-50 py-3 pl-10 pr-10 text-sm font-semibold text-heading focus:border-amber-400 focus:ring-2 focus:ring-amber-100 outline-none transition-colors cursor-pointer"
         >
           <option value="">Select your state...</option>
           {servedStates.map((s) => (

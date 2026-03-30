@@ -8,7 +8,7 @@ import { BlogComparisonTable } from "@/components/blog/BlogComparisonTable";
 export function ComputerSettingsContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         Your computer monitor is a light source sitting inches from your face for hours at a time. For people with light sensitivity, that&apos;s a recipe for headaches, eye strain, and migraine triggers. The good news: both Windows and Mac have built-in tools that help significantly, and third-party apps fill the remaining gaps.
       </p>
 
@@ -54,9 +54,9 @@ export function ComputerSettingsContent() {
             desc: "For extreme sensitivity — \"High Contrast Black\" creates a very dark interface that dramatically reduces visual intensity.",
           },
         ].map((setting) => (
-          <div key={setting.title} className="rounded-xl border border-blue-200 bg-blue-50 p-4">
+          <div key={setting.title} className="rounded-xl border border-gray-200 bg-gray-100 p-4">
             <div className="flex items-start gap-3">
-              <Monitor className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
+              <Monitor className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
               <div className="flex-1">
                 <p className="font-bold text-heading text-sm">{setting.title}</p>
                 <div className="bg-white/80 rounded-lg px-3 py-1.5 text-xs font-mono text-gray-600 mt-1.5 mb-1.5 inline-block">{setting.path}</div>
@@ -88,7 +88,7 @@ export function ComputerSettingsContent() {
         ].map((setting) => (
           <div key={setting.title} className="rounded-xl border border-gray-200 bg-gray-50 p-4">
             <div className="flex items-start gap-3">
-              <Apple className="w-5 h-5 text-gray-700 flex-shrink-0 mt-0.5" />
+              <Apple className="w-5 h-5 text-gray-600 flex-shrink-0 mt-0.5" />
               <div className="flex-1">
                 <p className="font-bold text-heading text-sm">{setting.title}</p>
                 <div className="bg-white/80 rounded-lg px-3 py-1.5 text-xs font-mono text-gray-600 mt-1.5 mb-1.5 inline-block">{setting.path}</div>
@@ -101,12 +101,12 @@ export function ComputerSettingsContent() {
 
       <h2>Third-Party Apps</h2>
       <div className="not-prose my-8 grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div className="rounded-2xl border-2 border-amber-200 bg-white p-6">
+        <div className="rounded-2xl border-2 border-gray-200 bg-white p-6">
           <div className="flex items-center justify-between mb-3">
             <h3 className="font-extrabold text-heading text-base">f.lux</h3>
-            <span className="text-xs font-bold text-green-600 bg-green-50 px-2.5 py-1 rounded-full">FREE</span>
+            <span className="text-xs font-bold text-amber-500 bg-gray-100 px-2.5 py-1 rounded-full">FREE</span>
           </div>
-          <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          <p className="text-gray-600 text-sm leading-relaxed mb-3">
             The gold standard for blue light filtering. Goes far beyond built-in tools — adjust color temperature based on time of day, all the way down to candlelight-level warmth (1200K).
           </p>
           <div className="space-y-1.5">
@@ -117,19 +117,19 @@ export function ComputerSettingsContent() {
               "Darkroom mode (deep red) for migraine attacks",
             ].map((f) => (
               <div key={f} className="flex items-center gap-2 text-xs text-gray-600">
-                <CheckCircle className="w-3.5 h-3.5 text-green-500 flex-shrink-0" />
+                <CheckCircle className="w-3.5 h-3.5 text-green-400 flex-shrink-0" />
                 <span>{f}</span>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="rounded-2xl border-2 border-purple-200 bg-white p-6">
+        <div className="rounded-2xl border-2 border-gray-200 bg-white p-6">
           <div className="flex items-center justify-between mb-3">
             <h3 className="font-extrabold text-heading text-base">Iris</h3>
-            <span className="text-xs font-bold text-purple-600 bg-purple-50 px-2.5 py-1 rounded-full">~$15</span>
+            <span className="text-xs font-bold text-amber-500 bg-gray-100 px-2.5 py-1 rounded-full">~$15</span>
           </div>
-          <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          <p className="text-gray-600 text-sm leading-relaxed mb-3">
             Everything f.lux does plus <strong>flicker-free dimming</strong>. Standard LCDs use PWM to control brightness, which creates an invisible flicker that triggers headaches. Iris eliminates this entirely.
           </p>
           <div className="space-y-1.5">
@@ -140,7 +140,7 @@ export function ComputerSettingsContent() {
               "Font rendering improvements",
             ].map((f) => (
               <div key={f} className="flex items-center gap-2 text-xs text-gray-600">
-                <CheckCircle className="w-3.5 h-3.5 text-purple-500 flex-shrink-0" />
+                <CheckCircle className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" />
                 <span>{f}</span>
               </div>
             ))}

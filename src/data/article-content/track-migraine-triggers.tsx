@@ -8,7 +8,7 @@ import { BlogCTA } from "@/components/blog/BlogCTA";
 export function TrackMigraineTriggersContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         You can&apos;t manage what you don&apos;t measure. Tracking your migraine triggers — especially light-related ones — reveals patterns you&apos;d never notice otherwise. After a month or two of consistent tracking, you&apos;ll know exactly which situations put you at risk.
       </p>
 
@@ -50,7 +50,7 @@ export function TrackMigraineTriggersContent() {
           { icon: ArrowRightLeft, label: "Light Transitions", desc: "Going from dark to bright environments" },
           { icon: Zap, label: "Flashing / Flickering", desc: "Strobe effects, old fluorescents, construction lights" },
         ].map((item) => (
-          <div key={item.label} className="flex items-start gap-3 bg-amber-50 rounded-xl p-4 border border-amber-200">
+          <div key={item.label} className="flex items-start gap-3 bg-gray-100 rounded-xl p-4 border border-gray-200">
             <item.icon className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
             <div>
               <p className="font-bold text-heading text-sm">{item.label}</p>
@@ -72,21 +72,21 @@ export function TrackMigraineTriggersContent() {
             icon: Smartphone,
             title: "Migraine Buddy App",
             badge: "Best Overall",
-            badgeColor: "bg-green-500",
+            badgeColor: "bg-gray-1000",
             desc: "The most comprehensive tracker. Logs triggers, symptoms, medications, weather, sleep. Generates shareable reports for your doctor.",
           },
           {
             icon: Table,
             title: "Simple Spreadsheet",
             badge: "Most Flexible",
-            badgeColor: "bg-blue-500",
+            badgeColor: "bg-gray-1000",
             desc: "Columns for date, time, location, lighting, severity, duration, notes. The key is consistency — track every attack.",
           },
           {
             icon: BookOpen,
             title: "Paper Journal",
             badge: "Easiest Start",
-            badgeColor: "bg-amber-500",
+            badgeColor: "bg-gray-1000",
             desc: "Small notebook on the nightstand. Quick entry after each attack. Less structured but better than not tracking.",
           },
         ].map((item) => (
@@ -102,11 +102,11 @@ export function TrackMigraineTriggersContent() {
       <h2>What Patterns to Look For</h2>
       <div className="not-prose my-8 space-y-3">
         {[
-          { label: "Time Patterns", desc: "Do attacks cluster at certain times? Afternoon = possible screen/fluorescent accumulation", color: "bg-blue-50 border-blue-200" },
-          { label: "Location Patterns", desc: "More attacks at work vs home? Points to lighting environment difference", color: "bg-purple-50 border-purple-200" },
-          { label: "Trigger Combinations", desc: "Bright light + poor sleep + stress = guaranteed attack?", link: "/resources/migraine-trigger-stacking", linkLabel: "Learn about trigger stacking →", color: "bg-red-50 border-red-200" },
-          { label: "Seasonal Patterns", desc: "Worse in summer (more sunlight) or winter (more indoor fluorescent time)?", color: "bg-green-50 border-green-200" },
-          { label: "Intervention Effectiveness", desc: "Which treatments work best for you? Data-driven decisions.", color: "bg-amber-50 border-amber-200" },
+          { label: "Time Patterns", desc: "Do attacks cluster at certain times? Afternoon = possible screen/fluorescent accumulation", color: "bg-gray-100 border-gray-200" },
+          { label: "Location Patterns", desc: "More attacks at work vs home? Points to lighting environment difference", color: "bg-gray-100 border-gray-200" },
+          { label: "Trigger Combinations", desc: "Bright light + poor sleep + stress = guaranteed attack?", link: "/resources/migraine-trigger-stacking", linkLabel: "Learn about trigger stacking →", color: "bg-gray-100 border-gray-200" },
+          { label: "Seasonal Patterns", desc: "Worse in summer (more sunlight) or winter (more indoor fluorescent time)?", color: "bg-gray-100 border-gray-200" },
+          { label: "Intervention Effectiveness", desc: "Which treatments work best for you? Data-driven decisions.", color: "bg-gray-100 border-gray-200" },
         ].map((item) => (
           <div key={item.label} className={`rounded-xl p-4 border ${item.color}`}>
             <p className="font-bold text-heading text-sm">{item.label}</p>
@@ -129,7 +129,7 @@ export function TrackMigraineTriggersContent() {
           <div key={item.trigger} className="flex items-start gap-3 bg-surface rounded-xl p-4 border border-gray-100">
             <span className="text-amber-500 font-bold text-sm flex-shrink-0">→</span>
             <div>
-              <p className="text-gray-700 text-xs"><strong>If:</strong> {item.trigger}</p>
+              <p className="text-gray-600 text-xs"><strong>If:</strong> {item.trigger}</p>
               <Link href={item.link} className="text-amber-600 font-semibold text-xs hover:underline"><strong>Then:</strong> {item.action} →</Link>
             </div>
           </div>

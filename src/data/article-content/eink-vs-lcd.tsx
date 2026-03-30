@@ -8,7 +8,7 @@ import { BlogComparisonTable } from "@/components/blog/BlogComparisonTable";
 export function EinkVsLcdContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         If you read a lot and have light sensitivity, switching to an e-ink device might be one of the most impactful changes you can make. E-ink screens don&apos;t emit light the way phones, tablets, and computers do — they look and feel like actual paper. Here&apos;s why that matters.
       </p>
 
@@ -53,8 +53,8 @@ export function EinkVsLcdContent() {
           { label: "No Contrast Fatigue", desc: "Contrast ratio matches paper, which your eyes handle naturally" },
           { label: "Optional Warm Front Light", desc: "Modern e-readers have adjustable warm lighting you can turn off" },
         ].map((item) => (
-          <div key={item.label} className="flex items-start gap-3 bg-green-50 rounded-xl p-4 border border-green-200">
-            <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+          <div key={item.label} className="flex items-start gap-3 bg-gray-100 rounded-xl p-4 border border-gray-200">
+            <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
             <div>
               <p className="font-bold text-heading text-sm">{item.label}</p>
               <p className="text-gray-600 text-xs mt-0.5">{item.desc}</p>
@@ -65,13 +65,13 @@ export function EinkVsLcdContent() {
 
       <h2>Best E-ink Devices</h2>
       <div className="not-prose my-8 grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div className="rounded-2xl border-2 border-amber-200 bg-white p-6 relative">
+        <div className="rounded-2xl border-2 border-gray-200 bg-white p-6 relative">
           <div className="absolute -top-3 right-4">
-            <span className="text-xs font-bold text-white bg-amber-500 px-3 py-1 rounded-full">BEST FOR READING</span>
+            <span className="text-xs font-bold text-white bg-gray-1000 px-3 py-1 rounded-full">BEST FOR READING</span>
           </div>
           <BookOpen className="w-8 h-8 text-amber-500 mb-3" />
           <h3 className="font-extrabold text-heading text-base mb-1">Kindle Paperwhite</h3>
-          <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          <p className="text-gray-600 text-sm leading-relaxed mb-3">
             The most popular e-reader for good reason. Flush screen, adjustable warm front light, and weeks of battery life. Compact, affordable, and perfect for book reading.
           </p>
           <div className="space-y-1.5 mb-3">
@@ -81,20 +81,20 @@ export function EinkVsLcdContent() {
           <p className="text-lg font-black text-amber-600">~$140-$190</p>
         </div>
 
-        <div className="rounded-2xl border-2 border-purple-200 bg-white p-6 relative">
+        <div className="rounded-2xl border-2 border-gray-200 bg-white p-6 relative">
           <div className="absolute -top-3 right-4">
-            <span className="text-xs font-bold text-white bg-purple-500 px-3 py-1 rounded-full">MOST VERSATILE</span>
+            <span className="text-xs font-bold text-white bg-gray-1000 px-3 py-1 rounded-full">MOST VERSATILE</span>
           </div>
-          <Tablet className="w-8 h-8 text-purple-500 mb-3" />
+          <Tablet className="w-8 h-8 text-amber-500 mb-3" />
           <h3 className="font-extrabold text-heading text-base mb-1">BOOX Tablets</h3>
-          <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          <p className="text-gray-600 text-sm leading-relaxed mb-3">
             Android-based e-ink tablets that run any Android app — web browsers, note-taking apps, email. If you want e-ink for more than just books, BOOX is the way to go.
           </p>
           <div className="space-y-1.5 mb-3">
             <p className="text-xs"><strong>Best for:</strong> Reading, notes, web, email on e-ink</p>
             <p className="text-xs"><strong>Light control:</strong> Adjustable front light with warm/cool toggle</p>
           </div>
-          <p className="text-lg font-black text-purple-600">~$250-$600</p>
+          <p className="text-lg font-black text-amber-500">~$250-$600</p>
         </div>
       </div>
 
@@ -105,7 +105,7 @@ export function EinkVsLcdContent() {
           { label: "Grayscale only", desc: "Most e-ink screens are black and white (color e-ink exists but is limited)" },
           { label: "Not a phone replacement", desc: "You still need your phone for calls, messaging, and most apps" },
         ].map((item) => (
-          <div key={item.label} className="flex items-start gap-3 bg-red-50 rounded-xl p-4 border border-red-200">
+          <div key={item.label} className="flex items-start gap-3 bg-gray-100 rounded-xl p-4 border border-gray-200">
             <X className="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5" />
             <div>
               <p className="font-bold text-heading text-sm">{item.label}</p>

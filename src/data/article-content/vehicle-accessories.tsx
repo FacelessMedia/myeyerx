@@ -7,7 +7,7 @@ import { BlogCTA } from "@/components/blog/BlogCTA";
 export function VehicleAccessoriesContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         Beyond window tint and sunglasses, several vehicle accessories can make driving significantly more comfortable for light-sensitive people. Most are inexpensive and easy to install yourself.
       </p>
 
@@ -25,7 +25,7 @@ export function VehicleAccessoriesContent() {
           {
             icon: Sun,
             title: "Visor Extenders",
-            color: "bg-amber-50 border-amber-200",
+            color: "bg-gray-100 border-gray-200",
             iconColor: "text-amber-500",
             desc: "Clip onto existing visor. Block light from angles the standard visor can't reach — especially brutal low-angle sunrise/sunset sun.",
             options: [
@@ -37,22 +37,22 @@ export function VehicleAccessoriesContent() {
           {
             icon: Shield,
             title: "Windshield Sun Strip",
-            color: "bg-blue-50 border-blue-200",
-            iconColor: "text-blue-500",
+            color: "bg-gray-100 border-gray-200",
+            iconColor: "text-amber-500",
             desc: "Tinted strip across top of windshield (\"brow band\"). Blocks overhead sun without obstructing forward view. Most states allow top 5-6 inches even without exemption.",
           },
           {
             icon: Eye,
             title: "Dashboard Anti-Reflective Mat",
-            color: "bg-purple-50 border-purple-200",
-            iconColor: "text-purple-500",
+            color: "bg-gray-100 border-gray-200",
+            iconColor: "text-amber-500",
             desc: "Light dashboards reflect sunlight upward into eyes and onto windshield. A dark, non-reflective mat eliminates this secondary glare source. Simple, cheap, surprisingly effective.",
           },
           {
             icon: Settings,
             title: "Auto-Dimming Rearview Mirror",
-            color: "bg-green-50 border-green-200",
-            iconColor: "text-green-500",
+            color: "bg-gray-100 border-gray-200",
+            iconColor: "text-green-400",
             desc: "Detects bright headlights behind you and automatically darkens. Much better than manually flipping the tab. $30-80 aftermarket.",
           },
           {
@@ -74,15 +74,15 @@ export function VehicleAccessoriesContent() {
               <section.icon className={`w-5 h-5 ${section.iconColor}`} />
               <p className="font-extrabold text-heading text-sm">{section.title}</p>
             </div>
-            <p className="text-gray-700 text-xs leading-relaxed mb-2">{section.desc}</p>
+            <p className="text-gray-600 text-xs leading-relaxed mb-2">{section.desc}</p>
             {section.options && (
               <div className="space-y-1.5 mt-2">
                 {section.options.map((opt) => (
                   <div key={opt.name} className="flex items-start gap-2 bg-white rounded-lg p-2 border border-gray-100">
                     <span className="text-gray-300 text-xs flex-shrink-0 mt-0.5">●</span>
-                    <p className="text-xs text-gray-700">
+                    <p className="text-xs text-gray-600">
                       <strong>{opt.name}</strong> — {opt.detail}
-                      {(opt as { badge?: string }).badge && <span className="ml-1 text-[9px] font-bold text-white bg-green-500 px-1.5 py-0.5 rounded-full">{(opt as { badge: string }).badge}</span>}
+                      {(opt as { badge?: string }).badge && <span className="ml-1 text-[9px] font-bold text-white bg-gray-1000 px-1.5 py-0.5 rounded-full">{(opt as { badge: string }).badge}</span>}
                     </p>
                   </div>
                 ))}

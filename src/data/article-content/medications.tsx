@@ -8,7 +8,7 @@ import { BlogCTA } from "@/components/blog/BlogCTA";
 export function MedicationsContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         Many common medications list &quot;photosensitivity&quot; as a side effect — but most people don&apos;t realize how significant that sensitivity can be until they&apos;re squinting through a sunny drive or getting headaches under office lights. Here&apos;s what you need to know about medication-induced light sensitivity.
       </p>
 
@@ -25,12 +25,12 @@ export function MedicationsContent() {
         <div className="rounded-2xl border-2 border-orange-200 bg-orange-50 p-6">
           <Sun className="w-6 h-6 text-orange-500 mb-3" />
           <p className="font-extrabold text-heading text-sm mb-2">Phototoxic Reactions</p>
-          <p className="text-gray-700 text-xs leading-relaxed">The drug absorbs UV light and releases it as energy that damages skin cells. <strong>More common.</strong> Causes sunburn-like reaction on exposed skin.</p>
+          <p className="text-gray-600 text-xs leading-relaxed">The drug absorbs UV light and releases it as energy that damages skin cells. <strong>More common.</strong> Causes sunburn-like reaction on exposed skin.</p>
         </div>
-        <div className="rounded-2xl border-2 border-red-200 bg-red-50 p-6">
-          <Zap className="w-6 h-6 text-red-500 mb-3" />
+        <div className="rounded-2xl border-2 border-gray-200 bg-gray-100 p-6">
+          <Zap className="w-6 h-6 text-red-400 mb-3" />
           <p className="font-extrabold text-heading text-sm mb-2">Photoallergic Reactions</p>
-          <p className="text-gray-700 text-xs leading-relaxed">UV light changes the drug&apos;s chemical structure on skin, causing an immune response. Leads to eczema-like rashes that can spread beyond sun-exposed areas.</p>
+          <p className="text-gray-600 text-xs leading-relaxed">UV light changes the drug&apos;s chemical structure on skin, causing an immune response. Leads to eczema-like rashes that can spread beyond sun-exposed areas.</p>
         </div>
       </div>
       <p>
@@ -42,7 +42,7 @@ export function MedicationsContent() {
         {[
           {
             category: "Antibiotics",
-            color: "bg-blue-50 border-blue-200",
+            color: "bg-gray-100 border-gray-200",
             meds: [
               { name: "Tetracyclines", detail: "Doxycycline, minocycline. Among the most photosensitizing. Used for acne, Lyme, respiratory infections." },
               { name: "Fluoroquinolones", detail: "Ciprofloxacin (Cipro), levofloxacin. UTIs and respiratory infections." },
@@ -51,7 +51,7 @@ export function MedicationsContent() {
           },
           {
             category: "NSAIDs (Pain Relievers)",
-            color: "bg-green-50 border-green-200",
+            color: "bg-gray-100 border-gray-200",
             meds: [
               { name: "Ibuprofen", detail: "Advil, Motrin" },
               { name: "Naproxen", detail: "Aleve" },
@@ -60,7 +60,7 @@ export function MedicationsContent() {
           },
           {
             category: "Diuretics",
-            color: "bg-purple-50 border-purple-200",
+            color: "bg-gray-100 border-gray-200",
             meds: [
               { name: "HCTZ", detail: "One of the most commonly prescribed meds in the US — and most photosensitizing. High blood pressure." },
               { name: "Furosemide", detail: "Lasix" },
@@ -68,7 +68,7 @@ export function MedicationsContent() {
           },
           {
             category: "Psychiatric / Heart / Diabetes / Retinoids",
-            color: "bg-amber-50 border-amber-200",
+            color: "bg-gray-100 border-gray-200",
             meds: [
               { name: "Phenothiazines / TCAs", detail: "Chlorpromazine, amitriptyline, nortriptyline" },
               { name: "SSRIs", detail: "Some patients report increased sensitivity with sertraline, fluoxetine" },
@@ -83,7 +83,7 @@ export function MedicationsContent() {
               {group.meds.map((med) => (
                 <div key={med.name} className="flex items-start gap-2">
                   <Pill className="w-3 h-3 text-gray-400 flex-shrink-0 mt-1" />
-                  <p className="text-xs text-gray-700"><strong>{med.name}</strong> — {med.detail}</p>
+                  <p className="text-xs text-gray-600"><strong>{med.name}</strong> — {med.detail}</p>
                 </div>
               ))}
             </div>
@@ -102,12 +102,12 @@ export function MedicationsContent() {
       ]} />
 
       <h2>Does This Qualify for a Tint Exemption?</h2>
-      <div className="not-prose my-8 rounded-2xl border-2 border-green-200 bg-green-50 p-6">
+      <div className="not-prose my-8 rounded-2xl border-2 border-gray-200 bg-gray-100 p-6">
         <div className="flex items-start gap-4">
-          <Shield className="w-8 h-8 text-green-600 flex-shrink-0" />
+          <Shield className="w-8 h-8 text-amber-500 flex-shrink-0" />
           <div>
             <h3 className="font-extrabold text-heading text-base mb-2">Yes, in most states.</h3>
-            <p className="text-gray-700 text-sm leading-relaxed">
+            <p className="text-gray-600 text-sm leading-relaxed">
               Medical tint exemptions cover any condition causing medically documented light or UV sensitivity. If your medication causes photosensitivity that impacts driving comfort, you may qualify. The key: have a healthcare provider document the condition.
             </p>
             <p className="mt-3">

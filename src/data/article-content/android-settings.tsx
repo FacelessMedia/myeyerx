@@ -8,7 +8,7 @@ import { BlogComparisonTable } from "@/components/blog/BlogComparisonTable";
 export function AndroidSettingsContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         Android devices have powerful built-in tools for reducing screen brightness and filtering harsh light — and Samsung phones have a few extras that make them especially good for light-sensitive users. Here&apos;s how to set everything up.
       </p>
 
@@ -52,7 +52,7 @@ export function AndroidSettingsContent() {
             icon: Sun,
             num: "2",
             title: "Eye Comfort Shield / Night Light",
-            color: "bg-amber-500",
+            color: "bg-gray-1000",
             path: "Settings → Display → Eye Comfort Shield (Samsung) or Night Light (Stock)",
             desc: "Shifts your screen color temperature toward warm amber tones, reducing blue light output in the 480-520nm range that's most irritating for photophobia.",
             tip: "Push the warmth slider to maximum. Samsung users: set to \"Adaptive\" for auto-adjustments.",
@@ -61,7 +61,7 @@ export function AndroidSettingsContent() {
             icon: SlidersHorizontal,
             num: "3",
             title: "Extra Dim",
-            color: "bg-purple-500",
+            color: "bg-gray-1000",
             path: "Settings → Accessibility → Extra Dim → ON",
             desc: "Android's equivalent of iPhone's Reduce White Point — a game-changer. Reduces screen brightness below the normal minimum, critical for dark environments or during migraine attacks.",
             tip: "Add to Quick Settings panel for instant access. Start at 50% and adjust.",
@@ -86,7 +86,7 @@ export function AndroidSettingsContent() {
                   <span className="text-xs font-bold text-gray-400">STEP {setting.num}</span>
                 </div>
                 <h3 className="font-extrabold text-heading text-base mb-1">{setting.title}</h3>
-                <p className="text-gray-700 text-sm leading-relaxed mb-2">{setting.desc}</p>
+                <p className="text-gray-600 text-sm leading-relaxed mb-2">{setting.desc}</p>
                 <div className="bg-gray-50 rounded-lg px-3 py-2 text-xs font-mono text-gray-600 mb-2">{setting.path}</div>
                 <p className="text-amber-600 text-xs font-semibold">💡 {setting.tip}</p>
               </div>
@@ -114,7 +114,7 @@ export function AndroidSettingsContent() {
             badge: "Samsung Only",
           },
         ].map((item) => (
-          <div key={item.title} className="bg-blue-50 rounded-xl p-5 border border-blue-200">
+          <div key={item.title} className="bg-gray-100 rounded-xl p-5 border border-gray-200">
             <span className="text-[10px] font-bold text-blue-600 bg-blue-100 px-2 py-0.5 rounded-full uppercase tracking-wider">{item.badge}</span>
             <p className="font-bold text-heading text-sm mt-2 mb-1">{item.title}</p>
             <p className="text-gray-600 text-xs leading-relaxed">{item.desc}</p>
@@ -123,12 +123,12 @@ export function AndroidSettingsContent() {
       </div>
 
       <h2>The Android Ultra-Dim Stack</h2>
-      <div className="not-prose my-8 bg-gradient-to-br from-purple-50 to-purple-100/50 rounded-2xl p-6 border-2 border-purple-200">
+      <div className="not-prose my-8 bg-gradient-to-br from-purple-50 to-purple-100/50 rounded-2xl p-6 border-2 border-gray-200">
         <div className="flex items-center gap-2 mb-4">
-          <Layers className="w-5 h-5 text-purple-500" />
+          <Layers className="w-5 h-5 text-amber-500" />
           <h3 className="font-extrabold text-heading text-base">Maximum Comfort Combo</h3>
         </div>
-        <p className="text-gray-700 text-sm leading-relaxed mb-4">
+        <p className="text-gray-600 text-sm leading-relaxed mb-4">
           Combine these settings for a screen that&apos;s significantly dimmer and warmer than any single setting alone. Add it as a custom routine in Bixby Routines (Samsung) or Google Assistant Routines to toggle everything with one voice command.
         </p>
         <div className="space-y-2">
@@ -139,10 +139,10 @@ export function AndroidSettingsContent() {
             { step: "4", label: "Screen Brightness", detail: "Minimum" },
             { step: "5", label: "Grayscale (optional)", detail: "For extreme situations" },
           ].map((item) => (
-            <div key={item.step} className="flex items-center gap-3 bg-white rounded-lg p-3 border border-purple-100">
-              <span className="w-6 h-6 rounded-full bg-purple-500 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">{item.step}</span>
+            <div key={item.step} className="flex items-center gap-3 bg-gray-50 rounded-lg p-3 border border-purple-100">
+              <span className="w-6 h-6 rounded-full bg-gray-1000 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">{item.step}</span>
               <span className="font-bold text-heading text-sm flex-1">{item.label}</span>
-              <span className="text-purple-600 text-xs font-bold bg-purple-50 px-2 py-1 rounded">{item.detail}</span>
+              <span className="text-amber-500 text-xs font-bold bg-gray-100 px-2 py-1 rounded">{item.detail}</span>
             </div>
           ))}
         </div>
@@ -156,7 +156,7 @@ export function AndroidSettingsContent() {
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
           {["Dark Theme", "Extra Dim", "Eye Comfort Shield", "Blue Light Filter"].map((toggle) => (
-            <div key={toggle} className="bg-white rounded-lg p-3 border border-gray-100 text-center">
+            <div key={toggle} className="bg-gray-50 rounded-lg p-3 border border-gray-100 text-center">
               <p className="text-xs font-bold text-heading">{toggle}</p>
             </div>
           ))}

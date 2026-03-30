@@ -8,7 +8,7 @@ import { BlogComparisonTable } from "@/components/blog/BlogComparisonTable";
 export function BlackoutCurtainsContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         Controlling the light that enters through your windows is one of the most impactful things you can do for a light-sensitive home. But different rooms need different approaches. Here&apos;s when to use blackout curtains, sheer curtains, and residential window film — and how to combine them.
       </p>
 
@@ -74,7 +74,7 @@ export function BlackoutCurtainsContent() {
           <Sun className="w-6 h-6 text-yellow-500" />
           <h3 className="font-extrabold text-heading text-base">Soften Without Blocking</h3>
         </div>
-        <p className="text-gray-700 text-sm leading-relaxed mb-4">
+        <p className="text-gray-600 text-sm leading-relaxed mb-4">
           Diffuse and soften incoming sunlight without blocking it entirely. Reduce glare and harsh direct sunlight while maintaining a bright, airy feel.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -100,12 +100,12 @@ export function BlackoutCurtainsContent() {
       </div>
 
       <h2>Residential Window Film</h2>
-      <div className="not-prose my-8 rounded-2xl border border-blue-200 bg-blue-50 p-6">
+      <div className="not-prose my-8 rounded-2xl border border-gray-200 bg-gray-100 p-6">
         <div className="flex items-center gap-3 mb-3">
-          <Film className="w-6 h-6 text-blue-500" />
+          <Film className="w-6 h-6 text-amber-500" />
           <h3 className="font-extrabold text-heading text-base">Set-It-and-Forget-It Protection</h3>
         </div>
-        <p className="text-gray-700 text-sm leading-relaxed mb-4">
+        <p className="text-gray-600 text-sm leading-relaxed mb-4">
           UV-blocking window film applied directly to glass. Quality films block up to <strong>99% of UV radiation</strong> while letting most visible light through.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -127,15 +127,15 @@ export function BlackoutCurtainsContent() {
       <div className="not-prose my-8 space-y-3">
         {[
           { icon: BedDouble, room: "Bedroom", combo: "Blackout curtains + UV-blocking film", reason: "Total darkness plus UV protection — belt and suspenders", color: "bg-indigo-50 border-indigo-200", iconColor: "text-indigo-500" },
-          { icon: Sofa, room: "Living Room", combo: "UV film + sheer curtains + blackout on separate rod", reason: "Layered control — sheers daily, blackouts for bad days", color: "bg-amber-50 border-amber-200", iconColor: "text-amber-500" },
-          { icon: Monitor, room: "Home Office", combo: "UV film + sheer curtains", reason: "Manage glare while keeping enough light to work", color: "bg-purple-50 border-purple-200", iconColor: "text-purple-500" },
+          { icon: Sofa, room: "Living Room", combo: "UV film + sheer curtains + blackout on separate rod", reason: "Layered control — sheers daily, blackouts for bad days", color: "bg-gray-100 border-gray-200", iconColor: "text-amber-500" },
+          { icon: Monitor, room: "Home Office", combo: "UV film + sheer curtains", reason: "Manage glare while keeping enough light to work", color: "bg-gray-100 border-gray-200", iconColor: "text-amber-500" },
           { icon: Bath, room: "Bathroom", combo: "Frosted window film", reason: "Privacy + light diffusion in one", color: "bg-cyan-50 border-cyan-200", iconColor: "text-cyan-500" },
         ].map((item) => (
           <div key={item.room} className={`flex items-start gap-4 rounded-xl p-4 border ${item.color}`}>
             <item.icon className={`w-5 h-5 ${item.iconColor} flex-shrink-0 mt-0.5`} />
             <div>
               <p className="font-bold text-heading text-sm">{item.room}</p>
-              <p className="text-gray-700 text-xs font-semibold mt-0.5">{item.combo}</p>
+              <p className="text-gray-600 text-xs font-semibold mt-0.5">{item.combo}</p>
               <p className="text-gray-500 text-xs mt-0.5">{item.reason}</p>
             </div>
           </div>

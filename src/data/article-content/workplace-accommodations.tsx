@@ -8,7 +8,7 @@ import { BlogCTA } from "@/components/blog/BlogCTA";
 export function WorkplaceAccommodationsContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         If fluorescent lights, bright monitors, and open-plan offices make your workday miserable, you have more options than you might think. The Americans with Disabilities Act (ADA) may entitle you to reasonable accommodations — and many changes don&apos;t require any formal process at all.
       </p>
 
@@ -21,12 +21,12 @@ export function WorkplaceAccommodationsContent() {
       ]} />
 
       <h2>Your Rights Under the ADA</h2>
-      <div className="not-prose my-8 bg-blue-50 rounded-2xl p-6 border-2 border-blue-200">
+      <div className="not-prose my-8 bg-gray-100 rounded-2xl p-6 border-2 border-gray-200">
         <div className="flex items-center gap-2 mb-3">
           <Shield className="w-5 h-5 text-blue-600" />
           <h3 className="font-extrabold text-heading text-base">You Are Protected</h3>
         </div>
-        <p className="text-gray-700 text-sm leading-relaxed mb-3">
+        <p className="text-gray-600 text-sm leading-relaxed mb-3">
           The ADA requires employers with 15+ employees to provide <strong>reasonable accommodations</strong> for qualifying disabilities. Light sensitivity caused by migraines, lupus, TBI, or chronic photophobia generally qualifies.
         </p>
         <div className="bg-white rounded-lg p-4 border border-blue-100">
@@ -42,7 +42,7 @@ export function WorkplaceAccommodationsContent() {
           {
             icon: Lightbulb,
             title: "Lighting Changes",
-            color: "bg-amber-50 border-amber-200",
+            color: "bg-gray-100 border-gray-200",
             iconColor: "text-amber-500",
             items: [
               "Remove or disconnect overhead fluorescent tubes above your desk",
@@ -55,8 +55,8 @@ export function WorkplaceAccommodationsContent() {
           {
             icon: Monitor,
             title: "Workstation Changes",
-            color: "bg-purple-50 border-purple-200",
-            iconColor: "text-purple-500",
+            color: "bg-gray-100 border-gray-200",
+            iconColor: "text-amber-500",
             items: [
               "Anti-glare screen or matte monitor",
               "Monitor hood to block overhead light reflections",
@@ -67,8 +67,8 @@ export function WorkplaceAccommodationsContent() {
           {
             icon: Clock,
             title: "Schedule / Location Flexibility",
-            color: "bg-green-50 border-green-200",
-            iconColor: "text-green-600",
+            color: "bg-gray-100 border-gray-200",
+            iconColor: "text-amber-500",
             items: [
               { text: "Remote work days from your light-controlled home", link: "/resources/light-proof-your-home" },
               "Flexible hours to avoid peak sunlight during commute",
@@ -86,8 +86,8 @@ export function WorkplaceAccommodationsContent() {
                 const text = typeof item === "string" ? item : item.text;
                 const link = typeof item === "string" ? undefined : item.link;
                 return (
-                  <div key={text} className="flex items-start gap-2 text-sm text-gray-700">
-                    <CheckCircle className="w-3.5 h-3.5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <div key={text} className="flex items-start gap-2 text-sm text-gray-600">
+                    <CheckCircle className="w-3.5 h-3.5 text-green-400 flex-shrink-0 mt-0.5" />
                     {link ? (
                       <span>{text.split("FL-41")[0]}<Link href={link} className="text-amber-600 font-semibold hover:underline">{text.includes("FL-41") ? "FL-41 glasses" : text}</Link>{text.includes("FL-41") ? " at your desk" : ""}</span>
                     ) : (
@@ -120,11 +120,11 @@ export function WorkplaceAccommodationsContent() {
           { label: "Bring a small desk lamp from home" },
           { label: "Follow the 20-20-20 rule", link: "/resources/20-20-20-rule-light-sensitivity" },
         ].map((item) => (
-          <div key={item.label} className="bg-green-50 rounded-lg p-3 border border-green-200 text-center">
+          <div key={item.label} className="bg-gray-100 rounded-lg p-3 border border-gray-200 text-center">
             {item.link ? (
               <Link href={item.link} className="text-amber-600 font-semibold text-xs hover:underline">{item.label}</Link>
             ) : (
-              <p className="text-gray-700 text-xs font-semibold">{item.label}</p>
+              <p className="text-gray-600 text-xs font-semibold">{item.label}</p>
             )}
           </div>
         ))}

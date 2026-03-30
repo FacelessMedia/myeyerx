@@ -7,7 +7,7 @@ import { BlogCTA } from "@/components/blog/BlogCTA";
 export function RemoteWorkContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         Working from home gives light-sensitive people something the office never can: <strong>total control over your environment</strong>. No fluorescent lights you can&apos;t turn off, no windows you can&apos;t cover, no colleagues who want the blinds open. Here&apos;s how to set up the ideal remote workspace.
       </p>
 
@@ -25,7 +25,7 @@ export function RemoteWorkContent() {
           {
             icon: Lamp,
             title: "Lighting",
-            color: "bg-amber-50 border-amber-200",
+            color: "bg-gray-100 border-gray-200",
             iconColor: "text-amber-500",
             items: [
               { text: "No overhead fluorescents — use a desk lamp with a warm white (2700K) bulb", link: "/resources/best-light-bulbs-photosensitivity" },
@@ -37,8 +37,8 @@ export function RemoteWorkContent() {
           {
             icon: Monitor,
             title: "Monitor Setup",
-            color: "bg-purple-50 border-purple-200",
-            iconColor: "text-purple-500",
+            color: "bg-gray-100 border-gray-200",
+            iconColor: "text-amber-500",
             items: [
               { text: "Dark Mode everything — OS, browser, apps", link: "/resources/computer-settings-light-sensitivity" },
               { text: "f.lux or Iris — software blue light filtering beyond Night Light" },
@@ -50,8 +50,8 @@ export function RemoteWorkContent() {
           {
             icon: Blinds,
             title: "Window Management",
-            color: "bg-blue-50 border-blue-200",
-            iconColor: "text-blue-500",
+            color: "bg-gray-100 border-gray-200",
+            iconColor: "text-amber-500",
             items: [
               { text: "Sheer curtains for moderate days — soften sunlight without blocking" },
               { text: "Blackout curtains for bad days — work by lamp light" },
@@ -69,8 +69,8 @@ export function RemoteWorkContent() {
                 const text = typeof item === "string" ? item : item.text;
                 const link = typeof item === "string" ? undefined : (item as { text: string; link?: string }).link;
                 return (
-                  <div key={text} className="flex items-start gap-2 text-sm text-gray-700">
-                    <span className="text-green-500 flex-shrink-0 mt-0.5">✓</span>
+                  <div key={text} className="flex items-start gap-2 text-sm text-gray-600">
+                    <span className="text-green-400 flex-shrink-0 mt-0.5">✓</span>
                     {link ? (
                       <span><Link href={link} className="text-amber-600 font-semibold hover:underline">{text}</Link></span>
                     ) : (
@@ -105,7 +105,7 @@ export function RemoteWorkContent() {
         {[
           { icon: Sun, label: "Start Earlier", desc: "Morning light is softer", color: "text-yellow-500" },
           { icon: Clock, label: "Break at Peak Sun", desc: "11am-2pm: non-screen tasks", color: "text-orange-500" },
-          { icon: Eye, label: "20-20-20 Rule", desc: "Every 20 min, 20 ft, 20 sec", color: "text-blue-500", link: "/resources/20-20-20-rule-light-sensitivity" },
+          { icon: Eye, label: "20-20-20 Rule", desc: "Every 20 min, 20 ft, 20 sec", color: "text-amber-500", link: "/resources/20-20-20-rule-light-sensitivity" },
           { icon: Moon, label: "Block Dark Time", desc: "15-min breaks in dark room", color: "text-indigo-500" },
         ].map((item) => (
           <div key={item.label} className="bg-surface rounded-xl p-4 border border-gray-100 text-center">

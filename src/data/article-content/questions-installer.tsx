@@ -7,7 +7,7 @@ import { BlogCTA } from "@/components/blog/BlogCTA";
 export function QuestionsInstallerContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         Choosing the right tint installer is almost as important as choosing the right tint. A bad installation means bubbles, peeling, gaps in UV coverage, and wasted money. Here are the questions to ask before handing over your keys.
       </p>
 
@@ -55,9 +55,9 @@ export function QuestionsInstallerContent() {
           "Won't show you the film's spec sheet",
           "No portfolio or examples of completed work",
         ].map((item) => (
-          <div key={item} className="flex items-start gap-3 bg-red-50 rounded-lg p-3 border border-red-200">
+          <div key={item} className="flex items-start gap-3 bg-gray-100 rounded-lg p-3 border border-gray-200">
             <X className="w-3.5 h-3.5 text-red-400 flex-shrink-0 mt-0.5" />
-            <p className="text-gray-700 text-xs font-semibold">{item}</p>
+            <p className="text-gray-600 text-xs font-semibold">{item}</p>
           </div>
         ))}
       </div>
@@ -70,9 +70,9 @@ export function QuestionsInstallerContent() {
           "Clean with ammonia-free glass cleaner + soft cloth",
           "Keep warranty paperwork and spec sheet with vehicle records",
         ].map((item) => (
-          <div key={item} className="flex items-start gap-2 bg-green-50 rounded-lg p-3 border border-green-200">
-            <CheckCircle className="w-3.5 h-3.5 text-green-500 flex-shrink-0 mt-0.5" />
-            <p className="text-gray-700 text-xs">{item}</p>
+          <div key={item} className="flex items-start gap-2 bg-gray-100 rounded-lg p-3 border border-gray-200">
+            <CheckCircle className="w-3.5 h-3.5 text-green-400 flex-shrink-0 mt-0.5" />
+            <p className="text-gray-600 text-xs">{item}</p>
           </div>
         ))}
       </div>

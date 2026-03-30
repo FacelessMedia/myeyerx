@@ -18,7 +18,7 @@ export function BlogFAQ({ items }: BlogFAQProps) {
   return (
     <div className="not-prose my-8 space-y-3">
       {items.map((faq, i) => (
-        <div key={i} className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+        <div key={i} className="bg-gray-100 rounded-xl border border-gray-200 overflow-hidden">
           <button
             onClick={() => setOpenIndex(openIndex === i ? null : i)}
             className="w-full flex items-center justify-between px-5 py-4 text-left"

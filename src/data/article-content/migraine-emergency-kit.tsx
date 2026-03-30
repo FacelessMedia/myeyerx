@@ -8,7 +8,7 @@ import { BlogCTA } from "@/components/blog/BlogCTA";
 export function MigraineEmergencyKitContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         When a migraine hits, the last thing you want is to scramble for supplies. Having a pre-packed emergency kit — at home, at work, and in your car — means you can respond immediately and minimize the attack&apos;s severity.
       </p>
 
@@ -21,9 +21,9 @@ export function MigraineEmergencyKitContent() {
       ]} />
 
       <h2>The Home Kit</h2>
-      <div className="not-prose my-8 rounded-2xl border-2 border-blue-200 bg-blue-50 p-6">
+      <div className="not-prose my-8 rounded-2xl border-2 border-gray-200 bg-gray-100 p-6">
         <div className="flex items-center gap-3 mb-4">
-          <Home className="w-6 h-6 text-blue-500" />
+          <Home className="w-6 h-6 text-amber-500" />
           <h3 className="font-extrabold text-heading text-base">Bedroom / Dark Room</h3>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -48,9 +48,9 @@ export function MigraineEmergencyKitContent() {
       </div>
 
       <h2>The Work Kit</h2>
-      <div className="not-prose my-8 rounded-2xl border-2 border-purple-200 bg-purple-50 p-6">
+      <div className="not-prose my-8 rounded-2xl border-2 border-gray-200 bg-gray-100 p-6">
         <div className="flex items-center gap-3 mb-4">
-          <Briefcase className="w-6 h-6 text-purple-500" />
+          <Briefcase className="w-6 h-6 text-amber-500" />
           <h3 className="font-extrabold text-heading text-base">Desk Drawer / Bag</h3>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -74,9 +74,9 @@ export function MigraineEmergencyKitContent() {
       </div>
 
       <h2>The Car Kit</h2>
-      <div className="not-prose my-8 rounded-2xl border-2 border-green-200 bg-green-50 p-6">
+      <div className="not-prose my-8 rounded-2xl border-2 border-gray-200 bg-gray-100 p-6">
         <div className="flex items-center gap-3 mb-4">
-          <Car className="w-6 h-6 text-green-600" />
+          <Car className="w-6 h-6 text-amber-500" />
           <h3 className="font-extrabold text-heading text-base">Glove Box / Console</h3>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -103,8 +103,8 @@ export function MigraineEmergencyKitContent() {
       <div className="not-prose my-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
         {[
           { icon: Smartphone, label: "iPhone", desc: "Triple-click for Reduce White Point", link: "/resources/iphone-settings-light-sensitivity", color: "text-gray-800" },
-          { icon: Smartphone, label: "Android", desc: "Extra Dim in Quick Settings", link: "/resources/android-settings-light-sensitivity", color: "text-green-600" },
-          { icon: Home, label: "Smart Home", desc: "\"Migraine mode\" = all lights minimum", color: "text-purple-500" },
+          { icon: Smartphone, label: "Android", desc: "Extra Dim in Quick Settings", link: "/resources/android-settings-light-sensitivity", color: "text-amber-500" },
+          { icon: Home, label: "Smart Home", desc: "\"Migraine mode\" = all lights minimum", color: "text-amber-500" },
         ].map((item) => (
           <div key={item.label} className="rounded-xl border border-gray-200 bg-white p-4 text-center">
             <item.icon className={`w-5 h-5 ${item.color} mx-auto mb-2`} />

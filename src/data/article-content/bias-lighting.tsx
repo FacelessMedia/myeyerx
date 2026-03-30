@@ -8,7 +8,7 @@ import { BlogCTA } from "@/components/blog/BlogCTA";
 export function BiasLightingContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         Put a warm-toned LED light strip behind your TV or computer monitor. That&apos;s it. This one $15-25 change reduces eye strain more than most people expect, and for light-sensitive people, it can make the difference between a comfortable viewing session and a headache.
       </p>
 
@@ -22,15 +22,15 @@ export function BiasLightingContent() {
 
       <h2>What Is Bias Lighting?</h2>
       <div className="not-prose my-8 grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div className="rounded-2xl border-2 border-red-200 bg-red-50 p-6 text-center">
-          <p className="text-xs font-bold text-red-500 uppercase tracking-wider mb-3">WITHOUT BIAS LIGHTING</p>
+        <div className="rounded-2xl border-2 border-gray-200 bg-gray-100 p-6 text-center">
+          <p className="text-xs font-bold text-red-400 uppercase tracking-wider mb-3">WITHOUT BIAS LIGHTING</p>
           <div className="bg-gray-900 rounded-xl p-8 mb-3">
             <div className="bg-white rounded-lg w-20 h-14 mx-auto" />
           </div>
           <p className="text-gray-600 text-xs">Bright screen + dark room = pupils constantly adjusting = eye fatigue &amp; headaches</p>
         </div>
-        <div className="rounded-2xl border-2 border-green-200 bg-green-50 p-6 text-center">
-          <p className="text-xs font-bold text-green-600 uppercase tracking-wider mb-3">WITH BIAS LIGHTING</p>
+        <div className="rounded-2xl border-2 border-gray-200 bg-gray-100 p-6 text-center">
+          <p className="text-xs font-bold text-amber-500 uppercase tracking-wider mb-3">WITH BIAS LIGHTING</p>
           <div className="bg-gray-700 rounded-xl p-8 mb-3 ring-4 ring-amber-200/50">
             <div className="bg-white rounded-lg w-20 h-14 mx-auto" />
           </div>
@@ -46,8 +46,8 @@ export function BiasLightingContent() {
           { label: "Reduces Perceived Glare", desc: "Screen doesn't feel 'blinding' when surrounded by ambient light" },
           { label: "Prevents Headaches", desc: "Less strain = fewer tension headaches from screen time" },
         ].map((item) => (
-          <div key={item.label} className="flex items-start gap-3 bg-green-50 rounded-xl p-4 border border-green-200">
-            <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+          <div key={item.label} className="flex items-start gap-3 bg-gray-100 rounded-xl p-4 border border-gray-200">
+            <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
             <div>
               <p className="font-bold text-heading text-sm">{item.label}</p>
               <p className="text-gray-600 text-xs mt-0.5">{item.desc}</p>
@@ -79,14 +79,14 @@ export function BiasLightingContent() {
             price: "$20-30",
             name: "Govee / Luminoodle",
             desc: "Adjustable brightness and color temperature. Better build quality and control.",
-            badge: "bg-amber-500",
+            badge: "bg-gray-1000",
           },
           {
             tier: "Premium",
             price: "$40-60",
             name: "Philips Hue Play",
             desc: "Can sync with screen content, but for light sensitivity the basic warm glow matters most.",
-            badge: "bg-purple-500",
+            badge: "bg-gray-1000",
           },
         ].map((item) => (
           <div key={item.tier} className="rounded-xl border border-gray-200 bg-white p-5">
@@ -105,7 +105,7 @@ export function BiasLightingContent() {
           { label: "Wrong Color", desc: "Cool white or blue RGB defeats the purpose. Stick with warm tones only." },
           { label: "Cycling/Flashing Modes", desc: "Color-changing lights add visual stimulation, not reduce it." },
         ].map((item) => (
-          <div key={item.label} className="flex items-start gap-3 bg-red-50 rounded-xl p-4 border border-red-200">
+          <div key={item.label} className="flex items-start gap-3 bg-gray-100 rounded-xl p-4 border border-gray-200">
             <X className="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5" />
             <div>
               <p className="font-bold text-heading text-sm">{item.label}</p>

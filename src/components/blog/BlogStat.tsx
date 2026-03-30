@@ -8,7 +8,7 @@ interface BlogStatProps {
 
 export function BlogStat({ icon: Icon, value, label }: BlogStatProps) {
   return (
-    <div className="bg-white rounded-2xl border-2 border-amber-200 p-5 text-center">
+    <div className="bg-gray-100 rounded-2xl border border-gray-200 p-5 text-center">
       <Icon className="w-7 h-7 text-amber-500 mx-auto mb-2" />
       <p className="text-2xl font-extrabold text-heading">{value}</p>
       <p className="text-xs text-gray-500 mt-1">{label}</p>

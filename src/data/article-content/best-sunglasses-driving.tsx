@@ -8,7 +8,7 @@ import { BlogComparisonTable } from "@/components/blog/BlogComparisonTable";
 export function BestSunglassesDrivingContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         For light-sensitive drivers, the right sunglasses aren&apos;t a fashion choice — they&apos;re a safety tool. The wrong pair can actually make things worse. Here&apos;s what to look for and what to avoid.
       </p>
 
@@ -22,12 +22,12 @@ export function BestSunglassesDrivingContent() {
 
       <h2>Polarized Lenses: Non-Negotiable</h2>
       <div className="not-prose my-8 grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div className="rounded-2xl border-2 border-red-200 bg-red-50 p-6 text-center">
-          <p className="text-xs font-bold text-red-500 uppercase tracking-wider mb-3">NON-POLARIZED</p>
+        <div className="rounded-2xl border-2 border-gray-200 bg-gray-100 p-6 text-center">
+          <p className="text-xs font-bold text-red-400 uppercase tracking-wider mb-3">NON-POLARIZED</p>
           <p className="text-gray-600 text-sm">Darkens everything equally. Glare still hits your eyes. More dangerous.</p>
         </div>
-        <div className="rounded-2xl border-2 border-green-200 bg-green-50 p-6 text-center">
-          <p className="text-xs font-bold text-green-600 uppercase tracking-wider mb-3">POLARIZED</p>
+        <div className="rounded-2xl border-2 border-gray-200 bg-gray-100 p-6 text-center">
+          <p className="text-xs font-bold text-amber-500 uppercase tracking-wider mb-3">POLARIZED</p>
           <p className="text-gray-600 text-sm">Selectively eliminates horizontal glare from roads, hoods, and cars. Better visibility <em>and</em> comfort.</p>
         </div>
       </div>
@@ -57,8 +57,8 @@ export function BestSunglassesDrivingContent() {
           { label: "Anti-Reflective Back Coating", desc: "Prevents light bouncing off inside of lens." },
           { label: "Category 2-3 Darkness", desc: "Cat 4 is too dark and illegal for driving." },
         ].map((item) => (
-          <div key={item.label} className="flex items-start gap-3 bg-green-50 rounded-xl p-4 border border-green-200">
-            <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+          <div key={item.label} className="flex items-start gap-3 bg-gray-100 rounded-xl p-4 border border-gray-200">
+            <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
             <div>
               <p className="font-bold text-heading text-sm">{item.label}</p>
               <p className="text-gray-600 text-xs mt-0.5">{item.desc}</p>
@@ -75,7 +75,7 @@ export function BestSunglassesDrivingContent() {
           { label: "Cheap Lenses Without UV Ratings", desc: "Dark lenses without UV dilate pupils, letting in MORE UV." },
           { label: "Photochromic for Driving", desc: "Most don't darken behind windshields — glass blocks activating UV." },
         ].map((item) => (
-          <div key={item.label} className="flex items-start gap-3 bg-red-50 rounded-xl p-4 border border-red-200">
+          <div key={item.label} className="flex items-start gap-3 bg-gray-100 rounded-xl p-4 border border-gray-200">
             <X className="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5" />
             <div>
               <p className="font-bold text-heading text-sm">{item.label}</p>
@@ -88,8 +88,8 @@ export function BestSunglassesDrivingContent() {
       <h2>Recommended Brands</h2>
       <div className="not-prose my-8 space-y-3">
         {[
-          { name: "Maui Jim", desc: "Superior polarization, color, and clarity. Multiple tint options.", price: "$200-350", badge: "Best Overall", badgeColor: "bg-amber-500" },
-          { name: "Ray-Ban", desc: "Classic styles with quality polarized options.", price: "$150-250", badge: "Most Popular", badgeColor: "bg-blue-500" },
+          { name: "Maui Jim", desc: "Superior polarization, color, and clarity. Multiple tint options.", price: "$200-350", badge: "Best Overall", badgeColor: "bg-gray-1000" },
+          { name: "Ray-Ban", desc: "Classic styles with quality polarized options.", price: "$150-250", badge: "Most Popular", badgeColor: "bg-gray-1000" },
           { name: "Costa Del Mar", desc: "Originally for fishing — among the best polarization available.", price: "$150-300", badge: "Best Polarization", badgeColor: "bg-green-600" },
           { name: "TheraSpecs Outdoor", desc: "FL-41 tint specifically for photophobia. Polarized options.", price: "$99-150", badge: "Best for Photophobia", badgeColor: "bg-rose-500" },
           { name: "Goodr", desc: "Affordable polarized with good coverage. Budget-friendly.", price: "$25-35", badge: "Best Value", badgeColor: "bg-gray-500" },
@@ -109,12 +109,12 @@ export function BestSunglassesDrivingContent() {
       </div>
 
       <h2>Sunglasses + Window Tint = Best Protection</h2>
-      <div className="not-prose my-8 rounded-2xl border-2 border-amber-200 bg-gradient-to-r from-amber-50 to-yellow-50 p-6">
+      <div className="not-prose my-8 rounded-2xl border-2 border-gray-200 bg-gradient-to-r from-amber-50 to-yellow-50 p-6">
         <div className="flex items-start gap-4">
           <Shield className="w-8 h-8 text-amber-500 flex-shrink-0" />
           <div>
             <h3 className="font-extrabold text-heading text-base mb-2">Complete Driving Protection</h3>
-            <p className="text-gray-700 text-sm leading-relaxed">
+            <p className="text-gray-600 text-sm leading-relaxed">
               Sunglasses protect from direct and reflected light. <Link href="/resources/complete-guide-to-window-tint-medical-exemptions" className="text-amber-600 font-semibold hover:underline">Medical window tint</Link> reduces all light entering the vehicle — including angles sunglasses can&apos;t cover (behind you, sides, rear window). Together, they provide comprehensive protection neither achieves alone.
             </p>
           </div>

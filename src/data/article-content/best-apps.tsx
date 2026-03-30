@@ -8,7 +8,7 @@ import { BlogComparisonTable } from "@/components/blog/BlogComparisonTable";
 export function BestAppsContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         The right apps can make a measurable difference in how you manage light sensitivity day to day. From blue light filters that go beyond what your phone offers natively, to migraine trackers that help you identify patterns, here are the apps worth knowing about.
       </p>
 
@@ -40,18 +40,18 @@ export function BestAppsContent() {
 
       <h2>Blue Light Filters</h2>
       <div className="not-prose my-8 grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div className="rounded-2xl border-2 border-amber-200 bg-white p-6 relative">
+        <div className="rounded-2xl border-2 border-gray-200 bg-white p-6 relative">
           <div className="absolute -top-3 right-4">
-            <span className="text-xs font-bold text-white bg-amber-500 px-3 py-1 rounded-full flex items-center gap-1"><Star className="w-3 h-3" /> TOP PICK</span>
+            <span className="text-xs font-bold text-white bg-gray-1000 px-3 py-1 rounded-full flex items-center gap-1"><Star className="w-3 h-3" /> TOP PICK</span>
           </div>
           <div className="flex items-center gap-3 mb-3">
             <Sun className="w-6 h-6 text-amber-500" />
             <div>
               <h3 className="font-extrabold text-heading text-base">f.lux</h3>
-              <span className="text-xs text-green-600 font-bold">Free — All platforms</span>
+              <span className="text-xs text-amber-500 font-bold">Free — All platforms</span>
             </div>
           </div>
-          <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          <p className="text-gray-600 text-sm leading-relaxed mb-3">
             The original and still the best. Adjusts color temperature based on location and time of day — goes all the way down to candlelight warmth (1200K), far beyond built-in tools.
           </p>
           <div className="space-y-1.5">
@@ -62,22 +62,22 @@ export function BestAppsContent() {
               "Customizable presets for day, sunset, and bedtime",
             ].map((f) => (
               <div key={f} className="flex items-center gap-2 text-xs text-gray-600">
-                <CheckCircle className="w-3.5 h-3.5 text-green-500 flex-shrink-0" />
+                <CheckCircle className="w-3.5 h-3.5 text-green-400 flex-shrink-0" />
                 <span>{f}</span>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="rounded-2xl border-2 border-purple-200 bg-white p-6">
+        <div className="rounded-2xl border-2 border-gray-200 bg-white p-6">
           <div className="flex items-center gap-3 mb-3">
-            <Sun className="w-6 h-6 text-purple-500" />
+            <Sun className="w-6 h-6 text-amber-500" />
             <div>
               <h3 className="font-extrabold text-heading text-base">Iris</h3>
-              <span className="text-xs text-purple-600 font-bold">~$15 one-time — Desktop</span>
+              <span className="text-xs text-amber-500 font-bold">~$15 one-time — Desktop</span>
             </div>
           </div>
-          <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          <p className="text-gray-600 text-sm leading-relaxed mb-3">
             Everything f.lux does plus <strong>flicker-free dimming</strong>. Standard LCDs use PWM to control brightness, creating invisible flicker that triggers headaches. Iris eliminates this entirely.
           </p>
           <div className="space-y-1.5">
@@ -88,7 +88,7 @@ export function BestAppsContent() {
               "Font rendering improvements for readability",
             ].map((f) => (
               <div key={f} className="flex items-center gap-2 text-xs text-gray-600">
-                <CheckCircle className="w-3.5 h-3.5 text-purple-500 flex-shrink-0" />
+                <CheckCircle className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" />
                 <span>{f}</span>
               </div>
             ))}
@@ -98,18 +98,18 @@ export function BestAppsContent() {
 
       <h2>Migraine Trackers</h2>
       <div className="not-prose my-8 grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div className="rounded-2xl border-2 border-red-200 bg-white p-6 relative">
+        <div className="rounded-2xl border-2 border-gray-200 bg-white p-6 relative">
           <div className="absolute -top-3 right-4">
-            <span className="text-xs font-bold text-white bg-red-500 px-3 py-1 rounded-full flex items-center gap-1"><Star className="w-3 h-3" /> TOP PICK</span>
+            <span className="text-xs font-bold text-white bg-gray-1000 px-3 py-1 rounded-full flex items-center gap-1"><Star className="w-3 h-3" /> TOP PICK</span>
           </div>
           <div className="flex items-center gap-3 mb-3">
-            <Brain className="w-6 h-6 text-red-500" />
+            <Brain className="w-6 h-6 text-red-400" />
             <div>
               <h3 className="font-extrabold text-heading text-base">Migraine Buddy</h3>
-              <span className="text-xs text-green-600 font-bold">Free + Premium — iOS &amp; Android</span>
+              <span className="text-xs text-amber-500 font-bold">Free + Premium — iOS &amp; Android</span>
             </div>
           </div>
-          <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          <p className="text-gray-600 text-sm leading-relaxed mb-3">
             The most comprehensive migraine tracker. Log attacks, triggers, symptoms, medications, sleep, and weather. After 1-2 months, patterns emerge you&apos;d never notice otherwise.
           </p>
           <div className="space-y-1.5">
@@ -120,7 +120,7 @@ export function BestAppsContent() {
               "Community support features",
             ].map((f) => (
               <div key={f} className="flex items-center gap-2 text-xs text-gray-600">
-                <CheckCircle className="w-3.5 h-3.5 text-red-500 flex-shrink-0" />
+                <CheckCircle className="w-3.5 h-3.5 text-red-400 flex-shrink-0" />
                 <span>{f}</span>
               </div>
             ))}
@@ -132,10 +132,10 @@ export function BestAppsContent() {
             <Brain className="w-6 h-6 text-gray-500" />
             <div>
               <h3 className="font-extrabold text-heading text-base">Migraine Monitor</h3>
-              <span className="text-xs text-green-600 font-bold">Free — iOS &amp; Android</span>
+              <span className="text-xs text-amber-500 font-bold">Free — iOS &amp; Android</span>
             </div>
           </div>
-          <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          <p className="text-gray-600 text-sm leading-relaxed mb-3">
             Simpler alternative for people who want quick logging without the depth. Track frequency and basic triggers without feeling overwhelmed.
           </p>
           <div className="space-y-1.5">

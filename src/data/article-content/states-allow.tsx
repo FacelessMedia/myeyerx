@@ -14,7 +14,7 @@ export function StatesAllowContent() {
 
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         Most U.S. states allow some form of medical exemption for window tint, but the requirements, qualifying conditions, and processes vary significantly. This guide breaks down every state so you know exactly where you stand.
       </p>
 
@@ -37,9 +37,9 @@ export function StatesAllowContent() {
           <h2>States Without Formal Exemption Programs</h2>
           <div className="not-prose my-6 space-y-2">
             {noExemptionStates.map((s) => (
-              <div key={s.slug} className="flex items-start gap-3 bg-red-50 rounded-lg p-3 border border-red-200">
+              <div key={s.slug} className="flex items-start gap-3 bg-gray-100 rounded-lg p-3 border border-gray-200">
                 <AlertTriangle className="w-3.5 h-3.5 text-red-400 flex-shrink-0 mt-0.5" />
-                <p className="text-gray-700 text-xs"><strong>{s.name}</strong> — Check with the {s.dmvName} for the latest updates, as regulations change</p>
+                <p className="text-gray-600 text-xs"><strong>{s.name}</strong> — Check with the {s.dmvName} for the latest updates, as regulations change</p>
               </div>
             ))}
           </div>
@@ -53,11 +53,11 @@ export function StatesAllowContent() {
         <div className="overflow-x-auto rounded-xl border border-gray-200">
           <table className="w-full text-sm border-collapse">
             <thead>
-              <tr className="bg-amber-50">
-                <th className="text-left px-4 py-3 font-bold text-heading border-b border-amber-200">State</th>
-                <th className="text-left px-4 py-3 font-bold text-heading border-b border-amber-200">Front Side VLT</th>
-                <th className="text-left px-4 py-3 font-bold text-heading border-b border-amber-200">Exemption Duration</th>
-                <th className="text-left px-4 py-3 font-bold text-heading border-b border-amber-200">Price</th>
+              <tr className="bg-gray-100">
+                <th className="text-left px-4 py-3 font-bold text-heading border-b border-gray-200">State</th>
+                <th className="text-left px-4 py-3 font-bold text-heading border-b border-gray-200">Front Side VLT</th>
+                <th className="text-left px-4 py-3 font-bold text-heading border-b border-gray-200">Exemption Duration</th>
+                <th className="text-left px-4 py-3 font-bold text-heading border-b border-gray-200">Price</th>
               </tr>
             </thead>
             <tbody>
@@ -85,7 +85,7 @@ export function StatesAllowContent() {
           <Link
             key={c.slug}
             href={`/conditions/${c.slug}`}
-            className="flex items-center gap-2 bg-surface rounded-lg px-4 py-3 border border-gray-100 hover:border-amber-200 transition-colors"
+            className="flex items-center gap-2 bg-surface rounded-lg px-4 py-3 border border-gray-100 hover:border-gray-200 transition-colors"
           >
             <CheckCircle className="w-4 h-4 text-amber-500 flex-shrink-0" />
             <span className="text-sm font-medium text-heading">{c.name}</span>

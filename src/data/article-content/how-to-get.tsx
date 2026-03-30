@@ -10,7 +10,7 @@ import { StateEligibilityChecker } from "@/components/tools/StateEligibilityChec
 export function HowToGetContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         Getting a medical window tint exemption used to require multiple in-person visits — first to your doctor, then to the DMV. Today, telehealth makes it possible to complete the entire process online in about 15 minutes. Here&apos;s exactly how to do it.
       </p>
 
@@ -45,8 +45,8 @@ export function HowToGetContent() {
           "Rosacea with sun sensitivity",
         ].map((condition) => (
           <div key={condition} className="flex items-start gap-2 bg-surface rounded-lg p-3 border border-gray-100">
-            <CheckCircle className="w-3.5 h-3.5 text-green-500 flex-shrink-0 mt-0.5" />
-            <p className="text-gray-700 text-xs font-semibold">{condition}</p>
+            <CheckCircle className="w-3.5 h-3.5 text-green-400 flex-shrink-0 mt-0.5" />
+            <p className="text-gray-600 text-xs font-semibold">{condition}</p>
           </div>
         ))}
       </div>
@@ -66,9 +66,9 @@ export function HowToGetContent() {
       <h2>What to Do After Receiving Your Certificate</h2>
       <div className="not-prose my-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
         {[
-          { icon: Printer, label: "Print Certificate", desc: "Keep in vehicle at all times", color: "text-blue-500" },
-          { icon: FileText, label: "Register with DMV", desc: "If your state requires it", color: "text-purple-500" },
-          { icon: Car, label: "Get Windows Tinted", desc: "Professional installer", color: "text-green-500" },
+          { icon: Printer, label: "Print Certificate", desc: "Keep in vehicle at all times", color: "text-amber-500" },
+          { icon: FileText, label: "Register with DMV", desc: "If your state requires it", color: "text-amber-500" },
+          { icon: Car, label: "Get Windows Tinted", desc: "Professional installer", color: "text-green-400" },
           { icon: Bell, label: "Set Renewal Reminder", desc: "If exemption has expiry", color: "text-amber-500" },
         ].map((item) => (
           <div key={item.label} className="bg-surface rounded-xl p-3 border border-gray-100 text-center">

@@ -9,7 +9,7 @@ import { BlogCTA } from "@/components/blog/BlogCTA";
 export function MigrainesAndLightContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         Light is one of the most common migraine triggers — and during an attack, even dim light can feel unbearable. Understanding the connection between migraines and light sensitivity is the first step toward better managing both.
       </p>
 
@@ -31,10 +31,10 @@ export function MigrainesAndLightContent() {
       <h2>Why Light Triggers Migraines</h2>
       <div className="not-prose my-8 rounded-2xl border border-gray-200 bg-gradient-to-r from-purple-50 to-blue-50 p-6">
         <div className="flex items-start gap-4">
-          <Brain className="w-8 h-8 text-purple-500 flex-shrink-0" />
+          <Brain className="w-8 h-8 text-amber-500 flex-shrink-0" />
           <div>
             <h3 className="font-extrabold text-heading text-base mb-2">The ipRGC-Trigeminal Connection</h3>
-            <p className="text-gray-700 text-sm leading-relaxed mb-3">
+            <p className="text-gray-600 text-sm leading-relaxed mb-3">
               <strong>Intrinsically photosensitive retinal ganglion cells (ipRGCs)</strong> detect light independently of vision. They connect directly to the trigeminal nerve system — the primary pain pathway in migraines.
             </p>
             <div className="bg-white rounded-lg p-4 border border-gray-100">
@@ -55,8 +55,8 @@ export function MigrainesAndLightContent() {
           { icon: Car, label: "Oncoming Headlights", desc: "LED headlights are brighter and bluer than older halogen.", severity: "★★★★☆" },
           { icon: MonitorIcon, label: "Screen Light", desc: "Monitors, phones, tablets — especially white backgrounds at high brightness.", severity: "★★★☆☆" },
         ].map((item) => (
-          <div key={item.label} className="flex items-start gap-3 bg-red-50 rounded-xl p-4 border border-red-200">
-            <item.icon className="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5" />
+          <div key={item.label} className="flex items-start gap-3 bg-gray-100 rounded-xl p-4 border border-gray-200">
+            <item.icon className="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5" />
             <div className="flex-1">
               <div className="flex items-center justify-between">
                 <p className="font-bold text-heading text-sm">{item.label}</p>
@@ -86,8 +86,8 @@ export function MigrainesAndLightContent() {
           { text: "Window tint your vehicle", link: "/resources/complete-guide-to-window-tint-medical-exemptions", linkLabel: "Tint exemption guide →" },
           { text: "Track your triggers", link: "/resources/track-migraine-triggers", linkLabel: "Trigger tracking guide →" },
         ].map((item) => (
-          <div key={item.text} className="flex items-start gap-3 bg-green-50 rounded-xl p-4 border border-green-200">
-            <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+          <div key={item.text} className="flex items-start gap-3 bg-gray-100 rounded-xl p-4 border border-gray-200">
+            <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
             <div>
               <p className="font-bold text-heading text-sm">{item.text}</p>
               <Link href={item.link} className="text-amber-600 font-semibold text-xs hover:underline">{item.linkLabel}</Link>
@@ -97,12 +97,12 @@ export function MigrainesAndLightContent() {
       </div>
 
       <h2>The Green Light Exception</h2>
-      <div className="not-prose my-8 rounded-2xl border-2 border-green-200 bg-green-50 p-6">
+      <div className="not-prose my-8 rounded-2xl border-2 border-gray-200 bg-gray-100 p-6">
         <div className="flex items-start gap-4">
-          <Leaf className="w-6 h-6 text-green-600 flex-shrink-0" />
+          <Leaf className="w-6 h-6 text-amber-500 flex-shrink-0" />
           <div>
             <h3 className="font-extrabold text-heading text-base mb-1">Narrow-Band Green Light (~520nm)</h3>
-            <p className="text-gray-700 text-sm leading-relaxed">
+            <p className="text-gray-600 text-sm leading-relaxed">
               Research from Harvard Medical School found this is the <strong>only wavelength</strong> that doesn&apos;t worsen — and may actually <strong>reduce</strong> — migraine pain. This led to the development of green light therapy lamps. <Link href="/resources/green-light-therapy-migraines" className="text-amber-600 font-semibold hover:underline">Read about green light therapy →</Link>
             </p>
           </div>

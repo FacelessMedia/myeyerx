@@ -8,7 +8,7 @@ import { BlogCTA } from "@/components/blog/BlogCTA";
 export function TravelingStatesContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         Your medical tint exemption protects you in your home state. But what happens when you cross state lines? Tint laws and exemption recognition vary by state, and driving through a state that doesn&apos;t recognize your exemption can lead to an unwanted traffic stop. Here&apos;s what you need to know.
       </p>
 
@@ -27,20 +27,20 @@ export function TravelingStatesContent() {
 
       <h2>Three Categories of States</h2>
       <div className="not-prose my-8 grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="rounded-2xl border-2 border-green-200 bg-green-50 p-5">
-          <CheckCircle className="w-6 h-6 text-green-500 mb-3" />
+        <div className="rounded-2xl border-2 border-gray-200 bg-gray-100 p-5">
+          <CheckCircle className="w-6 h-6 text-green-400 mb-3" />
           <p className="font-extrabold text-heading text-sm mb-2">Accept Out-of-State</p>
-          <p className="text-gray-700 text-xs leading-relaxed">Explicitly recognize exemptions from other states. Your home state certificate should protect you. Always have it readily accessible.</p>
+          <p className="text-gray-600 text-xs leading-relaxed">Explicitly recognize exemptions from other states. Your home state certificate should protect you. Always have it readily accessible.</p>
         </div>
-        <div className="rounded-2xl border-2 border-amber-200 bg-amber-50 p-5">
+        <div className="rounded-2xl border-2 border-gray-200 bg-gray-100 p-5">
           <HelpCircle className="w-6 h-6 text-amber-500 mb-3" />
           <p className="font-extrabold text-heading text-sm mb-2">No Clear Policy</p>
-          <p className="text-gray-700 text-xs leading-relaxed">Many states don&apos;t explicitly address it. Often comes down to officer discretion. Having your certificate and explaining politely usually resolves the issue.</p>
+          <p className="text-gray-600 text-xs leading-relaxed">Many states don&apos;t explicitly address it. Often comes down to officer discretion. Having your certificate and explaining politely usually resolves the issue.</p>
         </div>
-        <div className="rounded-2xl border-2 border-red-200 bg-red-50 p-5">
-          <X className="w-6 h-6 text-red-500 mb-3" />
+        <div className="rounded-2xl border-2 border-gray-200 bg-gray-100 p-5">
+          <X className="w-6 h-6 text-red-400 mb-3" />
           <p className="font-extrabold text-heading text-sm mb-2">Don&apos;t Recognize</p>
-          <p className="text-gray-700 text-xs leading-relaxed">Strictly enforce their own tint laws. Consider getting an exemption in each state you regularly visit.</p>
+          <p className="text-gray-600 text-xs leading-relaxed">Strictly enforce their own tint laws. Consider getting an exemption in each state you regularly visit.</p>
         </div>
       </div>
 
@@ -61,9 +61,9 @@ export function TravelingStatesContent() {
           "Plan for stricter states that don't recognize out-of-state exemptions",
           "Keep all docs accessible: certificate, registration, license",
         ].map((item) => (
-          <div key={item} className="flex items-start gap-2 bg-blue-50 rounded-lg p-3 border border-blue-200">
-            <CheckCircle className="w-3.5 h-3.5 text-blue-500 flex-shrink-0 mt-0.5" />
-            <p className="text-gray-700 text-xs">{item}</p>
+          <div key={item} className="flex items-start gap-2 bg-gray-100 rounded-lg p-3 border border-gray-200">
+            <CheckCircle className="w-3.5 h-3.5 text-amber-500 flex-shrink-0 mt-0.5" />
+            <p className="text-gray-600 text-xs">{item}</p>
           </div>
         ))}
       </div>

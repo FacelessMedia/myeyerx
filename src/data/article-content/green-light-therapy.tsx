@@ -9,7 +9,7 @@ import { BlogCTA } from "@/components/blog/BlogCTA";
 export function GreenLightTherapyContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         Here&apos;s something counterintuitive: while most light makes migraines worse, one specific wavelength may actually help. Research from Harvard Medical School found that <strong>narrow-band green light (around 520nm)</strong> is the only color that doesn&apos;t increase migraine pain — and may actively reduce it.
       </p>
 
@@ -30,10 +30,10 @@ export function GreenLightTherapyContent() {
       <h2>The Research</h2>
       <div className="not-prose my-8 rounded-2xl border border-gray-200 bg-gradient-to-r from-green-50 to-emerald-50 p-6">
         <div className="flex items-start gap-4">
-          <Brain className="w-8 h-8 text-green-600 flex-shrink-0" />
+          <Brain className="w-8 h-8 text-amber-500 flex-shrink-0" />
           <div>
             <h3 className="font-extrabold text-heading text-base mb-2">Harvard + University of Arizona Studies</h3>
-            <p className="text-gray-700 text-sm leading-relaxed mb-3">
+            <p className="text-gray-600 text-sm leading-relaxed mb-3">
               In 2016, Dr. Rami Burstein at Harvard published in <em>Brain</em> that while blue, amber, red, and white light all intensified migraine pain, <strong>green light at low intensity reduced pain by ~20%</strong>. Green light generates the smallest electrical signals in the retina and cortex.
             </p>
             <div className="bg-white rounded-lg p-4 border border-green-100">
@@ -71,10 +71,10 @@ export function GreenLightTherapyContent() {
       <h2>Protocol</h2>
       <div className="not-prose my-8 grid grid-cols-2 sm:grid-cols-5 gap-3">
         {[
-          { icon: Clock, label: "Duration", desc: "1-2 hours", color: "text-green-500" },
-          { icon: Timer, label: "Frequency", desc: "Daily, same time", color: "text-blue-500" },
+          { icon: Clock, label: "Duration", desc: "1-2 hours", color: "text-green-400" },
+          { icon: Timer, label: "Frequency", desc: "Daily, same time", color: "text-amber-500" },
           { icon: Moon, label: "Environment", desc: "Dark room, green only", color: "text-indigo-500" },
-          { icon: Eye, label: "Position", desc: "Side or above, not direct", color: "text-purple-500" },
+          { icon: Eye, label: "Position", desc: "Side or above, not direct", color: "text-amber-500" },
           { icon: Clock, label: "Timeline", desc: "6-10 weeks", color: "text-amber-500" },
         ].map((item) => (
           <div key={item.label} className="bg-surface rounded-xl p-3 border border-gray-100 text-center">
@@ -97,9 +97,9 @@ export function GreenLightTherapyContent() {
           "Requires consistency — occasional use likely won't show results",
           "It's a complement to other treatments, not a replacement",
         ].map((item) => (
-          <div key={item} className="flex items-start gap-3 bg-amber-50 rounded-lg p-3 border border-amber-200">
+          <div key={item} className="flex items-start gap-3 bg-gray-100 rounded-lg p-3 border border-gray-200">
             <AlertTriangle className="w-3.5 h-3.5 text-amber-500 flex-shrink-0 mt-0.5" />
-            <p className="text-gray-700 text-xs">{item}</p>
+            <p className="text-gray-600 text-xs">{item}</p>
           </div>
         ))}
       </div>
@@ -112,9 +112,9 @@ export function GreenLightTherapyContent() {
           { text: "Trigger tracking to manage your trigger stack", link: "/resources/track-migraine-triggers" },
           { text: "Medical window tint for driving protection", link: "/resources/complete-guide-to-window-tint-medical-exemptions" },
         ].map((item) => (
-          <Link key={item.text} href={item.link} className="flex items-start gap-3 bg-green-50 rounded-xl p-4 border border-green-200 hover:border-green-300 transition-colors no-underline">
-            <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
-            <p className="text-gray-700 text-xs font-semibold">{item.text}</p>
+          <Link key={item.text} href={item.link} className="flex items-start gap-3 bg-gray-100 rounded-xl p-4 border border-gray-200 hover:border-green-300 transition-colors no-underline">
+            <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
+            <p className="text-gray-600 text-xs font-semibold">{item.text}</p>
           </Link>
         ))}
       </div>

@@ -11,7 +11,7 @@ interface ToolWrapperProps {
 
 export function ToolWrapper({ title, description, children }: ToolWrapperProps) {
   return (
-    <div className="not-prose my-8 rounded-2xl border border-amber-200 bg-gradient-to-b from-amber-50/80 to-white p-6 sm:p-8">
+    <div className="not-prose my-8 rounded-2xl border border-gray-200 bg-gray-100 p-6 sm:p-8">
       <div className="flex items-center gap-3 mb-1">
         <div className="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center flex-shrink-0">
           <Wrench className="w-4 h-4 text-amber-600" />

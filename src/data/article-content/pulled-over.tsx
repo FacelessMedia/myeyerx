@@ -8,7 +8,7 @@ import { BlogCTA } from "@/components/blog/BlogCTA";
 export function PulledOverContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         Getting pulled over for window tint can be stressful — especially when you have a legitimate medical reason for it. Here&apos;s exactly what to do, what to say, and how to handle the situation if you have a medical exemption.
       </p>
 
@@ -23,9 +23,9 @@ export function PulledOverContent() {
       <h2>Before It Happens: Be Prepared</h2>
       <div className="not-prose my-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
         {[
-          { icon: FileText, label: "Certificate in Vehicle", desc: "Glove box, console, or visor clip", color: "text-blue-500" },
-          { icon: FileText, label: "Print Two Copies", desc: "One in car, one at home as backup", color: "text-green-500" },
-          { icon: Car, label: "Photo on Phone", desc: "Backup if paper copy is misplaced", color: "text-purple-500" },
+          { icon: FileText, label: "Certificate in Vehicle", desc: "Glove box, console, or visor clip", color: "text-amber-500" },
+          { icon: FileText, label: "Print Two Copies", desc: "One in car, one at home as backup", color: "text-green-400" },
+          { icon: Car, label: "Photo on Phone", desc: "Backup if paper copy is misplaced", color: "text-amber-500" },
           { icon: Search, label: "Know State Rules", desc: "DMV registration, required forms", color: "text-amber-500" },
         ].map((item) => (
           <div key={item.label} className="bg-surface rounded-xl p-3 border border-gray-100 text-center">
@@ -54,9 +54,9 @@ export function PulledOverContent() {
           { label: "State matches (or reciprocity applies)", check: true },
           { label: "VLT within exemption's allowance (tint meter)", check: true },
         ].map((item) => (
-          <div key={item.label} className="flex items-start gap-2 bg-blue-50 rounded-lg p-3 border border-blue-200">
-            <Search className="w-3.5 h-3.5 text-blue-500 flex-shrink-0 mt-0.5" />
-            <p className="text-gray-700 text-xs font-semibold">{item.label}</p>
+          <div key={item.label} className="flex items-start gap-2 bg-gray-100 rounded-lg p-3 border border-gray-200">
+            <Search className="w-3.5 h-3.5 text-amber-500 flex-shrink-0 mt-0.5" />
+            <p className="text-gray-600 text-xs font-semibold">{item.label}</p>
           </div>
         ))}
       </div>
@@ -71,20 +71,20 @@ export function PulledOverContent() {
             "Bring: exemption certificate, copy of your state's exemption law, DMV registration.",
           ].map((item) => (
             <div key={item} className="flex items-start gap-2">
-              <CheckCircle className="w-3 h-3 text-green-500 flex-shrink-0 mt-0.5" />
-              <p className="text-xs text-gray-700">{item}</p>
+              <CheckCircle className="w-3 h-3 text-green-400 flex-shrink-0 mt-0.5" />
+              <p className="text-xs text-gray-600">{item}</p>
             </div>
           ))}
         </div>
       </BlogCallout>
 
       <h2>Without an Exemption</h2>
-      <div className="not-prose my-8 rounded-2xl border-2 border-red-200 bg-red-50 p-6">
+      <div className="not-prose my-8 rounded-2xl border-2 border-gray-200 bg-gray-100 p-6">
         <div className="flex items-start gap-4">
-          <AlertTriangle className="w-8 h-8 text-red-500 flex-shrink-0" />
+          <AlertTriangle className="w-8 h-8 text-red-400 flex-shrink-0" />
           <div>
             <h3 className="font-extrabold text-heading text-base mb-2">Getting Pulled Over Without One?</h3>
-            <p className="text-gray-700 text-sm leading-relaxed mb-2">
+            <p className="text-gray-600 text-sm leading-relaxed mb-2">
               Fines range from <strong>$25 to $500+</strong> per stop. Repeat offenses = higher fines, points on license, or forced tint removal. If you have a qualifying medical condition, getting a <Link href="/resources/complete-guide-to-window-tint-medical-exemptions" className="text-amber-600 font-semibold hover:underline">medical exemption</Link> protects you legally.
             </p>
           </div>

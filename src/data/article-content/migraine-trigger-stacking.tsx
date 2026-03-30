@@ -7,7 +7,7 @@ import { BlogCTA } from "@/components/blog/BlogCTA";
 export function MigTriggerStackingContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         A single trigger rarely causes a migraine on its own. It&apos;s usually a <strong>combination</strong> of triggers that pushes you over the threshold. Understanding this &quot;trigger stacking&quot; concept changes how you think about prevention — because you don&apos;t have to eliminate every trigger, just keep the total load below your threshold.
       </p>
 
@@ -20,15 +20,15 @@ export function MigTriggerStackingContent() {
       ]} />
 
       <h2>What Is Trigger Stacking?</h2>
-      <div className="not-prose my-8 rounded-2xl border-2 border-amber-200 bg-gradient-to-r from-amber-50 to-orange-50 p-6">
+      <div className="not-prose my-8 rounded-2xl border-2 border-gray-200 bg-gradient-to-r from-amber-50 to-orange-50 p-6">
         <div className="flex items-start gap-4">
           <Layers className="w-8 h-8 text-amber-500 flex-shrink-0" />
           <div>
             <h3 className="font-extrabold text-heading text-base mb-2">The Bucket Analogy</h3>
-            <p className="text-gray-700 text-sm leading-relaxed mb-3">
+            <p className="text-gray-600 text-sm leading-relaxed mb-3">
               Each trigger adds water to your migraine bucket — poor sleep adds some, stress adds more, bright light adds more. A single trigger might not overflow the bucket. But stack three or four together and you tip over the edge.
             </p>
-            <div className="bg-white rounded-lg p-4 border border-amber-100">
+            <div className="bg-white rounded-lg p-4 border border-gray-200">
               <p className="text-xs text-gray-600">
                 <strong>Example:</strong> Driving in bright sunlight = fine when well-rested and relaxed. Add a bad night&apos;s sleep + stressful morning + skipped meal = that same drive becomes the last straw.
               </p>
@@ -42,12 +42,12 @@ export function MigTriggerStackingContent() {
         {[
           { icon: Sun, label: "Light", desc: "Sunlight, fluorescents, screens, glare", color: "text-amber-500" },
           { icon: Moon, label: "Sleep", desc: "Too little, too much, irregular", color: "text-indigo-500" },
-          { icon: Brain, label: "Stress", desc: "Acute or 'let-down' after", color: "text-red-500" },
+          { icon: Brain, label: "Stress", desc: "Acute or 'let-down' after", color: "text-red-400" },
           { icon: Activity, label: "Hormonal", desc: "Cycle, medications", color: "text-pink-500" },
-          { icon: Droplets, label: "Food / Drink", desc: "Dehydration, skipped meals, alcohol", color: "text-blue-500" },
+          { icon: Droplets, label: "Food / Drink", desc: "Dehydration, skipped meals, alcohol", color: "text-amber-500" },
           { icon: Cloud, label: "Weather", desc: "Barometric pressure, heat, humidity", color: "text-gray-500" },
-          { icon: Volume2, label: "Sensory", desc: "Smells, noise, flickering", color: "text-purple-500" },
-          { icon: Activity, label: "Physical", desc: "Neck tension, eye strain, overexertion", color: "text-green-500" },
+          { icon: Volume2, label: "Sensory", desc: "Smells, noise, flickering", color: "text-amber-500" },
+          { icon: Activity, label: "Physical", desc: "Neck tension, eye strain, overexertion", color: "text-green-400" },
         ].map((item) => (
           <div key={item.label} className="bg-surface rounded-xl p-3 border border-gray-100 text-center">
             <item.icon className={`w-4 h-4 ${item.color} mx-auto mb-1`} />
@@ -71,8 +71,8 @@ export function MigTriggerStackingContent() {
           { icon: Moon, label: "Sleep hygiene", desc: "Consistent bedtime, dark bedroom, no screens before bed" },
           { icon: Eye, label: "Eye strain", desc: "20-20-20 rule, proper monitor setup" },
         ].map((item) => (
-          <div key={item.label} className="flex items-start gap-3 bg-green-50 rounded-xl p-4 border border-green-200">
-            <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+          <div key={item.label} className="flex items-start gap-3 bg-gray-100 rounded-xl p-4 border border-gray-200">
+            <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
             <div>
               <p className="font-bold text-heading text-xs">{item.label}</p>
               <p className="text-gray-600 text-[10px] mt-0.5">{item.desc}</p>
@@ -100,7 +100,7 @@ export function MigTriggerStackingContent() {
           ].map((item) => (
             <div key={item} className="flex items-start gap-2">
               <AlertTriangle className="w-3 h-3 text-amber-500 flex-shrink-0 mt-0.5" />
-              <p className="text-xs text-gray-700">{item}</p>
+              <p className="text-xs text-gray-600">{item}</p>
             </div>
           ))}
         </div>

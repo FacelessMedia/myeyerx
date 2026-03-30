@@ -281,7 +281,37 @@ html.night {
 .night .bg-amber-400.rounded-full.blur-3xl { background-color: rgba(124, 58, 237, 0.3) !important; }
 .night .bg-amber-300.rounded-full.blur-3xl { background-color: rgba(139, 92, 246, 0.2) !important; }
 
+/* ---- Blog component color overrides ---- */
+.night .bg-blue-50 { background-color: #0F172A !important; }
+.night .bg-green-50 { background-color: #0F1A16 !important; }
+.night .bg-yellow-50 { background-color: #1A1A2E !important; }
+.night .border-blue-200 { border-color: #1E3A5F !important; }
+.night .border-green-200 { border-color: #14532D !important; }
+.night .border-yellow-200 { border-color: #4C1D95 !important; }
+.night .border-amber-200\/50 { border-color: rgba(76, 29, 149, 0.5) !important; }
+.night .text-blue-500 { color: #60A5FA !important; }
+.night .text-green-500 { color: #4ADE80 !important; }
+.night .text-green-600 { color: #4ADE80 !important; }
+.night .text-green-700 { color: #86EFAC !important; }
+.night .text-red-500 { color: #F87171 !important; }
+.night .text-red-400 { color: #FCA5A5 !important; }
+.night .text-purple-500 { color: #A78BFA !important; }
+.night .bg-green-100 { background-color: #052E16 !important; }
+.night .border-green-100 { border-color: #14532D !important; }
+.night .from-amber-50\/80 { --tw-gradient-from: rgba(26, 26, 46, 0.8) !important; }
+.night .to-yellow-50 { --tw-gradient-to: #1A1A2E !important; }
+.night .from-amber-100\/50 { --tw-gradient-from: rgba(46, 16, 101, 0.5) !important; }
+.night .to-amber-100\/50 { --tw-gradient-to: rgba(46, 16, 101, 0.5) !important; }
+.night .border-2.border-amber-200 { border-color: #4C1D95 !important; }
+.night .border-2.border-amber-300 { border-color: #6D28D9 !important; }
+
 /* ---- Prose text in night mode (legal pages) ---- */
 .night .prose h2 { color: #E2E8F0 !important; }
 .night .prose p { color: #CBD5E1 !important; }
 .night .prose a { color: #A78BFA !important; }
+.night .prose li { color: #CBD5E1 !important; }
+.night .prose strong { color: #E2E8F0 !important; }
+.night .prose ul { color: #CBD5E1 !important; }
+.night .prose ol { color: #CBD5E1 !important; }
+.night .prose h3 { color: #E2E8F0 !important; }
+.night .prose h4 { color: #E2E8F0 !important; }

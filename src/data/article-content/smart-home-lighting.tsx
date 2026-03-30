@@ -8,7 +8,7 @@ import { BlogComparisonTable } from "@/components/blog/BlogComparisonTable";
 export function SmartHomeLightingContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         Smart lighting gives you something light-sensitive people desperately need: <strong>total control</strong>. Instead of on/off, you get precise brightness, adjustable color temperature, schedules, and voice commands. Here&apos;s how to set up your home.
       </p>
 
@@ -41,12 +41,12 @@ export function SmartHomeLightingContent() {
       />
 
       <div className="not-prose my-8 space-y-4">
-        <div className="rounded-2xl border-2 border-amber-200 bg-white p-6 relative">
+        <div className="rounded-2xl border-2 border-gray-200 bg-white p-6 relative">
           <div className="absolute -top-3 right-4">
-            <span className="text-xs font-bold text-white bg-amber-500 px-3 py-1 rounded-full flex items-center gap-1"><Star className="w-3 h-3" /> GOLD STANDARD</span>
+            <span className="text-xs font-bold text-white bg-gray-1000 px-3 py-1 rounded-full flex items-center gap-1"><Star className="w-3 h-3" /> GOLD STANDARD</span>
           </div>
           <h3 className="font-extrabold text-heading text-base mb-2">Philips Hue</h3>
-          <p className="text-gray-700 text-sm leading-relaxed mb-3">
+          <p className="text-gray-600 text-sm leading-relaxed mb-3">
             Set exact color temperature from 2200K to 6500K and brightness from 1% to 100%. Create custom &quot;scenes&quot; like &quot;Relax&quot; (2200K, 40%) or &quot;Migraine&quot; (2200K, 5%).
           </p>
           <div className="space-y-1.5">
@@ -57,7 +57,7 @@ export function SmartHomeLightingContent() {
               "Hub optional with newer Bluetooth models",
             ].map((f) => (
               <div key={f} className="flex items-center gap-2 text-xs text-gray-600">
-                <CheckCircle className="w-3.5 h-3.5 text-green-500 flex-shrink-0" />
+                <CheckCircle className="w-3.5 h-3.5 text-green-400 flex-shrink-0" />
                 <span>{f}</span>
               </div>
             ))}
@@ -70,11 +70,11 @@ export function SmartHomeLightingContent() {
             <p className="text-gray-600 text-xs leading-relaxed mb-2">No hub required — connects directly to WiFi. Same brightness and color control. Slightly brighter output.</p>
             <p className="text-xs font-bold text-gray-500">$25-40/bulb</p>
           </div>
-          <div className="rounded-xl border border-green-200 bg-green-50 p-5">
-            <span className="text-[10px] font-bold text-green-600 bg-green-100 px-2 py-0.5 rounded-full uppercase">Budget Pick</span>
+          <div className="rounded-xl border border-gray-200 bg-gray-100 p-5">
+            <span className="text-[10px] font-bold text-amber-500 bg-gray-100 px-2 py-0.5 rounded-full uppercase">Budget Pick</span>
             <h3 className="font-bold text-heading text-sm mt-1 mb-1">Wyze</h3>
             <p className="text-gray-600 text-xs leading-relaxed mb-2">Tunable white (2700K-6500K), no hub needed. Simple app. Great value smart lighting.</p>
-            <p className="text-xs font-bold text-green-600">$8-12/bulb</p>
+            <p className="text-xs font-bold text-amber-500">$8-12/bulb</p>
           </div>
         </div>
       </div>
@@ -93,22 +93,22 @@ export function SmartHomeLightingContent() {
             icon: Sun,
             title: "Morning Gentle Wake",
             desc: "Lights turn on at 10% warm tones, gradually increasing over 30 minutes. No harsh wake-up blast.",
-            color: "bg-yellow-50 border-yellow-200",
+            color: "bg-gray-100 border-gray-200",
             iconColor: "text-yellow-600",
           },
           {
             icon: Brain,
             title: "Migraine Mode",
             desc: "\"Hey Google, migraine mode\" — drops all lights to 2200K at 5% or off entirely. No fumbling with apps.",
-            color: "bg-red-50 border-red-200",
-            iconColor: "text-red-500",
+            color: "bg-gray-100 border-gray-200",
+            iconColor: "text-red-400",
           },
           {
             icon: MapPin,
             title: "Away / Return",
             desc: "Geofencing auto-sets lights to your preferred level when you arrive home. Never walk into a dark house.",
-            color: "bg-blue-50 border-blue-200",
-            iconColor: "text-blue-500",
+            color: "bg-gray-100 border-gray-200",
+            iconColor: "text-amber-500",
           },
         ].map((routine) => (
           <div key={routine.title} className={`rounded-xl p-5 border ${routine.color}`}>

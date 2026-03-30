@@ -9,7 +9,7 @@ import { BlogComparisonTable } from "@/components/blog/BlogComparisonTable";
 export function CeramicTintContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         If you&apos;re getting window tint for medical reasons, ceramic tint is the best investment you can make. It outperforms every other type of tint in UV protection, heat rejection, and durability — and it does it without interfering with your phone, GPS, or radio.
       </p>
 
@@ -30,10 +30,10 @@ export function CeramicTintContent() {
       <h2>What Makes Ceramic Tint Different</h2>
       <div className="not-prose my-8 rounded-2xl border border-gray-200 bg-gradient-to-r from-blue-50 to-purple-50 p-6">
         <div className="flex items-start gap-4">
-          <Shield className="w-8 h-8 text-blue-500 flex-shrink-0" />
+          <Shield className="w-8 h-8 text-amber-500 flex-shrink-0" />
           <div>
             <h3 className="font-extrabold text-heading text-base mb-2">Nano-Ceramic Particle Technology</h3>
-            <p className="text-gray-700 text-sm leading-relaxed">
+            <p className="text-gray-600 text-sm leading-relaxed">
               Ceramic window tint uses <strong>non-metallic, non-conductive</strong> nano-ceramic particles that reflect and absorb infrared radiation (heat) while allowing visible light through with minimal distortion. Fundamentally different from dyed or metalized tints.
             </p>
           </div>
@@ -65,8 +65,8 @@ export function CeramicTintContent() {
             icon: Shield,
             title: "Maximum UV Protection",
             desc: "Blocks up to 99% of both UVA and UVB. Critical for lupus, melanoma, dermatomyositis, PMLE, and solar urticaria.",
-            color: "bg-blue-50 border-blue-200",
-            iconColor: "text-blue-500",
+            color: "bg-gray-100 border-gray-200",
+            iconColor: "text-amber-500",
           },
           {
             icon: Thermometer,
@@ -79,21 +79,21 @@ export function CeramicTintContent() {
             icon: Eye,
             title: "Optical Clarity",
             desc: "Maintains excellent visibility without color distortion. Important for safe driving when conditions already affect visual comfort.",
-            color: "bg-green-50 border-green-200",
-            iconColor: "text-green-500",
+            color: "bg-gray-100 border-gray-200",
+            iconColor: "text-green-400",
           },
           {
             icon: Clock,
             title: "10+ Year Longevity",
             desc: "Won't fade, bubble, or degrade. Your medical exemption is long-term — your tint should be too.",
-            color: "bg-purple-50 border-purple-200",
-            iconColor: "text-purple-500",
+            color: "bg-gray-100 border-gray-200",
+            iconColor: "text-amber-500",
           },
         ].map((item) => (
           <div key={item.title} className={`rounded-xl p-5 border ${item.color}`}>
             <item.icon className={`w-6 h-6 ${item.iconColor} mb-3`} />
             <p className="font-extrabold text-heading text-sm mb-1">{item.title}</p>
-            <p className="text-gray-700 text-xs leading-relaxed">{item.desc}</p>
+            <p className="text-gray-600 text-xs leading-relaxed">{item.desc}</p>
           </div>
         ))}
       </div>
@@ -101,8 +101,8 @@ export function CeramicTintContent() {
       <h2>Top Ceramic Tint Brands</h2>
       <div className="not-prose my-8 space-y-3">
         {[
-          { name: "3M Ceramic IR Series", desc: "Industry leader. Available at most professional tint shops.", badge: "Most Widely Available", badgeColor: "bg-blue-500" },
-          { name: "XPEL PRIME XR Plus", desc: "Premium performance. Blocks up to 98% of infrared heat.", badge: "Best Performance", badgeColor: "bg-amber-500" },
+          { name: "3M Ceramic IR Series", desc: "Industry leader. Available at most professional tint shops.", badge: "Most Widely Available", badgeColor: "bg-gray-1000" },
+          { name: "XPEL PRIME XR Plus", desc: "Premium performance. Blocks up to 98% of infrared heat.", badge: "Best Performance", badgeColor: "bg-gray-1000" },
           { name: "Llumar IRX", desc: "Excellent heat and UV rejection. Wide installer network.", badge: "Great Network", badgeColor: "bg-green-600" },
           { name: "SunTek CXP", desc: "Good performance at a slightly lower price point.", badge: "Best Value", badgeColor: "bg-gray-500" },
         ].map((item) => (
@@ -128,9 +128,9 @@ export function CeramicTintContent() {
           "No signal interference (GPS, phone, radio)",
           "No fading to purple (maintains appearance)",
         ].map((item) => (
-          <div key={item} className="flex items-start gap-2 bg-green-50 rounded-lg p-3 border border-green-200">
-            <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
-            <p className="text-gray-700 text-xs font-semibold">{item}</p>
+          <div key={item} className="flex items-start gap-2 bg-gray-100 rounded-lg p-3 border border-gray-200">
+            <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
+            <p className="text-gray-600 text-xs font-semibold">{item}</p>
           </div>
         ))}
       </div>

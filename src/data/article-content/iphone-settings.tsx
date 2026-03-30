@@ -8,7 +8,7 @@ import { BlogComparisonTable } from "@/components/blog/BlogComparisonTable";
 export function IphoneSettingsContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         Your iPhone has some incredibly powerful accessibility features that can make screen time dramatically more comfortable for light-sensitive eyes. Most people only know about brightness and Dark Mode — but Apple has buried several other tools that, when combined, create what we call the &quot;Ultra-Dim Stack.&quot;
       </p>
 
@@ -52,7 +52,7 @@ export function IphoneSettingsContent() {
             icon: Sun,
             num: "2",
             title: "Night Shift",
-            color: "bg-amber-500",
+            color: "bg-gray-1000",
             path: "Settings → Display & Brightness → Night Shift",
             desc: "Shifts your screen's color temperature toward warm amber tones, reducing the blue light output. Blue light in the 480-520nm range is the most irritating wavelength for photophobia.",
             tip: "Slide color temperature all the way to \"More Warm\" for maximum effect.",
@@ -61,7 +61,7 @@ export function IphoneSettingsContent() {
             icon: SlidersHorizontal,
             num: "3",
             title: "Reduce White Point",
-            color: "bg-purple-500",
+            color: "bg-gray-1000",
             path: "Settings → Accessibility → Display & Text Size → Reduce White Point",
             desc: "The hidden gem most people don't know about. Dims the intensity of bright colors on your screen without affecting the minimum brightness. Even when brightness is already at its lowest, this can make it even dimmer.",
             tip: "Start around 50% and adjust to your comfort level. Essential for migraine attacks.",
@@ -86,7 +86,7 @@ export function IphoneSettingsContent() {
                   <span className="text-xs font-bold text-gray-400">STEP {setting.num}</span>
                 </div>
                 <h3 className="font-extrabold text-heading text-base mb-1">{setting.title}</h3>
-                <p className="text-gray-700 text-sm leading-relaxed mb-2">{setting.desc}</p>
+                <p className="text-gray-600 text-sm leading-relaxed mb-2">{setting.desc}</p>
                 <div className="bg-gray-50 rounded-lg px-3 py-2 text-xs font-mono text-gray-600 mb-2">{setting.path}</div>
                 <p className="text-amber-600 text-xs font-semibold">💡 {setting.tip}</p>
               </div>
@@ -96,12 +96,12 @@ export function IphoneSettingsContent() {
       </div>
 
       <h2>The Ultra-Dim Stack</h2>
-      <div className="not-prose my-8 bg-gradient-to-br from-purple-50 to-purple-100/50 rounded-2xl p-6 border-2 border-purple-200">
+      <div className="not-prose my-8 bg-gradient-to-br from-purple-50 to-purple-100/50 rounded-2xl p-6 border-2 border-gray-200">
         <div className="flex items-center gap-2 mb-4">
-          <Layers className="w-5 h-5 text-purple-500" />
+          <Layers className="w-5 h-5 text-amber-500" />
           <h3 className="font-extrabold text-heading text-base">Maximum Comfort Combo</h3>
         </div>
-        <p className="text-gray-700 text-sm leading-relaxed mb-4">
+        <p className="text-gray-600 text-sm leading-relaxed mb-4">
           For maximum comfort, combine all of these together. This combination gets your screen dimmer than any single setting can achieve alone — the difference between &quot;tolerable&quot; and &quot;actually comfortable&quot; during migraine attacks or in dark environments.
         </p>
         <div className="space-y-2">
@@ -111,10 +111,10 @@ export function IphoneSettingsContent() {
             { step: "3", label: "Reduce White Point", detail: "80-100%" },
             { step: "4", label: "Screen Brightness", detail: "Minimum" },
           ].map((item) => (
-            <div key={item.step} className="flex items-center gap-3 bg-white rounded-lg p-3 border border-purple-100">
-              <span className="w-6 h-6 rounded-full bg-purple-500 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">{item.step}</span>
+            <div key={item.step} className="flex items-center gap-3 bg-gray-50 rounded-lg p-3 border border-purple-100">
+              <span className="w-6 h-6 rounded-full bg-gray-1000 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">{item.step}</span>
               <span className="font-bold text-heading text-sm flex-1">{item.label}</span>
-              <span className="text-purple-600 text-xs font-bold bg-purple-50 px-2 py-1 rounded">{item.detail}</span>
+              <span className="text-amber-500 text-xs font-bold bg-gray-100 px-2 py-1 rounded">{item.detail}</span>
             </div>
           ))}
         </div>
@@ -133,19 +133,19 @@ export function IphoneSettingsContent() {
             icon: Smartphone,
             title: "Per-App Dark Mode",
             desc: "Settings → Accessibility → Per-App Settings → Add App → set Dark Mode to \"On\" — force it for any app.",
-            color: "text-blue-500",
+            color: "text-amber-500",
           },
           {
             icon: Eye,
             title: "Smart Invert",
             desc: "Settings → Accessibility → Display & Text Size → Smart Invert. Dark Mode for apps that refuse to support it.",
-            color: "text-purple-500",
+            color: "text-amber-500",
           },
           {
             icon: Settings,
             title: "Auto-Brightness",
             desc: "Keep enabled at Settings → Accessibility → Display & Text Size. Combined with Reduce White Point, your screen auto-adjusts perfectly.",
-            color: "text-green-600",
+            color: "text-amber-500",
           },
         ].map((tip) => (
           <div key={tip.title} className="bg-surface rounded-xl p-5 border border-gray-100">

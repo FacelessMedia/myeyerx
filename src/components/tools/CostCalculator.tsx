@@ -44,7 +44,7 @@ export function CostCalculator() {
       {state && state.served && state.hasExemption && (
         <div className="mt-5 space-y-5 animate-in fade-in duration-300">
           {/* Price display */}
-          <div className="text-center rounded-2xl bg-gradient-to-r from-amber-50 to-yellow-50 border-2 border-amber-200 p-6">
+          <div className="text-center rounded-2xl bg-gray-100 border border-gray-200 p-6">
             <p className="text-xs font-bold text-amber-600 uppercase tracking-wider mb-1">
               {state.name} Evaluation Price
             </p>
@@ -55,27 +55,27 @@ export function CostCalculator() {
           {/* What's included / not included */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <p className="text-xs font-bold text-green-600 uppercase tracking-wider mb-2">
+              <p className="text-xs font-bold text-green-500 uppercase tracking-wider mb-2">
                 What&apos;s Included
               </p>
               <div className="space-y-1.5">
                 {INCLUDED.map((item) => (
                   <div key={item} className="flex items-start gap-2">
                     <CheckCircle className="w-3.5 h-3.5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <p className="text-xs text-gray-700">{item}</p>
+                    <p className="text-xs text-gray-600">{item}</p>
                   </div>
                 ))}
               </div>
             </div>
             <div>
-              <p className="text-xs font-bold text-red-500 uppercase tracking-wider mb-2">
+              <p className="text-xs font-bold text-red-400 uppercase tracking-wider mb-2">
                 Not Included
               </p>
               <div className="space-y-1.5">
                 {NOT_INCLUDED.map((item) => (
                   <div key={item} className="flex items-start gap-2">
                     <X className="w-3.5 h-3.5 text-red-400 flex-shrink-0 mt-0.5" />
-                    <p className="text-xs text-gray-700">{item}</p>
+                    <p className="text-xs text-gray-600">{item}</p>
                   </div>
                 ))}
               </div>
@@ -90,7 +90,7 @@ export function CostCalculator() {
             <div className="overflow-hidden rounded-xl border border-gray-200">
               <table className="w-full text-xs">
                 <thead>
-                  <tr className="bg-gray-50">
+                  <tr className="bg-gray-100">
                     <th className="text-left px-4 py-2.5 font-bold text-heading">Cost Item</th>
                     <th className="text-right px-4 py-2.5 font-bold text-heading">In-Person</th>
                     <th className="text-right px-4 py-2.5 font-bold text-amber-600">MyEyeRx</th>
@@ -99,16 +99,16 @@ export function CostCalculator() {
                 <tbody>
                   {IN_PERSON_COSTS.map((item, i) => (
                     <tr key={item.label} className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
-                      <td className="px-4 py-2 text-gray-700">{item.label}</td>
-                      <td className="px-4 py-2 text-right text-gray-700">{item.range}</td>
+                      <td className="px-4 py-2 text-gray-600">{item.label}</td>
+                      <td className="px-4 py-2 text-right text-gray-600">{item.range}</td>
                       <td className="px-4 py-2 text-right text-amber-600 font-semibold">
                         {i === 0 ? `$${state.price}` : "Included"}
                       </td>
                     </tr>
                   ))}
-                  <tr className="border-t-2 border-gray-200 bg-amber-50">
+                  <tr className="border-t-2 border-gray-200 bg-gray-100">
                     <td className="px-4 py-2.5 font-bold text-heading">Total</td>
-                    <td className="px-4 py-2.5 text-right font-bold text-gray-700">
+                    <td className="px-4 py-2.5 text-right font-bold text-gray-600">
                       ${inPersonMin}–${inPersonMax}+
                     </td>
                     <td className="px-4 py-2.5 text-right font-extrabold text-amber-600">
@@ -131,8 +131,8 @@ export function CostCalculator() {
       )}
 
       {state && (!state.served || !state.hasExemption) && (
-        <div className="mt-5 rounded-xl bg-gray-50 border border-gray-200 p-5 text-center">
-          <p className="text-sm font-semibold text-gray-700">
+        <div className="mt-5 rounded-xl bg-gray-100 border border-gray-200 p-5 text-center">
+          <p className="text-sm font-semibold text-heading">
             {state.hasExemption
               ? `${state.name} has a medical exemption program, but MyEyeRx doesn't currently serve this state.`
               : `${state.name} doesn't currently have a formal medical tint exemption program.`}

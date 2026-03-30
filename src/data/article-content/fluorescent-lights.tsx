@@ -7,7 +7,7 @@ import { BlogCTA } from "@/components/blog/BlogCTA";
 export function FluorescentLightsContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         Fluorescent lights are the single most common lighting complaint among light-sensitive people. They flicker, they emit harsh blue-green wavelengths, and they&apos;re everywhere — offices, schools, hospitals, retail stores. Here&apos;s why they&apos;re problematic and what you can do about them.
       </p>
 
@@ -27,30 +27,30 @@ export function FluorescentLightsContent() {
             title: "Invisible Flicker",
             desc: "Tubes cycle on/off 120 times per second. Your brain detects this subliminal flicker, activating the visual cortex and triggering headaches, eye strain, and migraines.",
             detail: "Older magnetic ballasts: 100-120Hz (worst). Electronic ballasts: 20,000-40,000Hz (better but many offices still have the older type).",
-            color: "bg-red-50 border-red-200",
-            iconColor: "text-red-500",
+            color: "bg-gray-100 border-gray-200",
+            iconColor: "text-red-400",
           },
           {
             icon: Radio,
             title: "Blue-Green Spikes",
             desc: "Fluorescents emit concentrated energy spikes at specific wavelengths — one of the strongest falls right in the 480-520nm range that triggers photophobia.",
             detail: "This is the exact wavelength range that activates pain-sensing cells (ipRGCs) in your retina.",
-            color: "bg-red-50 border-red-200",
-            iconColor: "text-red-500",
+            color: "bg-gray-100 border-gray-200",
+            iconColor: "text-red-400",
           },
           {
             icon: Palette,
             title: "Harsh, Flat Quality",
             desc: "Lacks the warmth and depth of natural or LED light. Flat, clinical, and unflattering — creates low-level discomfort that accumulates throughout the day.",
             detail: "Low CRI (Color Rendering Index) means colors look washed out and unnatural.",
-            color: "bg-red-50 border-red-200",
-            iconColor: "text-red-500",
+            color: "bg-gray-100 border-gray-200",
+            iconColor: "text-red-400",
           },
         ].map((item) => (
           <div key={item.title} className={`rounded-xl p-5 border ${item.color}`}>
             <item.icon className={`w-6 h-6 ${item.iconColor} mb-3`} />
             <p className="font-extrabold text-heading text-sm mb-1">{item.title}</p>
-            <p className="text-gray-700 text-xs leading-relaxed mb-2">{item.desc}</p>
+            <p className="text-gray-600 text-xs leading-relaxed mb-2">{item.desc}</p>
             <div className="bg-white/70 rounded-lg p-2.5">
               <p className="text-[10px] text-gray-500 leading-relaxed">{item.detail}</p>
             </div>
@@ -67,7 +67,7 @@ export function FluorescentLightsContent() {
             color: "bg-rose-50 border-rose-200",
             iconColor: "text-rose-500",
             content: (
-              <p className="text-gray-700 text-sm leading-relaxed">
+              <p className="text-gray-600 text-sm leading-relaxed">
                 <Link href="/resources/fl-41-glasses-complete-guide" className="text-amber-600 font-semibold hover:underline">FL-41 tinted lenses</Link> were literally invented for fluorescent light sensitivity (the &quot;FL&quot; stands for fluorescent). They filter the specific blue-green wavelengths that fluorescents emit in excess. Indoor FL-41 glasses are light enough for all-day wear.
               </p>
             ),
@@ -75,11 +75,11 @@ export function FluorescentLightsContent() {
           {
             icon: Shield,
             title: "Fluorescent Light Covers",
-            color: "bg-blue-50 border-blue-200",
-            iconColor: "text-blue-500",
+            color: "bg-gray-100 border-gray-200",
+            iconColor: "text-amber-500",
             content: (
               <div>
-                <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                <p className="text-gray-600 text-sm leading-relaxed mb-3">
                   Translucent panels or wraps that fit over fixtures, filtering blue-green wavelengths and reducing harshness. Brands: NaturaLux and Make Great Light.
                 </p>
                 <div className="grid grid-cols-3 gap-2">
@@ -88,7 +88,7 @@ export function FluorescentLightsContent() {
                     { type: "Tube Wraps", desc: "Slip over individual tubes" },
                     { type: "Cost", desc: "$15-40 per fixture" },
                   ].map((item) => (
-                    <div key={item.type} className="bg-white rounded-lg p-3 border border-blue-100 text-center">
+                    <div key={item.type} className="bg-gray-50 rounded-lg p-3 border border-blue-100 text-center">
                       <p className="font-bold text-heading text-xs">{item.type}</p>
                       <p className="text-gray-500 text-[10px] mt-0.5">{item.desc}</p>
                     </div>
@@ -100,10 +100,10 @@ export function FluorescentLightsContent() {
           {
             icon: Lightbulb,
             title: "Request Accommodation",
-            color: "bg-green-50 border-green-200",
-            iconColor: "text-green-600",
+            color: "bg-gray-100 border-gray-200",
+            iconColor: "text-amber-500",
             content: (
-              <p className="text-gray-700 text-sm leading-relaxed">
+              <p className="text-gray-600 text-sm leading-relaxed">
                 Request <Link href="/resources/workplace-accommodations-light-sensitivity" className="text-amber-600 font-semibold hover:underline">workplace accommodations</Link> including having the tubes directly above your desk removed or disconnected. This is a simple, free change that makes a dramatic difference.
               </p>
             ),
@@ -111,10 +111,10 @@ export function FluorescentLightsContent() {
           {
             icon: Lamp,
             title: "Supplement with Task Lighting",
-            color: "bg-amber-50 border-amber-200",
+            color: "bg-gray-100 border-gray-200",
             iconColor: "text-amber-500",
             content: (
-              <p className="text-gray-700 text-sm leading-relaxed">
+              <p className="text-gray-600 text-sm leading-relaxed">
                 Replace overhead fluorescents with a desk lamp using a warm-toned (2700K) LED bulb. You get the light you need for work without the problematic wavelengths and flicker.
               </p>
             ),
@@ -138,7 +138,7 @@ export function FluorescentLightsContent() {
           { title: "LED Strip Lights", desc: "Warm-toned strips under cabinets or along ceiling edges for ambient light without overhead harshness.", badge: "Most Flexible" },
         ].map((item) => (
           <div key={item.title} className="rounded-xl border border-gray-200 bg-white p-5">
-            <span className="text-[10px] font-bold text-green-600 bg-green-100 px-2 py-0.5 rounded-full uppercase">{item.badge}</span>
+            <span className="text-[10px] font-bold text-amber-500 bg-gray-100 px-2 py-0.5 rounded-full uppercase">{item.badge}</span>
             <p className="font-bold text-heading text-sm mt-2">{item.title}</p>
             <p className="text-gray-600 text-xs mt-1 leading-relaxed">{item.desc}</p>
           </div>

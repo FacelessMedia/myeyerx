@@ -8,7 +8,7 @@ import { BlogComparisonTable } from "@/components/blog/BlogComparisonTable";
 export function UnderstandingVltContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         VLT — Visible Light Transmission — is the single most important number in window tint. It determines how dark your tint is, what&apos;s legal in your state, and how much light protection you get. Here&apos;s what it means and why it matters.
       </p>
 
@@ -26,7 +26,7 @@ export function UnderstandingVltContent() {
           {[
             { vlt: "70%", label: "Very Light", desc: "Barely noticeable. Blocks 30% of visible light.", bar: "w-[70%]", color: "bg-yellow-200" },
             { vlt: "50%", label: "Medium-Light", desc: "Slight darkening. Common front side legal limit.", bar: "w-[50%]", color: "bg-amber-300" },
-            { vlt: "35%", label: "Medium", desc: "Noticeable tint. Common legal limit in many states.", bar: "w-[35%]", color: "bg-amber-500" },
+            { vlt: "35%", label: "Medium", desc: "Noticeable tint. Common legal limit in many states.", bar: "w-[35%]", color: "bg-gray-1000" },
             { vlt: "20%", label: "Dark", desc: "Significantly reduces light. Common for rear windows.", bar: "w-[20%]", color: "bg-amber-700" },
             { vlt: "5%", label: "Limo Tint", desc: "Blocks 95%. Illegal on front without exemption.", bar: "w-[5%]", color: "bg-gray-900" },
           ].map((item) => (
@@ -49,10 +49,10 @@ export function UnderstandingVltContent() {
       <h2>VLT and State Laws</h2>
       <div className="not-prose my-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
         {[
-          { label: "Windshield", desc: "Non-reflective above AS-1 line only", color: "text-blue-500" },
+          { label: "Windshield", desc: "Non-reflective above AS-1 line only", color: "text-amber-500" },
           { label: "Front Side", desc: "35% VLT minimum (typical)", color: "text-amber-500" },
-          { label: "Back Side", desc: "Any darkness (most states)", color: "text-green-500" },
-          { label: "Rear Window", desc: "Any darkness (most states)", color: "text-purple-500" },
+          { label: "Back Side", desc: "Any darkness (most states)", color: "text-green-400" },
+          { label: "Rear Window", desc: "Any darkness (most states)", color: "text-amber-500" },
         ].map((item) => (
           <div key={item.label} className="bg-surface rounded-xl p-3 border border-gray-100 text-center">
             <p className={`font-bold text-xs ${item.color}`}>{item.label}</p>
@@ -66,15 +66,15 @@ export function UnderstandingVltContent() {
 
       <h2>VLT vs UV Protection</h2>
       <div className="not-prose my-8 grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div className="rounded-2xl border-2 border-amber-200 bg-amber-50 p-5">
+        <div className="rounded-2xl border-2 border-gray-200 bg-gray-100 p-5">
           <Eye className="w-6 h-6 text-amber-500 mb-3" />
           <p className="font-extrabold text-heading text-sm mb-2">VLT = Visible Light</p>
-          <p className="text-gray-700 text-xs leading-relaxed">Measures how much light you can see. Relevant for <strong>migraines and photophobia</strong> where visible light is the trigger.</p>
+          <p className="text-gray-600 text-xs leading-relaxed">Measures how much light you can see. Relevant for <strong>migraines and photophobia</strong> where visible light is the trigger.</p>
         </div>
-        <div className="rounded-2xl border-2 border-purple-200 bg-purple-50 p-5">
-          <Shield className="w-6 h-6 text-purple-500 mb-3" />
+        <div className="rounded-2xl border-2 border-gray-200 bg-gray-100 p-5">
+          <Shield className="w-6 h-6 text-amber-500 mb-3" />
           <p className="font-extrabold text-heading text-sm mb-2">UV Rejection = Ultraviolet</p>
-          <p className="text-gray-700 text-xs leading-relaxed">Measures UV radiation blocked. Relevant for <strong>lupus, melanoma, PMLE</strong> where UV exposure is the concern.</p>
+          <p className="text-gray-600 text-xs leading-relaxed">Measures UV radiation blocked. Relevant for <strong>lupus, melanoma, PMLE</strong> where UV exposure is the concern.</p>
         </div>
       </div>
       <BlogCallout variant="tip" title="Critical distinction">
@@ -88,9 +88,9 @@ export function UnderstandingVltContent() {
           "Film VLT multiplies with glass: 35% film on 75% glass ≈ 26% total VLT",
           "Law enforcement measures total VLT (glass + film combined), not film alone",
         ].map((item) => (
-          <div key={item} className="flex items-start gap-3 bg-blue-50 rounded-lg p-3 border border-blue-200">
-            <Ruler className="w-3.5 h-3.5 text-blue-500 flex-shrink-0 mt-0.5" />
-            <p className="text-gray-700 text-xs font-semibold">{item}</p>
+          <div key={item} className="flex items-start gap-3 bg-gray-100 rounded-lg p-3 border border-gray-200">
+            <Ruler className="w-3.5 h-3.5 text-amber-500 flex-shrink-0 mt-0.5" />
+            <p className="text-gray-600 text-xs font-semibold">{item}</p>
           </div>
         ))}
       </div>

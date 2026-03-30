@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ARTICLES, getArticleBySlug } from "@/data/articles";
 import { ArticleContent } from "@/data/article-content";
+import Image from "next/image";
 import {
   ArrowRight,
   Clock,
@@ -136,23 +137,23 @@ export default async function ArticlePage({ params }: PageProps) {
           </div>
 
           {/* CTA */}
-          <div className="mt-16 bg-gradient-to-br from-amber-100 to-amber-50 rounded-2xl p-8 lg:p-10 border border-amber-200 text-center">
+          <div className="mt-16 bg-gray-100 rounded-2xl p-8 lg:p-10 border border-gray-200 text-center">
             <h2 className="text-2xl font-extrabold text-heading mb-3">Ready to Get Your Medical Exemption?</h2>
             <p className="text-gray-600 mb-6 max-w-lg mx-auto">
               Connect with a licensed physician for an online evaluation. Certificates delivered in 24-48 hours.
             </p>
             <Link
-              href="/"
-              className="inline-flex items-center gap-2 px-8 py-4 text-base font-bold text-heading bg-cta hover:bg-amber-300 rounded-full transition-all shadow-md"
+              href="/#state-selector"
+              className="inline-flex items-center gap-2 px-8 py-4 text-base font-bold text-white bg-amber-500 hover:bg-amber-600 rounded-full transition-all shadow-md"
             >
               Start Your Evaluation <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
 
           {/* Author box */}
-          <div className="mt-12 bg-surface rounded-2xl p-6 border border-gray-100 flex items-start gap-4">
-            <div className="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0">
-              <User className="w-6 h-6 text-amber-600" />
+          <div className="mt-12 bg-gray-100 rounded-2xl p-6 border border-gray-200 flex items-start gap-4">
+            <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-gray-200 flex-shrink-0">
+              <Image src="/tory.jpg" alt="Toriano Dewberry" width={48} height={48} className="w-full h-full object-cover" />
             </div>
             <div>
               <p className="font-bold text-heading text-sm">{article.author}</p>

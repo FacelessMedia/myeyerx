@@ -8,7 +8,7 @@ import { BlogComparisonTable } from "@/components/blog/BlogComparisonTable";
 export function BlueLightProtectorsContent() {
   return (
     <>
-      <p className="text-xl text-gray-700 leading-relaxed">
+      <p className="text-xl text-gray-600 leading-relaxed">
         Physical blue light screen protectors — tempered glass or film overlays that you stick on your phone, tablet, or monitor — claim to reduce blue light exposure. Brands like Ocushield and EyeJust are popular options. But do they actually help with light sensitivity? Here&apos;s an honest assessment.
       </p>
 
@@ -33,7 +33,7 @@ export function BlueLightProtectorsContent() {
             type: "Medical-grade",
             desc: "Developed with optometrists. Blocks ~30-40% of blue light. Clear finish preserves color accuracy.",
             badge: "Top Pick",
-            badgeColor: "bg-green-500",
+            badgeColor: "bg-gray-1000",
             devices: "Phones, tablets, monitors, laptops",
           },
           {
@@ -41,7 +41,7 @@ export function BlueLightProtectorsContent() {
             type: "Consumer-grade",
             desc: "Similar blue light filtering with anti-microbial coating. Comparable tech to Ocushield.",
             badge: "Good Option",
-            badgeColor: "bg-blue-500",
+            badgeColor: "bg-gray-1000",
             devices: "Phones, tablets",
           },
           {
@@ -65,9 +65,9 @@ export function BlueLightProtectorsContent() {
 
       <h2>Do They Actually Help?</h2>
       <div className="not-prose my-8 grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div className="rounded-2xl border-2 border-green-200 bg-green-50 p-6">
+        <div className="rounded-2xl border-2 border-gray-200 bg-gray-100 p-6">
           <div className="flex items-center gap-2 mb-3">
-            <ThumbsUp className="w-5 h-5 text-green-600" />
+            <ThumbsUp className="w-5 h-5 text-amber-500" />
             <h3 className="font-extrabold text-heading text-sm">What They Do Well</h3>
           </div>
           <div className="space-y-2">
@@ -78,16 +78,16 @@ export function BlueLightProtectorsContent() {
               "No battery drain or settings to remember",
               "One-time purchase, no subscription",
             ].map((item) => (
-              <div key={item} className="flex items-center gap-2 text-xs text-gray-700">
-                <CheckCircle className="w-3.5 h-3.5 text-green-500 flex-shrink-0" />
+              <div key={item} className="flex items-center gap-2 text-xs text-gray-600">
+                <CheckCircle className="w-3.5 h-3.5 text-green-400 flex-shrink-0" />
                 <span>{item}</span>
               </div>
             ))}
           </div>
         </div>
-        <div className="rounded-2xl border-2 border-red-200 bg-red-50 p-6">
+        <div className="rounded-2xl border-2 border-gray-200 bg-gray-100 p-6">
           <div className="flex items-center gap-2 mb-3">
-            <ThumbsDown className="w-5 h-5 text-red-500" />
+            <ThumbsDown className="w-5 h-5 text-red-400" />
             <h3 className="font-extrabold text-heading text-sm">Limitations</h3>
           </div>
           <div className="space-y-2">
@@ -98,7 +98,7 @@ export function BlueLightProtectorsContent() {
               "Software tools are more flexible and effective",
               "Don't target the most problematic 480-520nm range",
             ].map((item) => (
-              <div key={item} className="flex items-center gap-2 text-xs text-gray-700">
+              <div key={item} className="flex items-center gap-2 text-xs text-gray-600">
                 <X className="w-3.5 h-3.5 text-red-400 flex-shrink-0" />
                 <span>{item}</span>
               </div>
