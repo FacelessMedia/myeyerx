@@ -1,8 +1,9 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { STATES, getStateBySlug } from "@/data/states";
+import { STATES, getStateBySlug, CONDITIONS } from "@/data/states";
 import { STATE_UNIQUE_CONTENT } from "@/data/state-unique-content";
+import { STATE_STATUTE_LINKS } from "@/data/state-statute-links";
 import {
   Scale,
   ArrowRight,
@@ -11,6 +12,8 @@ import {
   Shield,
   ExternalLink,
   Car,
+  BookOpen,
+  Stethoscope,
 } from "lucide-react";
 
 interface PageProps {
@@ -51,6 +54,7 @@ export default async function StateLawPage({ params }: PageProps) {
   if (!state) notFound();
 
   const unique = STATE_UNIQUE_CONTENT[state.slug];
+  const statute = STATE_STATUTE_LINKS[state.slug];
 
   const faqs = [
     {
@@ -140,6 +144,29 @@ export default async function StateLawPage({ params }: PageProps) {
           <p className="text-gray-600 text-lg leading-relaxed">
             {unique ? unique.lawIntro : `Understanding ${state.name}'s window tint regulations is important to avoid fines and ensure your vehicle is compliant. Below is a complete breakdown of the legal tint limits, penalties for violations, and how to obtain a medical exemption if you need darker tint.`}
           </p>
+          {statute && (
+            <div className="mt-4 flex flex-wrap items-center gap-3">
+              <a
+                href={statute.statuteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-amber-700 bg-amber-100 px-3 py-1.5 rounded-full hover:bg-amber-200 transition-colors"
+              >
+                <Scale className="w-3.5 h-3.5" />
+                {statute.statuteCode}
+                <ExternalLink className="w-3 h-3" />
+              </a>
+              <a
+                href={state.dmvUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-600 bg-gray-100 px-3 py-1.5 rounded-full hover:bg-gray-200 transition-colors"
+              >
+                {state.dmvName}
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
+          )}
         </div>
       </section>
 
@@ -305,23 +332,135 @@ export default async function StateLawPage({ params }: PageProps) {
             ))}
           </div>
 
-          {/* Link to windowtintlaws.us for deeper info */}
-          <div className="mt-8 bg-white rounded-xl border border-gray-200 p-6 flex items-start gap-4">
-            <ExternalLink className="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" />
-            <div>
-              <p className="text-heading font-semibold text-sm mb-1">Want a deeper dive into {state.name} tint regulations?</p>
-              <p className="text-gray-600 text-sm">
-                Visit{" "}
-                <a
-                  href={`https://windowtintlaws.us`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-amber-600 font-semibold hover:underline"
-                >
-                  WindowTintLaws.us
-                </a>{" "}
-                for detailed enforcement guidance, vehicle-specific rules, and the latest {state.name} tint law updates.
-              </p>
+          {/* Resources & References */}
+          <div className="mt-12">
+            <div className="flex items-center gap-2 mb-6">
+              <BookOpen className="w-5 h-5 text-amber-500" />
+              <h3 className="text-xl font-extrabold text-heading">Resources &amp; References</h3>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* Official & Legal */}
+              <div className="bg-white rounded-xl border border-gray-200 p-5">
+                <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Official &amp; Legal</p>
+                <ul className="space-y-2.5">
+                  {statute && (
+                    <li>
+                      <a href={statute.statuteUrl} target="_blank" rel="noopener noreferrer" className="group flex items-start gap-2 text-sm">
+                        <Scale className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-gray-700 group-hover:text-amber-600 transition-colors">
+                          <strong>{statute.statuteCode}</strong> &mdash; Official {state.name} Window Tint Statute
+                          <ExternalLink className="w-3 h-3 inline ml-1 opacity-40" />
+                        </span>
+                      </a>
+                    </li>
+                  )}
+                  <li>
+                    <a href={state.dmvUrl} target="_blank" rel="noopener noreferrer" className="group flex items-start gap-2 text-sm">
+                      <Shield className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700 group-hover:text-amber-600 transition-colors">
+                        {state.dmvName}
+                        <ExternalLink className="w-3 h-3 inline ml-1 opacity-40" />
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://windowtintlaws.us" target="_blank" rel="noopener noreferrer" className="group flex items-start gap-2 text-sm">
+                      <Car className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700 group-hover:text-amber-600 transition-colors">
+                        WindowTintLaws.us &mdash; Enforcement Guide &amp; Vehicle-Specific Rules
+                        <ExternalLink className="w-3 h-3 inline ml-1 opacity-40" />
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Medical & Health Authority */}
+              <div className="bg-white rounded-xl border border-gray-200 p-5">
+                <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Medical &amp; Health Authority</p>
+                <ul className="space-y-2.5">
+                  <li>
+                    <a href="https://www.aao.org/eye-health/tips-prevention/sun" target="_blank" rel="noopener noreferrer" className="group flex items-start gap-2 text-sm">
+                      <Stethoscope className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700 group-hover:text-amber-600 transition-colors">
+                        American Academy of Ophthalmology &mdash; Sun &amp; UV Eye Protection
+                        <ExternalLink className="w-3 h-3 inline ml-1 opacity-40" />
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.aad.org/public/everyday-care/sun-protection" target="_blank" rel="noopener noreferrer" className="group flex items-start gap-2 text-sm">
+                      <Stethoscope className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700 group-hover:text-amber-600 transition-colors">
+                        American Academy of Dermatology &mdash; Sun Protection
+                        <ExternalLink className="w-3 h-3 inline ml-1 opacity-40" />
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.skincancer.org/skin-cancer-prevention/sun-protection/" target="_blank" rel="noopener noreferrer" className="group flex items-start gap-2 text-sm">
+                      <Stethoscope className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700 group-hover:text-amber-600 transition-colors">
+                        Skin Cancer Foundation &mdash; UV Protection Guidelines
+                        <ExternalLink className="w-3 h-3 inline ml-1 opacity-40" />
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.nei.nih.gov/learn-about-eye-health" target="_blank" rel="noopener noreferrer" className="group flex items-start gap-2 text-sm">
+                      <Stethoscope className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700 group-hover:text-amber-600 transition-colors">
+                        National Eye Institute (NIH) &mdash; Eye Health Information
+                        <ExternalLink className="w-3 h-3 inline ml-1 opacity-40" />
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Internal: MyEyeRx Resources */}
+              <div className="bg-white rounded-xl border border-gray-200 p-5 md:col-span-2">
+                <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">MyEyeRx Resources</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
+                  <Link href={`/${state.slug}-window-tint-medical-exemption`} className="group flex items-start gap-2 text-sm">
+                    <ArrowRight className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700 group-hover:text-amber-600 transition-colors font-medium">Get Your {state.abbreviation} Medical Exemption</span>
+                  </Link>
+                  <Link href="/conditions" className="group flex items-start gap-2 text-sm">
+                    <ArrowRight className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700 group-hover:text-amber-600 transition-colors font-medium">Qualifying Medical Conditions</span>
+                  </Link>
+                  <Link href="/resources/how-to-get-tint-exemption-online" className="group flex items-start gap-2 text-sm">
+                    <ArrowRight className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700 group-hover:text-amber-600 transition-colors font-medium">How to Get a Medical Exemption</span>
+                  </Link>
+                  <Link href="/resources/window-tint-exemption-cost" className="group flex items-start gap-2 text-sm">
+                    <ArrowRight className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700 group-hover:text-amber-600 transition-colors font-medium">Exemption Cost Guide</span>
+                  </Link>
+                  <Link href="/conditions/photosensitivity" className="group flex items-start gap-2 text-sm">
+                    <ArrowRight className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700 group-hover:text-amber-600 transition-colors font-medium">Photosensitivity &amp; Tint</span>
+                  </Link>
+                  <Link href="/conditions/lupus" className="group flex items-start gap-2 text-sm">
+                    <ArrowRight className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700 group-hover:text-amber-600 transition-colors font-medium">Lupus &amp; UV Protection</span>
+                  </Link>
+                  <Link href="/conditions/migraines" className="group flex items-start gap-2 text-sm">
+                    <ArrowRight className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700 group-hover:text-amber-600 transition-colors font-medium">Migraines &amp; Light Sensitivity</span>
+                  </Link>
+                  <Link href="/conditions/melanoma" className="group flex items-start gap-2 text-sm">
+                    <ArrowRight className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700 group-hover:text-amber-600 transition-colors font-medium">Melanoma &amp; Skin Cancer</span>
+                  </Link>
+                  <Link href="/faqs" className="group flex items-start gap-2 text-sm">
+                    <ArrowRight className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700 group-hover:text-amber-600 transition-colors font-medium">Frequently Asked Questions</span>
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
 
