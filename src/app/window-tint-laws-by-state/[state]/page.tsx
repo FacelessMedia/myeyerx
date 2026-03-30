@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -56,24 +57,65 @@ export default async function StateLawPage({ params }: PageProps) {
   const unique = STATE_UNIQUE_CONTENT[state.slug];
   const statute = STATE_STATUTE_LINKS[state.slug];
 
-  const faqs = [
+  const faqs: { q: string; a: string; content?: ReactNode }[] = [
     {
       q: `What is the legal tint limit in ${state.name}?`,
-      a: `${state.name} allows ${state.tintLaws.frontSide} VLT on front side windows, ${state.tintLaws.backSide} VLT on back side windows, and ${state.tintLaws.rearWindow} VLT on the rear window. The windshield limit is ${state.tintLaws.windshield}.`,
+      a: `${state.name} allows ${state.tintLaws.frontSide} on front side windows, ${state.tintLaws.backSide} on back side windows, and ${state.tintLaws.rearWindow} on the rear window. The windshield limit is ${state.tintLaws.windshield}.`,
+      content: (
+        <>
+          {state.name} allows {state.tintLaws.frontSide} on front side windows, {state.tintLaws.backSide} on back side windows, and {state.tintLaws.rearWindow} on the rear window. The windshield limit is {state.tintLaws.windshield}.{statute && (<> View the full statute: <a href={statute.statuteUrl} target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:underline font-medium">{statute.statuteCode}</a>.</>)}
+        </>
+      ),
     },
     {
       q: `Can I get a medical exemption for darker tint in ${state.name}?`,
       a: state.hasExemption
         ? `Yes, ${state.name} allows medical exemptions for window tint. If you have a qualifying condition like photosensitivity, lupus, migraines, or melanoma, a licensed physician can certify your need for darker tint. MyEyeRx offers online evaluations starting at $${state.price}.`
         : `${state.name} does not currently have a formal medical exemption program for window tint. However, regulations can change — check with the ${state.dmvName} for the most current information.`,
+      content: state.hasExemption ? (
+        <>
+          Yes, {state.name} allows medical exemptions for window tint. If you have a qualifying condition like{" "}
+          <Link href="/conditions/photosensitivity" className="text-amber-600 hover:underline font-medium">photosensitivity</Link>,{" "}
+          <Link href="/conditions/lupus" className="text-amber-600 hover:underline font-medium">lupus</Link>,{" "}
+          <Link href="/conditions/migraines" className="text-amber-600 hover:underline font-medium">migraines</Link>, or{" "}
+          <Link href="/conditions/melanoma" className="text-amber-600 hover:underline font-medium">melanoma</Link>,{" "}
+          a licensed physician can certify your need for darker tint.{" "}
+          <Link href={`/${state.slug}-window-tint-medical-exemption`} className="text-amber-600 hover:underline font-medium">
+            Get your {state.abbreviation} medical exemption through MyEyeRx
+          </Link>{" "}
+          — online evaluations starting at ${state.price}.
+        </>
+      ) : (
+        <>
+          {state.name} does not currently have a formal medical exemption program for window tint. However, regulations can change — check with the{" "}
+          <a href={state.dmvUrl} target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:underline font-medium">{state.dmvName}</a>{" "}
+          for the most current information. View all{" "}
+          <Link href="/conditions" className="text-amber-600 hover:underline font-medium">qualifying conditions</Link>.
+        </>
+      ),
     },
     {
       q: `What happens if I get pulled over with illegal tint in ${state.name}?`,
       a: `${state.penalty} You may also be required to remove the illegal tint and provide proof of removal. A valid medical exemption certificate protects you from these penalties.`,
+      content: (
+        <>
+          {state.penalty} You may also be required to remove the illegal tint and provide proof of removal. A valid{" "}
+          <Link href={`/${state.slug}-window-tint-medical-exemption`} className="text-amber-600 hover:underline font-medium">medical exemption certificate</Link>{" "}
+          protects you from these penalties. Learn more about{" "}
+          <Link href="/resources/pulled-over-tinted-windows" className="text-amber-600 hover:underline font-medium">what to do if you get pulled over with tinted windows</Link>.
+        </>
+      ),
     },
     {
       q: `How is window tint darkness measured in ${state.name}?`,
       a: `Window tint darkness is measured by VLT (Visible Light Transmission) — the percentage of light that passes through the film. A lower VLT means darker tint. ${state.name} law enforcement uses a tint meter to check VLT during traffic stops.`,
+      content: (
+        <>
+          Window tint darkness is measured by{" "}
+          <Link href="/resources/understanding-vlt-window-tint" className="text-amber-600 hover:underline font-medium">VLT (Visible Light Transmission)</Link>{" "}
+          — the percentage of light that passes through the film. A lower VLT means darker tint. {state.name} law enforcement uses a tint meter to check VLT during traffic stops.
+        </>
+      ),
     },
   ];
 
@@ -293,14 +335,7 @@ export default async function StateLawPage({ params }: PageProps) {
                   <p className="text-gray-500 text-sm mb-1">Online Evaluation Fee</p>
                   <p className="text-4xl font-extrabold text-amber-600">${state.price}</p>
                   <p className="text-gray-400 text-xs mt-1">One-time fee • No hidden costs</p>
-                  <a
-                    href={state.dmvUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-xs text-gray-500 hover:text-amber-600 mt-4 transition-colors"
-                  >
-                    {state.dmvName} <ExternalLink className="w-3 h-3" />
-                  </a>
+                  <p className="text-gray-400 text-[11px] mt-3">Includes physician evaluation &amp; certificate</p>
                 </div>
               </div>
             </div>
@@ -326,7 +361,7 @@ export default async function StateLawPage({ params }: PageProps) {
                   <ArrowRight className="w-4 h-4 text-gray-400 flex-shrink-0 transition-transform group-open:rotate-90" />
                 </summary>
                 <div className="px-6 pb-6">
-                  <p className="text-gray-600 leading-relaxed text-sm">{faq.a}</p>
+                  <p className="text-gray-600 leading-relaxed text-sm">{faq.content || faq.a}</p>
                 </div>
               </details>
             ))}
