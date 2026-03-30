@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { STATES, getStateBySlug, CONDITIONS, getNearbyStates } from "@/data/states";
 import { STATE_UNIQUE_CONTENT } from "@/data/state-unique-content";
+import { StateExemptionForm } from "@/components/StateExemptionForm";
 import {
   Shield,
   Clock,
@@ -174,7 +175,7 @@ export default async function DynamicPage({ params }: PageProps) {
       price: state.price,
       priceCurrency: "USD",
       availability: state.served ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
-      url: `https://myeyerx.net/get-started?state=${state.slug}`,
+      url: `https://myeyerx.net/${state.slug}-window-tint-medical-exemption#apply`,
       seller: { "@type": "Organization", name: "MyEyeRx" },
     },
   };
@@ -232,12 +233,12 @@ export default async function DynamicPage({ params }: PageProps) {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 {state.served ? (
-                  <Link
-                    href={`/get-started?state=${state.slug}`}
+                  <a
+                    href="#apply"
                     className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-heading bg-cta hover:bg-amber-300 rounded-full transition-all shadow-md hover:shadow-lg"
                   >
                     Get Your {state.abbreviation} Exemption — ${state.price} <ArrowRight className="w-5 h-5" />
-                  </Link>
+                  </a>
                 ) : (
                   <Link
                     href="/contact"
@@ -344,12 +345,12 @@ export default async function DynamicPage({ params }: PageProps) {
           </div>
           {state.served && (
             <div className="text-center mt-12">
-              <Link
-                href={`/get-started?state=${state.slug}`}
+              <a
+                href="#apply"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-heading bg-cta hover:bg-amber-300 rounded-full transition-all shadow-md hover:shadow-lg"
               >
                 Start Your {state.abbreviation} Application Now <ArrowRight className="w-5 h-5" />
-              </Link>
+              </a>
             </div>
           )}
         </div>
@@ -462,7 +463,7 @@ export default async function DynamicPage({ params }: PageProps) {
             The following medical conditions are commonly recognized for window tint medical exemptions in {state.name}. A licensed physician must certify that your specific condition requires protection from sunlight, UV radiation, or bright light to qualify for an exemption.
           </p>
           <p className="text-gray-600 text-center max-w-3xl mx-auto mb-12">
-            Not sure if your condition qualifies? Visit our <Link href="/conditions" className="text-amber-600 font-semibold hover:underline">qualifying conditions guide</Link> for detailed information about each condition and how it relates to window tint exemptions, or <Link href="/get-started" className="text-amber-600 font-semibold hover:underline">start your evaluation</Link> and let our physician determine your eligibility.
+            Not sure if your condition qualifies? Visit our <Link href="/conditions" className="text-amber-600 font-semibold hover:underline">qualifying conditions guide</Link> for detailed information about each condition and how it relates to window tint exemptions, or <a href="#apply" className="text-amber-600 font-semibold hover:underline">start your evaluation</a> and let our physician determine your eligibility.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {state.qualifyingConditions.map((condition) => {
@@ -665,46 +666,46 @@ export default async function DynamicPage({ params }: PageProps) {
         </div>
       </section>
 
+      {/* Embedded Application Form */}
+      {state.served && (
+        <section className="py-16 lg:py-20 bg-surface">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-heading text-center mb-4">
+              Apply for Your {state.name} Exemption
+            </h2>
+            <p className="text-gray-600 text-center max-w-2xl mx-auto mb-10">
+              Complete your application right here — no need to leave this page. Our licensed physician will review your medical documentation and, if approved, deliver your signed {state.formName} within 24-48 hours.
+            </p>
+            <StateExemptionForm
+              stateName={state.name}
+              stateAbbreviation={state.abbreviation}
+              stateSlug={state.slug}
+              formName={state.formName}
+              price={state.price}
+            />
+          </div>
+        </section>
+      )}
+
       {/* Bottom CTA */}
-      <section className={`py-16 lg:py-20 ${state.served ? "bg-amber-500" : "bg-gray-700"}`}>
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          {state.served ? (
-            <>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-4">
-                Ready to Get Your {state.name} Exemption?
-              </h2>
-              <p className="text-white/90 text-lg mb-8 max-w-xl mx-auto">
-                Connect with a licensed physician online and receive your signed {state.formName} within 24-48 hours. No office visit required.
-              </p>
-              <Link
-                href={`/get-started?state=${state.slug}`}
-                className="inline-flex items-center justify-center gap-2 px-10 py-4 text-base font-bold text-amber-900 bg-white hover:bg-amber-50 rounded-full transition-all shadow-lg hover:shadow-xl"
-              >
-                Start Your Application — ${state.price} <ArrowRight className="w-5 h-5" />
-              </Link>
-              <p className="text-white/70 text-xs mt-4 flex items-center justify-center gap-4">
-                <span className="flex items-center gap-1"><Shield className="w-3.5 h-3.5" /> HIPAA Compliant</span>
-                <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> 24-48hr Turnaround</span>
-              </p>
-            </>
-          ) : (
-            <>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-4">
-                {state.name} Coming Soon
-              </h2>
-              <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto">
-                We are actively working to bring licensed physicians to {state.name}. Contact us to be notified when service becomes available.
-              </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-10 py-4 text-base font-bold text-gray-900 bg-white hover:bg-gray-50 rounded-full transition-all shadow-lg hover:shadow-xl"
-              >
-                Get Notified <ArrowRight className="w-5 h-5" />
-              </Link>
-            </>
-          )}
-        </div>
-      </section>
+      {!state.served && (
+        <section className="py-16 lg:py-20 bg-gray-700">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-4">
+              {state.name} Coming Soon
+            </h2>
+            <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto">
+              We are actively working to bring licensed physicians to {state.name}. Contact us to be notified when service becomes available.
+            </p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 px-10 py-4 text-base font-bold text-gray-900 bg-white hover:bg-gray-50 rounded-full transition-all shadow-lg hover:shadow-xl"
+            >
+              Get Notified <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
+        </section>
+      )}
 
       {/* Nearby States + Conditions Internal Linking */}
       <section className="py-16 lg:py-20 bg-white">
