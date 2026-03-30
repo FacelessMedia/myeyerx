@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import {
   User,
   FileText,
@@ -44,7 +44,19 @@ export function StateExemptionForm({
   formName,
   price,
 }: StateExemptionFormProps) {
+  const formRef = useRef<HTMLDivElement>(null);
   const [step, setStep] = useState(1);
+
+  const goToStep = (next: number) => {
+    setStep(next);
+    requestAnimationFrame(() => {
+      const el = formRef.current;
+      if (el) {
+        const top = el.getBoundingClientRect().top + window.scrollY - 96;
+        window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+      }
+    });
+  };
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -91,7 +103,7 @@ export function StateExemptionForm({
   };
 
   const handleSubmit = () => {
-    setStep(4);
+    goToStep(4);
   };
 
   const stepLabels = [
@@ -101,7 +113,7 @@ export function StateExemptionForm({
   ];
 
   return (
-    <div id="apply" className="scroll-mt-24">
+    <div id="apply" className="scroll-mt-24" ref={formRef}>
       <div className="max-w-3xl mx-auto">
         {/* Progress */}
         {step <= 3 && (
@@ -508,7 +520,7 @@ export function StateExemptionForm({
           <div className="flex items-center justify-between mt-6">
             {step > 1 ? (
               <button
-                onClick={() => setStep((s) => s - 1)}
+                onClick={() => goToStep(step - 1)}
                 className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-gray-600 bg-white border border-gray-200 rounded-full hover:bg-gray-50 transition-all"
               >
                 <ArrowLeft className="w-4 h-4" />
@@ -519,7 +531,7 @@ export function StateExemptionForm({
             )}
             {step < 3 ? (
               <button
-                onClick={() => setStep((s) => s + 1)}
+                onClick={() => goToStep(step + 1)}
                 disabled={!canProceed()}
                 className="inline-flex items-center gap-2 px-8 py-3 text-sm font-bold text-heading bg-cta hover:bg-amber-300 rounded-full transition-all shadow-md hover:shadow-lg disabled:opacity-40 disabled:cursor-not-allowed"
               >
