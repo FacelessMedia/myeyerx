@@ -400,10 +400,10 @@ export default async function StateLawPage({ params }: PageProps) {
                     </a>
                   </li>
                   <li>
-                    <a href="https://windowtintlaws.us" target="_blank" rel="noopener noreferrer" className="group flex items-start gap-2 text-sm">
+                    <a href={`https://windowtintlaws.us/${state.slug}`} target="_blank" className="group flex items-start gap-2 text-sm">
                       <Car className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" />
                       <span className="text-gray-700 group-hover:text-amber-600 transition-colors">
-                        WindowTintLaws.us &mdash; Enforcement Guide &amp; Vehicle-Specific Rules
+                        WindowTintLaws.us/{state.name} &mdash; Enforcement Guide &amp; Vehicle-Specific Rules
                         <ExternalLink className="w-3 h-3 inline ml-1 opacity-40" />
                       </span>
                     </a>
