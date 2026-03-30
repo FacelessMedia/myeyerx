@@ -88,7 +88,7 @@ export default function ConditionsHub() {
             Start your evaluation online. A licensed physician will review your condition and determine if you qualify for a medical window tint exemption.
           </p>
           <Link
-            href="/get-started"
+            href="/"
             className="inline-flex items-center justify-center gap-2 px-10 py-4 text-base font-bold text-amber-900 bg-white hover:bg-amber-50 rounded-full transition-all shadow-lg hover:shadow-xl"
           >
             Start Your Evaluation — Starting at $225 <ArrowRight className="w-5 h-5" />

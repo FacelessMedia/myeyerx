@@ -58,10 +58,10 @@ export default function WhoQualifies() {
             </div>
 
             <Link
-              href="/get-started"
+              href="/"
               className="inline-flex items-center gap-2 text-amber-600 font-bold hover:text-amber-700 transition-colors"
             >
-              Start Your Evaluation <ArrowRight className="w-4 h-4" />
+              Find Your State &amp; Apply <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>

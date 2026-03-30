@@ -14,7 +14,7 @@ export default function TermsPage() {
           <h1 className="text-3xl sm:text-4xl font-extrabold mb-4">
             Terms &amp; Conditions
           </h1>
-          <p className="text-amber-100">Last updated: February 2026</p>
+          <p className="text-amber-100">Last updated: March 2026</p>
         </div>
       </div>
 
@@ -22,39 +22,53 @@ export default function TermsPage() {
         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 sm:p-12 prose prose-gray max-w-none">
           <h2 className="text-xl font-bold text-primary-dark mb-4">1. Services</h2>
           <p className="text-gray-600 mb-6 leading-relaxed">
-            MyEyeRx provides an online telemedicine platform that connects patients with licensed physicians for medical evaluations related to window tint exemptions. We facilitate the evaluation process and delivery of signed medical exemption certificates.
+            MyEyeRx provides an online telemedicine platform that connects patients with licensed physicians for medical evaluations related to window tint exemptions. <strong>This service is intended exclusively for individuals with legitimate medical needs.</strong> We facilitate the evaluation process and delivery of signed medical exemption certificates. Our telehealth physicians review your existing medical documentation; they do not diagnose conditions or write new prescriptions.
           </p>
 
           <h2 className="text-xl font-bold text-primary-dark mb-4">2. Eligibility</h2>
           <p className="text-gray-600 mb-6 leading-relaxed">
-            You must be at least 18 years of age and a resident of the United States to use our services. You must have a legitimate medical condition that may qualify for a window tint exemption under your state&apos;s laws.
+            You must be at least 18 years of age and a resident of the United States to use our services. You must have a legitimate, documented medical condition that may qualify for a window tint exemption under your state&apos;s laws.
           </p>
 
-          <h2 className="text-xl font-bold text-primary-dark mb-4">3. Medical Disclaimer</h2>
+          <h2 className="text-xl font-bold text-primary-dark mb-4">3. Medical Documentation Requirement</h2>
           <p className="text-gray-600 mb-6 leading-relaxed">
-            The telemedicine evaluation provided through MyEyeRx is not a substitute for in-person medical care. The physician will make an independent medical determination about your qualification. Approval is not guaranteed and depends on your medical condition and state requirements.
+            <strong>You are required to provide legitimate medical documentation prior to or during your evaluation.</strong> Acceptable documentation includes, but is not limited to: a prior diagnosis from your physician, medication lists, doctor&apos;s notes, ophthalmologist or optometrist records, or other medical paperwork that supports a qualifying condition. Our physicians review your existing records to determine if your condition qualifies under your state&apos;s exemption requirements. <strong>If you do not have proper documentation, do not purchase this service.</strong> If you are unsure whether your documentation is sufficient, call us at (734) 644-1804 before purchasing.
           </p>
 
-          <h2 className="text-xl font-bold text-primary-dark mb-4">4. Payment &amp; Refund Policy</h2>
+          <h2 className="text-xl font-bold text-primary-dark mb-4">4. Video Recording Consent</h2>
           <p className="text-gray-600 mb-6 leading-relaxed">
-            The evaluation fee starts at $225 (varies by state, up to $350 for New York), payable at the time of submission. You are required to provide legitimate medical documentation supporting a qualifying condition prior to your evaluation. Our physician reviews your existing medical paperwork to determine if your state will accept it for an exemption. If you proceed without valid medical documentation, your evaluation will be declined and the fee is non-refundable. Refunds are only available for duplicate charges, service not rendered due to our error, or cancellations made before a physician begins review. See our Refund Policy for full details.
+            <strong>All consultations are video recorded.</strong> By purchasing an evaluation and proceeding with a consultation, you expressly consent to the video recording of your telemedicine session. These recordings are maintained for state compliance purposes, quality assurance, and to protect both you and the evaluating physician. Our physicians base their medical determinations solely on the information you communicate and the documentation you provide during the consultation. These recordings may be retained as part of your medical record and may be disclosed if required by law or regulatory bodies.
           </p>
 
-          <h2 className="text-xl font-bold text-primary-dark mb-4">5. User Responsibilities</h2>
+          <h2 className="text-xl font-bold text-primary-dark mb-4">5. Medical Disclaimer</h2>
           <p className="text-gray-600 mb-6 leading-relaxed">
-            You agree to provide accurate and truthful information during the application process. Providing false medical information is prohibited and may result in denial of service and forfeiture of fees. You are responsible for understanding and complying with your state&apos;s window tint laws.
+            The telemedicine evaluation provided through MyEyeRx is not a substitute for in-person medical care. The physician will make an independent medical determination about your qualification based solely on the documentation and information you provide. Approval is not guaranteed and depends on your medical condition, documentation, and state requirements. Our physicians do not diagnose new conditions or prescribe medications during these evaluations.
           </p>
 
-          <h2 className="text-xl font-bold text-primary-dark mb-4">6. Limitation of Liability</h2>
+          <h2 className="text-xl font-bold text-primary-dark mb-4">6. Payment, Refund &amp; No-Refund Policy</h2>
           <p className="text-gray-600 mb-6 leading-relaxed">
-            MyEyeRx is not responsible for any legal consequences arising from the use of window tint, even with a valid medical exemption. Laws vary by state and municipality, and it is your responsibility to ensure compliance. Our liability is limited to the amount you paid for our services.
+            The evaluation fee starts at $225 (varies by state, up to $350 for New York), payable at the time of submission. <strong>Once your scheduled video consultation with a physician takes place, the consultation fee is non-refundable regardless of the outcome.</strong> This includes cases where your documentation is deemed insufficient during the consultation. If you proceed without valid medical documentation, your evaluation will be declined and the fee is non-refundable. Refunds are only available for: duplicate charges, service not rendered due to our error, or cancellations made before a physician consultation is scheduled. See our <a href="/refund-policy" className="text-accent hover:underline">Refund Policy</a> for full details.
           </p>
 
-          <h2 className="text-xl font-bold text-primary-dark mb-4">7. Contact</h2>
+          <h2 className="text-xl font-bold text-primary-dark mb-4">7. User Responsibilities</h2>
+          <p className="text-gray-600 mb-6 leading-relaxed">
+            You agree to provide accurate and truthful information during the application process. You represent that all medical documentation submitted is genuine and was obtained from a licensed healthcare provider. Providing false, fraudulent, or misleading medical information is strictly prohibited and may result in denial of service, forfeiture of fees, and potential reporting to relevant authorities. You are responsible for understanding and complying with your state&apos;s window tint laws.
+          </p>
+
+          <h2 className="text-xl font-bold text-primary-dark mb-4">8. Limitation of Liability</h2>
+          <p className="text-gray-600 mb-6 leading-relaxed">
+            MyEyeRx is not responsible for any legal consequences arising from the use of window tint, even with a valid medical exemption. Laws vary by state and municipality, and it is your responsibility to ensure compliance. Our physicians make determinations based solely on the information and documentation you provide; MyEyeRx and its physicians are not liable for inaccurate or fraudulent documentation submitted by the patient. Our liability is limited to the amount you paid for our services.
+          </p>
+
+          <h2 className="text-xl font-bold text-primary-dark mb-4">9. Contact</h2>
           <p className="text-gray-600 leading-relaxed">
             For questions about these Terms, contact us at{" "}
-            <a href="mailto:support@myeyerx.net" className="text-accent hover:underline">
-              support@myeyerx.net
+            <a href="mailto:Tory@myeyerx.net" className="text-accent hover:underline">
+              Tory@myeyerx.net
+            </a>{" "}
+            or call{" "}
+            <a href="tel:+17346441804" className="text-accent hover:underline">
+              (734) 644-1804
             </a>.
           </p>
         </div>

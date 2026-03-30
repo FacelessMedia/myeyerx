@@ -118,7 +118,7 @@ export default function ContactPage() {
           <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-4">Ready to Get Started?</h2>
           <p className="text-white/90 text-lg mb-8">Skip the phone call — start your application online right now.</p>
           <Link
-            href="/get-started"
+            href="/"
             className="inline-flex items-center justify-center gap-2 px-10 py-4 text-base font-bold text-amber-900 bg-white hover:bg-amber-50 rounded-full transition-all shadow-lg hover:shadow-xl"
           >
             Start Your Evaluation <ArrowRight className="w-5 h-5" />

@@ -34,23 +34,30 @@ export default function RefundPolicyPage() {
 
           <div className="prose max-w-none">
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 space-y-6">
+              <div className="bg-red-50 border border-red-200 rounded-xl p-6">
+                <h2 className="text-xl font-bold text-red-800 mb-3">Important: Read Before You Purchase</h2>
+                <p className="text-red-700 leading-relaxed text-sm">
+                  This service is for <strong>legitimate medical needs only</strong>. You must have proper medical documentation (prior diagnosis, medication list, doctor&apos;s notes) before purchasing. <strong>Once your video consultation with a physician takes place, no refund will be provided.</strong> If you are unsure whether you have the right documentation, please call us at <a href="tel:+17346441804" className="text-red-800 font-bold underline">(734) 644-1804</a> before purchasing. A quick phone call can save you from losing your money.
+                </p>
+              </div>
+
               <div>
                 <h2 className="text-xl font-bold text-heading mb-3">Overview</h2>
                 <p className="text-gray-600 leading-relaxed">
-                  At MyEyeRx, we strive to provide a smooth and transparent experience for all patients seeking medical window tint exemption evaluations. This refund policy outlines the circumstances under which refunds may be issued.
+                  At MyEyeRx, we strive to provide a smooth and transparent experience for all patients seeking medical window tint exemption evaluations. This refund policy outlines the circumstances under which refunds may or may not be issued.
                 </p>
               </div>
 
               <div>
                 <h2 className="text-xl font-bold text-heading mb-3">Evaluation Fee</h2>
                 <p className="text-gray-600 leading-relaxed">
-                  The evaluation fee (starting at $225, varying by state up to $350 for New York) covers the cost of having a licensed physician review your medical documentation and determine whether your state will accept your paperwork for a medical window tint exemption. This fee is charged at the time of application submission.
+                  The evaluation fee (starting at $225, varying by state up to $350 for New York) covers the cost of a scheduled video consultation with a licensed physician who will review your medical documentation and determine whether your condition qualifies for a medical window tint exemption under your state&apos;s requirements. This fee is charged at the time of application submission.
                 </p>
               </div>
 
               <div>
                 <h2 className="text-xl font-bold text-heading mb-3">Refund Eligibility</h2>
-                <p className="text-gray-600 leading-relaxed mb-3">Refunds may be considered in the following situations:</p>
+                <p className="text-gray-600 leading-relaxed mb-3">Refunds may be considered <strong>only</strong> in the following situations:</p>
                 <ul className="space-y-2 text-gray-600 text-sm">
                   <li className="flex items-start gap-2">
                     <span className="text-amber-500 font-bold mt-0.5">-</span>
@@ -58,38 +65,58 @@ export default function RefundPolicyPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-amber-500 font-bold mt-0.5">-</span>
-                    <span><strong>Service not rendered:</strong> If your evaluation was not completed and no certificate was issued due to a system error or technical issue on our end.</span>
+                    <span><strong>Service not rendered:</strong> If your evaluation was not completed due to a system error or technical issue on our end and no consultation took place.</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-amber-500 font-bold mt-0.5">-</span>
-                    <span><strong>Cancellation before review:</strong> If you request a cancellation before a physician has begun reviewing your application.</span>
+                    <span><strong>Cancellation before consultation:</strong> If you request a cancellation <strong>before</strong> your video consultation with a physician has been scheduled or has taken place.</span>
                   </li>
                 </ul>
               </div>
 
               <div>
                 <h2 className="text-xl font-bold text-heading mb-3">Non-Refundable Situations</h2>
-                <p className="text-gray-600 leading-relaxed mb-3">Refunds are generally not available in the following cases:</p>
+                <p className="text-gray-600 leading-relaxed mb-3"><strong>Refunds are NOT available</strong> in the following cases:</p>
                 <ul className="space-y-2 text-gray-600 text-sm">
                   <li className="flex items-start gap-2">
-                    <span className="text-amber-500 font-bold mt-0.5">-</span>
-                    <span><strong>Insufficient or missing medical documentation:</strong> You are informed before purchase that legitimate medical documentation is required. If you proceed without valid paperwork supporting a qualifying condition, your evaluation will be declined and the fee is non-refundable. Our physician reviews your existing medical records — arriving without legitimate documentation will result in denial without refund.</span>
+                    <span className="text-red-500 font-bold mt-0.5">-</span>
+                    <span><strong>After consultation takes place:</strong> Once your scheduled video consultation with a physician has occurred, the fee is non-refundable regardless of the outcome. The physician&apos;s time and expertise have been rendered as a service, and this cannot be reversed.</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-amber-500 font-bold mt-0.5">-</span>
-                    <span><strong>Change of mind:</strong> Refunds are not available if you simply change your mind after the evaluation has been completed.</span>
+                    <span className="text-red-500 font-bold mt-0.5">-</span>
+                    <span><strong>Insufficient or missing medical documentation:</strong> You are clearly informed before purchase that legitimate medical documentation is required. If you proceed without valid paperwork supporting a qualifying condition, your evaluation may be declined and the fee is non-refundable. Our physicians review your existing medical records — arriving at a consultation without legitimate documentation will result in denial without refund.</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-amber-500 font-bold mt-0.5">-</span>
+                    <span className="text-red-500 font-bold mt-0.5">-</span>
+                    <span><strong>Change of mind:</strong> Refunds are not available if you change your mind after the consultation has been completed.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-500 font-bold mt-0.5">-</span>
                     <span><strong>State-specific issues:</strong> If your state does not accept the exemption format provided, as state requirements may change without notice.</span>
                   </li>
                 </ul>
               </div>
 
               <div>
+                <h2 className="text-xl font-bold text-heading mb-3">Video Recording of Consultations</h2>
+                <p className="text-gray-600 leading-relaxed">
+                  All consultations are video recorded for state compliance and to protect both the patient and the evaluating physician. By purchasing an evaluation, you consent to this recording. Our physicians base their determinations solely on the information you communicate and the documentation you provide. These recordings serve as a record of the consultation and may be referenced in the event of a dispute.
+                </p>
+              </div>
+
+              <div>
+                <h2 className="text-xl font-bold text-heading mb-3">Not Sure About Your Documentation?</h2>
+                <div className="bg-amber-50 rounded-xl p-5 border border-amber-200">
+                  <p className="text-gray-700 leading-relaxed text-sm">
+                    <strong>Call us before you pay.</strong> If you are unsure whether you have the proper medical documentation to support your claim, please call Tory at <a href="tel:+17346441804" className="text-amber-700 font-bold underline">(734) 644-1804</a> or email <a href="mailto:Tory@myeyerx.net" className="text-amber-700 font-bold underline">Tory@myeyerx.net</a>. A quick 2-minute conversation can help you understand what&apos;s needed and prevent unnecessary charges.
+                  </p>
+                </div>
+              </div>
+
+              <div>
                 <h2 className="text-xl font-bold text-heading mb-3">How to Request a Refund</h2>
                 <p className="text-gray-600 leading-relaxed">
-                  To request a refund, please contact us within 30 days of your purchase with your name, email address used during registration, and the reason for your refund request:
+                  To request a refund (for eligible situations only), please contact us within 30 days of your purchase with your name, email address used during registration, and the reason for your refund request:
                 </p>
                 <div className="mt-4 bg-surface rounded-xl p-4 border border-gray-100">
                   <p className="text-sm text-gray-600">
@@ -98,7 +125,7 @@ export default function RefundPolicyPage() {
                   </p>
                   <p className="text-sm text-gray-600 mt-1">
                     <strong>Phone:</strong>{" "}
-                    <a href="tel:7346441804" className="text-amber-600 hover:text-amber-700">(734) 644-1804</a>
+                    <a href="tel:+17346441804" className="text-amber-600 hover:text-amber-700">(734) 644-1804</a>
                   </p>
                 </div>
               </div>

@@ -15,10 +15,10 @@ export default function CTA() {
           exemption through our fast, easy, and HIPAA-compliant online platform.
         </p>
         <Link
-          href="/get-started"
+          href="/"
           className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-primary bg-white hover:bg-amber-50 rounded-full transition-all shadow-xl hover:shadow-2xl"
         >
-          Get Started Now
+          Find Your State
           <ArrowRight className="w-5 h-5" />
         </Link>
       </div>

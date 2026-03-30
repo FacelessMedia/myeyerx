@@ -53,10 +53,10 @@ export default function DecisionCTA() {
             Ask Perplexity
           </a>
           <Link
-            href="/get-started"
+            href="/"
             className="inline-flex items-center justify-center px-5 py-3 text-sm font-bold text-amber-900 bg-white hover:bg-gray-100 border-2 border-white rounded-full transition-all"
           >
-            Get Started
+            Find Your State
           </Link>
         </div>
       </div>

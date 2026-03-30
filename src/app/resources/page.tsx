@@ -108,7 +108,7 @@ export default function ResourcesPage() {
               exemption certificate within 24-48 hours.
             </p>
             <Link
-              href="/get-started"
+              href="/"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-heading bg-cta hover:bg-amber-300 rounded-full transition-all shadow-md"
             >
               Apply Now <ArrowRight className="w-5 h-5" />

@@ -709,52 +709,50 @@ export default async function DynamicPage({ params }: PageProps) {
 
       {/* Nearby States + Conditions Internal Linking */}
       <section className="py-16 lg:py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Nearby State Exemptions */}
-            <div>
-              <h2 className="text-xl font-bold text-heading mb-6">Nearby State Tint Exemptions</h2>
-              <div className="space-y-2">
-                {nearbyStates.map((s) => (
-                  <Link
-                    key={s.slug}
-                    href={`/${s.slug}-window-tint-medical-exemption`}
-                    className="flex items-center justify-between p-3 rounded-xl border border-gray-200 hover:border-amber-400 hover:bg-amber-50 transition-all group"
-                  >
-                    <span className="text-sm text-gray-700 font-medium group-hover:text-amber-700 transition-colors">
-                      {s.name} Window Tint Exemption
-                    </span>
-                    <span className="text-xs text-gray-400 font-bold">{s.abbreviation}</span>
-                  </Link>
-                ))}
-              </div>
-              <div className="mt-4">
-                <Link href="/" className="text-sm text-amber-600 font-semibold hover:text-amber-700 transition-colors">
-                  View all 50 states →
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          {/* Nearby State Exemptions */}
+          <div>
+            <h2 className="text-xl font-bold text-heading mb-6">Nearby State Tint Exemptions</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+              {nearbyStates.map((s) => (
+                <Link
+                  key={s.slug}
+                  href={`/${s.slug}-window-tint-medical-exemption`}
+                  className="flex items-center justify-between p-3 rounded-xl border border-gray-200 hover:border-amber-400 hover:bg-amber-50 transition-all group"
+                >
+                  <span className="text-sm text-gray-700 font-medium group-hover:text-amber-700 transition-colors">
+                    {s.name} Tint Exemption
+                  </span>
+                  <span className="text-xs text-gray-400 font-bold">{s.abbreviation}</span>
                 </Link>
-              </div>
+              ))}
             </div>
+            <div className="mt-4">
+              <Link href="/window-tint-laws-by-state" className="text-sm text-amber-600 font-semibold hover:text-amber-700 transition-colors">
+                View all 50 states →
+              </Link>
+            </div>
+          </div>
 
-            {/* Qualifying Conditions Links */}
-            <div>
-              <h2 className="text-xl font-bold text-heading mb-6">Qualifying Conditions</h2>
-              <div className="space-y-2">
-                {CONDITIONS.map((c) => (
-                  <Link
-                    key={c.slug}
-                    href={`/conditions/${c.slug}`}
-                    className="flex items-center gap-3 p-3 rounded-xl border border-gray-200 hover:border-amber-400 hover:bg-amber-50 transition-all group"
-                  >
-                    <CheckCircle className="w-4 h-4 text-amber-500 flex-shrink-0" />
-                    <span className="text-sm text-gray-700 font-medium group-hover:text-amber-700 transition-colors">{c.name}</span>
-                  </Link>
-                ))}
-              </div>
-              <div className="mt-4">
-                <Link href="/conditions" className="text-sm text-amber-600 font-semibold hover:text-amber-700 transition-colors">
-                  View all conditions →
+          {/* Qualifying Conditions Links */}
+          <div>
+            <h2 className="text-xl font-bold text-heading mb-6">Qualifying Conditions</h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
+              {CONDITIONS.map((c) => (
+                <Link
+                  key={c.slug}
+                  href={`/conditions/${c.slug}`}
+                  className="flex items-center gap-2 p-3 rounded-xl border border-gray-200 hover:border-amber-400 hover:bg-amber-50 transition-all group"
+                >
+                  <CheckCircle className="w-4 h-4 text-amber-500 flex-shrink-0" />
+                  <span className="text-xs sm:text-sm text-gray-700 font-medium group-hover:text-amber-700 transition-colors">{c.name}</span>
                 </Link>
-              </div>
+              ))}
+            </div>
+            <div className="mt-4">
+              <Link href="/conditions" className="text-sm text-amber-600 font-semibold hover:text-amber-700 transition-colors">
+                View all conditions →
+              </Link>
             </div>
           </div>
         </div>

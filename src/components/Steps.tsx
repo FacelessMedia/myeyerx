@@ -76,10 +76,10 @@ export default function Steps() {
             Get a Window Tint Exemption evaluation in minutes.
           </p>
           <Link
-            href="/get-started"
+            href="/"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-heading bg-cta hover:bg-amber-300 rounded-full transition-all shadow-lg hover:shadow-xl"
           >
-            Apply Now <ArrowRight className="w-5 h-5" />
+            Select Your State <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
       </div>

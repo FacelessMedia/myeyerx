@@ -38,7 +38,7 @@ export function HowToGetContent() {
 
       <h2>Step 2: Start Your Online Evaluation</h2>
       <p>
-        Visit <Link href="/get-started">myeyerx.net/get-started</Link> and select your state. You&apos;ll be guided through a brief medical questionnaire that covers:
+        Visit <Link href="/">myeyerx.net</Link> and select your state. You&apos;ll be guided through a brief medical questionnaire that covers:
       </p>
       <ul>
         <li>Your medical condition and diagnosis</li>

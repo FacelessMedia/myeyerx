@@ -93,7 +93,7 @@ export function CostGuideContent() {
 
       <div className="bg-amber-50 rounded-xl p-6 border border-amber-200 not-prose my-8">
         <p className="text-sm text-gray-500 italic">
-          <strong>Pricing Note:</strong> Prices shown are current as of March 2026 and are subject to change. Visit <Link href="/get-started" className="text-amber-600 hover:underline">myeyerx.net/get-started</Link> for the most current pricing for your state.
+          <strong>Pricing Note:</strong> Prices shown are current as of March 2026 and are subject to change. Visit <Link href="/" className="text-amber-600 hover:underline">myeyerx.net</Link> and select your state for the most current pricing.
         </p>
       </div>
     </>

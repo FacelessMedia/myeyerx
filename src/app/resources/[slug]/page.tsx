@@ -142,7 +142,7 @@ export default async function ArticlePage({ params }: PageProps) {
               Connect with a licensed physician for an online evaluation. Certificates delivered in 24-48 hours.
             </p>
             <Link
-              href="/get-started"
+              href="/"
               className="inline-flex items-center gap-2 px-8 py-4 text-base font-bold text-heading bg-cta hover:bg-amber-300 rounded-full transition-all shadow-md"
             >
               Start Your Evaluation <ArrowRight className="w-5 h-5" />

@@ -318,7 +318,7 @@ export default function AboutPage() {
             Start your online physician evaluation today and receive your exemption certificate within 24-48 hours.
           </p>
           <Link
-            href="/get-started"
+            href="/"
             className="inline-flex items-center justify-center gap-2 px-10 py-4 text-base font-bold text-amber-900 bg-white hover:bg-amber-50 rounded-full transition-all shadow-lg hover:shadow-xl"
           >
             Start Your Evaluation <ArrowRight className="w-5 h-5" />

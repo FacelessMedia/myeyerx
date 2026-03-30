@@ -11,6 +11,9 @@ import {
   Shield,
   Clock,
   Eye,
+  Phone,
+  AlertTriangle,
+  Video,
 } from "lucide-react";
 
 interface StateExemptionFormProps {
@@ -48,13 +51,24 @@ export function StateExemptionForm({
     email: "",
     phone: "",
     dateOfBirth: "",
-    condition: "",
+    conditions: [] as string[],
     conditionDetails: "",
+    agreeDocumentation: false,
+    agreeVideoRecording: false,
     agreeTerms: false,
   });
 
   const updateField = (field: string, value: string | boolean) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const toggleCondition = (condition: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      conditions: prev.conditions.includes(condition)
+        ? prev.conditions.filter((c) => c !== condition)
+        : [...prev.conditions, condition],
+    }));
   };
 
   const canProceed = () => {
@@ -68,9 +82,9 @@ export function StateExemptionForm({
           formData.dateOfBirth.trim() !== ""
         );
       case 2:
-        return formData.condition !== "";
+        return formData.conditions.length > 0;
       case 3:
-        return formData.agreeTerms;
+        return formData.agreeDocumentation && formData.agreeVideoRecording && formData.agreeTerms;
       default:
         return false;
     }
@@ -217,27 +231,39 @@ export function StateExemptionForm({
               </span>
             </div>
             <h3 className="text-xl font-bold text-heading mb-2">
-              Medical Condition
+              Medical Condition(s)
             </h3>
             <p className="text-gray-600 text-sm mb-6">
-              Select the condition that requires you to have darker window tint in {stateName}. You will also need to upload supporting medical documentation (diagnosis records, medication list, or doctor&apos;s notes) from your physician.
+              Select <strong>all conditions that apply</strong> to you. You will also need to provide supporting medical documentation (diagnosis records, medication list, or doctor&apos;s notes) from your physician.
             </p>
             <div className="space-y-2.5 mb-6">
-              {conditions.map((condition) => (
-                <button
-                  key={condition}
-                  onClick={() => updateField("condition", condition)}
-                  className={`w-full flex items-center gap-3 px-4 py-3.5 rounded-xl border text-left text-sm font-medium transition-all ${
-                    formData.condition === condition
-                      ? "border-amber-400 bg-amber-50 text-amber-700"
-                      : "border-gray-200 text-gray-700 hover:border-amber-300 hover:bg-gray-50"
-                  }`}
-                >
-                  <Eye className="w-4 h-4 flex-shrink-0" />
-                  {condition}
-                </button>
-              ))}
+              {conditions.map((condition) => {
+                const isSelected = formData.conditions.includes(condition);
+                return (
+                  <button
+                    key={condition}
+                    onClick={() => toggleCondition(condition)}
+                    className={`w-full flex items-center gap-3 px-4 py-3.5 rounded-xl border text-left text-sm font-medium transition-all ${
+                      isSelected
+                        ? "border-amber-400 bg-amber-50 text-amber-700"
+                        : "border-gray-200 text-gray-700 hover:border-amber-300 hover:bg-gray-50"
+                    }`}
+                  >
+                    <div className={`w-5 h-5 rounded flex-shrink-0 flex items-center justify-center border-2 transition-colors ${
+                      isSelected ? "bg-amber-500 border-amber-500" : "border-gray-300"
+                    }`}>
+                      {isSelected && <CheckCircle className="w-3.5 h-3.5 text-white" />}
+                    </div>
+                    {condition}
+                  </button>
+                );
+              })}
             </div>
+            {formData.conditions.length > 0 && (
+              <p className="text-xs text-amber-600 font-medium mb-4">
+                {formData.conditions.length} condition{formData.conditions.length > 1 ? "s" : ""} selected
+              </p>
+            )}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1.5">
                 Additional Details (Optional)
@@ -247,7 +273,7 @@ export function StateExemptionForm({
                 onChange={(e) => updateField("conditionDetails", e.target.value)}
                 rows={3}
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-amber-400 focus:ring-2 focus:ring-amber-100 outline-none transition-all resize-none text-sm"
-                placeholder="Describe your condition, how long you've had it, and how light sensitivity affects your daily life..."
+                placeholder="Describe your condition(s), how long you've had them, and how light sensitivity affects your daily life..."
               />
             </div>
           </div>
@@ -315,9 +341,9 @@ export function StateExemptionForm({
                     <span className="font-medium text-heading">{formName}</span>
                   </div>
                   <div>
-                    <span className="text-gray-500">Condition:</span>{" "}
+                    <span className="text-gray-500">Condition(s):</span>{" "}
                     <span className="font-medium text-heading">
-                      {formData.condition}
+                      {formData.conditions.join(", ")}
                     </span>
                   </div>
                   {formData.conditionDetails && (
@@ -356,35 +382,89 @@ export function StateExemptionForm({
               </div>
             </div>
 
-            <div className="bg-red-50 border border-red-200 rounded-xl p-4 mb-6">
-              <p className="text-red-800 font-semibold text-sm mb-2">Important: Medical Documentation Required</p>
-              <p className="text-red-700 text-xs leading-relaxed">
-                You must provide legitimate medical documentation (doctor&apos;s notes, diagnosis records, prescriptions, or other medical paperwork) supporting a qualifying condition. Our physician reviews your existing medical paperwork to determine if your state will accept it for an exemption. <strong>If you proceed without valid medical documentation, your evaluation will be declined and the fee is non-refundable.</strong>
-              </p>
+            {/* === BIG DISCLAIMER BLOCK === */}
+            <div className="bg-red-50 border-2 border-red-300 rounded-2xl p-6 mb-6">
+              <div className="flex items-start gap-3 mb-4">
+                <AlertTriangle className="w-7 h-7 text-red-600 flex-shrink-0 mt-0.5" />
+                <div>
+                  <h4 className="text-red-800 font-extrabold text-lg">STOP — Read Before You Pay</h4>
+                  <p className="text-red-600 text-xs font-semibold mt-1">This service is for legitimate medical needs ONLY.</p>
+                </div>
+              </div>
+
+              <div className="space-y-3 text-sm text-red-800 leading-relaxed">
+                <p>
+                  <strong>Medical documentation is required.</strong> You must provide legitimate proof of a qualifying medical condition — such as a prior diagnosis, medication list, or doctor&apos;s notes from your family physician or eye doctor. Our telehealth physicians <strong>do not diagnose or prescribe</strong>; they review your existing records and, if sufficient, sign your exemption form.
+                </p>
+                <p>
+                  <strong>No valid documentation = no refund.</strong> If you purchase this evaluation without proper medical paperwork, your application will be denied and <strong>the fee is non-refundable</strong>. We cannot make exceptions.
+                </p>
+                <p className="flex items-start gap-2">
+                  <Video className="w-4 h-4 flex-shrink-0 mt-0.5" />
+                  <span><strong>Your consultation will be video recorded</strong> for state compliance and to protect both you and our physicians. Our doctors make their determination based solely on what you tell them and the documentation you provide. By proceeding, you consent to this recording.</span>
+                </p>
+              </div>
+
+              <div className="mt-5 bg-white border-2 border-red-200 rounded-xl p-4">
+                <div className="flex items-start gap-3">
+                  <Phone className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-red-800 font-bold text-sm">Not sure if you have the right documentation?</p>
+                    <p className="text-red-700 text-xs mt-1 leading-relaxed">
+                      <strong>Call Tory before you pay.</strong> A quick 2-minute phone call can save you from losing your money. We want to help — but we can only help if you have legitimate medical records.
+                    </p>
+                    <a
+                      href="tel:+17346441804"
+                      className="inline-flex items-center gap-2 mt-2 px-4 py-2 bg-red-600 text-white font-bold text-sm rounded-full hover:bg-red-700 transition-colors"
+                    >
+                      <Phone className="w-4 h-4" /> Call (734) 644-1804
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <label className="flex items-start gap-3 cursor-pointer">
-              <input
-                type="checkbox"
-                checked={formData.agreeTerms}
-                onChange={(e) => updateField("agreeTerms", e.target.checked)}
-                className="mt-1 w-5 h-5 rounded border-gray-300 text-amber-500 focus:ring-amber-400"
-              />
-              <span className="text-sm text-gray-600">
-                I agree to the{" "}
-                <a href="/terms" className="text-amber-600 underline">
-                  Terms &amp; Conditions
-                </a>{" "}
-                and{" "}
-                <a href="/privacy-policy" className="text-amber-600 underline">
-                  Privacy Policy
-                </a>
-                . I understand this is a telemedicine evaluation, I consent
-                to being evaluated by a licensed physician, and I acknowledge
-                that medical documentation is required and fees are non-refundable
-                if I do not provide valid paperwork.
-              </span>
-            </label>
+            {/* === REQUIRED CHECKBOXES === */}
+            <div className="space-y-4">
+              <label className="flex items-start gap-3 cursor-pointer p-4 rounded-xl border-2 border-red-200 bg-red-50 hover:bg-red-100 transition-colors">
+                <input
+                  type="checkbox"
+                  checked={formData.agreeDocumentation}
+                  onChange={(e) => updateField("agreeDocumentation", e.target.checked)}
+                  className="mt-0.5 w-5 h-5 rounded border-red-400 text-red-600 focus:ring-red-500"
+                />
+                <span className="text-sm text-red-800 font-medium leading-relaxed">
+                  I confirm that I have legitimate medical documentation (prior diagnosis, medication list, doctor&apos;s notes, or other medical records) supporting a qualifying condition for a window tint medical exemption. I understand that this is a consultation with a licensed physician and that <strong>once the consultation takes place, no refund can be provided</strong>. If I am unsure about my documentation, I will call (734) 644-1804 before purchasing.
+                </span>
+              </label>
+
+              <label className="flex items-start gap-3 cursor-pointer p-4 rounded-xl border border-gray-200 hover:bg-gray-50 transition-colors">
+                <input
+                  type="checkbox"
+                  checked={formData.agreeVideoRecording}
+                  onChange={(e) => updateField("agreeVideoRecording", e.target.checked)}
+                  className="mt-0.5 w-5 h-5 rounded border-gray-300 text-amber-500 focus:ring-amber-400"
+                />
+                <span className="text-sm text-gray-700 leading-relaxed">
+                  I consent to my consultation being <strong>video recorded</strong> for state compliance purposes and to protect both myself and the evaluating physician. I understand that the physician&apos;s determination is based on what I communicate and the documentation I provide.
+                </span>
+              </label>
+
+              <label className="flex items-start gap-3 cursor-pointer p-4 rounded-xl border border-gray-200 hover:bg-gray-50 transition-colors">
+                <input
+                  type="checkbox"
+                  checked={formData.agreeTerms}
+                  onChange={(e) => updateField("agreeTerms", e.target.checked)}
+                  className="mt-0.5 w-5 h-5 rounded border-gray-300 text-amber-500 focus:ring-amber-400"
+                />
+                <span className="text-sm text-gray-700 leading-relaxed">
+                  I agree to the{" "}
+                  <a href="/terms" className="text-amber-600 underline">Terms &amp; Conditions</a>,{" "}
+                  <a href="/privacy-policy" className="text-amber-600 underline">Privacy Policy</a>, and{" "}
+                  <a href="/refund-policy" className="text-amber-600 underline">Refund Policy</a>.
+                </span>
+              </label>
+            </div>
           </div>
         )}
 
@@ -399,8 +479,8 @@ export function StateExemptionForm({
             </h3>
             <p className="text-gray-600 max-w-md mx-auto mb-8 leading-relaxed">
               Thank you, {formData.firstName}! Your {stateName} exemption evaluation request has been
-              submitted. A licensed physician will review your case and you&apos;ll
-              receive your signed {formName} within 24&ndash;48 hours.
+              submitted. A licensed physician will review your case and your scheduled
+              video consultation details will be sent to your email.
             </p>
             <div className="bg-gray-50 rounded-xl p-5 border border-gray-100 max-w-sm mx-auto mb-6">
               <p className="text-sm text-gray-500 mb-1">Confirmation sent to:</p>

@@ -166,7 +166,7 @@ export default async function ConditionPage({ params }: PageProps) {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link
-              href="/get-started"
+              href="/"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-heading bg-cta hover:bg-amber-300 rounded-full transition-all shadow-md hover:shadow-lg"
             >
               Get Evaluated Now — Starting at $225 <ArrowRight className="w-5 h-5" />
@@ -273,7 +273,7 @@ export default async function ConditionPage({ params }: PageProps) {
           </div>
           <div className="text-center mt-8">
             <Link
-              href="/get-started"
+              href="/"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-heading bg-cta hover:bg-amber-300 rounded-full transition-all shadow-md hover:shadow-lg"
             >
               Start Your Evaluation <ArrowRight className="w-5 h-5" />
@@ -427,7 +427,7 @@ export default async function ConditionPage({ params }: PageProps) {
             Connect with a licensed physician online who can evaluate your {condition.name.toLowerCase()} and provide the medical documentation you need. No office visit required.
           </p>
           <Link
-            href="/get-started"
+            href="/"
             className="inline-flex items-center justify-center gap-2 px-10 py-4 text-base font-bold text-amber-900 bg-white hover:bg-amber-50 rounded-full transition-all shadow-lg hover:shadow-xl"
           >
             Start Your Evaluation — Starting at $225 <ArrowRight className="w-5 h-5" />

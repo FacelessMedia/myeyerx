@@ -123,7 +123,7 @@ export default function Footer() {
               <li><Link href="/faqs" className="text-white/90 text-sm hover:text-white transition-colors">FAQs</Link></li>
               <li><Link href="/resources" className="text-white/90 text-sm hover:text-white transition-colors">Resources</Link></li>
               <li><Link href="/contact" className="text-white/90 text-sm hover:text-white transition-colors">Contact</Link></li>
-              <li><Link href="/get-started" className="text-white/90 text-sm hover:text-white transition-colors">Get Started</Link></li>
+              <li><Link href="/refund-policy" className="text-white/90 text-sm hover:text-white transition-colors">Refund Policy</Link></li>
             </ul>
             {/* HIPAA Badge */}
             <div className="flex items-center gap-2 mt-6 bg-white/20 backdrop-blur-sm rounded-lg px-3 py-2 border border-white/30">

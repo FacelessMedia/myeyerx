@@ -189,7 +189,7 @@ export default function FAQsPage() {
                 Email Us
               </a>
               <Link
-                href="/get-started"
+                href="/"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-bold text-heading bg-cta hover:bg-amber-300 rounded-full transition-all shadow-md"
               >
                 Get Started <ArrowRight className="w-4 h-4" />
