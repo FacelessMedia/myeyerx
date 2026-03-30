@@ -382,9 +382,9 @@ export function StateExemptionForm({
               </div>
             </div>
 
-            {/* === BIG DISCLAIMER BLOCK === */}
+            {/* === CONCISE DISCLAIMER BLOCK === */}
             <div className="bg-red-50 border-2 border-red-300 rounded-2xl p-6 mb-6">
-              <div className="flex items-start gap-3 mb-4">
+              <div className="flex items-start gap-3 mb-3">
                 <AlertTriangle className="w-7 h-7 text-red-600 flex-shrink-0 mt-0.5" />
                 <div>
                   <h4 className="text-red-800 font-extrabold text-lg">STOP — Read Before You Pay</h4>
@@ -392,27 +392,35 @@ export function StateExemptionForm({
                 </div>
               </div>
 
-              <div className="space-y-3 text-sm text-red-800 leading-relaxed">
-                <p>
-                  <strong>Medical documentation is required.</strong> You must provide legitimate proof of a qualifying medical condition — such as a prior diagnosis, medication list, or doctor&apos;s notes from your family physician or eye doctor. Our telehealth physicians <strong>do not diagnose or prescribe</strong>; they review your existing records and, if sufficient, sign your exemption form.
-                </p>
-                <p>
-                  <strong>No valid documentation = no refund.</strong> If you purchase this evaluation without proper medical paperwork, your application will be denied and <strong>the fee is non-refundable</strong>. We cannot make exceptions.
-                </p>
-                <p className="flex items-start gap-2">
-                  <Video className="w-4 h-4 flex-shrink-0 mt-0.5" />
-                  <span><strong>Your consultation will be video recorded</strong> for state compliance and to protect both you and our physicians. Our doctors make their determination based solely on what you tell them and the documentation you provide. By proceeding, you consent to this recording.</span>
-                </p>
-              </div>
+              <ul className="space-y-2 text-sm text-red-800 mb-4">
+                <li className="flex items-start gap-2">
+                  <span className="text-red-500 font-bold mt-0.5">&bull;</span>
+                  <span><strong>Medical documentation required.</strong> You must have existing records (diagnosis, medication list, doctor&apos;s notes). Our doctors review records — they do not diagnose.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-500 font-bold mt-0.5">&bull;</span>
+                  <span><strong>No docs = no refund.</strong> Once you pay and a consultation is scheduled on the doctor&apos;s calendar, the fee is non-refundable — even if you lack proper documentation.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Video className="w-3.5 h-3.5 text-red-500 flex-shrink-0 mt-0.5" />
+                  <span><strong>Consultations are video recorded</strong> for state compliance and mutual protection.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Shield className="w-3.5 h-3.5 text-red-500 flex-shrink-0 mt-0.5" />
+                  <span><strong>We take our reputation seriously.</strong> These disclosures are provided before any transaction. False or defamatory public statements about MyEyeRx may result in legal action. See our full <a href="/terms" className="text-red-600 underline font-semibold">Terms &amp; Conditions</a>.</span>
+                </li>
+              </ul>
 
-              <div className="mt-5 bg-white border-2 border-red-200 rounded-xl p-4">
+              <p className="text-xs text-red-700 leading-relaxed mb-4">
+                Full details are outlined in our <a href="/terms" className="underline font-semibold">Terms &amp; Conditions</a> and <a href="/refund-policy" className="underline font-semibold">Refund Policy</a>. We encourage you to review them before proceeding.
+              </p>
+
+              <div className="bg-white border-2 border-red-200 rounded-xl p-4">
                 <div className="flex items-start gap-3">
                   <Phone className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-red-800 font-bold text-sm">Not sure if you have the right documentation?</p>
-                    <p className="text-red-700 text-xs mt-1 leading-relaxed">
-                      <strong>Call Tory before you pay.</strong> A quick 2-minute phone call can save you from losing your money. We want to help — but we can only help if you have legitimate medical records.
-                    </p>
+                    <p className="text-red-800 font-bold text-sm">Unsure about your documentation? Call first — don&apos;t pay.</p>
+                    <p className="text-red-700 text-xs mt-1">A 2-minute call can save you money and ensure you&apos;re prepared.</p>
                     <a
                       href="tel:+17346441804"
                       className="inline-flex items-center gap-2 mt-2 px-4 py-2 bg-red-600 text-white font-bold text-sm rounded-full hover:bg-red-700 transition-colors"
@@ -434,7 +442,7 @@ export function StateExemptionForm({
                   className="mt-0.5 w-5 h-5 rounded border-red-400 text-red-600 focus:ring-red-500"
                 />
                 <span className="text-sm text-red-800 font-medium leading-relaxed">
-                  I confirm that I have legitimate medical documentation (prior diagnosis, medication list, doctor&apos;s notes, or other medical records) supporting a qualifying condition for a window tint medical exemption. I understand that this is a consultation with a licensed physician and that <strong>once the consultation takes place, no refund can be provided</strong>. If I am unsure about my documentation, I will call (734) 644-1804 before purchasing.
+                  I confirm that I have legitimate medical documentation supporting a qualifying condition. I understand that <strong>once a consultation is scheduled, the fee is non-refundable</strong> — including if my documentation is insufficient. If unsure, I will call <strong>(734) 644-1804</strong> before paying.
                 </span>
               </label>
 
@@ -446,7 +454,7 @@ export function StateExemptionForm({
                   className="mt-0.5 w-5 h-5 rounded border-gray-300 text-amber-500 focus:ring-amber-400"
                 />
                 <span className="text-sm text-gray-700 leading-relaxed">
-                  I consent to my consultation being <strong>video recorded</strong> for state compliance purposes and to protect both myself and the evaluating physician. I understand that the physician&apos;s determination is based on what I communicate and the documentation I provide.
+                  I consent to my consultation being <strong>video recorded</strong> for state compliance and mutual protection.
                 </span>
               </label>
 
@@ -458,10 +466,11 @@ export function StateExemptionForm({
                   className="mt-0.5 w-5 h-5 rounded border-gray-300 text-amber-500 focus:ring-amber-400"
                 />
                 <span className="text-sm text-gray-700 leading-relaxed">
-                  I agree to the{" "}
-                  <a href="/terms" className="text-amber-600 underline">Terms &amp; Conditions</a>,{" "}
-                  <a href="/privacy-policy" className="text-amber-600 underline">Privacy Policy</a>, and{" "}
-                  <a href="/refund-policy" className="text-amber-600 underline">Refund Policy</a>.
+                  I have read and agree to the{" "}
+                  <a href="/terms" className="text-amber-600 underline font-semibold">Terms &amp; Conditions</a>,{" "}
+                  <a href="/privacy-policy" className="text-amber-600 underline font-semibold">Privacy Policy</a>, and{" "}
+                  <a href="/refund-policy" className="text-amber-600 underline font-semibold">Refund Policy</a>{" "}
+                  — including the no-refund and review integrity policies.
                 </span>
               </label>
             </div>

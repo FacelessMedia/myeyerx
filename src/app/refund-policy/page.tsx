@@ -80,7 +80,7 @@ export default function RefundPolicyPage() {
                 <ul className="space-y-2 text-gray-600 text-sm">
                   <li className="flex items-start gap-2">
                     <span className="text-red-500 font-bold mt-0.5">-</span>
-                    <span><strong>After consultation takes place:</strong> Once your scheduled video consultation with a physician has occurred, the fee is non-refundable regardless of the outcome. The physician&apos;s time and expertise have been rendered as a service, and this cannot be reversed.</span>
+                    <span><strong>After consultation is scheduled or takes place:</strong> Once you pay and a consultation is placed on the physician&apos;s calendar, the fee is non-refundable — regardless of outcome. This includes situations where you fail to attend, arrive without proper documentation, or are otherwise unable to complete the evaluation. The physician has dedicated their time to your appointment, and that time cannot be recovered.</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-red-500 font-bold mt-0.5">-</span>
@@ -134,6 +134,19 @@ export default function RefundPolicyPage() {
                 <h2 className="text-xl font-bold text-heading mb-3">Processing Time</h2>
                 <p className="text-gray-600 leading-relaxed">
                   Approved refunds are typically processed within 5-10 business days. The refund will be credited to the original payment method. Please allow additional time for your bank or credit card company to post the refund to your account.
+                </p>
+              </div>
+
+              <div>
+                <h2 className="text-xl font-bold text-heading mb-3">Review Integrity &amp; Defamation</h2>
+                <p className="text-gray-600 leading-relaxed mb-3">
+                  All refund terms, documentation requirements, and service limitations are disclosed clearly <strong>before any transaction</strong>. By completing a purchase, you acknowledge that you were fully informed.
+                </p>
+                <p className="text-gray-600 leading-relaxed mb-3">
+                  MyEyeRx takes its business reputation seriously. If a customer publishes false, misleading, or defamatory statements about our service — on review platforms, social media, or elsewhere — that contradict the disclosures agreed to at the time of purchase, we reserve the right to pursue appropriate legal remedies.
+                </p>
+                <p className="text-gray-600 leading-relaxed">
+                  We welcome honest feedback and are always available to resolve concerns directly. If you have a complaint, please <Link href="/contact" className="text-amber-600 hover:text-amber-700 font-medium">contact us</Link> before taking public action. See our full <a href="/terms" className="text-amber-600 hover:text-amber-700 font-medium">Terms &amp; Conditions</a> for details.
                 </p>
               </div>
 
