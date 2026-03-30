@@ -1,6 +1,11 @@
 import Link from "next/link";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, MapPin, Clock, Shield, DollarSign, AlertTriangle } from "lucide-react";
 import { STATES, CONDITIONS } from "@/data/states";
+import { BlogTLDR } from "@/components/blog/BlogTLDR";
+import { BlogStat, BlogStatRow } from "@/components/blog/BlogStat";
+import { BlogCallout } from "@/components/blog/BlogCallout";
+import { BlogCTA } from "@/components/blog/BlogCTA";
+import { StateEligibilityChecker } from "@/components/tools/StateEligibilityChecker";
 
 export function StatesAllowContent() {
   const servedStates = STATES.filter((s) => s.served && s.hasExemption);
@@ -13,20 +18,31 @@ export function StatesAllowContent() {
         Most U.S. states allow some form of medical exemption for window tint, but the requirements, qualifying conditions, and processes vary significantly. This guide breaks down every state so you know exactly where you stand.
       </p>
 
-      <h2>How Many States Allow Medical Tint Exemptions?</h2>
-      <p>
-        <strong>{exemptionStates.length} out of 50 states</strong> currently allow medical exemptions for window tint. The states that do NOT have formal medical exemption programs are limited, and even those may have informal processes or be considering legislation.
-      </p>
+      <BlogTLDR items={[
+        `${exemptionStates.length} out of 50 states allow medical window tint exemptions`,
+        `MyEyeRx serves ${servedStates.length} states with 100% online evaluations`,
+        "Requirements, VLT limits, and exemption durations vary by state",
+        "Qualifying conditions recognized by most states: migraines, lupus, melanoma, photophobia, and more",
+        "Certificates delivered within 24-48 hours — HIPAA compliant",
+      ]} />
+
+      <BlogStatRow>
+        <BlogStat icon={MapPin} value={`${exemptionStates.length}`} label="States with exemptions" />
+        <BlogStat icon={Shield} value={`${servedStates.length}`} label="States we serve" />
+        <BlogStat icon={Clock} value="24-48 hrs" label="Certificate delivery" />
+      </BlogStatRow>
 
       {noExemptionStates.length > 0 && (
         <>
-          <h3>States Without Formal Exemption Programs</h3>
-          <p>The following states do not currently have a formal medical tint exemption program:</p>
-          <ul>
+          <h2>States Without Formal Exemption Programs</h2>
+          <div className="not-prose my-6 space-y-2">
             {noExemptionStates.map((s) => (
-              <li key={s.slug}><strong>{s.name}</strong> — Check with the {s.dmvName} for the latest updates, as regulations change</li>
+              <div key={s.slug} className="flex items-start gap-3 bg-red-50 rounded-lg p-3 border border-red-200">
+                <AlertTriangle className="w-3.5 h-3.5 text-red-400 flex-shrink-0 mt-0.5" />
+                <p className="text-gray-700 text-xs"><strong>{s.name}</strong> — Check with the {s.dmvName} for the latest updates, as regulations change</p>
+              </div>
             ))}
-          </ul>
+          </div>
         </>
       )}
 
@@ -34,7 +50,7 @@ export function StatesAllowContent() {
       <p>Below is every state that offers medical window tint exemptions, with key details about each state&apos;s program:</p>
 
       <div className="not-prose my-8">
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto rounded-xl border border-gray-200">
           <table className="w-full text-sm border-collapse">
             <thead>
               <tr className="bg-amber-50">
@@ -77,6 +93,8 @@ export function StatesAllowContent() {
         ))}
       </div>
 
+      <StateEligibilityChecker />
+
       <h2>How to Get Your Exemption</h2>
       <p>
         MyEyeRx currently serves <strong>{servedStates.length} states</strong> with online medical tint exemption evaluations. The process is 100% online, HIPAA compliant, and certificates are delivered within 24-48 hours.
@@ -85,11 +103,15 @@ export function StatesAllowContent() {
         <Link href="/resources/how-to-get-tint-exemption-online" className="text-amber-600 font-semibold hover:underline">Read our step-by-step guide to getting your exemption online →</Link>
       </p>
 
-      <div className="bg-amber-50 rounded-xl p-6 border border-amber-200 not-prose my-8">
-        <p className="text-sm text-gray-500 italic">
-          <strong>Disclaimer:</strong> State regulations change periodically. While we strive to keep this information current, always verify requirements with your state&apos;s DMV or motor vehicle agency. Last updated March 2026.
-        </p>
-      </div>
+      <BlogCTA
+        heading="Find Your State and Get Started"
+        description="Select your state, complete a 15-minute questionnaire, and receive your physician-signed exemption certificate within 24-48 hours."
+        buttonText="Start Your Evaluation — Starting at $225"
+      />
+
+      <BlogCallout variant="warning" title="Disclaimer">
+        <p>State regulations change periodically. While we strive to keep this information current, always verify requirements with your state&apos;s DMV or motor vehicle agency.</p>
+      </BlogCallout>
     </>
   );
 }

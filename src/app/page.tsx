@@ -1,11 +1,10 @@
 import Hero from "@/components/Hero";
 import Steps from "@/components/Steps";
 import TrustBanner from "@/components/TrustBanner";
-import Testimonials from "@/components/Testimonials";
+import GoogleReviews from "@/components/GoogleReviews";
 import WhoQualifies from "@/components/WhoQualifies";
 import WhyChoose from "@/components/WhyChoose";
 import AboutUs from "@/components/AboutUs";
-import GoogleReviews from "@/components/GoogleReviews";
 import StateSelector from "@/components/StateSelector";
 import FAQ from "@/components/FAQ";
 import Articles from "@/components/Articles";
@@ -17,11 +16,10 @@ export default function Home() {
       <Hero />
       <Steps />
       <TrustBanner />
-      <Testimonials />
+      <GoogleReviews />
       <WhoQualifies />
       <WhyChoose />
       <AboutUs />
-      <GoogleReviews />
       <StateSelector />
       <FAQ />
       <Articles />

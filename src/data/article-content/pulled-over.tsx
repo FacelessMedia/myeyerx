@@ -1,4 +1,9 @@
 import Link from "next/link";
+import { Shield, FileText, MessageSquare, Search, AlertTriangle, CheckCircle, Car } from "lucide-react";
+import { BlogTLDR } from "@/components/blog/BlogTLDR";
+import { BlogStepCards } from "@/components/blog/BlogStepCards";
+import { BlogCallout } from "@/components/blog/BlogCallout";
+import { BlogCTA } from "@/components/blog/BlogCTA";
 
 export function PulledOverContent() {
   return (
@@ -7,63 +12,99 @@ export function PulledOverContent() {
         Getting pulled over for window tint can be stressful — especially when you have a legitimate medical reason for it. Here&apos;s exactly what to do, what to say, and how to handle the situation if you have a medical exemption.
       </p>
 
+      <BlogTLDR items={[
+        "Keep exemption certificate in the vehicle at all times + photo on phone as backup",
+        "Tell the officer immediately: \"I have a medical window tint exemption\"",
+        "Be patient — officers may not be familiar with medical exemptions",
+        "If cited anyway: don't argue, contest later by presenting certificate to the court",
+        "No exemption yet? Fines range $25-$500+ per stop. Getting one protects you legally.",
+      ]} />
+
       <h2>Before It Happens: Be Prepared</h2>
-      <ul>
-        <li><strong>Keep your exemption certificate in the vehicle at all times</strong> — Glove compartment, center console, or visor clip. Somewhere you can reach it quickly without fumbling.</li>
-        <li><strong>Print two copies</strong> — One for the vehicle, one at home as backup in case the first gets lost or damaged.</li>
-        <li><strong>Keep a photo on your phone</strong> — As a backup in case you can&apos;t find the paper copy quickly.</li>
-        <li><strong>Know your state&apos;s requirements</strong> — Some states require you to register the exemption with the DMV. Some require you to carry a specific form. Know what your state expects.</li>
-      </ul>
+      <div className="not-prose my-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
+        {[
+          { icon: FileText, label: "Certificate in Vehicle", desc: "Glove box, console, or visor clip", color: "text-blue-500" },
+          { icon: FileText, label: "Print Two Copies", desc: "One in car, one at home as backup", color: "text-green-500" },
+          { icon: Car, label: "Photo on Phone", desc: "Backup if paper copy is misplaced", color: "text-purple-500" },
+          { icon: Search, label: "Know State Rules", desc: "DMV registration, required forms", color: "text-amber-500" },
+        ].map((item) => (
+          <div key={item.label} className="bg-surface rounded-xl p-3 border border-gray-100 text-center">
+            <item.icon className={`w-4 h-4 ${item.color} mx-auto mb-1`} />
+            <p className="font-bold text-heading text-xs">{item.label}</p>
+            <p className="text-gray-500 text-[10px] mt-0.5">{item.desc}</p>
+          </div>
+        ))}
+      </div>
 
       <h2>During the Stop</h2>
-      <ol>
-        <li><strong>Stay calm and cooperative</strong> — The officer is doing their job. Tint violations are one of the most common traffic stops.</li>
-        <li><strong>Roll down your window</strong> — This shows cooperation and lets the officer see you clearly.</li>
-        <li><strong>Inform the officer immediately</strong> — &quot;Officer, I have a medical window tint exemption. The certificate is in my glove compartment / center console. May I get it for you?&quot;</li>
-        <li><strong>Present the certificate</strong> — Hand it to the officer along with your license and registration.</li>
-        <li><strong>Be patient</strong> — The officer may not be immediately familiar with medical tint exemptions. Give them time to review the document and verify it if needed.</li>
-      </ol>
+      <BlogStepCards steps={[
+        { icon: Shield, title: "Stay Calm & Cooperative", description: "The officer is doing their job. Tint violations are one of the most common traffic stops." },
+        { icon: Car, title: "Roll Down Your Window", description: "Shows cooperation and lets the officer see you clearly." },
+        { icon: MessageSquare, title: "Inform Immediately", description: "\"Officer, I have a medical window tint exemption. The certificate is in my glove compartment. May I get it for you?\"" },
+        { icon: FileText, title: "Present the Certificate", description: "Hand it to the officer with your license and registration." },
+        { icon: Shield, title: "Be Patient", description: "Officer may not be familiar with medical exemptions. Give them time to review and verify." },
+      ]} />
 
       <h2>What the Officer Will Check</h2>
-      <ul>
-        <li><strong>Your name</strong> matches the certificate</li>
-        <li><strong>The certificate is current</strong> (not expired)</li>
-        <li><strong>The physician&apos;s signature</strong> is present</li>
-        <li><strong>The state</strong> — The exemption should be from the state you&apos;re driving in (or the officer may accept out-of-state exemptions depending on your state&apos;s reciprocity rules)</li>
-      </ul>
-      <p>
-        The officer may also use a <strong>tint meter</strong> to check your VLT. Even with an exemption, some states still have minimum VLT requirements. Your tint should be within whatever your state&apos;s exemption allows.
-      </p>
+      <div className="not-prose my-8 grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {[
+          { label: "Your name matches the certificate", check: true },
+          { label: "Certificate is current (not expired)", check: true },
+          { label: "Physician's signature is present", check: true },
+          { label: "State matches (or reciprocity applies)", check: true },
+          { label: "VLT within exemption's allowance (tint meter)", check: true },
+        ].map((item) => (
+          <div key={item.label} className="flex items-start gap-2 bg-blue-50 rounded-lg p-3 border border-blue-200">
+            <Search className="w-3.5 h-3.5 text-blue-500 flex-shrink-0 mt-0.5" />
+            <p className="text-gray-700 text-xs font-semibold">{item.label}</p>
+          </div>
+        ))}
+      </div>
 
       <h2>If You Get a Citation Anyway</h2>
-      <p>
-        Occasionally, an officer may still issue a citation — either because they&apos;re unfamiliar with medical exemptions, because they believe the certificate is invalid, or because your tint exceeds even the exempted limits. If this happens:
-      </p>
-      <ol>
-        <li><strong>Don&apos;t argue at the scene</strong> — Accept the citation respectfully. You can contest it later.</li>
-        <li><strong>Note the officer&apos;s name and badge number</strong></li>
-        <li><strong>Contact the court</strong> — In most jurisdictions, you can get the citation dismissed by presenting your valid exemption certificate to the court or prosecutor.</li>
-        <li><strong>Bring documentation</strong> — Your exemption certificate, a copy of your state&apos;s medical exemption law, and any DMV registration of the exemption.</li>
-      </ol>
+      <BlogCallout variant="tip" title="Don't argue at the scene — contest later">
+        <div className="space-y-1.5">
+          {[
+            "Accept the citation respectfully. You can contest it in court.",
+            "Note the officer's name and badge number.",
+            "Contact the court — present your valid exemption to get the citation dismissed.",
+            "Bring: exemption certificate, copy of your state's exemption law, DMV registration.",
+          ].map((item) => (
+            <div key={item} className="flex items-start gap-2">
+              <CheckCircle className="w-3 h-3 text-green-500 flex-shrink-0 mt-0.5" />
+              <p className="text-xs text-gray-700">{item}</p>
+            </div>
+          ))}
+        </div>
+      </BlogCallout>
 
       <h2>Without an Exemption</h2>
-      <p>
-        If you don&apos;t have an exemption but have a medical condition that qualifies, getting pulled over is actually a sign that you should get one. The fines for illegal tint range from $25 to $500+ depending on your state, and repeat offenses can mean higher fines, points on your license, or required tint removal.
-      </p>
-      <p>
-        Getting a <Link href="/resources/complete-guide-to-window-tint-medical-exemptions" className="text-amber-600 font-semibold hover:underline">medical exemption</Link> protects you legally while keeping the tint your condition requires.
-      </p>
+      <div className="not-prose my-8 rounded-2xl border-2 border-red-200 bg-red-50 p-6">
+        <div className="flex items-start gap-4">
+          <AlertTriangle className="w-8 h-8 text-red-500 flex-shrink-0" />
+          <div>
+            <h3 className="font-extrabold text-heading text-base mb-2">Getting Pulled Over Without One?</h3>
+            <p className="text-gray-700 text-sm leading-relaxed mb-2">
+              Fines range from <strong>$25 to $500+</strong> per stop. Repeat offenses = higher fines, points on license, or forced tint removal. If you have a qualifying medical condition, getting a <Link href="/resources/complete-guide-to-window-tint-medical-exemptions" className="text-amber-600 font-semibold hover:underline">medical exemption</Link> protects you legally.
+            </p>
+          </div>
+        </div>
+      </div>
 
       <h2>Interstate Travel</h2>
       <p>
-        If you&apos;re pulled over in a state different from where your exemption was issued, the situation gets more complex. Some states honor out-of-state exemptions, others don&apos;t. <Link href="/resources/traveling-between-states-tint-exemption" className="text-amber-600 font-semibold hover:underline">Read our guide on traveling between states with a tint exemption →</Link>
+        If you&apos;re pulled over in a different state, some honor out-of-state exemptions, others don&apos;t. <Link href="/resources/traveling-between-states-tint-exemption" className="text-amber-600 font-semibold hover:underline">Read our guide on traveling between states with a tint exemption →</Link>
       </p>
 
-      <div className="bg-amber-50 rounded-xl p-6 border border-amber-200 not-prose my-8">
-        <p className="text-sm text-gray-500 italic">
-          <strong>Legal Disclaimer:</strong> This article provides general information and is not legal advice. Traffic laws and enforcement vary by jurisdiction. Consult a traffic attorney for specific legal questions about your situation.
-        </p>
-      </div>
+      <BlogCTA
+        heading="Don't Wait for a Ticket — Get Protected Now"
+        description="A medical tint exemption is your legal shield. One-time evaluation, 100% online, certificate delivered in 24-48 hours."
+        buttonText="Start Your Evaluation — Starting at $225"
+      />
+
+      <BlogCallout variant="warning" title="Legal Disclaimer">
+        <p>This article provides general information and is not legal advice. Traffic laws and enforcement vary by jurisdiction. Consult a traffic attorney for specific legal questions.</p>
+      </BlogCallout>
     </>
   );
 }

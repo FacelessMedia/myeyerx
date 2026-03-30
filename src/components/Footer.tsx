@@ -136,6 +136,21 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Disclaimers */}
+      <div className="border-t border-amber-400/50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <p className="text-white/70 text-[11px] leading-relaxed mb-2">
+            <strong className="text-white/90">Medical Disclaimer:</strong> The information provided on this website is for general informational purposes only and does not constitute medical advice, diagnosis, or treatment. Always consult with a qualified healthcare provider regarding any medical condition or treatment. A licensed physician will evaluate your specific condition to determine if you qualify for a medical window tint exemption.
+          </p>
+          <p className="text-white/70 text-[11px] leading-relaxed mb-2">
+            <strong className="text-white/90">Legal Disclaimer:</strong> The information on this site is not legal advice. Window tint exemption laws, requirements, and processes vary by state and are subject to change. You are responsible for verifying your state&apos;s current regulations. Consult a licensed attorney for legal questions specific to your situation. MyEyeRx makes no guarantees regarding the outcome of any evaluation or the acceptance of exemption certificates by law enforcement or government agencies.
+          </p>
+          <p className="text-white/70 text-[11px] leading-relaxed">
+            <strong className="text-white/90">Results Disclaimer:</strong> Individual results may vary. Claims and testimonials on this website reflect individual experiences and are not guaranteed outcomes. Do your own research and consult appropriate professionals before making decisions based on information found on this site.
+          </p>
+        </div>
+      </div>
+
       {/* Bottom row */}
       <div className="border-t border-amber-400">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">

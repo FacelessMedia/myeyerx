@@ -1,4 +1,9 @@
 import Link from "next/link";
+import { ClipboardList, Sun, Monitor, Car, Cloud, ArrowRightLeft, Zap, Smartphone, Table, BookOpen, Clock, MapPin, Layers, Leaf, Target, CheckCircle } from "lucide-react";
+import { BlogTLDR } from "@/components/blog/BlogTLDR";
+import { BlogToolPlaceholder } from "@/components/blog/BlogToolPlaceholder";
+import { BlogCallout } from "@/components/blog/BlogCallout";
+import { BlogCTA } from "@/components/blog/BlogCTA";
 
 export function TrackMigraineTriggersContent() {
   return (
@@ -7,72 +12,139 @@ export function TrackMigraineTriggersContent() {
         You can&apos;t manage what you don&apos;t measure. Tracking your migraine triggers — especially light-related ones — reveals patterns you&apos;d never notice otherwise. After a month or two of consistent tracking, you&apos;ll know exactly which situations put you at risk.
       </p>
 
-      <h2>What to Track</h2>
-      <p>Every time you get a migraine, log these details as soon as you&apos;re able:</p>
-      <ul>
-        <li><strong>Date and time</strong> of onset</li>
-        <li><strong>Where you were</strong> — Office, car, outdoors, home</li>
-        <li><strong>Lighting conditions</strong> — Fluorescent, sunlight, overcast, screen time before onset</li>
-        <li><strong>Duration</strong> of the attack</li>
-        <li><strong>Severity</strong> (1-10 scale)</li>
-        <li><strong>Other potential triggers</strong> — Sleep quality, stress level, food/drink, weather, hormonal cycle</li>
-        <li><strong>What you did</strong> — Medications taken, dark room, ice pack, etc.</li>
-        <li><strong>What helped</strong> — Rate how effective each intervention was</li>
-      </ul>
+      <BlogTLDR items={[
+        "Track every attack: date, time, location, lighting conditions, severity, and what helped",
+        "Watch for light-specific triggers: fluorescent exposure time, screen hours, driving into sun",
+        "Migraine Buddy app is the best tracker — generates shareable reports for your doctor",
+        "After 4-8 weeks, look for time, location, seasonal, and trigger-stacking patterns",
+        "Use your data to take targeted action: accommodations, tint exemption, display settings",
+      ]} />
 
-      <h2>Light-Specific Triggers to Watch For</h2>
-      <ul>
-        <li><strong>Time under fluorescent lights</strong> before onset</li>
-        <li><strong>Screen time</strong> — Total hours, which devices, brightness level</li>
-        <li><strong>Driving</strong> — Duration, direction (into sun?), tint status</li>
-        <li><strong>Weather</strong> — Bright sunny days vs overcast, glare from snow/water</li>
-        <li><strong>Transitions</strong> — Going from dark to bright environments</li>
-        <li><strong>Flashing/flickering</strong> — Strobe effects, old fluorescents, construction lights</li>
-      </ul>
+      <h2>What to Track</h2>
+      <div className="not-prose my-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
+        {[
+          { icon: Clock, label: "Date & Time", desc: "When did it start?" },
+          { icon: MapPin, label: "Location", desc: "Office, car, outdoors, home" },
+          { icon: Sun, label: "Lighting", desc: "Fluorescent, sun, screen time" },
+          { icon: ClipboardList, label: "Duration", desc: "How long did it last?" },
+          { icon: Target, label: "Severity", desc: "1-10 scale" },
+          { icon: Layers, label: "Other Triggers", desc: "Sleep, stress, food, weather" },
+          { icon: CheckCircle, label: "What You Did", desc: "Meds, dark room, ice pack" },
+          { icon: Target, label: "What Helped", desc: "Rate effectiveness" },
+        ].map((item) => (
+          <div key={item.label} className="bg-surface rounded-xl p-3 border border-gray-100 text-center">
+            <item.icon className="w-4 h-4 text-amber-500 mx-auto mb-1" />
+            <p className="font-bold text-heading text-xs">{item.label}</p>
+            <p className="text-gray-500 text-[10px] mt-0.5">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <h2>Light-Specific Triggers to Watch</h2>
+      <div className="not-prose my-8 grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {[
+          { icon: Zap, label: "Fluorescent Exposure Time", desc: "Hours under fluorescents before onset" },
+          { icon: Monitor, label: "Screen Time", desc: "Total hours, which devices, brightness level" },
+          { icon: Car, label: "Driving", desc: "Duration, direction (into sun?), tint status" },
+          { icon: Cloud, label: "Weather / Brightness", desc: "Bright sunny vs overcast, snow/water glare" },
+          { icon: ArrowRightLeft, label: "Light Transitions", desc: "Going from dark to bright environments" },
+          { icon: Zap, label: "Flashing / Flickering", desc: "Strobe effects, old fluorescents, construction lights" },
+        ].map((item) => (
+          <div key={item.label} className="flex items-start gap-3 bg-amber-50 rounded-xl p-4 border border-amber-200">
+            <item.icon className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
+            <div>
+              <p className="font-bold text-heading text-sm">{item.label}</p>
+              <p className="text-gray-600 text-xs mt-0.5">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <BlogToolPlaceholder
+        title="Interactive Migraine Trigger Log"
+        description="Log attacks with pre-filled light-specific fields. After 4+ weeks, see your personalized trigger patterns and recommendations."
+      />
 
       <h2>Best Tracking Methods</h2>
-
-      <h3>Migraine Buddy App</h3>
-      <p>
-        The most comprehensive migraine tracking app. It logs triggers, symptoms, medications, weather, sleep, and more. After accumulating data, it generates reports showing your most common triggers and patterns. These reports are shareable with your doctor.
-      </p>
-
-      <h3>Simple Spreadsheet</h3>
-      <p>
-        If apps feel like too much, a simple spreadsheet works. Create columns for date, time, location, lighting, severity, duration, and notes. The key is consistency — track every attack, not just the bad ones.
-      </p>
-
-      <h3>Paper Journal</h3>
-      <p>
-        Some people prefer a small notebook kept on the nightstand. Write a quick entry after each attack. Less structured than an app, but better than not tracking at all.
-      </p>
+      <div className="not-prose my-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {[
+          {
+            icon: Smartphone,
+            title: "Migraine Buddy App",
+            badge: "Best Overall",
+            badgeColor: "bg-green-500",
+            desc: "The most comprehensive tracker. Logs triggers, symptoms, medications, weather, sleep. Generates shareable reports for your doctor.",
+          },
+          {
+            icon: Table,
+            title: "Simple Spreadsheet",
+            badge: "Most Flexible",
+            badgeColor: "bg-blue-500",
+            desc: "Columns for date, time, location, lighting, severity, duration, notes. The key is consistency — track every attack.",
+          },
+          {
+            icon: BookOpen,
+            title: "Paper Journal",
+            badge: "Easiest Start",
+            badgeColor: "bg-amber-500",
+            desc: "Small notebook on the nightstand. Quick entry after each attack. Less structured but better than not tracking.",
+          },
+        ].map((item) => (
+          <div key={item.title} className="rounded-xl border border-gray-200 bg-white p-5">
+            <span className={`text-[10px] font-bold text-white ${item.badgeColor} px-2 py-0.5 rounded-full uppercase tracking-wider`}>{item.badge}</span>
+            <item.icon className="w-6 h-6 text-gray-400 mt-3 mb-2" />
+            <p className="font-bold text-heading text-sm">{item.title}</p>
+            <p className="text-gray-600 text-xs mt-1 leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
 
       <h2>What Patterns to Look For</h2>
-      <p>After 4-8 weeks of tracking, look for:</p>
-      <ul>
-        <li><strong>Time patterns</strong> — Do attacks cluster at certain times of day? (Afternoon = possible screen/fluorescent accumulation)</li>
-        <li><strong>Location patterns</strong> — More attacks at work vs home? (Lighting environment difference)</li>
-        <li><strong>Trigger combinations</strong> — Does bright light + poor sleep + stress = guaranteed attack? This is called <Link href="/resources/migraine-trigger-stacking" className="text-amber-600 hover:underline">trigger stacking</Link></li>
-        <li><strong>Seasonal patterns</strong> — Worse in summer (more sunlight) or winter (more indoor fluorescent time)?</li>
-        <li><strong>Intervention effectiveness</strong> — Which treatments work best for you?</li>
-      </ul>
+      <div className="not-prose my-8 space-y-3">
+        {[
+          { label: "Time Patterns", desc: "Do attacks cluster at certain times? Afternoon = possible screen/fluorescent accumulation", color: "bg-blue-50 border-blue-200" },
+          { label: "Location Patterns", desc: "More attacks at work vs home? Points to lighting environment difference", color: "bg-purple-50 border-purple-200" },
+          { label: "Trigger Combinations", desc: "Bright light + poor sleep + stress = guaranteed attack?", link: "/resources/migraine-trigger-stacking", linkLabel: "Learn about trigger stacking →", color: "bg-red-50 border-red-200" },
+          { label: "Seasonal Patterns", desc: "Worse in summer (more sunlight) or winter (more indoor fluorescent time)?", color: "bg-green-50 border-green-200" },
+          { label: "Intervention Effectiveness", desc: "Which treatments work best for you? Data-driven decisions.", color: "bg-amber-50 border-amber-200" },
+        ].map((item) => (
+          <div key={item.label} className={`rounded-xl p-4 border ${item.color}`}>
+            <p className="font-bold text-heading text-sm">{item.label}</p>
+            <p className="text-gray-600 text-xs mt-0.5">{item.desc}</p>
+            {item.link && (
+              <Link href={item.link} className="text-amber-600 font-semibold text-xs hover:underline mt-1 inline-block">{item.linkLabel}</Link>
+            )}
+          </div>
+        ))}
+      </div>
 
       <h2>Using Your Data</h2>
-      <p>
-        Once you&apos;ve identified patterns, you can take targeted action:
-      </p>
-      <ul>
-        <li>If fluorescent lights are a top trigger → Request <Link href="/resources/workplace-accommodations-light-sensitivity" className="text-amber-600 hover:underline">workplace accommodations</Link></li>
-        <li>If driving triggers attacks → Get a <Link href="/resources/complete-guide-to-window-tint-medical-exemptions" className="text-amber-600 hover:underline">medical tint exemption</Link></li>
-        <li>If screens are a pattern → Optimize <Link href="/resources/computer-settings-light-sensitivity" className="text-amber-600 hover:underline">display settings</Link></li>
-        <li>If trigger stacking is the issue → Manage <Link href="/resources/migraine-trigger-stacking" className="text-amber-600 hover:underline">your trigger load</Link></li>
-      </ul>
-
-      <div className="bg-amber-50 rounded-xl p-6 border border-amber-200 not-prose my-8">
-        <p className="text-sm text-gray-500 italic">
-          <strong>Medical Disclaimer:</strong> Trigger tracking is a self-management tool, not a replacement for medical care. Share your tracking data with your neurologist or headache specialist for the best treatment outcomes.
-        </p>
+      <div className="not-prose my-8 grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {[
+          { trigger: "Fluorescent lights are a top trigger", action: "Request workplace accommodations", link: "/resources/workplace-accommodations-light-sensitivity" },
+          { trigger: "Driving triggers attacks", action: "Get a medical tint exemption", link: "/resources/complete-guide-to-window-tint-medical-exemptions" },
+          { trigger: "Screens are a pattern", action: "Optimize display settings", link: "/resources/computer-settings-light-sensitivity" },
+          { trigger: "Trigger stacking is the issue", action: "Manage your trigger load", link: "/resources/migraine-trigger-stacking" },
+        ].map((item) => (
+          <div key={item.trigger} className="flex items-start gap-3 bg-surface rounded-xl p-4 border border-gray-100">
+            <span className="text-amber-500 font-bold text-sm flex-shrink-0">→</span>
+            <div>
+              <p className="text-gray-700 text-xs"><strong>If:</strong> {item.trigger}</p>
+              <Link href={item.link} className="text-amber-600 font-semibold text-xs hover:underline"><strong>Then:</strong> {item.action} →</Link>
+            </div>
+          </div>
+        ))}
       </div>
+
+      <BlogCTA
+        heading="Tracking Shows Driving Is a Trigger?"
+        description="If your data reveals that sunlight and glare while driving trigger your migraines, a medical window tint exemption provides passive, legal protection."
+        buttonText="Start Your Evaluation — Starting at $225"
+      />
+
+      <BlogCallout variant="warning" title="Medical Disclaimer">
+        <p>Trigger tracking is a self-management tool, not a replacement for medical care. Share your tracking data with your neurologist or headache specialist for the best treatment outcomes.</p>
+      </BlogCallout>
     </>
   );
 }

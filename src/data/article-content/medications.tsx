@@ -1,4 +1,9 @@
 import Link from "next/link";
+import { Pill, Sun, Zap, Shield, Eye, Glasses, Car, Home, Stethoscope, AlertTriangle } from "lucide-react";
+import { BlogTLDR } from "@/components/blog/BlogTLDR";
+import { BlogStepCards } from "@/components/blog/BlogStepCards";
+import { BlogCallout } from "@/components/blog/BlogCallout";
+import { BlogCTA } from "@/components/blog/BlogCTA";
 
 export function MedicationsContent() {
   return (
@@ -7,86 +12,120 @@ export function MedicationsContent() {
         Many common medications list &quot;photosensitivity&quot; as a side effect — but most people don&apos;t realize how significant that sensitivity can be until they&apos;re squinting through a sunny drive or getting headaches under office lights. Here&apos;s what you need to know about medication-induced light sensitivity.
       </p>
 
+      <BlogTLDR items={[
+        "Two mechanisms: phototoxic (sunburn-like) and photoallergic (eczema-like immune response)",
+        "Common culprits: doxycycline, ibuprofen, HCTZ, Accutane, amiodarone, SSRIs",
+        "Don't stop medication — instead protect skin, eyes, and driving environment",
+        "Medication-induced photosensitivity DOES qualify for a tint exemption in most states",
+        "Key: have your healthcare provider document the photosensitivity",
+      ]} />
+
       <h2>How Medications Cause Photosensitivity</h2>
+      <div className="not-prose my-8 grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="rounded-2xl border-2 border-orange-200 bg-orange-50 p-6">
+          <Sun className="w-6 h-6 text-orange-500 mb-3" />
+          <p className="font-extrabold text-heading text-sm mb-2">Phototoxic Reactions</p>
+          <p className="text-gray-700 text-xs leading-relaxed">The drug absorbs UV light and releases it as energy that damages skin cells. <strong>More common.</strong> Causes sunburn-like reaction on exposed skin.</p>
+        </div>
+        <div className="rounded-2xl border-2 border-red-200 bg-red-50 p-6">
+          <Zap className="w-6 h-6 text-red-500 mb-3" />
+          <p className="font-extrabold text-heading text-sm mb-2">Photoallergic Reactions</p>
+          <p className="text-gray-700 text-xs leading-relaxed">UV light changes the drug&apos;s chemical structure on skin, causing an immune response. Leads to eczema-like rashes that can spread beyond sun-exposed areas.</p>
+        </div>
+      </div>
       <p>
-        Medications can cause light sensitivity through two mechanisms:
-      </p>
-      <ul>
-        <li><strong>Phototoxic reactions</strong> — The drug absorbs UV light and releases it as energy that damages skin cells. This is the more common type and causes a sunburn-like reaction on exposed skin.</li>
-        <li><strong>Photoallergic reactions</strong> — UV light changes the drug&apos;s chemical structure on the skin, causing an immune response. This leads to eczema-like rashes that can spread beyond sun-exposed areas.</li>
-      </ul>
-      <p>
-        Some medications also directly affect the eyes — dilating pupils, altering tear production, or affecting the retina — which increases visual light sensitivity independent of skin reactions.
+        Some medications also directly affect the eyes — dilating pupils, altering tear production, or affecting the retina — increasing visual light sensitivity independent of skin reactions.
       </p>
 
       <h2>Common Photosensitizing Medications</h2>
-
-      <h3>Antibiotics</h3>
-      <ul>
-        <li><strong>Tetracyclines</strong> — Doxycycline, minocycline, tetracycline. Among the most photosensitizing drugs prescribed. Very commonly used for acne, Lyme disease, and respiratory infections.</li>
-        <li><strong>Fluoroquinolones</strong> — Ciprofloxacin (Cipro), levofloxacin. Common for urinary and respiratory infections.</li>
-        <li><strong>Sulfonamides</strong> — Sulfamethoxazole/trimethoprim (Bactrim). Used for UTIs and other infections.</li>
-      </ul>
-
-      <h3>NSAIDs (Pain Relievers)</h3>
-      <ul>
-        <li><strong>Ibuprofen</strong> (Advil, Motrin)</li>
-        <li><strong>Naproxen</strong> (Aleve)</li>
-        <li><strong>Piroxicam</strong> (Feldene) — One of the most photosensitizing NSAIDs</li>
-      </ul>
-
-      <h3>Diuretics (Water Pills)</h3>
-      <ul>
-        <li><strong>Hydrochlorothiazide (HCTZ)</strong> — One of the most commonly prescribed medications in the US, and one of the most photosensitizing. Used for high blood pressure.</li>
-        <li><strong>Furosemide</strong> (Lasix)</li>
-      </ul>
-
-      <h3>Psychiatric Medications</h3>
-      <ul>
-        <li><strong>Phenothiazines</strong> — Chlorpromazine, thioridazine</li>
-        <li><strong>Tricyclic antidepressants</strong> — Amitriptyline, nortriptyline</li>
-        <li><strong>SSRIs</strong> — Some patients report increased light sensitivity with sertraline, fluoxetine</li>
-      </ul>
-
-      <h3>Heart Medications</h3>
-      <ul>
-        <li><strong>Amiodarone</strong> — Can cause both skin photosensitivity and corneal deposits that increase light sensitivity</li>
-      </ul>
-
-      <h3>Diabetes Medications</h3>
-      <ul>
-        <li><strong>Sulfonylureas</strong> — Glipizide, glyburide</li>
-      </ul>
-
-      <h3>Retinoids</h3>
-      <ul>
-        <li><strong>Isotretinoin</strong> (Accutane) — Extreme photosensitivity is a well-known side effect</li>
-        <li><strong>Tretinoin</strong> — Topical retinoids also increase skin sensitivity to UV</li>
-      </ul>
+      <div className="not-prose my-8 space-y-3">
+        {[
+          {
+            category: "Antibiotics",
+            color: "bg-blue-50 border-blue-200",
+            meds: [
+              { name: "Tetracyclines", detail: "Doxycycline, minocycline. Among the most photosensitizing. Used for acne, Lyme, respiratory infections." },
+              { name: "Fluoroquinolones", detail: "Ciprofloxacin (Cipro), levofloxacin. UTIs and respiratory infections." },
+              { name: "Sulfonamides", detail: "Sulfamethoxazole/trimethoprim (Bactrim). UTIs and other infections." },
+            ],
+          },
+          {
+            category: "NSAIDs (Pain Relievers)",
+            color: "bg-green-50 border-green-200",
+            meds: [
+              { name: "Ibuprofen", detail: "Advil, Motrin" },
+              { name: "Naproxen", detail: "Aleve" },
+              { name: "Piroxicam", detail: "Feldene — one of the most photosensitizing NSAIDs" },
+            ],
+          },
+          {
+            category: "Diuretics",
+            color: "bg-purple-50 border-purple-200",
+            meds: [
+              { name: "HCTZ", detail: "One of the most commonly prescribed meds in the US — and most photosensitizing. High blood pressure." },
+              { name: "Furosemide", detail: "Lasix" },
+            ],
+          },
+          {
+            category: "Psychiatric / Heart / Diabetes / Retinoids",
+            color: "bg-amber-50 border-amber-200",
+            meds: [
+              { name: "Phenothiazines / TCAs", detail: "Chlorpromazine, amitriptyline, nortriptyline" },
+              { name: "SSRIs", detail: "Some patients report increased sensitivity with sertraline, fluoxetine" },
+              { name: "Amiodarone", detail: "Skin photosensitivity + corneal deposits increasing light sensitivity" },
+              { name: "Isotretinoin (Accutane)", detail: "Extreme photosensitivity — well-known side effect" },
+            ],
+          },
+        ].map((group) => (
+          <div key={group.category} className={`rounded-xl p-4 border ${group.color}`}>
+            <p className="font-extrabold text-heading text-sm mb-2">{group.category}</p>
+            <div className="space-y-1.5">
+              {group.meds.map((med) => (
+                <div key={med.name} className="flex items-start gap-2">
+                  <Pill className="w-3 h-3 text-gray-400 flex-shrink-0 mt-1" />
+                  <p className="text-xs text-gray-700"><strong>{med.name}</strong> — {med.detail}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
 
       <h2>What to Do If Your Medication Causes Photosensitivity</h2>
-      <ol>
-        <li><strong>Don&apos;t stop your medication</strong> without talking to your doctor. Many of these drugs are essential.</li>
-        <li><strong>Protect your skin</strong> — Broad-spectrum SPF 50+ sunscreen, protective clothing, wide-brimmed hats.</li>
-        <li><strong>Protect your eyes</strong> — <Link href="/resources/best-sunglasses-driving-light-sensitivity" className="text-amber-600 hover:underline">Polarized sunglasses</Link> outdoors, <Link href="/resources/fl-41-glasses-complete-guide" className="text-amber-600 hover:underline">FL-41 glasses</Link> indoors.</li>
-        <li><strong>Protect while driving</strong> — A <Link href="/resources/complete-guide-to-window-tint-medical-exemptions" className="text-amber-600 font-semibold hover:underline">medical window tint exemption</Link> provides passive UV protection every time you drive.</li>
-        <li><strong>Optimize your environment</strong> — <Link href="/resources/light-proof-your-home" className="text-amber-600 hover:underline">Home lighting adjustments</Link>, <Link href="/resources/computer-settings-light-sensitivity" className="text-amber-600 hover:underline">screen settings</Link>, <Link href="/resources/workplace-accommodations-light-sensitivity" className="text-amber-600 hover:underline">workplace accommodations</Link>.</li>
-        <li><strong>Talk to your doctor</strong> — Ask if there&apos;s an alternative medication with less photosensitivity risk.</li>
-      </ol>
+      <BlogStepCards steps={[
+        { icon: AlertTriangle, title: "Don't Stop Medication", description: "Talk to your doctor first. Many of these drugs are essential." },
+        { icon: Shield, title: "Protect Your Skin", description: "Broad-spectrum SPF 50+ sunscreen, protective clothing, wide-brimmed hats." },
+        { icon: Glasses, title: "Protect Your Eyes", description: "Polarized sunglasses outdoors, FL-41 glasses indoors." },
+        { icon: Car, title: "Protect While Driving", description: "Medical window tint exemption provides passive UV protection every drive." },
+        { icon: Home, title: "Optimize Environment", description: "Home lighting, screen settings, workplace accommodations." },
+        { icon: Stethoscope, title: "Talk to Your Doctor", description: "Ask about alternative medications with less photosensitivity risk." },
+      ]} />
 
-      <h2>Does Medication-Induced Photosensitivity Qualify for a Tint Exemption?</h2>
-      <p>
-        <strong>Yes, in most states.</strong> Medical tint exemptions cover any condition that causes medically documented light or UV sensitivity. If your medication causes photosensitivity that impacts your ability to drive comfortably, you may qualify. The key is having a healthcare provider document the condition.
-      </p>
-      <p>
-        <Link href="/resources/how-to-get-tint-exemption-online" className="text-amber-600 font-semibold hover:underline">Learn how to get a medical tint exemption online →</Link>
-      </p>
-
-      <div className="bg-amber-50 rounded-xl p-6 border border-amber-200 not-prose my-8">
-        <p className="text-sm text-gray-500 italic">
-          <strong>Medical Disclaimer:</strong> This article is for informational purposes only. Never change or stop medication without consulting your prescribing physician. Discuss photosensitivity concerns with your healthcare provider.
-        </p>
+      <h2>Does This Qualify for a Tint Exemption?</h2>
+      <div className="not-prose my-8 rounded-2xl border-2 border-green-200 bg-green-50 p-6">
+        <div className="flex items-start gap-4">
+          <Shield className="w-8 h-8 text-green-600 flex-shrink-0" />
+          <div>
+            <h3 className="font-extrabold text-heading text-base mb-2">Yes, in most states.</h3>
+            <p className="text-gray-700 text-sm leading-relaxed">
+              Medical tint exemptions cover any condition causing medically documented light or UV sensitivity. If your medication causes photosensitivity that impacts driving comfort, you may qualify. The key: have a healthcare provider document the condition.
+            </p>
+            <p className="mt-3">
+              <Link href="/resources/how-to-get-tint-exemption-online" className="text-amber-600 font-semibold text-sm hover:underline">Learn how to get a medical tint exemption online →</Link>
+            </p>
+          </div>
+        </div>
       </div>
+
+      <BlogCTA
+        heading="Your Medication Causes Light Sensitivity — Get Protected"
+        description="If your medication makes you photosensitive, a medical window tint exemption provides legal, passive protection every time you drive. 100% online evaluation."
+        buttonText="Start Your Evaluation — Starting at $225"
+      />
+
+      <BlogCallout variant="warning" title="Medical Disclaimer">
+        <p>Never change or stop medication without consulting your prescribing physician. Discuss photosensitivity concerns with your healthcare provider.</p>
+      </BlogCallout>
     </>
   );
 }

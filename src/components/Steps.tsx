@@ -1,5 +1,6 @@
+"use client";
+
 import { CalendarCheck, MonitorSmartphone, FileCheck, ChevronsDown, ArrowRight } from "lucide-react";
-import Link from "next/link";
 
 const steps = [
   {
@@ -75,12 +76,13 @@ export default function Steps() {
           <p className="text-gray-600 mb-8 text-base">
             Get a Window Tint Exemption evaluation in minutes.
           </p>
-          <Link
-            href="/"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-heading bg-cta hover:bg-amber-300 rounded-full transition-all shadow-lg hover:shadow-xl"
+          <a
+            href="#state-selector"
+            onClick={(e) => { e.preventDefault(); document.getElementById('state-selector')?.scrollIntoView({ behavior: 'smooth', block: 'center' }); }}
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-heading bg-cta hover:bg-amber-300 rounded-full transition-all shadow-lg hover:shadow-xl cursor-pointer"
           >
             Select Your State <ArrowRight className="w-5 h-5" />
-          </Link>
+          </a>
         </div>
       </div>
     </section>

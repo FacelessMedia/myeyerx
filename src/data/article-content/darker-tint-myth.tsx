@@ -1,4 +1,9 @@
 import Link from "next/link";
+import { AlertTriangle, Eye, Shield, Layers, FlaskConical, CheckCircle, HelpCircle } from "lucide-react";
+import { BlogTLDR } from "@/components/blog/BlogTLDR";
+import { BlogStepCards } from "@/components/blog/BlogStepCards";
+import { BlogCallout } from "@/components/blog/BlogCallout";
+import { BlogCTA } from "@/components/blog/BlogCTA";
 
 export function DarkerTintMythContent() {
   return (
@@ -7,57 +12,98 @@ export function DarkerTintMythContent() {
         One of the most common misconceptions about window tint is that darker = better UV protection. It seems logical — if less light gets through, less UV gets through, right? Not exactly. Here&apos;s why VLT and UV rejection are two completely different things.
       </p>
 
+      <BlogTLDR items={[
+        "VLT (darkness) and UV rejection are INDEPENDENT properties of tint film",
+        "A nearly clear ceramic film (70% VLT) can block 99% UV — a very dark dyed film (5% VLT) may only block 50-70%",
+        "For UV-triggered conditions (lupus, melanoma): film quality matters more than darkness",
+        "For visible-light conditions (migraines): VLT matters more, but film type still affects wavelength filtering",
+        "Always ask for the manufacturer's spec sheet — don't trust darkness as a proxy for protection",
+      ]} />
+
       <h2>VLT ≠ UV Protection</h2>
-      <p>
-        <strong>VLT (Visible Light Transmission)</strong> measures how much visible light passes through the tint. <strong>UV rejection</strong> measures how much ultraviolet radiation is blocked. They are independent properties determined by different aspects of the film&apos;s construction.
-      </p>
-      <p>
-        A nearly clear film (70% VLT) with quality UV-blocking technology can block 99% of UV rays. Meanwhile, a very dark dyed film (5% VLT) might only block 50-70% of UV — it just blocks visible light very effectively.
-      </p>
+      <div className="not-prose my-8 grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="rounded-2xl border-2 border-red-200 bg-red-50 p-6">
+          <AlertTriangle className="w-6 h-6 text-red-500 mb-3" />
+          <p className="font-extrabold text-heading text-sm mb-2">The Myth</p>
+          <p className="text-gray-700 text-sm leading-relaxed">A very dark dyed film (<strong>5% VLT</strong>) blocks visible light effectively — but may only block <strong>50-70% of UV</strong> radiation.</p>
+        </div>
+        <div className="rounded-2xl border-2 border-green-200 bg-green-50 p-6">
+          <Shield className="w-6 h-6 text-green-600 mb-3" />
+          <p className="font-extrabold text-heading text-sm mb-2">The Reality</p>
+          <p className="text-gray-700 text-sm leading-relaxed">A nearly clear ceramic film (<strong>70% VLT</strong>) with quality UV-blocking technology can block <strong>99% of UV</strong> rays.</p>
+        </div>
+      </div>
 
       <h2>Why This Matters Medically</h2>
-      <p>
-        For conditions triggered by <strong>UV radiation</strong> — like lupus, melanoma, dermatomyositis, PMLE, and solar urticaria — UV rejection is what protects you. Getting the darkest possible tint with cheap dyed film could actually provide less UV protection than a lighter, higher-quality ceramic film.
-      </p>
-      <p>
-        For conditions triggered by <strong>visible light</strong> — like migraines and photophobia — VLT matters more because visible light is the trigger. But even here, the type of tint affects which wavelengths are blocked.
-      </p>
+      <div className="not-prose my-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="rounded-xl border border-purple-200 bg-purple-50 p-5">
+          <p className="text-xs font-bold text-purple-600 uppercase tracking-wider mb-2">UV-TRIGGERED CONDITIONS</p>
+          <p className="text-gray-700 text-xs leading-relaxed mb-2">Lupus, melanoma, dermatomyositis, PMLE, solar urticaria</p>
+          <p className="text-gray-600 text-xs"><strong>UV rejection</strong> is what protects you. Cheap dark dyed film = less UV protection than lighter ceramic film.</p>
+        </div>
+        <div className="rounded-xl border border-blue-200 bg-blue-50 p-5">
+          <p className="text-xs font-bold text-blue-600 uppercase tracking-wider mb-2">VISIBLE LIGHT CONDITIONS</p>
+          <p className="text-gray-700 text-xs leading-relaxed mb-2">Migraines, photophobia</p>
+          <p className="text-gray-600 text-xs"><strong>VLT matters more</strong> since visible light is the trigger. But film type still affects which wavelengths are blocked.</p>
+        </div>
+      </div>
 
       <h2>What Determines UV Protection?</h2>
-      <ul>
-        <li><strong>Film material</strong> — Ceramic particles are the most effective UV blockers. Dye is the least effective.</li>
-        <li><strong>UV-absorbing additives</strong> — Quality films include specific chemical compounds that absorb UV radiation regardless of visible tint level.</li>
-        <li><strong>Film construction</strong> — Multi-layer films with dedicated UV-blocking layers outperform single-layer dyed films.</li>
-      </ul>
+      <div className="not-prose my-8 space-y-3">
+        {[
+          { icon: Layers, label: "Film Material", desc: "Ceramic particles are the most effective UV blockers. Dye is the least effective.", color: "text-blue-500" },
+          { icon: FlaskConical, label: "UV-Absorbing Additives", desc: "Quality films include specific compounds that absorb UV regardless of visible tint level.", color: "text-purple-500" },
+          { icon: Shield, label: "Film Construction", desc: "Multi-layer films with dedicated UV-blocking layers outperform single-layer dyed films.", color: "text-green-500" },
+        ].map((item) => (
+          <div key={item.label} className="flex items-start gap-4 rounded-xl border border-gray-200 bg-white p-5">
+            <item.icon className={`w-5 h-5 ${item.color} flex-shrink-0 mt-0.5`} />
+            <div>
+              <p className="font-bold text-heading text-sm">{item.label}</p>
+              <p className="text-gray-600 text-xs mt-0.5">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
 
       <h2>The Right Approach</h2>
-      <ol>
-        <li><strong>Choose the right film type first</strong> — <Link href="/resources/ceramic-window-tint-medical-use" className="text-amber-600 hover:underline">Ceramic tint</Link> for maximum UV and heat rejection</li>
-        <li><strong>Then choose VLT based on your needs</strong> — How much visible light reduction you need for comfort</li>
-        <li><strong>Check the spec sheet</strong> — Ask your installer for the manufacturer&apos;s data showing both VLT and UV rejection percentages</li>
-      </ol>
+      <BlogStepCards steps={[
+        { icon: Layers, title: "Choose Film Type First", description: "Ceramic tint for maximum UV and heat rejection." },
+        { icon: Eye, title: "Then Choose VLT", description: "How much visible light reduction you need for comfort." },
+        { icon: CheckCircle, title: "Check the Spec Sheet", description: "Ask installer for manufacturer's data showing both VLT and UV rejection %." },
+      ]} />
 
       <h2>What to Ask Your Installer</h2>
-      <ul>
-        <li>&quot;What is the UV rejection percentage of this specific film?&quot; (Should be 99%+ for ceramic)</li>
-        <li>&quot;Does it block both UVA and UVB?&quot; (Some films only block UVB effectively)</li>
-        <li>&quot;Can I see the manufacturer&apos;s spec sheet?&quot;</li>
-        <li>&quot;What is the infrared/heat rejection percentage?&quot;</li>
-      </ul>
-      <p>
-        <Link href="/resources/questions-to-ask-tint-installer" className="text-amber-600 font-semibold hover:underline">Full list of questions to ask your installer →</Link>
-      </p>
-
-      <h2>Bottom Line</h2>
-      <p>
-        Don&apos;t assume that going as dark as possible gives you the most protection. Choose quality film (ceramic) with documented UV rejection specs, then select the VLT that gives you the visible light reduction you need for your specific condition. <Link href="/resources/understanding-vlt-window-tint" className="text-amber-600 hover:underline">Understanding VLT</Link> and choosing the right <Link href="/resources/window-tint-types-explained" className="text-amber-600 hover:underline">tint type</Link> are both important decisions.
-      </p>
-
-      <div className="bg-amber-50 rounded-xl p-6 border border-amber-200 not-prose my-8">
-        <p className="text-sm text-gray-500 italic">
-          <strong>Medical Disclaimer:</strong> This article is for informational purposes only. Consult with your healthcare provider about the level of UV and light protection recommended for your specific condition.
+      <div className="not-prose my-8 space-y-2">
+        {[
+          "\"What is the UV rejection percentage of this specific film?\" (Should be 99%+ for ceramic)",
+          "\"Does it block both UVA and UVB?\" (Some films only block UVB effectively)",
+          "\"Can I see the manufacturer's spec sheet?\"",
+          "\"What is the infrared/heat rejection percentage?\"",
+        ].map((q) => (
+          <div key={q} className="flex items-start gap-3 bg-amber-50 rounded-lg p-3 border border-amber-200">
+            <HelpCircle className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
+            <p className="text-gray-700 text-xs font-semibold">{q}</p>
+          </div>
+        ))}
+        <p className="text-sm mt-2">
+          <Link href="/resources/questions-to-ask-tint-installer" className="text-amber-600 font-semibold hover:underline">Full list of questions to ask your installer →</Link>
         </p>
       </div>
+
+      <h2>Bottom Line</h2>
+      <BlogCallout variant="tip" title="Don't assume darker = more protection">
+        <p>Choose quality film (<Link href="/resources/ceramic-window-tint-medical-use" className="text-amber-600 font-semibold hover:underline">ceramic</Link>) with documented UV rejection specs, then select the <Link href="/resources/understanding-vlt-window-tint" className="text-amber-600 font-semibold hover:underline">VLT</Link> that gives you the visible light reduction you need. Understanding <Link href="/resources/window-tint-types-explained" className="text-amber-600 font-semibold hover:underline">tint types</Link> is just as important as choosing darkness level.</p>
+      </BlogCallout>
+
+      <BlogCTA
+        heading="Get Your Exemption — Then Choose the Right Tint"
+        description="Our licensed providers evaluate your specific condition and help you understand what level of protection you need. 100% online."
+        buttonText="Start Your Evaluation — Starting at $225"
+      />
+
+      <BlogCallout variant="warning" title="Medical Disclaimer">
+        <p>This article is for informational purposes only. Consult with your healthcare provider about the level of UV and light protection recommended for your specific condition.</p>
+      </BlogCallout>
     </>
   );
 }

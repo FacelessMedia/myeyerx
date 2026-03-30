@@ -1,5 +1,10 @@
 import Link from "next/link";
-import { DollarSign } from "lucide-react";
+import { DollarSign, CheckCircle, X, Scale, CreditCard, AlertTriangle } from "lucide-react";
+import { BlogTLDR } from "@/components/blog/BlogTLDR";
+import { BlogCallout } from "@/components/blog/BlogCallout";
+import { BlogCTA } from "@/components/blog/BlogCTA";
+import { BlogComparisonTable } from "@/components/blog/BlogComparisonTable";
+import { CostCalculator } from "@/components/tools/CostCalculator";
 
 export function CostGuideContent() {
   return (
@@ -8,94 +13,135 @@ export function CostGuideContent() {
         One of the most common questions we hear is &quot;how much does a window tint exemption cost?&quot; The short answer: it depends on your state and provider. Here&apos;s a transparent breakdown of what to expect.
       </p>
 
-      <h2>MyEyeRx Pricing</h2>
-      <p>
-        MyEyeRx uses a straightforward, state-based pricing model. Your fee covers everything: the physician evaluation, the signed exemption certificate, and delivery. No hidden costs, no subscription fees.
-      </p>
+      <BlogTLDR items={[
+        "MyEyeRx pricing: $225 (12 states), $250 (29 states + DC), $350 (New York)",
+        "Fee covers everything: physician evaluation, signed certificate, digital delivery",
+        "Compare: in-person visits cost $100-$300+ and doctors often don't know the right forms",
+        "One-time investment vs. $25-$500+ per tint ticket (plus insurance increases)",
+        "May qualify for HSA/FSA reimbursement as a licensed physician medical service",
+      ]} />
 
-      <div className="not-prose my-8 space-y-4">
-        <div className="bg-surface rounded-xl p-6 border border-gray-100">
-          <div className="flex items-center gap-3 mb-3">
-            <DollarSign className="w-6 h-6 text-amber-500" />
-            <h3 className="font-bold text-heading text-lg">$225 States</h3>
-          </div>
-          <p className="text-gray-600 text-sm mb-2">Arkansas, Idaho, Illinois, Michigan, Minnesota, New Mexico, Oregon, South Carolina, Texas, Washington, West Virginia, Wisconsin</p>
-          <p className="text-gray-500 text-xs">These states have streamlined exemption processes that require less administrative work.</p>
+      <h2>MyEyeRx Pricing</h2>
+      <div className="not-prose my-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div className="rounded-2xl border-2 border-green-200 bg-green-50 p-6 text-center">
+          <DollarSign className="w-6 h-6 text-green-600 mx-auto mb-2" />
+          <p className="font-extrabold text-heading text-3xl">$225</p>
+          <p className="text-xs font-bold text-green-600 uppercase mt-1 mb-3">12 States</p>
+          <p className="text-gray-600 text-[11px] leading-relaxed">AR, ID, IL, MI, MN, NM, OR, SC, TX, WA, WV, WI</p>
+          <p className="text-gray-400 text-[10px] mt-2">Streamlined exemption processes</p>
         </div>
-        <div className="bg-surface rounded-xl p-6 border border-gray-100">
-          <div className="flex items-center gap-3 mb-3">
-            <DollarSign className="w-6 h-6 text-amber-500" />
-            <h3 className="font-bold text-heading text-lg">$250 States</h3>
-          </div>
-          <p className="text-gray-600 text-sm mb-2">Alabama, Arizona, California, Connecticut, Delaware, Florida, Georgia, Indiana, Iowa, Kansas, Louisiana, Maine, Maryland, Massachusetts, Mississippi, Missouri, Montana, Nevada, New Hampshire, New Jersey, North Carolina, Ohio, Oklahoma, Pennsylvania, Rhode Island, Tennessee, Vermont, Virginia, DC</p>
-          <p className="text-gray-500 text-xs">The majority of states fall in this tier.</p>
+        <div className="rounded-2xl border-2 border-amber-200 bg-amber-50 p-6 text-center">
+          <DollarSign className="w-6 h-6 text-amber-500 mx-auto mb-2" />
+          <p className="font-extrabold text-heading text-3xl">$250</p>
+          <p className="text-xs font-bold text-amber-600 uppercase mt-1 mb-3">29 States + DC</p>
+          <p className="text-gray-600 text-[11px] leading-relaxed">AL, AZ, CA, CT, DE, FL, GA, IN, IA, KS, LA, ME, MD, MA, MS, MO, MT, NV, NH, NJ, NC, OH, OK, PA, RI, TN, VT, VA, DC</p>
+          <p className="text-gray-400 text-[10px] mt-2">Majority of states</p>
         </div>
-        <div className="bg-surface rounded-xl p-6 border border-gray-100">
-          <div className="flex items-center gap-3 mb-3">
-            <DollarSign className="w-6 h-6 text-amber-500" />
-            <h3 className="font-bold text-heading text-lg">$350 — New York</h3>
-          </div>
-          <p className="text-gray-600 text-sm mb-2">New York has the most complex exemption process, requiring the specific MV-80W form and additional documentation.</p>
+        <div className="rounded-2xl border-2 border-purple-200 bg-purple-50 p-6 text-center">
+          <DollarSign className="w-6 h-6 text-purple-500 mx-auto mb-2" />
+          <p className="font-extrabold text-heading text-3xl">$350</p>
+          <p className="text-xs font-bold text-purple-600 uppercase mt-1 mb-3">New York</p>
+          <p className="text-gray-600 text-[11px] leading-relaxed">Most complex process — requires MV-80W form and additional documentation</p>
         </div>
       </div>
 
-      <h2>What&apos;s Included in the Fee?</h2>
-      <ul>
-        <li><strong>Full physician evaluation</strong> — A licensed optometrist reviews your medical history and condition</li>
-        <li><strong>State-specific documentation</strong> — We handle your state&apos;s required forms and paperwork</li>
-        <li><strong>Signed exemption certificate</strong> — A physician-signed document recognized by your state&apos;s DMV and law enforcement</li>
-        <li><strong>Digital delivery</strong> — Certificate delivered by email within 24-48 hours</li>
-        <li><strong>Documentation review</strong> — Our physician reviews your existing medical records to determine state acceptance</li>
-      </ul>
+      <h2>What&apos;s Included vs. Not Included</h2>
+      <div className="not-prose my-8 grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="rounded-2xl border border-green-200 bg-green-50 p-5">
+          <p className="text-xs font-bold text-green-600 uppercase tracking-wider mb-3">INCLUDED IN YOUR FEE</p>
+          {[
+            "Full physician evaluation by licensed optometrist",
+            "State-specific forms and paperwork handled",
+            "Physician-signed exemption certificate",
+            "Digital delivery within 24-48 hours",
+            "Medical records review for state acceptance",
+          ].map((item) => (
+            <div key={item} className="flex items-start gap-2 text-sm text-gray-700 mb-1.5">
+              <CheckCircle className="w-3.5 h-3.5 text-green-500 flex-shrink-0 mt-0.5" />
+              <span className="text-xs">{item}</span>
+            </div>
+          ))}
+        </div>
+        <div className="rounded-2xl border border-red-200 bg-red-50 p-5">
+          <p className="text-xs font-bold text-red-500 uppercase tracking-wider mb-3">NOT INCLUDED</p>
+          {[
+            "Window tint installation (separate tint shop)",
+            "DMV registration fees (typically $5-$25)",
+            "Future renewals (separate evaluation)",
+          ].map((item) => (
+            <div key={item} className="flex items-start gap-2 text-sm text-gray-700 mb-1.5">
+              <X className="w-3.5 h-3.5 text-red-400 flex-shrink-0 mt-0.5" />
+              <span className="text-xs">{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
 
-      <h2>What&apos;s NOT Included</h2>
-      <ul>
-        <li><strong>Window tint installation</strong> — You&apos;ll need to have your windows tinted separately at a tint shop</li>
-        <li><strong>DMV registration fees</strong> — Some states charge a small fee to register your exemption (typically $5-$25)</li>
-        <li><strong>Future renewals</strong> — If your state requires renewal, that would be a separate evaluation</li>
-      </ul>
+      <h2>How Does This Compare?</h2>
+      <BlogComparisonTable
+        columns={[
+          { header: "Option" },
+          { header: "Cost" },
+          { header: "Pros" },
+          { header: "Cons" },
+        ]}
+        rows={[
+          ["MyEyeRx", "$225-$350", "100% online, state-specific forms, 24-48hr delivery", "No in-person exam"],
+          ["In-Person Doctor", "$100-$300+", "Face-to-face evaluation", "Scheduling hassle, doctors often unfamiliar with forms"],
+          ["Other Online Services", "$149-$400+", "Online convenience", "Varies in quality, may not be physician-led"],
+        ]}
+      />
 
-      <h2>How Does This Compare to Other Options?</h2>
-
-      <h3>In-Person Doctor Visit</h3>
-      <p>
-        Visiting your primary care physician or ophthalmologist for a tint exemption letter typically costs $100-$300 for the office visit copay or cash price, plus your time for scheduling and attending the appointment. Many doctors are unfamiliar with the specific state forms required, which can lead to rejections and re-visits.
-      </p>
-
-      <h3>Other Online Services</h3>
-      <p>
-        Several competitors offer similar online services. Prices range from $149-$400+. When comparing, look for:
-      </p>
-      <ul>
-        <li>Is the evaluation done by a licensed physician (not a nurse or PA)?</li>
-        <li>Is the service HIPAA compliant?</li>
-        <li>Do they handle state-specific forms?</li>
-        <li>What&apos;s their turnaround time?</li>
-      </ul>
+      <BlogCallout variant="tip" title="When comparing online services, ask:">
+        <p>Is the evaluation by a licensed physician (not nurse/PA)? Is it HIPAA compliant? Do they handle state-specific forms? What&apos;s the turnaround time?</p>
+      </BlogCallout>
 
       <h2>Is It Worth the Investment?</h2>
-      <p>Consider the alternative costs:</p>
-      <ul>
-        <li><strong>Tint tickets</strong> range from $25 to $500+ per violation, depending on your state</li>
-        <li><strong>Multiple tickets</strong> can add up to more than the exemption cost in a single year</li>
-        <li><strong>Insurance rate increases</strong> from traffic violations</li>
-        <li><strong>Required tint removal</strong> and re-application costs ($100-$400+)</li>
-        <li><strong>Health impacts</strong> from driving without adequate UV/light protection</li>
-      </ul>
-      <p>
-        A one-time investment of $225-$350 protects you from all of these ongoing costs while also protecting your health.
-      </p>
+      <div className="not-prose my-8 rounded-2xl border-2 border-amber-200 bg-amber-50 p-6">
+        <div className="flex items-center gap-2 mb-3">
+          <Scale className="w-5 h-5 text-amber-600" />
+          <h3 className="font-extrabold text-heading text-base">Cost of NOT Having an Exemption</h3>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {[
+            { cost: "$25-$500+", label: "Per tint ticket (varies by state)" },
+            { cost: "Multiple tickets", label: "Can exceed exemption cost in one year" },
+            { cost: "Insurance increases", label: "From traffic violations on record" },
+            { cost: "$100-$400+", label: "Forced tint removal and re-application" },
+            { cost: "Health impacts", label: "Driving without UV/light protection" },
+          ].map((item) => (
+            <div key={item.label} className="flex items-start gap-2 bg-white rounded-lg p-3 border border-amber-100">
+              <AlertTriangle className="w-3.5 h-3.5 text-amber-500 flex-shrink-0 mt-0.5" />
+              <div>
+                <p className="font-bold text-heading text-xs">{item.cost}</p>
+                <p className="text-gray-500 text-[10px]">{item.label}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <p className="text-gray-700 text-sm mt-4 font-semibold">A one-time investment of $225-$350 protects you from all of these ongoing costs.</p>
+      </div>
 
       <h2>Can I Use HSA or FSA Funds?</h2>
-      <p>
-        In many cases, yes. Since the evaluation is a medical service provided by a licensed physician, it may qualify as a medical expense under your HSA (Health Savings Account) or FSA (Flexible Spending Account). Check with your plan administrator to confirm.
-      </p>
-
-      <div className="bg-amber-50 rounded-xl p-6 border border-amber-200 not-prose my-8">
-        <p className="text-sm text-gray-500 italic">
-          <strong>Pricing Note:</strong> Prices shown are current as of March 2026 and are subject to change. Visit <Link href="/" className="text-amber-600 hover:underline">myeyerx.net</Link> and select your state for the most current pricing.
-        </p>
+      <div className="not-prose my-8 flex items-start gap-4 bg-blue-50 rounded-2xl p-5 border border-blue-200">
+        <CreditCard className="w-6 h-6 text-blue-500 flex-shrink-0" />
+        <div>
+          <p className="font-bold text-heading text-sm mb-1">In many cases, yes.</p>
+          <p className="text-gray-700 text-xs leading-relaxed">Since the evaluation is a medical service provided by a licensed physician, it may qualify as a medical expense under your HSA or FSA. Check with your plan administrator to confirm.</p>
+        </div>
       </div>
+
+      <CostCalculator />
+
+      <BlogCTA
+        heading="Transparent Pricing, No Hidden Fees"
+        description="Your fee covers everything: physician evaluation, state-specific forms, signed certificate, and digital delivery. Select your state to see your exact price."
+        buttonText="Start Your Evaluation — Starting at $225"
+      />
+
+      <BlogCallout variant="tip" title="Pricing Note">
+        <p>Prices shown are current as of March 2026 and subject to change. Visit <Link href="/" className="text-amber-600 font-semibold hover:underline">myeyerx.net</Link> and select your state for the most current pricing.</p>
+      </BlogCallout>
     </>
   );
 }

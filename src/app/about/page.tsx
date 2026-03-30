@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Shield,
   Eye,
@@ -151,8 +152,8 @@ export default function AboutPage() {
               <div className="bg-amber-500 h-2" />
               <div className="p-8">
                 <div className="flex items-start gap-5 mb-6">
-                  <div className="w-20 h-20 rounded-full bg-amber-100 border-4 border-amber-200 flex items-center justify-center flex-shrink-0">
-                    <span className="text-2xl font-extrabold text-amber-700">TD</span>
+                  <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-amber-200 flex-shrink-0">
+                    <Image src="/tory.jpg" alt="Toriano Dewberry" width={80} height={80} className="w-full h-full object-cover" />
                   </div>
                   <div>
                     <h3 className="text-xl font-extrabold text-heading">Toriano Dewberry</h3>

@@ -1,4 +1,8 @@
 import Link from "next/link";
+import { Lamp, Monitor, Blinds, Video, Clock, Sun, Eye, Moon, Shield } from "lucide-react";
+import { BlogTLDR } from "@/components/blog/BlogTLDR";
+import { BlogCallout } from "@/components/blog/BlogCallout";
+import { BlogCTA } from "@/components/blog/BlogCTA";
 
 export function RemoteWorkContent() {
   return (
@@ -7,64 +11,125 @@ export function RemoteWorkContent() {
         Working from home gives light-sensitive people something the office never can: <strong>total control over your environment</strong>. No fluorescent lights you can&apos;t turn off, no windows you can&apos;t cover, no colleagues who want the blinds open. Here&apos;s how to set up the ideal remote workspace.
       </p>
 
+      <BlogTLDR items={[
+        "Remote work = total control over lighting, monitors, windows, and schedule",
+        "Desk lamp with 2700K bulb + bias lighting + Dark Mode is the core setup",
+        "Position desk perpendicular to windows — never facing them or with them behind the screen",
+        "Video calls: ring light on warm white + FL-41 glasses = look professional, stay comfortable",
+        "Remote work can qualify as a reasonable ADA accommodation if office lighting impacts you",
+      ]} />
+
       <h2>The Ideal Home Office Setup</h2>
-
-      <h3>Lighting</h3>
-      <ul>
-        <li><strong>No overhead fluorescents</strong> — Use a desk lamp with a <Link href="/resources/best-light-bulbs-photosensitivity" className="text-amber-600 hover:underline">warm white (2700K) bulb</Link> instead</li>
-        <li><strong>Dimmer switch or smart bulb</strong> — Adjust brightness throughout the day as needed</li>
-        <li><strong><Link href="/resources/bias-lighting-reduce-eye-strain" className="text-amber-600 hover:underline">Bias lighting</Link></strong> behind your monitor — Reduces contrast strain</li>
-        <li><strong>Window position</strong> — Desk perpendicular to windows, not facing them or with them behind your screen</li>
-      </ul>
-
-      <h3>Monitor Setup</h3>
-      <ul>
-        <li><strong>Dark Mode everything</strong> — OS, browser, apps. <Link href="/resources/computer-settings-light-sensitivity" className="text-amber-600 hover:underline">Full computer settings guide →</Link></li>
-        <li><strong>f.lux or Iris</strong> — Software blue light filtering beyond what Night Light provides</li>
-        <li><strong>Matte screen</strong> — Anti-glare monitor or matte screen protector</li>
-        <li><strong>Arm&apos;s length distance</strong> — 20-26 inches from your eyes</li>
-        <li><strong>Top of screen at eye level</strong> — Reduces strain from looking up into overhead light</li>
-      </ul>
-
-      <h3>Window Management</h3>
-      <ul>
-        <li><strong>Sheer curtains</strong> for moderate days — Soften sunlight without blocking it completely</li>
-        <li><strong>Blackout curtains</strong> for bad days — Close them and work by lamp light</li>
-        <li><strong>UV-blocking window film</strong> — Permanent UV protection even when curtains are open</li>
-      </ul>
+      <div className="not-prose my-8 space-y-4">
+        {[
+          {
+            icon: Lamp,
+            title: "Lighting",
+            color: "bg-amber-50 border-amber-200",
+            iconColor: "text-amber-500",
+            items: [
+              { text: "No overhead fluorescents — use a desk lamp with a warm white (2700K) bulb", link: "/resources/best-light-bulbs-photosensitivity" },
+              { text: "Dimmer switch or smart bulb — adjust brightness throughout the day" },
+              { text: "Bias lighting behind your monitor — reduces contrast strain", link: "/resources/bias-lighting-reduce-eye-strain" },
+              { text: "Desk perpendicular to windows — never facing or with them behind the screen" },
+            ],
+          },
+          {
+            icon: Monitor,
+            title: "Monitor Setup",
+            color: "bg-purple-50 border-purple-200",
+            iconColor: "text-purple-500",
+            items: [
+              { text: "Dark Mode everything — OS, browser, apps", link: "/resources/computer-settings-light-sensitivity" },
+              { text: "f.lux or Iris — software blue light filtering beyond Night Light" },
+              { text: "Anti-glare matte monitor or matte screen protector" },
+              { text: "Arm's length distance (20-26 inches) from your eyes" },
+              { text: "Top of screen at eye level — reduces strain from looking up" },
+            ],
+          },
+          {
+            icon: Blinds,
+            title: "Window Management",
+            color: "bg-blue-50 border-blue-200",
+            iconColor: "text-blue-500",
+            items: [
+              { text: "Sheer curtains for moderate days — soften sunlight without blocking" },
+              { text: "Blackout curtains for bad days — work by lamp light" },
+              { text: "UV-blocking window film — permanent protection even when curtains are open" },
+            ],
+          },
+        ].map((section) => (
+          <div key={section.title} className={`rounded-2xl p-5 border ${section.color}`}>
+            <div className="flex items-center gap-3 mb-3">
+              <section.icon className={`w-5 h-5 ${section.iconColor}`} />
+              <h3 className="font-extrabold text-heading text-base">{section.title}</h3>
+            </div>
+            <div className="space-y-1.5">
+              {section.items.map((item) => {
+                const text = typeof item === "string" ? item : item.text;
+                const link = typeof item === "string" ? undefined : (item as { text: string; link?: string }).link;
+                return (
+                  <div key={text} className="flex items-start gap-2 text-sm text-gray-700">
+                    <span className="text-green-500 flex-shrink-0 mt-0.5">✓</span>
+                    {link ? (
+                      <span><Link href={link} className="text-amber-600 font-semibold hover:underline">{text}</Link></span>
+                    ) : (
+                      <span>{text}</span>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
 
       <h2>Video Calls</h2>
-      <p>
-        Video calls create a unique challenge: you need to be well-lit enough for the camera while keeping your environment comfortable for your eyes. Solutions:
-      </p>
-      <ul>
-        <li><strong>Ring light with adjustable temperature</strong> — Set it to warm white and position it behind your camera. It lights your face without blasting your eyes.</li>
-        <li><strong>Bounce light off the wall</strong> — Point a desk lamp at the wall behind your monitor. The reflected light illuminates your face softly.</li>
-        <li><strong>Reduce call window brightness</strong> — Minimize the video call window size or use &quot;speaker view&quot; to reduce the overall screen brightness from gallery view</li>
-        <li><strong>Wear FL-41 glasses</strong> — The rose tint is subtle enough for professional calls and most people won&apos;t notice or will assume they&apos;re regular glasses</li>
-      </ul>
+      <div className="not-prose my-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {[
+          { icon: Video, title: "Ring Light on Warm White", desc: "Position behind your camera. Lights your face without blasting your eyes." },
+          { icon: Lamp, title: "Bounce Light Off Wall", desc: "Point desk lamp at wall behind monitor. Reflected light illuminates your face softly." },
+          { icon: Monitor, title: "Reduce Call Window", desc: "Minimize video call window or use \"speaker view\" to reduce screen brightness." },
+          { icon: Eye, title: "Wear FL-41 Glasses", desc: "Rose tint is subtle enough for professional calls — most won't notice." },
+        ].map((item) => (
+          <div key={item.title} className="rounded-xl border border-gray-200 bg-white p-4">
+            <item.icon className="w-5 h-5 text-gray-400 mb-2" />
+            <p className="font-bold text-heading text-sm">{item.title}</p>
+            <p className="text-gray-600 text-xs mt-0.5 leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
 
       <h2>Schedule Optimization</h2>
-      <p>
-        One of remote work&apos;s biggest advantages is schedule flexibility. If your employer allows it:
-      </p>
-      <ul>
-        <li><strong>Start earlier</strong> — Morning light is softer and less triggering than midday</li>
-        <li><strong>Take breaks during peak sun</strong> — 11am-2pm is often the worst; schedule non-screen tasks during this window</li>
-        <li><strong>Follow the <Link href="/resources/20-20-20-rule-light-sensitivity" className="text-amber-600 hover:underline">20-20-20 rule</Link></strong> — Every 20 minutes, look at something 20 feet away for 20 seconds</li>
-        <li><strong>Block &quot;dark time&quot;</strong> — Schedule 15-minute breaks in a darkened room if needed</li>
-      </ul>
+      <div className="not-prose my-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
+        {[
+          { icon: Sun, label: "Start Earlier", desc: "Morning light is softer", color: "text-yellow-500" },
+          { icon: Clock, label: "Break at Peak Sun", desc: "11am-2pm: non-screen tasks", color: "text-orange-500" },
+          { icon: Eye, label: "20-20-20 Rule", desc: "Every 20 min, 20 ft, 20 sec", color: "text-blue-500", link: "/resources/20-20-20-rule-light-sensitivity" },
+          { icon: Moon, label: "Block Dark Time", desc: "15-min breaks in dark room", color: "text-indigo-500" },
+        ].map((item) => (
+          <div key={item.label} className="bg-surface rounded-xl p-4 border border-gray-100 text-center">
+            <item.icon className={`w-5 h-5 ${item.color} mx-auto mb-1`} />
+            <p className="font-bold text-heading text-xs">{item.label}</p>
+            <p className="text-gray-500 text-[10px] mt-0.5">{item.desc}</p>
+          </div>
+        ))}
+      </div>
 
       <h2>Making the Case for Remote Work</h2>
-      <p>
-        If you don&apos;t already work remotely and your light sensitivity is impacting your office productivity, remote work may qualify as a <Link href="/resources/workplace-accommodations-light-sensitivity" className="text-amber-600 hover:underline">reasonable accommodation under the ADA</Link>. Document how your condition affects you in the office versus at home, and work with your healthcare provider to support the request.
-      </p>
+      <BlogCallout variant="tip" title="Remote work as an ADA accommodation">
+        <p>If light sensitivity is impacting your office productivity, remote work may qualify as a <Link href="/resources/workplace-accommodations-light-sensitivity" className="text-amber-600 font-semibold hover:underline">reasonable accommodation under the ADA</Link>. Document how your condition affects you in the office vs. at home, and work with your healthcare provider to support the request.</p>
+      </BlogCallout>
 
-      <div className="bg-amber-50 rounded-xl p-6 border border-amber-200 not-prose my-8">
-        <p className="text-sm text-gray-500 italic">
-          <strong>Medical Disclaimer:</strong> This article is for informational purposes only. Consult a healthcare provider for medical advice about managing light sensitivity in your work environment.
-        </p>
-      </div>
+      <BlogCTA
+        heading="Work from Home Sorted — What About the Commute?"
+        description="Your home office is perfectly optimized. But the drive to occasional meetings or errands still exposes you to sunlight and glare. A medical window tint exemption helps."
+        buttonText="Start Your Evaluation — Starting at $225"
+      />
+
+      <BlogCallout variant="warning" title="Medical Disclaimer">
+        <p>This article is for informational purposes only. Consult a healthcare provider for medical advice about managing light sensitivity in your work environment.</p>
+      </BlogCallout>
     </>
   );
 }

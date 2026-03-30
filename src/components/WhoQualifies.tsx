@@ -1,5 +1,6 @@
+"use client";
+
 import { CheckCircle, ArrowRight } from "lucide-react";
-import Link from "next/link";
 
 const conditions = [
   "Photosensitivity",
@@ -57,12 +58,13 @@ export default function WhoQualifies() {
               ))}
             </div>
 
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 text-amber-600 font-bold hover:text-amber-700 transition-colors"
+            <a
+              href="#state-selector"
+              onClick={(e) => { e.preventDefault(); document.getElementById('state-selector')?.scrollIntoView({ behavior: 'smooth', block: 'center' }); }}
+              className="inline-flex items-center gap-2 text-amber-600 font-bold hover:text-amber-700 transition-colors cursor-pointer"
             >
               Find Your State &amp; Apply <ArrowRight className="w-4 h-4" />
-            </Link>
+            </a>
           </div>
         </div>
       </div>

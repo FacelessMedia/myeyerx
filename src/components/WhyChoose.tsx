@@ -49,17 +49,17 @@ export default function WhyChoose() {
               .map((feature) => (
                 <div
                   key={feature.title}
-                  className="bg-white/15 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
+                  className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 border border-white/30"
                 >
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0">
+                    <div className="w-10 h-10 rounded-lg bg-white/25 flex items-center justify-center flex-shrink-0">
                       <feature.icon className="w-5 h-5 text-white" />
                     </div>
                     <h3 className="font-bold text-white text-base">
                       {feature.title}
                     </h3>
                   </div>
-                  <p className="text-amber-100 text-sm leading-relaxed">
+                  <p className="text-white/90 text-sm leading-relaxed">
                     {feature.description}
                   </p>
                 </div>
@@ -78,7 +78,7 @@ export default function WhyChoose() {
                     </svg>
                   </div>
                   <p className="text-white font-bold text-lg">MyEyeRx</p>
-                  <p className="text-amber-100 text-xs">Licensed Physicians</p>
+                  <p className="text-white/80 text-xs">Licensed Physicians</p>
                 </div>
               </div>
             </div>
@@ -91,17 +91,17 @@ export default function WhyChoose() {
               .map((feature) => (
                 <div
                   key={feature.title}
-                  className="bg-white/15 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
+                  className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 border border-white/30"
                 >
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0">
+                    <div className="w-10 h-10 rounded-lg bg-white/25 flex items-center justify-center flex-shrink-0">
                       <feature.icon className="w-5 h-5 text-white" />
                     </div>
                     <h3 className="font-bold text-white text-base">
                       {feature.title}
                     </h3>
                   </div>
-                  <p className="text-amber-100 text-sm leading-relaxed">
+                  <p className="text-white/90 text-sm leading-relaxed">
                     {feature.description}
                   </p>
                 </div>

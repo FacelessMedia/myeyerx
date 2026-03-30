@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { CONDITIONS, STATES, getConditionBySlug } from "@/data/states";
 import { getArticlesForCondition } from "@/data/articles";
 import {
@@ -182,7 +183,7 @@ export default async function ConditionPage({ params }: PageProps) {
           {/* Author / Reviewer Byline */}
           <div className="flex items-center gap-4 mt-8 pt-6 border-t border-gray-200">
             <div className="flex -space-x-3">
-              <div className="w-10 h-10 rounded-full bg-amber-100 border-2 border-white flex items-center justify-center text-xs font-bold text-amber-700">TD</div>
+              <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-white flex-shrink-0"><Image src="/tory.jpg" alt="Toriano Dewberry" width={40} height={40} className="w-full h-full object-cover" /></div>
               <div className="w-10 h-10 rounded-full bg-blue-100 border-2 border-white flex items-center justify-center text-xs font-bold text-blue-700">EB</div>
             </div>
             <div className="text-xs text-gray-500 leading-relaxed">

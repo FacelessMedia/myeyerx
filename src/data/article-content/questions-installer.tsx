@@ -1,4 +1,8 @@
 import Link from "next/link";
+import { HelpCircle, AlertTriangle, CheckCircle, X, Shield } from "lucide-react";
+import { BlogTLDR } from "@/components/blog/BlogTLDR";
+import { BlogCallout } from "@/components/blog/BlogCallout";
+import { BlogCTA } from "@/components/blog/BlogCTA";
 
 export function QuestionsInstallerContent() {
   return (
@@ -7,81 +11,81 @@ export function QuestionsInstallerContent() {
         Choosing the right tint installer is almost as important as choosing the right tint. A bad installation means bubbles, peeling, gaps in UV coverage, and wasted money. Here are the questions to ask before handing over your keys.
       </p>
 
-      <h2>Before You Go</h2>
+      <BlogTLDR items={[
+        "Ask for name-brand film (3M, XPEL, Llumar, SunTek) — not \"our own film\"",
+        "Demand ceramic tint for medical use — 99%+ UV rejection on the spec sheet",
+        "Get manufacturer AND installer warranty in writing",
+        "Professional installation takes 2-4 hours; under 1 hour = cutting corners",
+        "Get quotes from at least 3 installers — compare film brand, warranty, and experience",
+      ]} />
 
-      <h3>1. &quot;What brands of film do you carry?&quot;</h3>
-      <p>
-        Reputable installers carry name-brand films like 3M, XPEL, Llumar, or SunTek. If they can&apos;t tell you the brand or say &quot;we use our own film,&quot; that&apos;s a red flag. Name brands have published specifications you can verify.
-      </p>
-
-      <h3>2. &quot;Do you offer ceramic tint?&quot;</h3>
-      <p>
-        For medical use, <Link href="/resources/ceramic-window-tint-medical-use" className="text-amber-600 hover:underline">ceramic tint</Link> is the best option. If they only offer dyed or metalized film, consider going elsewhere. Most professional shops carry ceramic options.
-      </p>
-
-      <h3>3. &quot;What is the UV rejection percentage of the film?&quot;</h3>
-      <p>
-        The answer should be 99% or higher for ceramic film. If they can&apos;t give you a specific number, ask to see the manufacturer&apos;s spec sheet. Every legitimate film has documented performance data.
-      </p>
-
-      <h3>4. &quot;Can I see the manufacturer&apos;s data sheet?&quot;</h3>
-      <p>
-        This document shows the exact VLT, UV rejection, infrared rejection, and total solar energy rejection for each film they offer. A professional installer should have these readily available.
-      </p>
-
-      <h3>5. &quot;What warranty do you offer?&quot;</h3>
-      <p>
-        Most quality tint installations come with a manufacturer&apos;s warranty (often lifetime for ceramic) plus an installer warranty on the workmanship. Get both in writing. Ask specifically about coverage for bubbling, peeling, fading, and delamination.
-      </p>
-
-      <h3>6. &quot;How long have you been installing tint?&quot;</h3>
-      <p>
-        Experience matters. Window tint installation is a skill that takes years to master. An experienced installer will have cleaner edges, fewer bubbles, and better corner coverage.
-      </p>
-
-      <h3>7. &quot;Do you have experience with medical exemption customers?&quot;</h3>
-      <p>
-        Some installers are familiar with medical exemptions and know the specific VLT requirements for your state. They may want to see your <Link href="/resources/complete-guide-to-window-tint-medical-exemptions" className="text-amber-600 hover:underline">exemption certificate</Link> before applying tint darker than legal limits.
-      </p>
-
-      <h3>8. &quot;How long does installation take?&quot;</h3>
-      <p>
-        A full car typically takes 2-4 hours for a professional job. If someone says they can do a full car in under an hour, they&apos;re likely cutting corners.
-      </p>
-
-      <h3>9. &quot;What&apos;s the cure time?&quot;</h3>
-      <p>
-        After installation, tint needs time to cure (dry and adhere fully). This typically takes 3-5 days in warm weather and up to 2-4 weeks in cold weather. During this time, don&apos;t roll down the tinted windows. A good installer will explain this.
-      </p>
-
-      <h3>10. &quot;Can I see examples of your work?&quot;</h3>
-      <p>
-        Ask to see completed vehicles or photos of their work. Look for clean edges, no bubbles, consistent coverage, and neat corners. Most installers have a portfolio or social media page showing their work.
-      </p>
+      <h2>10 Questions to Ask</h2>
+      <div className="not-prose my-8 space-y-3">
+        {[
+          { q: "\"What brands of film do you carry?\"", a: "Reputable installers carry 3M, XPEL, Llumar, or SunTek. Name brands have published specs you can verify." },
+          { q: "\"Do you offer ceramic tint?\"", a: "For medical use, ceramic is the best option. If they only offer dyed/metalized film, consider going elsewhere." },
+          { q: "\"What is the UV rejection percentage?\"", a: "Should be 99%+ for ceramic. If they can't give a specific number, ask for the spec sheet." },
+          { q: "\"Can I see the manufacturer's data sheet?\"", a: "Shows exact VLT, UV rejection, IR rejection, and total solar energy rejection. Professional installers have these ready." },
+          { q: "\"What warranty do you offer?\"", a: "Quality installations: manufacturer's warranty (often lifetime for ceramic) + installer warranty on workmanship. Get both in writing." },
+          { q: "\"How long have you been installing?\"", a: "Experience matters. Tint installation takes years to master — cleaner edges, fewer bubbles, better corners." },
+          { q: "\"Experience with medical exemption customers?\"", a: "Some know state-specific VLT requirements and may want to see your exemption certificate." },
+          { q: "\"How long does installation take?\"", a: "Full car: 2-4 hours for professional work. Under 1 hour = likely cutting corners." },
+          { q: "\"What's the cure time?\"", a: "3-5 days warm weather, 2-4 weeks cold weather. Don't roll windows down during this time." },
+          { q: "\"Can I see examples of your work?\"", a: "Look for clean edges, no bubbles, consistent coverage, neat corners. Check their portfolio or social media." },
+        ].map((item, i) => (
+          <div key={item.q} className="rounded-xl border border-gray-200 bg-white p-4">
+            <div className="flex items-start gap-3">
+              <span className="flex-shrink-0 w-6 h-6 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center text-xs font-extrabold">{i + 1}</span>
+              <div>
+                <p className="font-bold text-heading text-sm">{item.q}</p>
+                <p className="text-gray-600 text-xs mt-1 leading-relaxed">{item.a}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
 
       <h2>Red Flags</h2>
-      <ul>
-        <li>Can&apos;t name the film brand they use</li>
-        <li>No manufacturer&apos;s warranty</li>
-        <li>Significantly cheaper than other local shops (usually means low-quality film)</li>
-        <li>Promises installation in under an hour for a full car</li>
-        <li>Won&apos;t show you the film&apos;s spec sheet</li>
-        <li>No portfolio or examples of completed work</li>
-      </ul>
+      <div className="not-prose my-6 space-y-2">
+        {[
+          "Can't name the film brand they use",
+          "No manufacturer's warranty",
+          "Significantly cheaper than other local shops (low-quality film)",
+          "Promises installation in under an hour for a full car",
+          "Won't show you the film's spec sheet",
+          "No portfolio or examples of completed work",
+        ].map((item) => (
+          <div key={item} className="flex items-start gap-3 bg-red-50 rounded-lg p-3 border border-red-200">
+            <X className="w-3.5 h-3.5 text-red-400 flex-shrink-0 mt-0.5" />
+            <p className="text-gray-700 text-xs font-semibold">{item}</p>
+          </div>
+        ))}
+      </div>
 
       <h2>After Installation</h2>
-      <ul>
-        <li>Small water bubbles are normal during the curing period — they should disappear within a few weeks</li>
-        <li>Don&apos;t roll down newly tinted windows for the recommended cure time</li>
-        <li>Clean tinted windows with ammonia-free glass cleaner and a soft cloth</li>
-        <li>Keep your warranty paperwork and the film&apos;s spec sheet with your vehicle records</li>
-      </ul>
-
-      <div className="bg-amber-50 rounded-xl p-6 border border-amber-200 not-prose my-8">
-        <p className="text-sm text-gray-500 italic">
-          <strong>Tip:</strong> Get quotes from at least 3 installers. Compare not just price, but the film brand, warranty, and the installer&apos;s experience level.
-        </p>
+      <div className="not-prose my-8 grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {[
+          "Small water bubbles during curing are normal — disappear in weeks",
+          "Don't roll down tinted windows during cure time",
+          "Clean with ammonia-free glass cleaner + soft cloth",
+          "Keep warranty paperwork and spec sheet with vehicle records",
+        ].map((item) => (
+          <div key={item} className="flex items-start gap-2 bg-green-50 rounded-lg p-3 border border-green-200">
+            <CheckCircle className="w-3.5 h-3.5 text-green-500 flex-shrink-0 mt-0.5" />
+            <p className="text-gray-700 text-xs">{item}</p>
+          </div>
+        ))}
       </div>
+
+      <BlogCTA
+        heading="Get Your Exemption Before Visiting the Installer"
+        description="Secure your medical tint exemption first — then bring it to your installer. They'll know exactly what VLT to apply for your state."
+        buttonText="Start Your Evaluation — Starting at $225"
+      />
+
+      <BlogCallout variant="tip" title="Pro Tip">
+        <p>Get quotes from at least 3 installers. Compare not just price, but the film brand, warranty, and the installer&apos;s experience level.</p>
+      </BlogCallout>
     </>
   );
 }

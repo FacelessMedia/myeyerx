@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Phone, Mail, MapPin, GraduationCap, Award, Briefcase } from "lucide-react";
 
 export default function AboutUs() {
@@ -60,8 +61,8 @@ export default function AboutUs() {
           {/* Right – Toriano Dewberry */}
           <div className="bg-surface rounded-2xl p-8 border border-gray-100">
             <div className="flex items-center gap-4 mb-6">
-              <div className="w-20 h-20 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0">
-                <span className="text-3xl font-extrabold text-amber-600">TD</span>
+              <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-amber-200 flex-shrink-0">
+                <Image src="/tory.jpg" alt="Toriano Dewberry" width={80} height={80} className="w-full h-full object-cover" />
               </div>
               <div>
                 <h3 className="text-2xl font-extrabold text-heading">Toriano Dewberry</h3>

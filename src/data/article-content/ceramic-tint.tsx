@@ -1,4 +1,10 @@
 import Link from "next/link";
+import { Shield, Thermometer, Eye, Clock, CheckCircle, ShoppingCart } from "lucide-react";
+import { BlogTLDR } from "@/components/blog/BlogTLDR";
+import { BlogStat, BlogStatRow } from "@/components/blog/BlogStat";
+import { BlogCallout } from "@/components/blog/BlogCallout";
+import { BlogCTA } from "@/components/blog/BlogCTA";
+import { BlogComparisonTable } from "@/components/blog/BlogComparisonTable";
 
 export function CeramicTintContent() {
   return (
@@ -7,83 +13,140 @@ export function CeramicTintContent() {
         If you&apos;re getting window tint for medical reasons, ceramic tint is the best investment you can make. It outperforms every other type of tint in UV protection, heat rejection, and durability — and it does it without interfering with your phone, GPS, or radio.
       </p>
 
+      <BlogTLDR items={[
+        "Ceramic tint blocks up to 99% UV (both UVA and UVB) — dyed tint only blocks ~50%",
+        "Rejects 50-80% of heat, keeping your car 20-30°F cooler (less AC = less dry eye)",
+        "Lasts 10+ years without fading, bubbling, or degrading",
+        "No signal interference with phone, GPS, or radio — unlike metalized tint",
+        "Costs 2-3x more upfront but lasts 2-3x longer — cost per year is similar",
+      ]} />
+
+      <BlogStatRow>
+        <BlogStat icon={Shield} value="99%" label="UV rejection (UVA + UVB)" />
+        <BlogStat icon={Thermometer} value="50-80%" label="Heat rejection" />
+        <BlogStat icon={Clock} value="10+ yrs" label="Lifespan" />
+      </BlogStatRow>
+
       <h2>What Makes Ceramic Tint Different</h2>
-      <p>
-        Ceramic window tint uses <strong>nano-ceramic particles</strong> embedded in the film. These particles are non-metallic and non-conductive, which means they block heat and UV radiation through a fundamentally different mechanism than dyed or metalized tints. The ceramic particles reflect and absorb infrared radiation (heat) while allowing visible light through with minimal distortion.
-      </p>
+      <div className="not-prose my-8 rounded-2xl border border-gray-200 bg-gradient-to-r from-blue-50 to-purple-50 p-6">
+        <div className="flex items-start gap-4">
+          <Shield className="w-8 h-8 text-blue-500 flex-shrink-0" />
+          <div>
+            <h3 className="font-extrabold text-heading text-base mb-2">Nano-Ceramic Particle Technology</h3>
+            <p className="text-gray-700 text-sm leading-relaxed">
+              Ceramic window tint uses <strong>non-metallic, non-conductive</strong> nano-ceramic particles that reflect and absorb infrared radiation (heat) while allowing visible light through with minimal distortion. Fundamentally different from dyed or metalized tints.
+            </p>
+          </div>
+        </div>
+      </div>
 
       <h2>Performance Comparison</h2>
-      <div className="not-prose my-8 overflow-x-auto">
-        <table className="w-full text-sm border-collapse">
-          <thead>
-            <tr className="bg-amber-50">
-              <th className="text-left px-4 py-3 font-bold text-heading border-b border-amber-200">Feature</th>
-              <th className="text-left px-4 py-3 font-bold text-heading border-b border-amber-200">Dyed</th>
-              <th className="text-left px-4 py-3 font-bold text-heading border-b border-amber-200">Carbon</th>
-              <th className="text-left px-4 py-3 font-bold text-heading border-b border-amber-200">Ceramic</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="bg-white"><td className="px-4 py-2 border-b">UV Rejection</td><td className="px-4 py-2 border-b">~50%</td><td className="px-4 py-2 border-b">~80%</td><td className="px-4 py-2 border-b font-bold text-amber-600">Up to 99%</td></tr>
-            <tr className="bg-gray-50"><td className="px-4 py-2 border-b">Heat Rejection</td><td className="px-4 py-2 border-b">~20%</td><td className="px-4 py-2 border-b">~40%</td><td className="px-4 py-2 border-b font-bold text-amber-600">50-80%</td></tr>
-            <tr className="bg-white"><td className="px-4 py-2 border-b">Signal Interference</td><td className="px-4 py-2 border-b">None</td><td className="px-4 py-2 border-b">None</td><td className="px-4 py-2 border-b font-bold text-amber-600">None</td></tr>
-            <tr className="bg-gray-50"><td className="px-4 py-2 border-b">Fade Resistance</td><td className="px-4 py-2 border-b">Poor</td><td className="px-4 py-2 border-b">Good</td><td className="px-4 py-2 border-b font-bold text-amber-600">Excellent</td></tr>
-            <tr className="bg-white"><td className="px-4 py-2 border-b">Lifespan</td><td className="px-4 py-2 border-b">3-5 years</td><td className="px-4 py-2 border-b">5-10 years</td><td className="px-4 py-2 border-b font-bold text-amber-600">10+ years</td></tr>
-            <tr className="bg-gray-50"><td className="px-4 py-2 border-b">Price (full car)</td><td className="px-4 py-2 border-b">$50-150</td><td className="px-4 py-2 border-b">$150-350</td><td className="px-4 py-2 border-b">$250-600+</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <BlogComparisonTable
+        columns={[
+          { header: "Feature" },
+          { header: "Dyed" },
+          { header: "Carbon" },
+          { header: "Ceramic", highlight: true },
+        ]}
+        rows={[
+          ["UV Rejection", "~50%", "~80%", "Up to 99%"],
+          ["Heat Rejection", "~20%", "~40%", "50-80%"],
+          ["Signal Interference", "None", "None", "None"],
+          ["Fade Resistance", "Poor", "Good", "Excellent"],
+          ["Lifespan", "3-5 years", "5-10 years", "10+ years"],
+          ["Price (full car)", "$50-150", "$150-350", "$250-600+"],
+        ]}
+      />
 
       <h2>Why Ceramic Is Best for Medical Use</h2>
-
-      <h3>1. Maximum UV Protection</h3>
-      <p>
-        Ceramic tint blocks up to <strong>99% of both UVA and UVB radiation</strong>. For conditions like lupus, melanoma, dermatomyositis, PMLE, and solar urticaria — where UV exposure triggers flares, rashes, or cancer risk — this level of protection is critical.
-      </p>
-
-      <h3>2. Superior Heat Rejection</h3>
-      <p>
-        Less heat in the car means less reliance on air conditioning. AC dries out the air, which worsens dry eye — one of the most common causes of photophobia. Ceramic tint can keep your car 20-30°F cooler, reducing the need for blasting cold, dry air.
-      </p>
-
-      <h3>3. Optical Clarity</h3>
-      <p>
-        Ceramic tint maintains excellent visibility and doesn&apos;t distort colors. This is important for safe driving, especially for people whose conditions already affect their visual comfort.
-      </p>
-
-      <h3>4. Longevity</h3>
-      <p>
-        Since your <Link href="/resources/complete-guide-to-window-tint-medical-exemptions" className="text-amber-600 hover:underline">medical exemption</Link> is a long-term solution, you want tint that lasts. Ceramic tint won&apos;t fade, bubble, or degrade for 10+ years. Dyed tint might need replacement in 3-5 years.
-      </p>
+      <div className="not-prose my-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {[
+          {
+            icon: Shield,
+            title: "Maximum UV Protection",
+            desc: "Blocks up to 99% of both UVA and UVB. Critical for lupus, melanoma, dermatomyositis, PMLE, and solar urticaria.",
+            color: "bg-blue-50 border-blue-200",
+            iconColor: "text-blue-500",
+          },
+          {
+            icon: Thermometer,
+            title: "Superior Heat Rejection",
+            desc: "Keeps car 20-30°F cooler. Less AC means less dry air, reducing dry eye — one of the most common causes of photophobia.",
+            color: "bg-orange-50 border-orange-200",
+            iconColor: "text-orange-500",
+          },
+          {
+            icon: Eye,
+            title: "Optical Clarity",
+            desc: "Maintains excellent visibility without color distortion. Important for safe driving when conditions already affect visual comfort.",
+            color: "bg-green-50 border-green-200",
+            iconColor: "text-green-500",
+          },
+          {
+            icon: Clock,
+            title: "10+ Year Longevity",
+            desc: "Won't fade, bubble, or degrade. Your medical exemption is long-term — your tint should be too.",
+            color: "bg-purple-50 border-purple-200",
+            iconColor: "text-purple-500",
+          },
+        ].map((item) => (
+          <div key={item.title} className={`rounded-xl p-5 border ${item.color}`}>
+            <item.icon className={`w-6 h-6 ${item.iconColor} mb-3`} />
+            <p className="font-extrabold text-heading text-sm mb-1">{item.title}</p>
+            <p className="text-gray-700 text-xs leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
 
       <h2>Top Ceramic Tint Brands</h2>
-      <ul>
-        <li><strong>3M Ceramic IR Series</strong> — Industry leader. Available at most professional tint shops.</li>
-        <li><strong>XPEL PRIME XR Plus</strong> — Premium performance. Blocks up to 98% of infrared heat.</li>
-        <li><strong>Llumar IRX</strong> — Excellent heat and UV rejection. Wide installer network.</li>
-        <li><strong>SunTek CXP</strong> — Good performance at a slightly lower price point.</li>
-      </ul>
+      <div className="not-prose my-8 space-y-3">
+        {[
+          { name: "3M Ceramic IR Series", desc: "Industry leader. Available at most professional tint shops.", badge: "Most Widely Available", badgeColor: "bg-blue-500" },
+          { name: "XPEL PRIME XR Plus", desc: "Premium performance. Blocks up to 98% of infrared heat.", badge: "Best Performance", badgeColor: "bg-amber-500" },
+          { name: "Llumar IRX", desc: "Excellent heat and UV rejection. Wide installer network.", badge: "Great Network", badgeColor: "bg-green-600" },
+          { name: "SunTek CXP", desc: "Good performance at a slightly lower price point.", badge: "Best Value", badgeColor: "bg-gray-500" },
+        ].map((item) => (
+          <div key={item.name} className="flex items-start gap-4 rounded-xl border border-gray-200 bg-white p-5">
+            <ShoppingCart className="w-5 h-5 text-gray-400 flex-shrink-0 mt-0.5" />
+            <div className="flex-1">
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="font-bold text-heading text-sm">{item.name}</span>
+                <span className={`text-[10px] font-bold text-white ${item.badgeColor} px-2 py-0.5 rounded-full`}>{item.badge}</span>
+              </div>
+              <p className="text-gray-600 text-xs mt-1">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
 
       <h2>Is the Extra Cost Worth It?</h2>
+      <div className="not-prose my-8 grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {[
+          "Lasts 2-3x longer (cost per year is similar)",
+          "Better UV protection (the whole point of medical tint)",
+          "Better heat rejection (lower AC, less dry eye)",
+          "No signal interference (GPS, phone, radio)",
+          "No fading to purple (maintains appearance)",
+        ].map((item) => (
+          <div key={item} className="flex items-start gap-2 bg-green-50 rounded-lg p-3 border border-green-200">
+            <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+            <p className="text-gray-700 text-xs font-semibold">{item}</p>
+          </div>
+        ))}
+      </div>
       <p>
-        Ceramic tint costs 2-3x more than dyed tint upfront. But consider:
-      </p>
-      <ul>
-        <li>It lasts 2-3x longer (so cost per year is similar)</li>
-        <li>Better UV protection (the whole point of medical tint)</li>
-        <li>Better heat rejection (lower AC bills, less dry eye)</li>
-        <li>No signal interference (important for GPS navigation)</li>
-        <li>No fading to purple (maintains professional appearance)</li>
-      </ul>
-      <p>
-        For medical use, the performance difference justifies the cost. Ask your <Link href="/resources/questions-to-ask-tint-installer" className="text-amber-600 hover:underline">tint installer</Link> about ceramic options.
+        For medical use, the performance difference justifies the cost. Ask your <Link href="/resources/questions-to-ask-tint-installer" className="text-amber-600 font-semibold hover:underline">tint installer</Link> about ceramic options.
       </p>
 
-      <div className="bg-amber-50 rounded-xl p-6 border border-amber-200 not-prose my-8">
-        <p className="text-sm text-gray-500 italic">
-          <strong>Note:</strong> Window tint performance claims should be verified with the manufacturer&apos;s specifications. Ask your installer for the specific film&apos;s data sheet showing UV rejection, infrared rejection, and VLT measurements.
-        </p>
-      </div>
+      <BlogCTA
+        heading="Get Your Medical Tint Exemption First"
+        description="Before choosing your tint, secure your legal exemption. Our licensed providers evaluate your condition 100% online and deliver your state-specific certificate."
+        buttonText="Start Your Evaluation — Starting at $225"
+      />
+
+      <BlogCallout variant="tip" title="Verify performance claims">
+        <p>Ask your installer for the manufacturer&apos;s data sheet showing UV rejection, infrared rejection, and VLT measurements. Don&apos;t rely on verbal claims alone.</p>
+      </BlogCallout>
     </>
   );
 }

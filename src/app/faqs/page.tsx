@@ -91,7 +91,7 @@ const faqCategories = [
       {
         question: "Do you accept insurance?",
         answer:
-          "At this time, we do not accept insurance. The evaluation fee (starting at $225) is an out-of-pocket expense. However, you may be able to use your HSA or FSA card to cover the cost.",
+          "At this time, we do not accept insurance. The evaluation fee (starting at $225) is an out-of-pocket expense. Because medical window tint exemption evaluations are a newer category of telehealth service, standardized billing codes for insurance reimbursement do not yet exist for this type of consultation. However, since this is a legitimate medical service provided by a licensed physician, your HSA or FSA may still cover it. We recommend contacting your HSA/FSA plan administrator directly to confirm eligibility before purchasing.",
       },
     ],
   },
@@ -147,7 +147,7 @@ export default function FAQsPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {faqCategories.map((cat, ci) => (
             <div key={ci} className="mb-12">
-              <h2 className="text-xl font-bold text-heading mb-6 pb-2 border-b border-gray-200">
+              <h2 className="text-2xl font-extrabold text-amber-500 mb-6 pb-3 border-b-2 border-amber-200">
                 {cat.title}
               </h2>
               <div className="space-y-4">
