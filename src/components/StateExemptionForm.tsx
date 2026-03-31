@@ -417,10 +417,6 @@ export function StateExemptionForm({
                   <Video className="w-3.5 h-3.5 text-red-500 flex-shrink-0 mt-0.5" />
                   <span><strong>Consultations are video recorded</strong> for state compliance and mutual protection.</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <Shield className="w-3.5 h-3.5 text-red-500 flex-shrink-0 mt-0.5" />
-                  <span><strong>We take our reputation seriously.</strong> These disclosures are provided before any transaction. False or defamatory public statements about MyEyeRx may result in legal action. See our full <a href="/terms" className="text-red-600 underline font-semibold">Terms &amp; Conditions</a>.</span>
-                </li>
               </ul>
 
               <p className="text-xs text-red-700 leading-relaxed mb-4">
@@ -482,7 +478,7 @@ export function StateExemptionForm({
                   <a href="/terms" className="text-amber-600 underline font-semibold">Terms &amp; Conditions</a>,{" "}
                   <a href="/privacy-policy" className="text-amber-600 underline font-semibold">Privacy Policy</a>, and{" "}
                   <a href="/refund-policy" className="text-amber-600 underline font-semibold">Refund Policy</a>{" "}
-                  — including the no-refund and review integrity policies.
+                  — including the no-refund policy.
                 </span>
               </label>
             </div>

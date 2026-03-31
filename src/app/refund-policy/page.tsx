@@ -138,19 +138,6 @@ export default function RefundPolicyPage() {
               </div>
 
               <div>
-                <h2 className="text-xl font-bold text-heading mb-3">Review Integrity &amp; Defamation</h2>
-                <p className="text-gray-600 leading-relaxed mb-3">
-                  All refund terms, documentation requirements, and service limitations are disclosed clearly <strong>before any transaction</strong>. By completing a purchase, you acknowledge that you were fully informed.
-                </p>
-                <p className="text-gray-600 leading-relaxed mb-3">
-                  MyEyeRx takes its business reputation seriously. If a customer publishes false, misleading, or defamatory statements about our service — on review platforms, social media, or elsewhere — that contradict the disclosures agreed to at the time of purchase, we reserve the right to pursue appropriate legal remedies.
-                </p>
-                <p className="text-gray-600 leading-relaxed">
-                  We welcome honest feedback and are always available to resolve concerns directly. If you have a complaint, please <Link href="/contact" className="text-amber-600 hover:text-amber-700 font-medium">contact us</Link> before taking public action. See our full <a href="/terms" className="text-amber-600 hover:text-amber-700 font-medium">Terms &amp; Conditions</a> for details.
-                </p>
-              </div>
-
-              <div>
                 <h2 className="text-xl font-bold text-heading mb-3">Questions?</h2>
                 <p className="text-gray-600 leading-relaxed">
                   If you have any questions about this refund policy, please don&apos;t hesitate to{" "}
