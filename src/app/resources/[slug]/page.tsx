@@ -119,12 +119,12 @@ export default async function ArticlePage({ params }: PageProps) {
             {article.title}
           </h1>
           <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
-            <span className="flex items-center gap-1"><User className="w-4 h-4" /> {article.author}</span>
+            <Link href="/about#toriano-dewberry" className="flex items-center gap-1 hover:text-amber-600 transition-colors"><User className="w-4 h-4" /> {article.author}</Link>
             <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> {article.readTime}</span>
             <span>Updated {article.updatedDate}</span>
           </div>
           <p className="text-sm text-gray-500 mt-2">
-            Medically reviewed by {article.reviewer}, {article.reviewerTitle}
+            Medically reviewed by <Link href="/about#dr-borowiec" className="hover:text-amber-600 transition-colors">{article.reviewer}</Link>, {article.reviewerTitle}
           </p>
         </div>
       </header>
@@ -142,7 +142,7 @@ export default async function ArticlePage({ params }: PageProps) {
               <Image src="/tory.jpg" alt="Toriano Dewberry" width={48} height={48} className="w-full h-full object-cover" />
             </div>
             <div>
-              <p className="font-bold text-heading text-sm">{article.author}</p>
+              <Link href="/about#toriano-dewberry" className="font-bold text-heading text-sm hover:text-amber-600 transition-colors block">{article.author}</Link>
               <p className="text-gray-500 text-xs mb-2">{article.authorTitle}</p>
               <p className="text-gray-600 text-sm">
                 Toriano Dewberry is the founder and CEO of MyEyeRx, bringing his expertise as a licensed optician to help patients access medical window tint exemptions through telehealth.

@@ -187,9 +187,9 @@ export default async function ConditionPage({ params }: PageProps) {
               <div className="w-10 h-10 rounded-full bg-blue-100 border-2 border-white flex items-center justify-center text-xs font-bold text-blue-700">EB</div>
             </div>
             <div className="text-xs text-gray-500 leading-relaxed">
-              <span>Written by <Link href="/about" className="text-amber-600 font-semibold hover:underline">Toriano Dewberry</Link></span>
+              <span>Written by <Link href="/about#toriano-dewberry" className="text-amber-600 font-semibold hover:underline">Toriano Dewberry</Link></span>
               <span className="mx-1">&middot;</span>
-              <span>Reviewed by <a href="https://www.linkedin.com/in/elizabeth-borowiec-02a5b9293/" target="_blank" rel="noopener noreferrer" className="text-amber-600 font-semibold hover:underline">Dr. Elizabeth Borowiec, OD</a></span>
+              <span>Reviewed by <Link href="/about#dr-borowiec" className="text-amber-600 font-semibold hover:underline">Dr. Elizabeth Borowiec, OD</Link></span>
             </div>
           </div>
         </div>

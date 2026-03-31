@@ -148,7 +148,7 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Toriano Dewberry */}
-            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+            <div id="toriano-dewberry" className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden scroll-mt-24">
               <div className="bg-amber-500 h-2" />
               <div className="p-8">
                 <div className="flex items-start gap-5 mb-6">
@@ -191,7 +191,7 @@ export default function AboutPage() {
             </div>
 
             {/* Dr. Elizabeth Borowiec */}
-            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+            <div id="dr-borowiec" className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden scroll-mt-24">
               <div className="bg-blue-500 h-2" />
               <div className="p-8">
                 <div className="flex items-start gap-5 mb-6">
